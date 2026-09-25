@@ -1,0 +1,82 @@
+# Seed cell types for the three classroom subcircuits.
+# Names are matched against the MaleCNS v1.0 annotation columns.
+# Edit them after checking the Cell Type Explorer. make-data exits if a seed
+# matches zero neurons.
+#
+# match: exact | prefix | suffix   -> neuron `type`
+# match: class                     -> neuron `class` (antennal-lobe PNs have no shared prefix)
+circuits:
+  olfactory:
+    # ORNs, antennal-lobe PNs, Kenyon cells, and MBONs. The four populations
+    # already exceed the cap, so hops stay at 1 and the cap keeps the strongest
+    # neurons in each population rather than wandering into the rest of the brain.
+    hops: 1
+    max_neurons: 4500
+    min_synapses: 5
+    seeds:
+      - match: prefix
+        value: ORN_
+        label: Olfactory receptor neuron
+        color_group: orn
+      - match: class
+        value: ALPN
+        label: Antennal lobe projection neuron
+        color_group: pn
+      - match: prefix
+        value: KC
+        label: Kenyon cell
+        color_group: kc
+      - match: prefix
+        value: MBON
+        label: Mushroom body output neuron
+        color_group: mbon
+
+  visual:
+    # Ellipsoid-body ring neurons and the E-PG / P-EN compass. Two hops pull in
+    # the visual neurons that drive the ring and the compass partners, then the
+    # cap keeps the strongest of those synapses.
+    hops: 2
+    max_neurons: 4000
+    min_synapses: 5
+    seeds:
+      - match: prefix
+        value: ER
+        label: Ellipsoid body ring neuron
+        color_group: ring
+      - match: exact
+        value: EPG
+        label: Compass neuron (E-PG)
+        color_group: compass
+      - match: exact
+        value: EPGt
+        label: Compass neuron (E-PG)
+        color_group: compass
+      - match: exact
+        value: PEN_a(PEN1)
+        label: Compass rotation neuron (P-EN)
+        color_group: compass
+      - match: exact
+        value: PEN_b(PEN2)
+        label: Compass rotation neuron (P-EN)
+        color_group: compass
+      - match: exact
+        value: PEG
+        label: Compass neuron (P-EG)
+        color_group: compass
+      - match: exact
+        value: EL
+        label: Compass neuron (EL)
+        color_group: compass
+
+  escape:
+    # DNp01 is the giant fiber (instance DNp01(GF)). Hop 1 is only a few
+    # hundred partners, so hop 2 fills the circuit with the strongest
+    # synapses onto those partners, after every direct input and target.
+    hops: 2
+    max_neurons: 3000
+    min_synapses: 5
+    seeds:
+      - match: exact
+        value: DNp01
+        label: Giant fiber
+        color_group: giant-fiber

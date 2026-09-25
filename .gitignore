@@ -24,6 +24,7 @@ __pycache__/
 # Neuron data and baked viewer assets never go in git.
 # Publish glTF, graph.bin, and neurons.json as GitHub Releases (data-v1, data-v2, …).
 tools/data/raw/
+tools/data/dist/
 apps/web/public/data/
 
 # OS and editor
