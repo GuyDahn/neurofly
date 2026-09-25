@@ -8,8 +8,11 @@ export default function HomePage() {
         Fly Brain for Classrooms
       </h1>
       <p className="text-lg text-neutral-700">
-        Public scaffold. The viewer, subcircuit, and simulation land in later
-        days.
+        The classroom circuits run a leaky integrate-and-fire model. The{" "}
+        <a className="underline" href="/sim-bench">
+          simulator bench
+        </a>{" "}
+        prints spikes per second for a 5,000-neuron network.
       </p>
     </main>
   );
