@@ -1,0 +1,19 @@
+name: Bug report
+description: Something in the app, data fetch, or docs is wrong.
+title: "fix: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: Commands, browser, and whether baked data was fetched.
+    validations:
+      required: true

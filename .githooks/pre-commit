@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+root=$(git rev-parse --show-toplevel)
+cd "$root"
+
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:$PATH"
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "gitleaks is required for the pre-commit hook."
+  echo "Install: https://github.com/gitleaks/gitleaks#installing"
+  exit 1
+fi
+
+gitleaks protect --staged --redact --config .gitleaks.toml
+pnpm exec tsx scripts/check-asset-size.ts

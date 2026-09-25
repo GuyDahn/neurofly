@@ -1,0 +1,5 @@
+# Baked binaries belong in GitHub Releases, not in git.
+# scripts/check-asset-size.ts reads max-size during pre-commit and rejects anything over the limit.
+# 1M means 1 MiB (1,048,576 bytes).
+*.glb binary max-size=1M
+*.bin binary max-size=1M

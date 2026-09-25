@@ -1,0 +1,31 @@
+{
+  "name": "neurofly",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.18.2",
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @neurofly/web dev",
+    "build": "pnpm --filter @neurofly/web build",
+    "lint": "eslint . && prettier --check . && pnpm data:lint",
+    "typecheck": "tsc -p apps/web --noEmit && tsc -p tsconfig.scripts.json --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts && uv run --directory tools/data pytest",
+    "data:fetch": "tsx scripts/fetch-data.ts",
+    "data:lint": "uv run --directory tools/data ruff check .",
+    "format": "prettier --write .",
+    "prepare": "node scripts/install-git-hooks.mjs"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/node": "^22.18.6",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.4",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

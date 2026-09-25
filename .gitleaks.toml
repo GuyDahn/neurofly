@@ -1,0 +1,9 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Lockfiles are generated and routinely trip entropy rules."
+paths = [
+  '''pnpm-lock.yaml''',
+  '''uv.lock''',
+]

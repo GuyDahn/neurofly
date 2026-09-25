@@ -1,0 +1,7 @@
+node_modules
+.next
+pnpm-lock.yaml
+uv.lock
+tools/data/.venv
+apps/web/public/data
+coverage

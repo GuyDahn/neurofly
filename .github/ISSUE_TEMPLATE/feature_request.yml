@@ -1,0 +1,18 @@
+name: Feature request
+description: A classroom feature or docs change.
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What should a student or teacher be able to do?
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything that must stay scientifically honest
+      description: Call out what is real MaleCNS data and what would be a simplification.
+    validations:
+      required: false
