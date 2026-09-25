@@ -13,7 +13,9 @@ pnpm data:fetch
 pnpm dev
 ```
 
-Node is pinned in `.nvmrc` (22.22.3). Python is 3.12, managed with uv. `pnpm data:fetch` reads `data.lock.json` and downloads the baked assets for that `data-vN` GitHub Release into `apps/web/public/data/`, checking sha256 as it goes. That directory is gitignored. On Day 0 the lock file lists no files, so the command succeeds and downloads nothing.
+Node is pinned in `.nvmrc` (22.22.3). Python is 3.12, managed with uv. `pnpm data:fetch` reads `data.lock.json` and downloads the baked assets for that `data-vN` GitHub Release into `apps/web/public/data/`, checking sha256 as it goes. That directory is gitignored.
+
+`uv run --directory tools/data make-data` rebuilds those assets from the MaleCNS flat files in `tools/data/raw/` (also gitignored). The publish command is in [tools/data/release.md](tools/data/release.md).
 
 ## How it works
 
@@ -38,4 +40,4 @@ Neuron data is MaleCNS v1.0 from [HHMI Janelia FlyEM](https://www.janelia.org/pr
 
 The Vercel project deploys the free `*.vercel.app` hostname. There is no custom domain. The build command is `pnpm data:fetch && pnpm build`.
 
-Nothing else is reused yet. If a later day vendors or forks another project (for example a WebGPU fly viewer), name it here with its license.
+No other code is vendored. [docs/NOTES-webgpu-fly.md](docs/NOTES-webgpu-fly.md) records what in [abgnydn/webgpu-fly](https://github.com/abgnydn/webgpu-fly) (MIT) is worth porting later. That kernel was not copied.

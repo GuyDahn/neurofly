@@ -1,5 +1,42 @@
 {
   "version": "data-v1",
   "repository": "GuyDahn/neurofly",
-  "files": []
+  "files": [
+    {
+      "name": "escape.glb",
+      "sha256": "0a66cc8064d8107f34b17fa31d43865bfc53a76775e57ec608a2d896bf6278d2"
+    },
+    {
+      "name": "escape.graph.bin",
+      "sha256": "ff65d02896a2765037aa62bcd28197f162142f2f5b3170464ab9747a4a48c8ee"
+    },
+    {
+      "name": "escape.neurons.json",
+      "sha256": "a972c7c59cf79d610d7399f9e3e4f48df431a820bf637fd18a0c2b3a49398c62"
+    },
+    {
+      "name": "olfactory.glb",
+      "sha256": "e0363e6cf97714a87ec50027a624d28f2b738b176cd94fda6fb97cb76247ff26"
+    },
+    {
+      "name": "olfactory.graph.bin",
+      "sha256": "5c94cf0e96d5c6d47ae8750c5660b79abc3ae786cb1c236890c87a8e7d28f357"
+    },
+    {
+      "name": "olfactory.neurons.json",
+      "sha256": "d0bcbd1c0dab387e4345a92627af32ca1f0912e582647e5dc6855d250cbeb8cb"
+    },
+    {
+      "name": "visual.glb",
+      "sha256": "0fdf41d6c839a3b4d0e6d45c5c30e64d96f3b25d9efc88d5062c93497a30c225"
+    },
+    {
+      "name": "visual.graph.bin",
+      "sha256": "7b878773c2c23bf67505a2fd900513055373cefb730f22602aed3e94a9511368"
+    },
+    {
+      "name": "visual.neurons.json",
+      "sha256": "d3888544767e91a87688f6c0ef52dc7a4e8028bc4f4ee04c08080a1ed6ffde4b"
+    }
+  ]
 }
