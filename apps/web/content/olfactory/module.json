@@ -1,0 +1,59 @@
+{
+  "id": "olfactory",
+  "title": "Smell and memory",
+  "circuit": "olfactory",
+  "summary": "A puff of odor enters the antenna, and the mushroom body decides whether that smell matters.",
+  "assets": {
+    "gltf": "/data/olfactory.glb",
+    "graph": "/data/olfactory.graph.bin",
+    "neurons": "/data/olfactory.neurons.json"
+  },
+  "stimulusHz": 40,
+  "stimulusMs": 200,
+  "stimuli": [
+    {
+      "colorGroup": "orn",
+      "name": "Smell receptors",
+      "label": "Turns on the receptor neurons that first catch an odor at the antenna."
+    }
+  ],
+  "silence": [
+    {
+      "colorGroup": "pn",
+      "name": "Projection neurons",
+      "label": "Stops the antennal lobe from carrying that smell into the mushroom body."
+    },
+    {
+      "colorGroup": "kc",
+      "name": "Kenyon cells",
+      "label": "Quiets the cells that tell one smell apart from another."
+    },
+    {
+      "colorGroup": "mbon",
+      "name": "Output neurons",
+      "label": "Blocks the mushroom body from passing the result to the rest of the brain."
+    }
+  ],
+  "groups": [
+    {
+      "colorGroup": "orn",
+      "label": "Smell receptors",
+      "color": "#ED8C29"
+    },
+    {
+      "colorGroup": "pn",
+      "label": "Projection neurons",
+      "color": "#EDC738"
+    },
+    {
+      "colorGroup": "kc",
+      "label": "Kenyon cells",
+      "color": "#409EED"
+    },
+    {
+      "colorGroup": "mbon",
+      "label": "Output neurons",
+      "color": "#DB4775"
+    }
+  ]
+}

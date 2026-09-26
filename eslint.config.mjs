@@ -20,6 +20,7 @@ const eslintConfig = [
       "**/.next/**",
       "**/dist/**",
       "apps/web/public/data/**",
+      "apps/web/public/draco/**",
       "tools/data/**",
       "pnpm-lock.yaml",
     ],

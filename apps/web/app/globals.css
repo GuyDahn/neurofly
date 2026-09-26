@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@source "../src";
+
+html {
+  background: #09090b;
+}
 
 body {
   margin: 0;
