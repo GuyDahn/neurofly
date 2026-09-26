@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "data:fetch": "pnpm --dir ../.. run data:fetch"
   },
   "dependencies": {
     "@react-three/fiber": "^9.8.1",
