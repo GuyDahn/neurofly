@@ -16,9 +16,10 @@ Tester: age \_\_\_\_ · last biology class \_\_\_\_\_\_\_\_ · phone \_\_\_\_\_\
 
 What did they touch first?
 
-- [ ] The glowing orange Stimulate button
+- [ ] The glowing orange Stimulate bar at the bottom of the screen
+- [ ] The orange Stimulate button in the list
 - [ ] The 3D brain (drag or pinch)
-- [ ] Scrolled the panel
+- [ ] Scrolled or dragged the panel
 - [ ] A locked button
 - [ ] Something else: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
@@ -43,11 +44,12 @@ Mark a pause of **3 seconds or more** with no touch as a hesitation. Write what 
 Watch for these specific trouble spots:
 
 - [ ] Step 1: they didn't know what "Stimulate" would do
-- [ ] Step 1 or 2: they looked at the button, not the brain, when the smell went in
-- [ ] Waited on "Watch the brain…" and seemed unsure whether anything was happening
-- [ ] Missed the result line or the Next button (didn't scroll back up)
-- [ ] Tapped a locked button. Which one? \_\_\_\_\_\_\_\_ What did they expect? \_\_\_\_\_\_\_\_
-- [ ] Step 4: couldn't find the Kenyon cells button under Silence
+- [ ] Step 1 or 2: they looked at the button, not the brain, when the smell went in (the panel slides down to make room for the brain)
+- [ ] Surprised or annoyed when the panel slid down or came back up
+- [ ] Waited on "Watch the brain" and seemed unsure whether anything was happening (a bar fills while the smell goes in)
+- [ ] Missed the result line or the Next button at the bottom
+- [ ] Tapped a locked button. Which one? \_\_\_\_\_\_\_\_ What did they expect? \_\_\_\_\_\_\_\_ Read the "Not in this step" note? Y / N
+- [ ] Step 4: hunted for the Kenyon cells button in the list instead of using the bar at the bottom
 - [ ] Step 4: before reading the answer, said what disappeared. Their words: \_\_\_\_\_\_\_\_\_\_\_\_
 - [ ] Step 5: unsure that tapping the same button again switches it back on
 - [ ] Read a gloss aloud as if it were a separate thing, e.g. "the smell sorters" as a new group

@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { enqueue } from "./commands.js";
 import { groupColor } from "./module.js";
 import { useViewerStore } from "./store.js";
@@ -14,57 +14,68 @@ import type {
 
 const openGate: ControlGate = () => "open";
 
-const FOCUS_RING =
+export const FOCUS_RING =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
-export function Panel({
+/** Sends a control to the brain. The list and the lesson's action bar both press through here. */
+export function press(
+  action: ControlAction,
+  onAction?: (action: ControlAction) => void,
+) {
+  const store = useViewerStore.getState();
+  if (action.type === "stimulate") {
+    store.setStimulating(action.colorGroup, true);
+    enqueue(action);
+  } else if (action.type === "silence") {
+    store.setSilenced(action.colorGroup, action.on);
+    enqueue(action);
+  } else {
+    store.resetControls();
+    enqueue({ type: "reset" });
+  }
+  onAction?.(action);
+}
+
+export function Controls({
   module,
   gate = openGate,
   onAction,
-  children,
+  readOnly = false,
 }: {
   module: ModuleSpec;
   /** Decides which controls a lesson step allows. Everything is open without one. */
   gate?: ControlGate;
   onAction?: (action: ControlAction) => void;
-  /** Rendered above the controls, e.g. the current lesson step. */
-  children?: ReactNode;
+  /** Shows state without taking presses, e.g. while a replay plays. */
+  readOnly?: boolean;
 }) {
   const status = useViewerStore((state) => state.status);
   const stimulating = useViewerStore((state) => state.stimulating);
   const silenced = useViewerStore((state) => state.silenced);
-  const activity = useViewerStore((state) => state.activity);
-  const focus = useViewerStore((state) => state.focus);
-  const setStimulating = useViewerStore((state) => state.setStimulating);
-  const setSilenced = useViewerStore((state) => state.setSilenced);
-  const resetControls = useViewerStore((state) => state.resetControls);
-  const ready = status === "ready";
+  const disabled = status !== "ready" || readOnly;
   const resetState = gate("reset");
 
   return (
-    <aside className="order-2 flex max-h-[52dvh] w-full shrink-0 flex-col overflow-y-auto overscroll-contain border-t border-white/10 md:order-1 md:max-h-none md:w-96 md:border-r md:border-t-0">
-      <div className="flex flex-col gap-6 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-        {children}
-        <Section title="Stimulate">
-          {module.stimuli.map((control) => (
-            <StimulateButton
-              key={control.colorGroup}
-              control={control}
-              color={groupColor(module, control.colorGroup)}
-              pressed={stimulating[control.colorGroup] === true}
-              state={gate("stimulate", control.colorGroup)}
-              disabled={!ready}
-              onPress={() => {
-                setStimulating(control.colorGroup, true);
-                enqueue({ type: "stimulate", colorGroup: control.colorGroup });
-                onAction?.({
-                  type: "stimulate",
-                  colorGroup: control.colorGroup,
-                });
-              }}
-            />
-          ))}
-        </Section>
+    <>
+      <Section title="Stimulate">
+        {module.stimuli.map((control) => (
+          <StimulateButton
+            key={control.colorGroup}
+            control={control}
+            color={groupColor(module, control.colorGroup)}
+            pressed={stimulating[control.colorGroup] === true}
+            state={readOnly ? "open" : gate("stimulate", control.colorGroup)}
+            disabled={disabled}
+            onPress={() =>
+              press(
+                { type: "stimulate", colorGroup: control.colorGroup },
+                onAction,
+              )
+            }
+          />
+        ))}
+      </Section>
+      {module.silence.length > 0 ? (
         <Section title="Silence">
           {module.silence.map((control) => {
             const on = silenced[control.colorGroup] === true;
@@ -74,83 +85,83 @@ export function Panel({
                 control={control}
                 color={groupColor(module, control.colorGroup)}
                 pressed={on}
-                state={gate("silence", control.colorGroup)}
-                disabled={!ready}
-                onPress={() => {
-                  const next = !on;
-                  setSilenced(control.colorGroup, next);
-                  enqueue({
-                    type: "silence",
-                    colorGroup: control.colorGroup,
-                    on: next,
-                  });
-                  onAction?.({
-                    type: "silence",
-                    colorGroup: control.colorGroup,
-                    on: next,
-                  });
-                }}
+                state={readOnly ? "open" : gate("silence", control.colorGroup)}
+                disabled={disabled}
+                onPress={() =>
+                  press(
+                    {
+                      type: "silence",
+                      colorGroup: control.colorGroup,
+                      on: !on,
+                    },
+                    onAction,
+                  )
+                }
               />
             );
           })}
         </Section>
-        <Section title="Activity">
-          <ul className="flex flex-col gap-3">
-            {module.groups.map((group) => {
-              const level = activity[group.colorGroup] ?? 0;
-              const percent = Math.round(level * 100);
-              const dim = focus.length > 0 && !focus.includes(group.colorGroup);
-              return (
-                <li
-                  key={group.colorGroup}
-                  className={`flex flex-col gap-1.5 transition-opacity ${dim ? "opacity-40" : ""}`}
-                >
-                  <div className="flex items-baseline justify-between gap-3 text-sm">
-                    <span className="text-zinc-200">{group.label}</span>
-                    <span className="w-10 text-right text-zinc-400 tabular-nums">
-                      {percent}%
-                    </span>
-                  </div>
-                  <div
-                    role="meter"
-                    aria-label={`${group.label} activity`}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                    aria-valuenow={percent}
-                    className="h-2.5 overflow-hidden rounded-full bg-white/10"
-                  >
-                    <div
-                      className={`h-full rounded-full transition-[width] duration-150 ease-out ${level > 0 ? "min-w-1" : ""}`}
-                      style={{
-                        width: `${level * 100}%`,
-                        backgroundColor: group.color,
-                      }}
-                    />
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </Section>
-        {resetState === "locked" ? null : (
-          <button
-            type="button"
-            disabled={!ready}
-            onClick={() => {
-              resetControls();
-              enqueue({ type: "reset" });
-              onAction?.({ type: "reset" });
-            }}
-            className={`min-h-12 rounded-xl border border-white/20 text-base font-semibold text-zinc-100 transition-colors hover:bg-white/5 disabled:opacity-40 ${FOCUS_RING}`}
-          >
-            Reset
-          </button>
-        )}
-        <p className="text-xs leading-relaxed text-zinc-500">
-          Drag to turn the brain. Pinch to zoom.
-        </p>
-      </div>
-    </aside>
+      ) : null}
+      <Activity module={module} />
+      {resetState === "locked" || readOnly ? null : (
+        <button
+          type="button"
+          disabled={disabled}
+          onClick={() => press({ type: "reset" }, onAction)}
+          className={`min-h-12 rounded-xl border border-white/20 text-base font-semibold text-zinc-100 transition-colors hover:bg-white/5 disabled:opacity-40 ${FOCUS_RING}`}
+        >
+          Reset
+        </button>
+      )}
+      <p className="text-xs leading-relaxed text-zinc-500">
+        Drag the brain to turn it. Pinch to zoom.
+      </p>
+    </>
+  );
+}
+
+function Activity({ module }: { module: ModuleSpec }) {
+  const activity = useViewerStore((state) => state.activity);
+  const focus = useViewerStore((state) => state.focus);
+  return (
+    <Section title="Activity">
+      <ul className="flex flex-col gap-3">
+        {module.groups.map((group) => {
+          const level = activity[group.colorGroup] ?? 0;
+          const percent = Math.round(level * 100);
+          const dim = focus.length > 0 && !focus.includes(group.colorGroup);
+          return (
+            <li
+              key={group.colorGroup}
+              className={`flex flex-col gap-1.5 transition-opacity ${dim ? "opacity-40" : ""}`}
+            >
+              <div className="flex items-baseline justify-between gap-3 text-sm">
+                <span className="text-zinc-200">{group.label}</span>
+                <span className="w-10 text-right text-zinc-400 tabular-nums">
+                  {percent}%
+                </span>
+              </div>
+              <div
+                role="meter"
+                aria-label={`${group.label} activity`}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={percent}
+                className="h-2.5 overflow-hidden rounded-full bg-white/10"
+              >
+                <div
+                  className={`h-full rounded-full transition-[width] duration-150 ease-out ${level > 0 ? "min-w-1" : ""}`}
+                  style={{
+                    width: `${level * 100}%`,
+                    backgroundColor: group.color,
+                  }}
+                />
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </Section>
   );
 }
 
@@ -165,21 +176,48 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-/** A control the current step does not allow: one short row, clearly off. */
+/**
+ * A control the current step does not allow: one short row, clearly off.
+ * Tapping it says why instead of doing nothing.
+ */
 function LockedButton({ color, name }: { color: string; name: string }) {
+  const [told, setTold] = useState(false);
   return (
-    <button
-      type="button"
-      disabled
-      className="flex min-h-11 w-full items-center gap-2 rounded-2xl border border-dashed border-white/15 px-4 py-2 text-left text-sm text-zinc-500"
+    <div className="flex flex-col gap-1">
+      <button
+        type="button"
+        aria-disabled="true"
+        onClick={() => setTold(true)}
+        className={`flex min-h-11 w-full items-center gap-2 rounded-2xl border border-dashed border-white/15 px-4 py-2 text-left text-sm text-zinc-500 ${FOCUS_RING}`}
+      >
+        <span
+          className="inline-block size-2.5 shrink-0 rounded-full opacity-50"
+          style={{ backgroundColor: color }}
+        />
+        <span className="flex-1">{name}</span>
+        <LockIcon />
+        <span className="text-xs tracking-[0.14em] uppercase">Locked</span>
+      </button>
+      {told ? (
+        <p role="status" className="px-1 text-xs text-zinc-400">
+          Not in this step. Every button opens in free play.
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      className="size-3.5 shrink-0 fill-none stroke-current"
+      strokeWidth="1.6"
     >
-      <span
-        className="inline-block size-2.5 shrink-0 rounded-full opacity-50"
-        style={{ backgroundColor: color }}
-      />
-      <span className="flex-1">{name}</span>
-      <span className="text-xs tracking-[0.14em] uppercase">Locked</span>
-    </button>
+      <rect x="3" y="7" width="10" height="7" rx="1.5" />
+      <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" />
+    </svg>
   );
 }
 
@@ -268,7 +306,7 @@ function SilenceButton({
           className="inline-block size-2.5 rounded-full"
           style={{ backgroundColor: color }}
         />
-        {pressed ? "Silenced" : "Silence"}
+        {pressed ? "Silenced · tap to switch on" : "Silence"}
       </span>
       <span className="text-base leading-tight font-semibold text-zinc-100">
         {control.name}

@@ -10,4 +10,6 @@
 
 `raw/` and `dist/` are gitignored. Publish `dist/` with the command in [release.md](release.md). `pnpm data:fetch` then checks the sha256 values in the repo-root `data.lock.json`.
 
+`uv run --directory tools/data compass-cells` prints the cells the heading lesson drives: P-EN2 turn neurons split by protocerebral bridge side, and E-PG compass neurons in their 16 ellipsoid body wedges, each with its angle measured from the SWC skeletons as seen from behind the fly. `neurons.json` keeps cell types but not sides, so `apps/web/content/visual/module.json` lists those body ids.
+
 Seed type names are in `seeds.yaml`. Change them after looking at the [Cell Type Explorer](https://male-cns.janelia.org/); a name that matches nothing fails the build.

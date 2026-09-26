@@ -1,7 +1,8 @@
 export type ViewerCommand =
   | { type: "stimulate"; colorGroup: string }
   | { type: "silence"; colorGroup: string; on: boolean }
-  | { type: "reset" };
+  /** Clears the brain. A seed also changes the noise the next puffs draw from. */
+  | { type: "reset"; seed?: number };
 
 const queue: ViewerCommand[] = [];
 let poker = () => {};

@@ -13,6 +13,7 @@ dependencies = [
 
 [project.scripts]
 make-data = "neurofly_data.make_data:main"
+compass-cells = "neurofly_data.compass_cells:main"
 
 [build-system]
 requires = ["hatchling"]

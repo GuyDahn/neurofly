@@ -8,10 +8,11 @@ import {
 } from "three";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { centerline, packPaths, type NeuronPaths } from "./centerline.js";
+import { CompassReadout, compassWedges } from "./compass.js";
 import { FlashField } from "./flash.js";
-import { bodyIndex, indicesByColorGroup, type NeuronRow } from "./groups.js";
+import { assignGroups, bodyIndex, type NeuronRow } from "./groups.js";
 import { createFlashTexture, createNeuronMaterial } from "./materials.js";
-import { missingGroups } from "./module.js";
+import { emptyGroups } from "./module.js";
 import { parseGraphBin } from "../sim/index.js";
 import { createViewerSession, type ViewerSession } from "./session.js";
 import type { ModuleSpec } from "./types.js";
@@ -27,8 +28,15 @@ export type LoadedCircuit = {
   focusTexture: ReturnType<typeof createFlashTexture>;
   paths: NeuronPaths;
   bounds: Box3;
+  /** What the camera fits at the start: the module's frame groups, or everything. */
+  frameBounds: Box3;
+  /** Heading dial for circuits with a compass, else null. */
+  compass: CompassReadout | null;
   dispose: () => void;
 };
+
+/** Cells no module group claims. Dim, so the lesson groups stand out. */
+const CONTEXT_COLOR = "#52525b";
 
 const progressListeners = new Set<(fraction: number) => void>();
 
@@ -114,14 +122,17 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
   if (graph.neuronCount !== neurons.length) {
     throw new Error("The wiring and the neuron list do not match.");
   }
-  const groups = indicesByColorGroup(neurons);
-  const absent = missingGroups(module, new Set(groups.keys()));
+  const assigned = assignGroups(neurons, module.groups);
+  const absent = emptyGroups(module, assigned.groups);
   if (absent.length > 0) {
     throw new Error(`The circuit has no ${absent[0]} neurons.`);
   }
-  const session = createViewerSession(graph, groups, 1);
+  const compass = module.compass
+    ? new CompassReadout(compassWedges(module.compass, bodyIndex(neurons)))
+    : null;
+  const session = createViewerSession(graph, assigned.groups, module.seed);
   await yieldToMain();
-  const built = await mergeLines(glb, neurons, module);
+  const built = await mergeLines(glb, neurons, assigned.member, module);
   const flash = new FlashField(graph.neuronCount);
   const texture = createFlashTexture(flash.bytes, graph.neuronCount);
   const focus = new Uint8Array(graph.neuronCount).fill(255);
@@ -142,6 +153,9 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
     focusTexture,
     paths: built.paths,
     bounds: built.bounds,
+    frameBounds:
+      frameBounds(built.paths, assigned.groups, module.frame) ?? built.bounds,
+    compass,
     dispose() {
       built.geometry.dispose();
       material.dispose();
@@ -149,6 +163,30 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
       focusTexture.dispose();
     },
   };
+}
+
+function frameBounds(
+  paths: NeuronPaths,
+  groups: ReadonlyMap<string, Uint32Array>,
+  frame: readonly string[],
+): Box3 | null {
+  const box = new Box3();
+  const point = new Vector3();
+  for (const name of frame) {
+    for (const neuron of groups.get(name) ?? []) {
+      const start = paths.offset[neuron] ?? 0;
+      const end = paths.offset[neuron + 1] ?? start;
+      for (let at = start; at < end; at += 3) {
+        point.set(
+          paths.data[at] ?? 0,
+          paths.data[at + 1] ?? 0,
+          paths.data[at + 2] ?? 0,
+        );
+        box.expandByPoint(point);
+      }
+    }
+  }
+  return box.isEmpty() ? null : box;
 }
 
 async function fetchBuffer(url: string): Promise<ArrayBuffer> {
@@ -191,7 +229,11 @@ function readNeurons(value: unknown, circuit: string): NeuronRow[] {
     if (typeof row.id !== "number" || typeof row.colorGroup !== "string") {
       throw new Error("The neuron list is missing an id or a color group.");
     }
-    rows.push({ id: row.id, colorGroup: row.colorGroup });
+    rows.push({
+      id: row.id,
+      type: typeof row.type === "string" ? row.type : "",
+      colorGroup: row.colorGroup,
+    });
   }
   return rows;
 }
@@ -207,11 +249,12 @@ type DracoJob = {
 async function mergeLines(
   glb: ArrayBuffer,
   neurons: NeuronRow[],
+  member: Int16Array,
   module: ModuleSpec,
 ): Promise<{ geometry: BufferGeometry; paths: NeuronPaths; bounds: Box3 }> {
   const { json, bin } = readGlb(glb);
   await yieldToMain();
-  const jobs = lineJobs(json, bin, neurons, module);
+  const jobs = lineJobs(json, bin, neurons, member, module);
   if (jobs.length === 0) {
     throw new Error("The circuit model has no neurons to draw.");
   }
@@ -376,14 +419,12 @@ function lineJobs(
   json: GltfJson,
   bin: Uint8Array,
   neurons: NeuronRow[],
+  member: Int16Array,
   module: ModuleSpec,
 ): DracoJob[] {
   const indexOfBody = bodyIndex(neurons);
-  const palette = new Map<string, Color>();
-  for (const group of module.groups) {
-    palette.set(group.colorGroup, new Color(group.color));
-  }
-  const gray = new Color("#9ca3af");
+  const palette = module.groups.map((group) => new Color(group.color));
+  const context = new Color(CONTEXT_COLOR);
   const seen = new Uint8Array(neurons.length);
   const jobs: DracoJob[] = [];
   for (const node of json.nodes ?? []) {
@@ -400,10 +441,9 @@ function lineJobs(
     const bytes = bufferViewBytes(json, bin, bufferView);
     if (!bytes) continue;
     seen[neuron] = 1;
-    const colorGroup = neurons[neuron]?.colorGroup ?? "";
     jobs.push({
       neuron,
-      color: palette.get(colorGroup) ?? gray,
+      color: palette[member[neuron] ?? -1] ?? context,
       bytes,
       positionId,
     });

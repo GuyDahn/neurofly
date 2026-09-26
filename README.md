@@ -21,6 +21,10 @@ Node is pinned in `.nvmrc` (22.22.3). Python is 3.12, managed with uv. `pnpm dat
 
 MaleCNS data is cut down to a subcircuit, simulated with a leaky integrate-and-fire (LIF) model, and shown in the viewer: data → subcircuit → LIF sim → viewer.
 
+Three guided lessons run on the three baked circuits: "How a fly remembers a smell" (olfactory, `/`), "How a fly knows which way it's facing" (compass, `/modules/compass`), and "The 30-millisecond escape" (giant fiber, `/modules/escape`). `tests/lesson-science.test.ts` runs each lesson's steps on the real circuits and checks what the copy says lights up, moves, or goes dark. It skips until `pnpm data:fetch` has run.
+
+The Share button copies a replay link. Its `?r=` parameter is base64url for the lesson id, the noise seed, and each button press with the simulator tick it landed on, so opening the link repeats the same spikes.
+
 ## What's real and what's simplified
 
 <!-- TODO: written on Day 6 -->
