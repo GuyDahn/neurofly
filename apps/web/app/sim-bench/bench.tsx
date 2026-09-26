@@ -146,7 +146,7 @@ export function Bench() {
   }, []);
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-xl flex-col gap-4 px-5 py-8">
+    <main className="mx-auto flex min-h-screen max-w-xl flex-col gap-4 bg-white px-5 py-8 text-neutral-900">
       <h1 className="text-xl font-semibold tracking-tight">Simulator bench</h1>
       <p className="text-neutral-700">
         Leaky integrate-and-fire in a worker. Spikes per second is the whole

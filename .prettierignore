@@ -4,4 +4,5 @@ pnpm-lock.yaml
 uv.lock
 tools/data/.venv
 apps/web/public/data
+apps/web/public/draco
 coverage
