@@ -1,22 +1,47 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { LessonModule } from "./lesson.js";
+import { ModuleRunner } from "./module-runner.js";
 import { Panel } from "./panel.js";
 import { useViewerStore } from "./store.js";
 import type { ModuleSpec } from "./types.js";
 
 const Scene = dynamic(() => import("./scene.js"), { ssr: false });
 
-export function Viewer({ module }: { module: ModuleSpec }) {
+export function Viewer({
+  module,
+  lesson,
+}: {
+  module: ModuleSpec;
+  /** Walks the learner through the circuit before handing over every control. */
+  lesson?: LessonModule;
+}) {
   return (
     <div className="flex h-dvh flex-col overflow-hidden bg-zinc-950 text-zinc-100 scheme-dark md:flex-row">
-      <Panel module={module} />
-      <Stage module={module} />
+      {lesson ? (
+        <ModuleRunner module={module} lesson={lesson} />
+      ) : (
+        <Panel module={module} />
+      )}
+      <Stage
+        module={module}
+        title={lesson?.title ?? module.title}
+        summary={lesson?.summary ?? module.summary}
+      />
     </div>
   );
 }
 
-function Stage({ module }: { module: ModuleSpec }) {
+function Stage({
+  module,
+  title,
+  summary,
+}: {
+  module: ModuleSpec;
+  title: string;
+  summary: string;
+}) {
   const status = useViewerStore((state) => state.status);
   const error = useViewerStore((state) => state.error);
   const progress = useViewerStore((state) => state.progress);
@@ -29,10 +54,10 @@ function Stage({ module }: { module: ModuleSpec }) {
           Neurofly
         </p>
         <h1 className="max-w-md text-3xl font-semibold tracking-tight text-zinc-50">
-          {module.title}
+          {title}
         </h1>
         <p className="mt-1 max-w-sm text-sm leading-snug text-zinc-300">
-          {module.summary}
+          {summary}
         </p>
       </header>
       <p className="sr-only">

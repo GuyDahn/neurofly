@@ -9,11 +9,14 @@ type ViewerState = {
   stimulating: Record<string, boolean>;
   silenced: Record<string, boolean>;
   activity: Record<string, number>;
+  /** Color groups drawn at full brightness. Empty means all of them. */
+  focus: string[];
   setStatus: (status: ViewerStatus, error?: string | null) => void;
   setProgress: (progress: number) => void;
   setStimulating: (colorGroup: string, on: boolean) => void;
   setSilenced: (colorGroup: string, on: boolean) => void;
   setActivity: (activity: Record<string, number>) => void;
+  setFocus: (focus: string[]) => void;
   resetControls: () => void;
 };
 
@@ -24,6 +27,7 @@ export const useViewerStore = create<ViewerState>((set) => ({
   stimulating: {},
   silenced: {},
   activity: {},
+  focus: [],
   setStatus: (status, error = null) => set({ status, error }),
   setProgress: (progress) => set({ progress }),
   setStimulating: (colorGroup, on) =>
@@ -35,5 +39,6 @@ export const useViewerStore = create<ViewerState>((set) => ({
       silenced: { ...state.silenced, [colorGroup]: on },
     })),
   setActivity: (activity) => set({ activity }),
+  setFocus: (focus) => set({ focus }),
   resetControls: () => set({ stimulating: {}, silenced: {}, activity: {} }),
 }));
