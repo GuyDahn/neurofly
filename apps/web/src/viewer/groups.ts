@@ -29,3 +29,23 @@ export function bodyIndex(
   }
   return map;
 }
+
+/** Marks the neurons in `focus` at 255 and the rest at 0. An empty focus lights every neuron. */
+export function writeFocus(
+  bytes: Uint8Array,
+  groups: ReadonlyMap<string, Uint32Array>,
+  focus: readonly string[],
+) {
+  if (focus.length === 0) {
+    bytes.fill(255);
+    return;
+  }
+  bytes.fill(0);
+  for (const name of focus) {
+    const ids = groups.get(name);
+    if (!ids) continue;
+    for (let index = 0; index < ids.length; index++) {
+      bytes[ids[index] ?? 0] = 255;
+    }
+  }
+}

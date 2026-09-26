@@ -26,3 +26,18 @@ export type ModuleSpec = {
   silence: ControlSpec[];
   groups: GroupSpec[];
 };
+
+export type ControlKind = "stimulate" | "silence" | "reset";
+
+export type ControlAction =
+  | { type: "stimulate"; colorGroup: string }
+  | { type: "silence"; colorGroup: string; on: boolean }
+  | { type: "reset" };
+
+/** open: usable. cue: usable and the thing to tap next. locked: shown but off. */
+export type ControlState = "open" | "cue" | "locked";
+
+export type ControlGate = (
+  kind: ControlKind,
+  colorGroup?: string,
+) => ControlState;

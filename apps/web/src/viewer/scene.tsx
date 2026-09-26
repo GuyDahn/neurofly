@@ -23,6 +23,7 @@ import { samplePath, type NeuronPaths } from "./centerline.js";
 import { drainCommands, setPoker, type ViewerCommand } from "./commands.js";
 import { activityByGroup, FLASH_DECAY_MS } from "./flash.js";
 import { frameSphere } from "./fit.js";
+import { writeFocus } from "./groups.js";
 import {
   loadError,
   openCircuit,
@@ -169,17 +170,33 @@ function CircuitView({
     gl.domElement.style.touchAction = "none";
     const onChange = () => invalidate();
     orbit.addEventListener("change", onChange);
+    // Frames stop while the tab is hidden, so a puff sent then (or cut off
+    // by switching apps) needs a nudge to finish when the learner comes back.
+    document.addEventListener("visibilitychange", onChange);
     orbitRef.current = orbit;
     placeCamera(true);
     setPoker(() => invalidate());
     invalidate();
     return () => {
       orbit.removeEventListener("change", onChange);
+      document.removeEventListener("visibilitychange", onChange);
       orbit.dispose();
       orbitRef.current = null;
       setPoker(() => undefined);
     };
   }, [camera, gl, invalidate, placeCamera]);
+
+  useEffect(() => {
+    const paint = (focus: readonly string[]) => {
+      writeFocus(model.focus, model.session.groups, focus);
+      model.focusTexture.needsUpdate = true;
+      invalidate();
+    };
+    paint(useViewerStore.getState().focus);
+    return useViewerStore.subscribe((state, prev) => {
+      if (state.focus !== prev.focus) paint(state.focus);
+    });
+  }, [model, invalidate]);
 
   useEffect(() => {
     return () => {

@@ -22,6 +22,9 @@ export type LoadedCircuit = {
   material: ReturnType<typeof createNeuronMaterial>;
   texture: ReturnType<typeof createFlashTexture>;
   flash: FlashField;
+  /** One byte per neuron: 255 draws it at full color, 0 dims it. */
+  focus: Uint8Array;
+  focusTexture: ReturnType<typeof createFlashTexture>;
   paths: NeuronPaths;
   bounds: Box3;
   dispose: () => void;
@@ -121,7 +124,13 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
   const built = await mergeLines(glb, neurons, module);
   const flash = new FlashField(graph.neuronCount);
   const texture = createFlashTexture(flash.bytes, graph.neuronCount);
-  const material = createNeuronMaterial(texture, graph.neuronCount);
+  const focus = new Uint8Array(graph.neuronCount).fill(255);
+  const focusTexture = createFlashTexture(focus, graph.neuronCount);
+  const material = createNeuronMaterial(
+    texture,
+    focusTexture,
+    graph.neuronCount,
+  );
   report(1);
   return {
     session,
@@ -129,12 +138,15 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
     material,
     texture,
     flash,
+    focus,
+    focusTexture,
     paths: built.paths,
     bounds: built.bounds,
     dispose() {
       built.geometry.dispose();
       material.dispose();
       texture.dispose();
+      focusTexture.dispose();
     },
   };
 }
