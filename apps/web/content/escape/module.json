@@ -1,0 +1,65 @@
+{
+  "id": "escape",
+  "title": "Escape",
+  "circuit": "escape",
+  "summary": "Looming neurons trigger the giant fiber, and the giant fiber fires the jump.",
+  "assets": {
+    "gltf": "/data/escape.glb",
+    "graph": "/data/escape.graph.bin",
+    "neurons": "/data/escape.neurons.json"
+  },
+  "seed": 1,
+  "stimulusHz": 40,
+  "stimulusMs": 200,
+  "stimuli": [
+    {
+      "colorGroup": "looming",
+      "name": "Looming neurons",
+      "label": "Fires the LC4 and LPLC2 eye cells that spot something swooping in."
+    }
+  ],
+  "silence": [
+    {
+      "colorGroup": "looming",
+      "name": "Looming neurons",
+      "label": "Stops the eye cells from reporting the swoop."
+    },
+    {
+      "colorGroup": "gf",
+      "name": "Giant fiber",
+      "label": "Blocks the giant fiber, the fly’s fastest escape wire."
+    },
+    {
+      "colorGroup": "jump",
+      "name": "Jump neurons",
+      "label": "Quiets the motor neurons that kick the middle legs."
+    }
+  ],
+  "groups": [
+    {
+      "colorGroup": "looming",
+      "label": "Looming neurons",
+      "color": "#38BDF8",
+      "match": {
+        "types": ["LC4", "LPLC2"]
+      }
+    },
+    {
+      "colorGroup": "gf",
+      "label": "Giant fiber",
+      "color": "#F87171",
+      "match": {
+        "types": ["DNp01"]
+      }
+    },
+    {
+      "colorGroup": "jump",
+      "label": "Jump neurons",
+      "color": "#FACC15",
+      "match": {
+        "types": ["TTMn"]
+      }
+    }
+  ],
+  "frame": ["looming", "gf", "jump"]
+}

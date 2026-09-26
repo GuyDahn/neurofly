@@ -18,7 +18,9 @@ export type SimOptions = {
 export type Simulator = {
   /**
    * Drive these neurons with Poisson input at `hz`, as optogenetic activation.
-   * Pass 0 to clear the drive. Ids are neuron indices.
+   * Pass 0 to clear the drive. Ids are neuron indices. Each call restarts the
+   * random stream for those neurons, so a puff on a resting network repeats
+   * exactly whenever it starts.
    */
   stimulate(ids: ArrayLike<number>, hz: number): void;
   /**
@@ -109,6 +111,8 @@ export function createSim(graph: SimGraph, opts: SimOptions = {}): Simulator {
   const stimLimit = new Float64Array(n);
   const stimOn = new Uint8Array(n);
   const stimIds = new Uint32Array(n);
+  /** Tick each drive started. Draws count from here, so a puff repeats whenever it starts. */
+  const stimStart = new Float64Array(n);
   let stimCount = 0;
 
   const liveFlag = new Uint8Array(n);
@@ -172,6 +176,7 @@ export function createSim(graph: SimGraph, opts: SimOptions = {}): Simulator {
       }
       stimHz[id] = hz;
       stimLimit[id] = limit;
+      stimStart[id] = stepIndex;
       if (silenced[id] === 0) wake(id);
       if (stimOn[id] === 0) {
         stimOn[id] = 1;
@@ -248,12 +253,13 @@ export function createSim(graph: SimGraph, opts: SimOptions = {}): Simulator {
       const i = stimIds[k] ?? 0;
       if (silenced[i] === 1 || stimHz[i] === 0) continue;
       const limit = stimLimit[i] ?? 1;
+      const local = step - (stimStart[i] ?? 0);
       let count = 0;
       let p = 1;
       let draw = 1;
       do {
         count += 1;
-        p *= unitInterval(seed, i, step, draw);
+        p *= unitInterval(seed, i, local, draw);
         draw += 1;
         if (count > 64) {
           throw new Error("Poisson draw did not terminate");
@@ -343,6 +349,7 @@ export function createSim(graph: SimGraph, opts: SimOptions = {}): Simulator {
     pendingUs = 0;
     elapsedUs = 0;
     stepIndex = 0;
+    stimStart.fill(0);
     for (let k = 0; k < stimCount; k++) {
       const i = stimIds[k] ?? 0;
       if (stimOn[i] === 1 && stimHz[i] > 0 && silenced[i] === 0) wake(i);

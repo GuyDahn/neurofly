@@ -8,6 +8,7 @@
     "graph": "/data/olfactory.graph.bin",
     "neurons": "/data/olfactory.neurons.json"
   },
+  "seed": 1,
   "stimulusHz": 40,
   "stimulusMs": 200,
   "stimuli": [

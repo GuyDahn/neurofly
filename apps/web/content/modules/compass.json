@@ -1,0 +1,68 @@
+{
+  "id": "compass",
+  "title": "How a fly knows which way it's facing",
+  "summary": "Push a real fly's compass around and see what holds it in place.",
+  "circuit": "visual",
+  "jargon": ["turn neurons", "compass neurons", "ring neurons"],
+  "steps": [
+    {
+      "id": "left",
+      "text": "Tap Stimulate to fire the left turn neurons (the turning signal). Then watch the compass dial.",
+      "result": "The compass neurons (the heading cells) light up on one side. That bright patch, the bump, marks which way the fly faces.",
+      "focus": ["turn-left", "compass"],
+      "controls": { "stimulate": ["turn-left"], "silence": [] },
+      "goal": { "type": "stimulate", "colorGroup": "turn-left" }
+    },
+    {
+      "id": "right",
+      "text": "Now tap Stimulate on the right turn neurons (the other signal). Keep your eyes on the bump.",
+      "result": "The bump swung around the dial. Turning signals from each side push it opposite ways, so the fly's heading turns too.",
+      "focus": ["turn-right", "compass"],
+      "controls": { "stimulate": ["turn-left", "turn-right"], "silence": [] },
+      "goal": { "type": "stimulate", "colorGroup": "turn-right" }
+    },
+    {
+      "id": "silence",
+      "text": "Silence the ring neurons (the landmark carriers). They bring in what the fly sees. We will send the right signal for you.",
+      "result": "The bump slips off its spot and wanders. Without landmarks, the compass drifts.",
+      "focus": ["ring", "compass"],
+      "controls": { "stimulate": [], "silence": ["ring"] },
+      "goal": { "type": "silence", "colorGroup": "ring", "on": true },
+      "puff": "turn-right"
+    },
+    {
+      "id": "restore",
+      "text": "Tap the ring neurons (the landmark carriers) button again to switch them back on. We will send the same signal.",
+      "result": "The bump holds its spot again. Landmarks keep the fly's compass true.",
+      "focus": ["ring", "compass"],
+      "controls": { "stimulate": [], "silence": ["ring"] },
+      "goal": { "type": "silence", "colorGroup": "ring", "on": false },
+      "puff": "turn-right"
+    }
+  ],
+  "check": {
+    "question": "You silenced the landmark carriers (the violet cells). Why did the bump drift?",
+    "focus": ["ring", "compass"],
+    "choices": [
+      {
+        "text": "The turning signal never reached the compass.",
+        "correct": false,
+        "feedback": "Not quite. The green heading cells still lit up, so the signal got there. Nothing held the bump in place."
+      },
+      {
+        "text": "Nothing told the compass where the landmarks were, so the bump slid.",
+        "correct": true,
+        "feedback": "Yes! The violet cells bring in what the fly sees. Without them, nothing pins the bump to the world."
+      },
+      {
+        "text": "You switched off the green heading cells too.",
+        "correct": false,
+        "feedback": "Not quite. You only silenced the violet cells. The green heading cells kept firing, but nothing held them still."
+      }
+    ]
+  },
+  "freePlay": {
+    "title": "Free play",
+    "text": "Every button works now. Guess first, then tap: where does the bump go if you fire both turning signals at once? Try it with the violet cells silenced."
+  }
+}

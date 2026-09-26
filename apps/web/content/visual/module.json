@@ -1,0 +1,164 @@
+{
+  "id": "visual",
+  "title": "Heading",
+  "circuit": "visual",
+  "summary": "Compass neurons in the ellipsoid body keep track of which way the fly faces.",
+  "assets": {
+    "gltf": "/data/visual.glb",
+    "graph": "/data/visual.graph.bin",
+    "neurons": "/data/visual.neurons.json"
+  },
+  "seed": 13,
+  "stimulusHz": 60,
+  "stimulusMs": 800,
+  "stimuli": [
+    {
+      "colorGroup": "turn-left",
+      "name": "Left turn neurons",
+      "label": "Fires the P-EN2 turning cells on the left side of the bridge."
+    },
+    {
+      "colorGroup": "turn-right",
+      "name": "Right turn neurons",
+      "label": "Fires the P-EN2 turning cells on the right side of the bridge."
+    }
+  ],
+  "silence": [
+    {
+      "colorGroup": "ring",
+      "name": "Ring neurons",
+      "label": "Blocks the ring neurons that carry landmarks in from the eyes."
+    },
+    {
+      "colorGroup": "compass",
+      "name": "Compass neurons",
+      "label": "Quiets the E-PG heading cells that make up the compass."
+    }
+  ],
+  "groups": [
+    {
+      "colorGroup": "ring",
+      "label": "Ring neurons",
+      "color": "#A78BFA",
+      "match": {
+        "colorGroups": ["ring"]
+      }
+    },
+    {
+      "colorGroup": "compass",
+      "label": "Compass neurons",
+      "color": "#34D399",
+      "match": {
+        "types": ["EPG", "EPGt"]
+      }
+    },
+    {
+      "colorGroup": "turn-left",
+      "label": "Left turn neurons",
+      "color": "#FBBF24",
+      "match": {
+        "ids": [
+          19760, 21932, 23273, 25184, 26417, 30807, 32258, 39813, 514125,
+          524717, 529385
+        ]
+      }
+    },
+    {
+      "colorGroup": "turn-right",
+      "label": "Right turn neurons",
+      "color": "#F472B6",
+      "match": {
+        "ids": [
+          15176, 18932, 22240, 23619, 24382, 28791, 29135, 30310, 40390, 55527,
+          518194
+        ]
+      }
+    }
+  ],
+  "frame": ["compass", "turn-left", "turn-right"],
+  "compass": {
+    "colorGroup": "compass",
+    "wedges": [
+      {
+        "glomerulus": "R1",
+        "angle": 194,
+        "ids": [512513, 515675]
+      },
+      {
+        "glomerulus": "L8",
+        "angle": 219,
+        "ids": [13217, 513033, 519144, 521409]
+      },
+      {
+        "glomerulus": "R2",
+        "angle": 240,
+        "ids": [10539, 513463]
+      },
+      {
+        "glomerulus": "L7",
+        "angle": 259,
+        "ids": [11874, 14727, 84758]
+      },
+      {
+        "glomerulus": "R3",
+        "angle": 277,
+        "ids": [15616, 512928, 513284]
+      },
+      {
+        "glomerulus": "L6",
+        "angle": 306,
+        "ids": [15713, 16360, 556346]
+      },
+      {
+        "glomerulus": "R4",
+        "angle": 320,
+        "ids": [520581, 523786, 556347]
+      },
+      {
+        "glomerulus": "L5",
+        "angle": 349,
+        "ids": [11989, 12449, 107195]
+      },
+      {
+        "glomerulus": "R5",
+        "angle": 10,
+        "ids": [11987, 19125, 514126]
+      },
+      {
+        "glomerulus": "L4",
+        "angle": 45,
+        "ids": [11307, 513517, 520818]
+      },
+      {
+        "glomerulus": "R6",
+        "angle": 67,
+        "ids": [19825, 131313, 513520]
+      },
+      {
+        "glomerulus": "L3",
+        "angle": 95,
+        "ids": [88342, 519328, 519941]
+      },
+      {
+        "glomerulus": "R7",
+        "angle": 111,
+        "ids": [14507, 92188, 521812]
+      },
+      {
+        "glomerulus": "L2",
+        "angle": 129,
+        "ids": [521813, 524073]
+      },
+      {
+        "glomerulus": "R8",
+        "angle": 148,
+        "ids": [11503, 512305, 513464, 520812]
+      },
+      {
+        "glomerulus": "L1",
+        "angle": 168,
+        "ids": [512514, 519140]
+      }
+    ]
+  }
+}

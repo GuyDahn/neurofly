@@ -163,6 +163,35 @@ export function unglossed(value: string, jargon: readonly string[]): string[] {
   return missing;
 }
 
+export type GlossPart = { kind: "text" | "term" | "gloss"; value: string };
+
+/**
+ * Splits copy into plain text, jargon terms, and the short glosses that follow
+ * them, so a gloss can read as an aside rather than as another thing.
+ */
+export function glossParts(
+  value: string,
+  jargon: readonly string[],
+): GlossPart[] {
+  const terms = [...jargon].sort((a, b) => b.length - a.length).map(escape);
+  if (terms.length === 0) return [{ kind: "text", value }];
+  const pattern = new RegExp(`\\b(${terms.join("|")})\\b( \\([^)]+\\))?`, "gi");
+  const parts: GlossPart[] = [];
+  let at = 0;
+  for (const found of value.matchAll(pattern)) {
+    const index = found.index ?? 0;
+    if (index > at) parts.push({ kind: "text", value: value.slice(at, index) });
+    parts.push({ kind: "term", value: found[1] ?? "" });
+    if (found[2]) {
+      parts.push({ kind: "text", value: " " });
+      parts.push({ kind: "gloss", value: found[2].trim() });
+    }
+    at = index + found[0].length;
+  }
+  if (at < value.length) parts.push({ kind: "text", value: value.slice(at) });
+  return parts;
+}
+
 function readStep(
   value: unknown,
   field: string,
