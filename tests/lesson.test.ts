@@ -34,7 +34,7 @@ describe("lesson registry", () => {
     assert.deepEqual(
       LESSONS.map((entry) => [entry.number, entry.id, entry.path]),
       [
-        [1, "smell-memory", "/"],
+        [1, "smell-memory", "/modules/smell-memory"],
         [2, "compass", "/modules/compass"],
         [3, "escape", "/modules/escape"],
       ],
