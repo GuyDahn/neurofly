@@ -81,3 +81,18 @@ body {
 :lang(hi) {
   letter-spacing: normal;
 }
+
+/*
+ * These scripts have no upper or lower case, so an all-caps label (a
+ * kicker, a section eyebrow) leaves the native text untouched and instead
+ * shouts only the Latin unit or word sitting inside it, e.g. "MS" mid-RTL
+ * sentence. Outside the layers, this wins over every uppercase utility.
+ */
+:lang(he),
+:lang(ar),
+:lang(zh),
+:lang(ja),
+:lang(ko),
+:lang(hi) {
+  text-transform: none;
+}

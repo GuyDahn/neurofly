@@ -18,6 +18,7 @@ import {
 import { pick, type MessageTree } from "../apps/web/src/i18n/messages.js";
 import { routeRequest } from "../apps/web/src/i18n/route.js";
 import { breakPieces } from "../apps/web/src/og/text.js";
+import { fill } from "../apps/web/src/site/text.js";
 import { LESSONS } from "../apps/web/src/viewer/modules.js";
 import {
   checkTranslation,
@@ -252,6 +253,49 @@ describe("messages", () => {
         assert.ok(en.has(`${circuit}.silence.${control.colorGroup}`));
       }
     }
+  });
+});
+
+describe("time units", () => {
+  // The hero's clock, its per-group stat rows, its caption, a lesson's
+  // "watching the brain" progress line, and a replay press's timestamp:
+  // every message that stamps a formatted duration into running text.
+  const TIME_KEYS = [
+    "landing.loop.clock",
+    "landing.loop.firstSpike",
+    "landing.loop.caption",
+    "viewer.lesson.puffClock",
+    "viewer.replay.tick",
+  ];
+  const sample = {
+    ms: "50.8",
+    cells: "2 cells",
+    spanMs: 64,
+    slowdown: 100,
+    elapsed: "123",
+    total: "200",
+    name: "Giant fiber",
+  };
+
+  it("never leaves a bare Latin ms/MS in the hero or a lesson, in he or ar", () => {
+    for (const locale of ["he", "ar"]) {
+      const flat = flatten(readCatalog(locale)!);
+      for (const key of TIME_KEYS) {
+        const template = flat.get(key);
+        assert.ok(template, `${locale} is missing ${key}`);
+        const text = fill(template!, sample);
+        assert.doesNotMatch(
+          text,
+          /\bms\b/i,
+          `${locale} ${key} keeps a bare Latin unit: ${text}`,
+        );
+      }
+    }
+  });
+
+  it("reads the given example exactly, in Hebrew", () => {
+    const clock = flatten(readCatalog("he")!).get("landing.loop.clock")!;
+    assert.equal(fill(clock, { ms: "50.8" }), "50.8 מ״ש של זמן זבוב");
   });
 });
 
