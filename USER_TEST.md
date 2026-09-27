@@ -5,7 +5,7 @@ One observer, one non-scientist, one phone, about 15 minutes. Print this and wri
 ## Before you start
 
 - [ ] If the tester is under 18, a parent or guardian has said yes. No video of their face. Notes only.
-- [ ] The phone is theirs or feels like theirs. It's charged, the brightness is up, and the page is loaded at the home URL.
+- [ ] The phone is theirs or feels like theirs. It's charged, the brightness is up, and the page is loaded at the lesson URL, `/modules/smell-memory`.
 - [ ] Hard refresh so the lesson starts at Step 1 of 5.
 - [ ] Read this out, then stop talking: _"This is a test of the app, not of you. Please say what you're thinking as you go, even 'I'm confused'. I can't help once you start."_
 - [ ] Start a timer when they first touch the screen.
