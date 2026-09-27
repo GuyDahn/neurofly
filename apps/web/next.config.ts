@@ -10,6 +10,8 @@ const dataLock = JSON.parse(
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // The code is open source, so production errors may as well be readable.
+  productionBrowserSourceMaps: true,
   transpilePackages: ["three"],
   outputFileTracingRoot: root,
   env: {

@@ -122,7 +122,7 @@ export function EscapeLoop({
           className="pointer-events-none absolute top-3 left-4 text-xs font-semibold tracking-[0.12em] text-zinc-400 uppercase tabular-nums"
         />
         {status === "loading" ? (
-          <p className="absolute inset-0 flex items-center justify-center text-sm text-zinc-500">
+          <p className="absolute inset-0 flex items-center justify-center text-sm text-zinc-400">
             {copy.loading}
           </p>
         ) : null}
@@ -184,13 +184,13 @@ export function EscapeLoop({
                 </span>
                 <span
                   data-detail=""
-                  className="min-h-4 text-xs text-zinc-500 tabular-nums"
+                  className="min-h-4 text-xs text-zinc-400 tabular-nums"
                 />
               </span>
             </li>
           ))}
         </ol>
-        <p className="text-xs leading-relaxed text-zinc-500">
+        <p className="text-xs leading-relaxed text-zinc-400">
           <RichText parts={copy.caption} newTab={newTab} />
         </p>
       </figcaption>

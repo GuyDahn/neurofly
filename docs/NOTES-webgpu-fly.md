@@ -1,6 +1,6 @@
 # Notes on abgnydn/webgpu-fly
 
-Read from a clone at `~/Projects/webgpu-fly` (outside this repo). Nothing from that project is copied into Neurofly.
+Read from a clone at `~/Projects/webgpu-fly` (outside this repo). Nothing from that project is copied into WiredMind.
 
 ## What it is
 
@@ -11,8 +11,8 @@ Read from a clone at `~/Projects/webgpu-fly` (outside this repo). Nothing from t
 | Piece                                             | License                                  | Reuse here                                                                |
 | ------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------- |
 | webgpu-fly code, including `src/shaders/lif.wgsl` | MIT, copyright 2026 Ahmet Baris Gunaydin | Not copied. MIT would allow a later port if the copyright notice is kept. |
-| TuragaLab flybody model (`LICENSE-FLYBODY`)       | Apache-2.0                               | Not used. Neurofly does not ship a body.                                  |
-| FlyWire / MANC data inside that app               | CC BY, separate from MaleCNS             | Not used. Neurofly's data is MaleCNS v1.0, also CC BY, from Janelia.      |
+| TuragaLab flybody model (`LICENSE-FLYBODY`)       | Apache-2.0                               | Not used. WiredMind does not ship a body.                                 |
+| FlyWire / MANC data inside that app               | CC BY, separate from MaleCNS             | Not used. WiredMind's data is MaleCNS v1.0, also CC BY, from Janelia.     |
 
 ## LIF kernel
 

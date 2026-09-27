@@ -26,6 +26,13 @@ const eslintConfig = [
     ],
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    // Share images render through Satori, which takes plain <img> and cannot
+    // use next/image. The Next plugin only exempts these files when ESLint
+    // runs from the app folder, not from the repo root.
+    files: ["apps/web/app/**/{opengraph-image,twitter-image}.tsx"],
+    rules: { "@next/next/no-img-element": "off" },
+  },
 ];
 
 export default eslintConfig;

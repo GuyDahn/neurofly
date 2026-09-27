@@ -64,11 +64,14 @@ export function Sheet({
     body.current?.scrollTo({ top: 0 });
   }, [state, moment]);
 
+  // At rest the body is sized in viewport units, so the server renders the
+  // sheet at its real height: the lesson text paints at once and nothing
+  // jumps when the page hydrates. A drag works in pixels of the window.
   const base = BODY_SHARE[state] * viewport;
   const height =
     drag === null
-      ? base
-      : Math.min(Math.max(base - drag, 0), BODY_SHARE.full * viewport);
+      ? `${BODY_SHARE[state] * 100}dvh`
+      : `${Math.round(Math.min(Math.max(base - drag, 0), BODY_SHARE.full * viewport))}px`;
 
   function onPointerDown(event: PointerEvent<HTMLButtonElement>) {
     start.current = { y: event.clientY, id: event.pointerId };
@@ -118,7 +121,7 @@ export function Sheet({
       </button>
       <div
         ref={body}
-        style={{ ["--sheet-body" as string]: `${Math.round(height)}px` }}
+        style={{ ["--sheet-body" as string]: height }}
         className={`max-h-(--sheet-body) min-h-0 overflow-y-auto overscroll-contain md:max-h-none md:flex-1 ${drag === null ? "transition-[max-height] duration-300 ease-out motion-reduce:transition-none" : ""}`}
       >
         <div className="flex flex-col gap-6 px-4 pt-1 pb-6 md:pt-4">

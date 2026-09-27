@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @source "../src";
 
+@theme {
+  /* The lesson's next button: only its outline breathes, never its label. */
+  --animate-cue: cue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes cue {
+    50% {
+      outline-color: rgb(255 255 255 / 0.15);
+    }
+  }
+}
+
 html {
   background: #09090b;
   color-scheme: dark;

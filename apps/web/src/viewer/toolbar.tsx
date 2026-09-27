@@ -44,7 +44,7 @@ export function Toolbar({ entry }: { entry: LessonEntry }) {
                   onClick={() => setOpen(false)}
                   className={`flex min-h-11 items-center gap-3 rounded-xl px-3 py-2 text-sm ${FOCUS_RING} ${current ? "bg-white/10 text-white" : "text-zinc-300 hover:bg-white/5"}`}
                 >
-                  <span className="w-5 text-zinc-500 tabular-nums">
+                  <span className="w-5 text-zinc-400 tabular-nums">
                     {item.number}
                   </span>
                   <span className="flex-1">{item.lesson.title}</span>

@@ -45,6 +45,16 @@ export function keepContext(neuron: number): boolean {
  * files and returns its path.
  */
 export async function bakeCascade(dataDir: string): Promise<string> {
+  const file = await buildCascade(dataDir);
+  const dest = path.join(dataDir, CASCADE_FILE);
+  const partial = `${dest}.partial`;
+  await writeFile(partial, JSON.stringify(file));
+  await rename(partial, dest);
+  return dest;
+}
+
+/** The cascade file for the escape circuit in `dataDir`, without writing it. */
+export async function buildCascade(dataDir: string): Promise<CascadeFile> {
   const entry = findLesson("escape");
   if (!entry) throw new Error("The escape lesson is missing.");
   const { module, lesson } = entry;
@@ -123,11 +133,7 @@ export async function bakeCascade(dataDir: string): Promise<string> {
     spikes,
     resolution: RESOLUTION,
   });
-  const dest = path.join(dataDir, CASCADE_FILE);
-  const partial = `${dest}.partial`;
-  await writeFile(partial, JSON.stringify(file));
-  await rename(partial, dest);
-  return dest;
+  return file;
 }
 
 function readNeuronFile(

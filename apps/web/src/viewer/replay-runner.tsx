@@ -140,13 +140,13 @@ export function ReplayRunner({
           {replay.actions.map((action, index) => (
             <li
               key={index}
-              className={`flex items-baseline gap-2 ${index < applied ? "text-zinc-200" : "text-zinc-500"}`}
+              className={`flex items-baseline gap-2 ${index < applied ? "text-zinc-200" : "text-zinc-400"}`}
             >
               <span className="w-5 shrink-0 text-right tabular-nums">
                 {index + 1}
               </span>
               <span className="flex-1">{describe(module, action.command)}</span>
-              <span className="shrink-0 text-xs text-zinc-500 tabular-nums">
+              <span className="shrink-0 text-xs text-zinc-400 tabular-nums">
                 {(action.tick / 10).toFixed(1)} ms
               </span>
             </li>

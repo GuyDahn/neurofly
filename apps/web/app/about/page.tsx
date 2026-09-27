@@ -3,26 +3,18 @@ import type { ReactNode } from "react";
 import { siteCopy } from "@/src/site/copy";
 import { SiteFooter } from "@/src/site/footer";
 import { SiteHeader } from "@/src/site/header";
+import { pageMetadata } from "@/src/site/page-meta";
 import { LINK_CLASS, RichText, SiteLink } from "@/src/site/rich-text";
 import { AUTHOR } from "@/src/site/site";
 import type { Rich } from "@/src/site/text";
 
 const copy = siteCopy();
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: copy.meta.aboutTitle,
   description: copy.meta.aboutDescription,
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: copy.about.title,
-    description: copy.meta.aboutDescription,
-    url: "/about",
-  },
-  twitter: {
-    title: copy.about.title,
-    description: copy.meta.aboutDescription,
-  },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   const { about, support, a11y } = copy;

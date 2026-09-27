@@ -113,7 +113,7 @@ export function Controls({
           Reset
         </button>
       )}
-      <p className="text-xs leading-relaxed text-zinc-500">
+      <p className="text-xs leading-relaxed text-zinc-400">
         Drag the brain to turn it. Pinch to zoom.
       </p>
     </>
@@ -168,7 +168,7 @@ function Activity({ module }: { module: ModuleSpec }) {
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-xs font-semibold tracking-[0.14em] text-zinc-500 uppercase">
+      <h2 className="text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
         {title}
       </h2>
       {children}
@@ -222,10 +222,11 @@ function LockIcon() {
 }
 
 // An outline, not a ring, so it survives the inline box-shadow a silenced
-// button already draws.
+// button already draws. Only the outline pulses, so the label keeps its
+// contrast the whole time.
 function cueClass(state: ControlState): string {
   return state === "cue"
-    ? "outline-4 outline-offset-4 outline-white/80 motion-safe:animate-pulse"
+    ? "outline-4 outline-offset-4 outline-white/80 motion-safe:animate-cue"
     : "";
 }
 
