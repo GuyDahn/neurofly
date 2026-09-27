@@ -308,6 +308,39 @@ describe("site copy", () => {
     assert.match(LINKS.translate, /CONTRIBUTING\.md#translations$/);
   });
 
+  it("points a lesson at the next one, or at the other two once there is no next", () => {
+    assert.equal(
+      LESSONS.length,
+      3,
+      "this test's lesson-by-lesson checks assume 3",
+    );
+    for (const entry of LESSONS) {
+      const after = LESSONS.find((item) => item.number === entry.number + 1);
+      if (entry.number < LESSONS.length) {
+        assert.ok(after, `lesson ${entry.number} has no next lesson`);
+      } else {
+        assert.equal(after, undefined, "the last lesson has no next lesson");
+      }
+    }
+    const [one, two, three] = LESSONS;
+    assert.equal(
+      LESSONS.find((item) => item.number === one!.number + 1)!.id,
+      two!.id,
+    );
+    assert.equal(
+      LESSONS.find((item) => item.number === two!.number + 1)!.id,
+      three!.id,
+    );
+    assert.equal(
+      LESSONS.find((item) => item.number === three!.number + 1),
+      undefined,
+    );
+    assert.deepEqual(
+      LESSONS.filter((item) => item.id !== three!.id).map((item) => item.id),
+      [one!.id, two!.id],
+    );
+  });
+
   it("says who made it", () => {
     const body = fill(message("about.who.body"), { author: AUTHOR.name });
     assert.match(body, /Guy Dahan/);

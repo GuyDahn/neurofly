@@ -315,15 +315,32 @@ function Footer({
     );
   }
   const after = LESSONS.find((item) => item.number === entry.number + 1);
-  return after ? (
-    <Link
-      href={localePath(locale, after.path)}
-      className={`${BUTTON} flex items-center justify-center gap-2 bg-accent text-accent-fg hover:bg-accent-hover`}
-    >
-      {t("nextLesson", { title: titles(`${after.id}.title`) })}
-    </Link>
-  ) : (
-    <p className="py-3 text-center text-sm text-fg-subtle">{t("finished")}</p>
+  if (after) {
+    return (
+      <Link
+        href={localePath(locale, after.path)}
+        className={`${BUTTON} flex items-center justify-center gap-2 bg-accent text-accent-fg hover:bg-accent-hover`}
+      >
+        {t("nextLesson", { title: titles(`${after.id}.title`) })}
+      </Link>
+    );
+  }
+  const others = LESSONS.filter((item) => item.id !== entry.id);
+  return (
+    <div className="flex flex-col gap-2">
+      <p className="text-center text-sm text-fg-subtle">{t("finished")}</p>
+      <div role="group" aria-label={t("moreLessons")} className="flex gap-2">
+        {others.map((item) => (
+          <Link
+            key={item.id}
+            href={localePath(locale, item.path)}
+            className={`${BUTTON} flex-1 border border-border-strong text-fg-muted hover:bg-overlay`}
+          >
+            {titles(`${item.id}.title`)}
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }
 

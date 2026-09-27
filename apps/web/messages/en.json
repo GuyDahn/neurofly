@@ -39,7 +39,9 @@
       "nav.themeLight",
       "nav.themeDark",
       "footer.feedback",
-      "landing.teachers.feedback"
+      "landing.teachers.feedback",
+      "viewer.lesson.finished",
+      "viewer.lesson.moreLessons"
     ]
   },
   "meta": {
@@ -509,7 +511,8 @@
       "freePlay": "Start free play",
       "pickAnswer": "Pick the answer you think is right.",
       "nextLesson": "Next lesson: {title}",
-      "finished": "You finished every lesson. Keep exploring.",
+      "finished": "That’s the last lesson.",
+      "moreLessons": "More lessons",
       "cueStimulate": "Stimulate",
       "cueSilence": "Silence",
       "cueSwitchOn": "Switch on",
