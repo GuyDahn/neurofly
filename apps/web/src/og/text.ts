@@ -36,7 +36,7 @@ export type ShapingFont = {
   paths: Map<number, string>;
 };
 
-export async function shapingFont(data: ArrayBuffer): Promise<ShapingFont> {
+export async function shapingFont(data: Uint8Array): Promise<ShapingFont> {
   const hb = await harfbuzz();
   const face = new hb.Face(new hb.Blob(data));
   const font = new hb.Font(face);

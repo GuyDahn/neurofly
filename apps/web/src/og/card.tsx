@@ -6,7 +6,7 @@ import { cascadeSvg } from "../site/cascade-svg.js";
 import type { SharePage } from "../site/page-meta.js";
 import { SITE_NAME, SITE_URL } from "../site/site.js";
 import { fontsFor } from "./fonts.js";
-import { shareCard, SHARE_PAGES } from "./share-card.js";
+import { shareCard } from "./share-card.js";
 import { textImage, type TextImage } from "./text.js";
 
 export const CARD_SIZE = { width: 1200, height: 630 };
@@ -37,18 +37,10 @@ async function cascadeArt(): Promise<string | null> {
 type Lines = { title: TextImage; subtitle: TextImage; label: TextImage | null };
 
 async function shapeCard(locale: Locale, page: SharePage): Promise<Lines> {
-  const cards = await Promise.all(
-    SHARE_PAGES.map((each) => shareCard(locale, each)),
-  );
-  const card = cards[SHARE_PAGES.indexOf(page)];
-  if (!card) throw new Error(`No share card for ${page}`);
-  // Every card's words at once, so the language's fonts download once.
-  const text = cards
-    .flatMap((each) => [each.title, each.subtitle, each.label ?? ""])
-    .join("");
-  const [bold, regular] = await Promise.all([
-    fontsFor(locale, 600, text),
-    fontsFor(locale, 400, text),
+  const [card, bold, regular] = await Promise.all([
+    shareCard(locale, page),
+    fontsFor(locale, 600),
+    fontsFor(locale, 400),
   ]);
   const rtl = direction(locale) === "rtl";
   const common = { rtl, locale, maxWidth: COLUMN };

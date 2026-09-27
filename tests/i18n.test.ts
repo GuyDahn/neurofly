@@ -31,6 +31,10 @@ import {
   shapeOf,
   unreviewedKeys,
 } from "../scripts/i18n/catalog.js";
+import {
+  shareCardChars,
+  shareFontIssues,
+} from "../scripts/i18n/share-fonts.js";
 
 const en = flatten(readCatalog("en")!);
 const glossary = readGlossary();
@@ -388,5 +392,38 @@ describe("share image text", () => {
     assert.equal(ja.join(""), "ハエはどうやってにおいを覚えるのか");
     const zh = breakPieces("苍蝇如何记住一种气味，", "zh-CN");
     assert.ok(!zh.some((piece) => piece.startsWith("，")), zh.join("|"));
+  });
+
+  it("reads every branch's words and the digits a number can take", () => {
+    const chars = shareCardChars(
+      new Map([
+        [
+          "og.lessonLabel",
+          "{number, plural, one {Lesson #} other {Lessons #}}",
+        ],
+        ["og.alt", "Ω {title}"],
+        ["landing.title", "Ж"],
+      ]),
+      "ar-u-nu-arab",
+    );
+    for (const char of "Lesons 3٣") assert.ok(chars.has(char), char);
+    for (const char of "{}#ΩЖ") assert.ok(!chars.has(char), char);
+    assert.equal(chars.get("s"), "og.lessonLabel");
+  });
+
+  it("has fonts that draw every card in every language", () => {
+    for (const locale of LOCALES) {
+      const flat = flatten(readCatalog(locale)!);
+      assert.deepEqual(shareFontIssues(locale, flat), [], locale);
+    }
+  });
+
+  it("names the message that needs a character the fonts lack", () => {
+    const ja = flatten(readCatalog("ja")!);
+    ja.set("lessons.escape.title", `${ja.get("lessons.escape.title")}鬱`);
+    const issues = shareFontIssues("ja", ja);
+    assert.equal(issues.length, 1);
+    assert.equal(issues[0]!.key, "lessons.escape.title");
+    assert.match(issues[0]!.message, /鬱 \(U\+9B31\).*pnpm og:fonts/);
   });
 });

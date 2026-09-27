@@ -1,4 +1,8 @@
-import { LOCALES, DEFAULT_LOCALE } from "../apps/web/src/i18n/locales.js";
+import {
+  LOCALES,
+  DEFAULT_LOCALE,
+  type Locale,
+} from "../apps/web/src/i18n/locales.js";
 import {
   catalogLocales,
   checkSource,
@@ -10,15 +14,17 @@ import {
   unreviewedKeys,
   type Issue,
 } from "./i18n/catalog.js";
+import { shareFontIssues } from "./i18n/share-fonts.js";
 
 /**
  * pnpm i18n:check [--locale he] [--unreviewed]
  *
  * Holds every messages file to English: the same keys, valid ICU with the
  * same placeholders, tags, and plural forms, the glossary's terms, the
- * brand, the numbers, and search-length titles. Fails on any error, so CI
- * never ships a missing or broken string. Drafts that no reviewer has
- * signed off pass, and are listed.
+ * brand, the numbers, and search-length titles, and makes sure the share
+ * images' fonts can draw every character. Fails on any error, so CI never
+ * ships a missing or broken string. Drafts that no reviewer has signed off
+ * pass, and are listed.
  */
 
 const args = process.argv.slice(2);
@@ -73,6 +79,7 @@ for (const locale of locales) {
           meta: catalog._meta,
           glossary,
         });
+  if (isLive(locale)) issues.push(...shareFontIssues(locale as Locale, flat));
   const unreviewed = unreviewedKeys(catalog._meta, flat);
   const status =
     locale === DEFAULT_LOCALE

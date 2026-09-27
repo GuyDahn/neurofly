@@ -18,7 +18,8 @@
     "format": "prettier --write .",
     "prepare": "node scripts/install-git-hooks.mjs",
     "i18n:check": "tsx scripts/i18n-check.ts",
-    "i18n:draft": "tsx scripts/i18n-draft.ts"
+    "i18n:draft": "tsx scripts/i18n-draft.ts",
+    "og:fonts": "tsx scripts/og-fonts.ts"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.128.0",
