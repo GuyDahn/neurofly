@@ -72,7 +72,11 @@ export function frameBox(
   for (const x of [box.min.x, box.max.x]) {
     for (const y of [box.min.y, box.max.y]) {
       for (const z of [box.min.z, box.max.z]) {
-        const rel: Point3 = { x: x - center.x, y: y - center.y, z: z - center.z };
+        const rel: Point3 = {
+          x: x - center.x,
+          y: y - center.y,
+          z: z - center.z,
+        };
         const r = dot(rel, right);
         const u = dot(rel, up);
         minRight = Math.min(minRight, r);

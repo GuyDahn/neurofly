@@ -174,8 +174,7 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
     paths: built.paths,
     bounds: built.bounds,
     frameBounds:
-      boxForGroups(built.paths, assigned.groups, module.frame) ??
-      built.bounds,
+      boxForGroups(built.paths, assigned.groups, module.frame) ?? built.bounds,
     compass,
     dispose() {
       built.geometry.dispose();
