@@ -16,9 +16,11 @@ export function useCircuitCopy(module: ModuleSpec) {
 /** Each jargon term in bold, its gloss as a quiet aside. */
 const GLOSS = {
   term: (chunks: ReactNode) => (
-    <strong className="font-semibold text-white">{chunks}</strong>
+    <strong className="font-semibold text-fg">{chunks}</strong>
   ),
-  gloss: (chunks: ReactNode) => <span className="text-zinc-400">{chunks}</span>,
+  gloss: (chunks: ReactNode) => (
+    <span className="text-fg-subtle">{chunks}</span>
+  ),
 };
 
 /** A lesson's words, from lessons.<id>, with its <term> and <gloss> markup drawn. */

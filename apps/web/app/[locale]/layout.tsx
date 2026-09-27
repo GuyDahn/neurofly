@@ -7,6 +7,7 @@ import { SiteAnalytics } from "@/src/site/analytics";
 import { ERROR_COPY_ID, type ErrorCopy } from "@/src/site/error-copy";
 import { jsonLdScript } from "@/src/site/json-ld";
 import { AUTHOR, SITE_NAME, SITE_URL } from "@/src/site/site";
+import { THEME_INIT_SCRIPT } from "@/src/site/theme";
 import "../globals.css";
 
 // Every live language is built ahead of time. The middleware sends anything
@@ -37,7 +38,10 @@ export async function generateMetadata({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#09090b",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+  ],
   viewportFit: "cover",
 };
 
@@ -62,7 +66,11 @@ export default async function LocaleLayout({
   // from this inert JSON instead.
   return (
     <html lang={locale} dir={direction(locale)}>
-      <body className="bg-zinc-950 text-zinc-100 antialiased">
+      <body className="bg-canvas text-fg antialiased">
+        <script
+          id="theme-init"
+          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        />
         {children}
         <script
           id={ERROR_COPY_ID}

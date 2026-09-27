@@ -85,12 +85,12 @@ export function LessonCredits({ locale }: { locale: Locale }) {
 export async function SiteFooter({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale });
   return (
-    <footer className="border-t border-white/10">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-zinc-400 sm:px-6">
+    <footer className="border-t border-border">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-fg-subtle sm:px-6">
         <DataCredit locale={locale} />
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <CreditLine locale={locale} coffee />
-          <p className="text-xs text-zinc-400">
+          <p className="text-xs text-fg-subtle">
             <Link href={localePath(locale, "/about")} className={LINK_CLASS}>
               {t("footer.about")}
             </Link>

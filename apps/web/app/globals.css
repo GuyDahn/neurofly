@@ -1,19 +1,62 @@
 @import "tailwindcss";
 @source "../src";
 
+/* A manual light/dark switch, layered on top of Tailwind's default
+   system-preference variant: `.dark` on <html>, set by the inline script
+   in the root layout before paint. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* The lesson's next button: only its outline breathes, never its label. */
   --animate-cue: cue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
   @keyframes cue {
     50% {
-      outline-color: rgb(255 255 255 / 0.15);
+      outline-color: color-mix(in srgb, var(--color-ring) 15%, transparent);
     }
   }
+
+  /* Every color below has a light value here and a dark override further
+     down, so a component reaches for `bg-canvas`/`text-fg`/etc. once and
+     gets the right shade in both themes, rather than pairing a literal
+     Tailwind color with a `dark:` variant at every call site. */
+  --color-canvas: #ffffff;
+  --color-surface: #f4f4f5;
+  --color-fg: #09090b;
+  --color-fg-muted: #3f3f46;
+  --color-fg-subtle: #52525b;
+  --color-border: rgb(9 9 11 / 0.1);
+  --color-border-strong: rgb(9 9 11 / 0.2);
+  --color-overlay: rgb(9 9 11 / 0.05);
+  --color-overlay-strong: rgb(9 9 11 / 0.1);
+  --color-accent: #18181b;
+  --color-accent-fg: #fafafa;
+  --color-accent-hover: #000000;
+  --color-ring: #09090b;
+}
+
+.dark {
+  --color-canvas: #09090b;
+  --color-surface: #18181b;
+  --color-fg: #fafafa;
+  --color-fg-muted: #d4d4d8;
+  --color-fg-subtle: #a1a1aa;
+  --color-border: rgb(255 255 255 / 0.1);
+  --color-border-strong: rgb(255 255 255 / 0.2);
+  --color-overlay: rgb(255 255 255 / 0.05);
+  --color-overlay-strong: rgb(255 255 255 / 0.1);
+  --color-accent: #fafafa;
+  --color-accent-fg: #09090b;
+  --color-accent-hover: #ffffff;
+  --color-ring: #ffffff;
 }
 
 html {
-  background: #09090b;
+  background: var(--color-canvas);
+  color-scheme: light;
+}
+
+html.dark {
   color-scheme: dark;
 }
 

@@ -79,7 +79,7 @@ export function Viewer({
   }
 
   return (
-    <div className="flex h-dvh flex-col overflow-hidden bg-zinc-950 text-zinc-100 scheme-dark md:flex-row">
+    <div className="flex h-dvh flex-col overflow-hidden bg-canvas text-fg md:flex-row">
       {shared ? (
         <ReplayRunner
           key={`${shared.entry.id}-replay`}

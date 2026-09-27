@@ -170,30 +170,30 @@ export function ModuleRunner({
       {notice ? (
         <p
           role="status"
-          className="rounded-xl bg-amber-400/10 px-3 py-2 text-sm text-amber-100"
+          className="rounded-xl bg-amber-500/10 px-3 py-2 text-sm text-amber-900 dark:bg-amber-400/10 dark:text-amber-100"
         >
           {notice}
         </p>
       ) : null}
       <section
         aria-label={copy.plain("title")}
-        className="flex flex-col gap-4 rounded-2xl bg-white/[0.06] p-4"
+        className="flex flex-col gap-4 rounded-2xl bg-overlay-strong p-4"
       >
         <Progress lesson={lesson} phase={phase} />
         {phase.kind === "step" && step ? (
           <>
-            <p className="text-lg leading-snug text-zinc-50">
+            <p className="text-lg leading-snug text-fg">
               {copy.rich(`steps.${step.id}.text`)}
             </p>
             <div aria-live="polite" className="flex flex-col gap-4">
               {revealed ? (
-                <p className="border-s-4 border-white/40 ps-3 text-base leading-snug text-zinc-200">
+                <p className="border-s-4 border-fg/40 ps-3 text-base leading-snug text-fg-muted">
                   {copy.rich(`steps.${step.id}.result`)}
                 </p>
               ) : phase.done ? (
-                <p className="text-sm text-zinc-400">{t("watching")}</p>
+                <p className="text-sm text-fg-subtle">{t("watching")}</p>
               ) : (
-                <p className="text-sm text-zinc-400">{t("tapCue")}</p>
+                <p className="text-sm text-fg-subtle">{t("tapCue")}</p>
               )}
             </div>
           </>
@@ -207,10 +207,10 @@ export function ModuleRunner({
         ) : null}
         {phase.kind === "free" ? (
           <>
-            <h2 className="text-lg font-semibold text-zinc-50">
+            <h2 className="text-lg font-semibold text-fg">
               {copy.plain("freePlay.title")}
             </h2>
-            <p className="text-base leading-snug text-zinc-200">
+            <p className="text-base leading-snug text-fg-muted">
               {copy.rich("freePlay.text")}
             </p>
           </>
@@ -219,7 +219,7 @@ export function ModuleRunner({
           <button
             type="button"
             onClick={startOver}
-            className="self-start text-sm text-zinc-400 underline underline-offset-4 hover:text-zinc-200"
+            className="self-start text-sm text-fg-subtle underline underline-offset-4 hover:text-fg-muted"
           >
             {t("again")}
           </button>
@@ -251,7 +251,7 @@ export function PanelTranslateNotice() {
 export function PanelCredit({ children }: { children?: ReactNode }) {
   if (!children) return null;
   return (
-    <div className="border-t border-white/10 pt-4 text-xs text-zinc-400">
+    <div className="border-t border-border pt-4 text-xs text-fg-subtle">
       {children}
     </div>
   );
@@ -293,7 +293,7 @@ function Footer({
       <button
         type="button"
         onClick={onNext}
-        className={`${BUTTON} bg-zinc-50 text-zinc-950 hover:bg-white`}
+        className={`${BUTTON} bg-accent text-accent-fg hover:bg-accent-hover`}
       >
         {phase.index + 1 < lesson.steps.length ? t("next") : t("question")}
       </button>
@@ -304,12 +304,12 @@ function Footer({
       <button
         type="button"
         onClick={onFree}
-        className={`${BUTTON} bg-zinc-50 text-zinc-950 hover:bg-white`}
+        className={`${BUTTON} bg-accent text-accent-fg hover:bg-accent-hover`}
       >
         {t("freePlay")}
       </button>
     ) : (
-      <p className="py-3 text-center text-sm text-zinc-400">
+      <p className="py-3 text-center text-sm text-fg-subtle">
         {t("pickAnswer")}
       </p>
     );
@@ -318,12 +318,12 @@ function Footer({
   return after ? (
     <Link
       href={localePath(locale, after.path)}
-      className={`${BUTTON} flex items-center justify-center gap-2 bg-zinc-50 text-zinc-950 hover:bg-white`}
+      className={`${BUTTON} flex items-center justify-center gap-2 bg-accent text-accent-fg hover:bg-accent-hover`}
     >
       {t("nextLesson", { title: titles(`${after.id}.title`) })}
     </Link>
   ) : (
-    <p className="py-3 text-center text-sm text-zinc-400">{t("finished")}</p>
+    <p className="py-3 text-center text-sm text-fg-subtle">{t("finished")}</p>
   );
 }
 
@@ -360,7 +360,7 @@ function CueButton({
       disabled={!ready}
       data-cue=""
       onClick={() => press(action, onAction)}
-      className={`flex min-h-14 w-full touch-manipulation items-center gap-3 rounded-2xl px-4 py-2.5 text-start transition-transform active:scale-[0.99] disabled:opacity-50 ${FOCUS_RING} ${filled ? "text-zinc-950" : "border-2 bg-white/5 text-zinc-50"}`}
+      className={`flex min-h-14 w-full touch-manipulation items-center gap-3 rounded-2xl px-4 py-2.5 text-start transition-transform active:scale-[0.99] disabled:opacity-50 ${FOCUS_RING} ${filled ? "text-zinc-950" : "border-2 bg-overlay text-fg"}`}
       style={filled ? { backgroundColor: color } : { borderColor: color }}
     >
       <span className="flex flex-1 flex-col">
@@ -394,7 +394,7 @@ function Watching({
   const name = puff ? circuit.name(puff.colorGroup) : null;
   return (
     <div className="flex flex-col gap-2 py-1" aria-live="polite">
-      <p className="flex items-center gap-2 text-base font-semibold text-zinc-50">
+      <p className="flex items-center gap-2 text-base font-semibold text-fg">
         <span aria-hidden="true" className="md:hidden">
           ↑
         </span>
@@ -409,14 +409,14 @@ function Watching({
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round(fraction * 100)}
-        className="h-1.5 overflow-hidden rounded-full bg-white/10"
+        className="h-1.5 overflow-hidden rounded-full bg-overlay-strong"
       >
         <div
-          className="h-full rounded-full bg-zinc-50 transition-[width] duration-100 ease-linear"
+          className="h-full rounded-full bg-accent transition-[width] duration-100 ease-linear"
           style={{ width: `${fraction * 100}%` }}
         />
       </div>
-      <p className="text-xs text-zinc-400 tabular-nums">
+      <p className="text-xs text-fg-subtle tabular-nums">
         {name && puff
           ? t("puffClock", {
               name,
@@ -452,14 +452,14 @@ function Progress({
         : t("done");
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
+      <p className="text-xs font-semibold tracking-[0.14em] text-fg-subtle uppercase">
         {label}
       </p>
       <div className="flex gap-1.5" aria-hidden="true">
         {Array.from({ length: total }, (_, index) => (
           <span
             key={index}
-            className={`h-1.5 flex-1 rounded-full ${index < at ? "bg-zinc-50" : index === at ? "bg-zinc-400" : "bg-white/15"}`}
+            className={`h-1.5 flex-1 rounded-full ${index < at ? "bg-accent" : index === at ? "bg-fg-subtle" : "bg-overlay-strong"}`}
           />
         ))}
       </div>
@@ -495,7 +495,7 @@ function Check({
   }, [picked]);
   return (
     <>
-      <p className="text-lg leading-snug text-zinc-50">
+      <p className="text-lg leading-snug text-fg">
         {copy.rich("check.question")}
       </p>
       <div
@@ -506,10 +506,10 @@ function Check({
         {lesson.check.choices.map((item, index) => {
           const chosen = picked === index;
           const tone = !chosen
-            ? "border-white/15 bg-white/5 text-zinc-100"
+            ? "border-border-strong bg-overlay text-fg"
             : item.correct
-              ? "border-emerald-400 bg-emerald-400/15 text-zinc-50"
-              : "border-amber-400 bg-amber-400/10 text-zinc-50";
+              ? "border-emerald-400 bg-emerald-400/15 text-fg"
+              : "border-amber-400 bg-amber-400/10 text-fg";
           return (
             <button
               key={item.id}
@@ -526,7 +526,7 @@ function Check({
       </div>
       <div ref={feedbackRef} aria-live="polite" className="scroll-mb-4">
         {choice ? (
-          <p className="text-base leading-snug text-zinc-200">
+          <p className="text-base leading-snug text-fg-muted">
             {copy.rich(`check.choices.${choice.id}.feedback`)}
             {/* A margin, not a space: Chinese and Japanese put none between sentences. */}
             {solved ? null : <span className="ms-1">{t("tryAnother")}</span>}

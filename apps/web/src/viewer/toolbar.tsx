@@ -23,7 +23,7 @@ export function Toolbar({ entry }: { entry: LessonEntry }) {
           aria-expanded={open}
           aria-controls="lesson-list"
           onClick={() => setOpen((value) => !value)}
-          className={`flex min-h-10 items-center gap-2 rounded-full border border-white/15 px-3.5 text-sm font-semibold text-zinc-200 hover:bg-white/5 ${FOCUS_RING}`}
+          className={`flex min-h-10 items-center gap-2 rounded-full border border-border-strong px-3.5 text-sm font-semibold text-fg-muted hover:bg-overlay ${FOCUS_RING}`}
         >
           {t("lessonOf", { number: entry.number, total: LESSONS.length })}
           <svg
@@ -47,9 +47,9 @@ export function Toolbar({ entry }: { entry: LessonEntry }) {
                   href={localePath(locale, item.path)}
                   aria-current={current ? "page" : undefined}
                   onClick={() => setOpen(false)}
-                  className={`flex min-h-11 items-center gap-3 rounded-xl px-3 py-2 text-sm ${FOCUS_RING} ${current ? "bg-white/10 text-white" : "text-zinc-300 hover:bg-white/5"}`}
+                  className={`flex min-h-11 items-center gap-3 rounded-xl px-3 py-2 text-sm ${FOCUS_RING} ${current ? "bg-overlay-strong text-fg" : "text-fg-muted hover:bg-overlay"}`}
                 >
-                  <span className="w-5 text-zinc-400 tabular-nums">
+                  <span className="w-5 text-fg-subtle tabular-nums">
                     {item.number}
                   </span>
                   <span className="flex-1">{titles(`${item.id}.title`)}</span>
@@ -108,7 +108,7 @@ export function ShareButton({ entry }: { entry: LessonEntry }) {
       <button
         type="button"
         onClick={() => void share()}
-        className={`flex min-h-10 items-center gap-2 rounded-full bg-white/10 px-3.5 text-sm font-semibold text-zinc-100 hover:bg-white/15 ${FOCUS_RING}`}
+        className={`flex min-h-10 items-center gap-2 rounded-full bg-overlay-strong px-3.5 text-sm font-semibold text-fg hover:bg-fg/15 ${FOCUS_RING}`}
       >
         <svg
           aria-hidden="true"
@@ -122,10 +122,10 @@ export function ShareButton({ entry }: { entry: LessonEntry }) {
       </button>
       <div
         aria-live="polite"
-        className="absolute end-0 top-full z-10 mt-2 flex w-64 flex-col items-end gap-2 text-end text-xs text-zinc-300"
+        className="absolute end-0 top-full z-10 mt-2 flex w-64 flex-col items-end gap-2 text-end text-xs text-fg-muted"
       >
         {note ? (
-          <p className="rounded-lg bg-zinc-800 px-2.5 py-1.5 shadow-lg">
+          <p className="rounded-lg bg-surface px-2.5 py-1.5 shadow-lg">
             {note}
           </p>
         ) : null}
@@ -137,7 +137,7 @@ export function ShareButton({ entry }: { entry: LessonEntry }) {
             aria-label={t("linkLabel")}
             dir="ltr"
             onFocus={(event) => event.currentTarget.select()}
-            className="w-64 rounded-lg border border-white/15 bg-zinc-950 px-2 py-1.5 text-xs text-zinc-200"
+            className="w-64 rounded-lg border border-border-strong bg-surface px-2 py-1.5 text-xs text-fg-muted"
           />
         ) : null}
       </div>

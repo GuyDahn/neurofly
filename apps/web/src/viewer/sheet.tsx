@@ -102,7 +102,7 @@ export function Sheet({
   return (
     <section
       aria-label={label}
-      className="relative z-10 order-2 flex w-full shrink-0 flex-col rounded-t-3xl border-t border-white/10 bg-zinc-900 shadow-[0_-12px_32px_rgb(0_0_0/0.45)] md:order-1 md:h-full md:w-96 md:rounded-none md:border-t-0 md:border-e md:bg-zinc-950 md:shadow-none"
+      className="relative z-10 order-2 flex w-full shrink-0 flex-col rounded-t-3xl border-t border-border bg-surface shadow-[0_-12px_32px_rgb(0_0_0/0.18)] md:order-1 md:h-full md:w-96 md:rounded-none md:border-t-0 md:border-e md:shadow-none dark:shadow-[0_-12px_32px_rgb(0_0_0/0.45)]"
     >
       <button
         type="button"
@@ -117,9 +117,9 @@ export function Sheet({
           event.preventDefault();
           onState(settle(state, 0, base, viewport));
         }}
-        className="flex h-7 w-full shrink-0 touch-none items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white md:hidden"
+        className="flex h-7 w-full shrink-0 touch-none items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring md:hidden"
       >
-        <span className="h-1.5 w-10 rounded-full bg-white/30" />
+        <span className="h-1.5 w-10 rounded-full bg-fg/20" />
       </button>
       <div
         ref={body}
@@ -130,7 +130,7 @@ export function Sheet({
           {children}
         </div>
       </div>
-      <div className="shrink-0 border-t border-white/10 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+      <div className="shrink-0 border-t border-border px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
         {footer}
       </div>
     </section>

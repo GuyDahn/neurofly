@@ -76,7 +76,9 @@
     "home": "WiredMind home",
     "lessons": "Lessons",
     "teachers": "For teachers",
-    "about": "About"
+    "about": "About",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
   },
   "a11y": {
     "skip": "Skip to content",
