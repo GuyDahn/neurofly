@@ -103,7 +103,7 @@ Neuron data is MaleCNS v1.0 from [HHMI Janelia FlyEM](https://www.janelia.org/pr
 
 The simulator uses the neuron model and parameters of Shiu, P. K., et al. (2024). A _Drosophila_ computational brain model reveals sensorimotor processing. _Nature_ 634, 210–219. https://doi.org/10.1038/s41586-024-07763-9
 
-Built by Guy Dahan. The code is MIT licensed; see [LICENSE](LICENSE). WiredMind is free and always will be. If it helped your class, [coffee keeps the server humming](https://buymeacoffee.com/guydahn).
+Built by [Guy Dahan](https://guy-dev.com). The code is MIT licensed; see [LICENSE](LICENSE). WiredMind is free and always will be. If it helped your class, [coffee keeps the server humming](https://buymeacoffee.com/guydahn).
 
 ## Built with
 

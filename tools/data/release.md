@@ -4,7 +4,7 @@ Run this from the repository root after `uv run --directory tools/data make-data
 
 ```bash
 gh release create data-v1 \
-  --repo GuyDahn/neurofly \
+  --repo GuyDahn/wiredmind-edu \
   --title "data-v1" \
   --notes "MaleCNS v1.0 classroom subcircuits (olfactory, visual navigation, escape). CC BY 4.0. Skeletons are simplified and Draco-compressed; synapse counts are the anatomical weights." \
   tools/data/dist/escape.glb \

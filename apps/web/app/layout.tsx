@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description: copy.meta.description,
   applicationName: SITE_NAME,
-  authors: [{ name: AUTHOR.name, url: `${SITE_URL}/about#who-made-this` }],
+  authors: [{ name: AUTHOR.name, url: AUTHOR.website }],
   creator: AUTHOR.name,
   publisher: AUTHOR.name,
   category: "education",
