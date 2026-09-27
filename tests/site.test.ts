@@ -270,7 +270,7 @@ describe("site copy", () => {
   it("says who made it", () => {
     assert.match(copy.about.who.body, /Guy Dahan/);
     assert.match(copy.about.who.body, /Tel Aviv/);
-    assert.match(copy.about.who.body, /October 2026/);
+    assert.match(copy.about.who.body, /September 2026/);
     assert.equal(copy.about.who.github.href, AUTHOR.github);
     assert.deepEqual(copy.about.who.website, {
       text: "guy-dev.com",
