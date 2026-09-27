@@ -34,5 +34,9 @@
     "prettier": "^3.6.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
+  },
+  "funding": {
+    "type": "buymeacoffee",
+    "url": "https://buymeacoffee.com/guydahn"
   }
 }

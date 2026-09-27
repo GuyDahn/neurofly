@@ -43,7 +43,7 @@ Every page and every lesson is served in 18 languages, each at its own indexed a
 
 **Next in line.** فارسی, اردو, Українська, বাংলা, ไทย, Bahasa Melayu, Filipino, Kiswahili, தமிழ், తెలుగు, मराठी, Svenska, Dansk, Norsk bokmål, Suomi, Čeština, Ελληνικά, Română, Magyar, Català, and 繁體中文 already have addresses. `/fa/about` serves the English page with a note asking for help, stays out of search results, and switches over (right to left, for Persian and Urdu) the day its translation passes the check.
 
-**How translations are made.** English in [apps/web/messages/en.json](apps/web/messages/en.json) is the source. `pnpm i18n:draft <locale>` drafts a language with Claude from English, a [glossary](apps/web/i18n/glossary.json) of terms every language must use the same way, and a per-language [style guide](apps/web/i18n/style-guide.json). `pnpm i18n:check` then holds every file to English: the same keys, valid ICU messages with the same placeholders and plural forms, the glossary's terms, the brand, the same numbers, and titles short enough for a search result. CI fails on any missing or broken string. Machine drafts stay marked unreviewed until a native speaker signs them off, and that review is the most useful contribution a bilingual teacher can make.
+**How translations are made.** English in [apps/web/messages/en.json](apps/web/messages/en.json) is the source. `pnpm i18n:draft <locale>` drafts a language with Claude from English, a [glossary](apps/web/i18n/glossary.json) of terms every language must use the same way, and a per-language [style guide](apps/web/i18n/style-guide.json). `pnpm i18n:check` then holds every file to English: the same keys, valid ICU messages with the same placeholders and plural forms, the glossary's terms, the brand, the same numbers, and titles short enough for a search result. CI fails on any missing or broken string. Machine drafts stay marked unreviewed until a native speaker signs them off, and that review is the most useful contribution a bilingual teacher can make. [CONTRIBUTING.md#translations](CONTRIBUTING.md#translations) walks through fixing a string, reviewing a language, and adding a new one.
 
 ## Run it locally
 
@@ -81,6 +81,7 @@ The pipeline is data → subcircuit → simulation → viewer. A Python pipeline
 | `/<lang>/modules/compass`      | Lesson 2                                                                                                     |
 | `/<lang>/modules/escape`       | Lesson 3                                                                                                     |
 | `/<lang>/about`                | What's real and what's simplified, credits, who made it, and how to support it                               |
+| `/sitemap.xml`                 | Sitemap index: one sitemap per language, each page listing every language's copy                             |
 | `/sim-bench`                   | Simulator speed on your machine, for developers (not indexed)                                                |
 
 Addresses from before the site had languages, such as `/about`, redirect to their English page.
@@ -192,6 +193,12 @@ The simulator uses the neuron model and parameters of:
 The Draco decoder in `apps/web/public/draco/` is Google's glTF build (Apache-2.0), copied unchanged from three.js 0.169.0. Nothing else is vendored. [docs/NOTES-webgpu-fly.md](docs/NOTES-webgpu-fly.md) records what in [abgnydn/webgpu-fly](https://github.com/abgnydn/webgpu-fly) (MIT) could be ported later; none of that code was copied.
 
 Built with [Next.js](https://nextjs.org/), [three.js](https://threejs.org/), [Tailwind CSS](https://tailwindcss.com/), and [Vercel](https://vercel.com/).
+
+## Support
+
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/guydahn)
+
+WiredMind is free and always will be. If it helped your class, [coffee keeps the server humming](https://buymeacoffee.com/guydahn). You can also help by [reviewing or adding a translation](CONTRIBUTING.md#translations).
 
 ## License
 
