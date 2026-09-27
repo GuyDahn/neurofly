@@ -12,7 +12,7 @@ export const alt = copy.meta.shareAlt;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const ART = { width: 760, height: 475 };
+const ART = { width: 690, height: 431 };
 
 const MARK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#38BDF8"/><stop offset="0.55" stop-color="#F87171"/><stop offset="1" stop-color="#FACC15"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="#18181b"/><path d="M4.5 18.5h6.5l2.6-11 3.6 17 2.4-9.5h7.9" fill="none" stroke="url(#g)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
@@ -44,19 +44,19 @@ export default async function OpenGraphImage() {
         height: "100%",
         display: "flex",
         position: "relative",
-        background:
-          "radial-gradient(circle at 78% 40%, rgba(56,189,248,0.16), rgba(9,9,11,0) 55%), #09090b",
+        backgroundColor: "#09090b",
+        backgroundImage:
+          "radial-gradient(circle at 78% 40%, rgba(56,189,248,0.16), rgba(9,9,11,0) 55%)",
         color: "#fafafa",
       }}
     >
       {art ? (
-        // eslint-disable-next-line @next/next/no-img-element
         <img
           alt=""
           src={art}
           width={ART.width}
           height={ART.height}
-          style={{ position: "absolute", right: 8, top: 96 }}
+          style={{ position: "absolute", right: 4, top: 118 }}
         />
       ) : null}
       <div
@@ -70,7 +70,6 @@ export default async function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img alt="" src={dataUri(MARK)} width={56} height={56} />
           <div style={{ fontSize: 40, letterSpacing: -1 }}>{SITE_NAME}</div>
         </div>
