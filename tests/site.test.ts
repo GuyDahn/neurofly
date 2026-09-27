@@ -272,6 +272,10 @@ describe("site copy", () => {
     assert.match(copy.about.who.body, /Tel Aviv/);
     assert.match(copy.about.who.body, /October 2026/);
     assert.equal(copy.about.who.github.href, AUTHOR.github);
+    assert.deepEqual(copy.about.who.website, {
+      text: "guy-dev.com",
+      href: "https://guy-dev.com",
+    });
   });
 
   it("fills templates and leaves unknown names alone", () => {
@@ -298,6 +302,7 @@ describe("site metadata", () => {
     const website = byType("WebSite");
     const organization = byType("Organization");
     assert.equal(person.name, "Guy Dahan");
+    assert.equal(person.url, "https://guy-dev.com");
     assert.ok((person.sameAs as string[]).includes(AUTHOR.github));
     assert.deepEqual(website.author, { "@id": person["@id"] });
     assert.deepEqual(website.creator, { "@id": person["@id"] });

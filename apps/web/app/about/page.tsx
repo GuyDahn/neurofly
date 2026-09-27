@@ -5,7 +5,6 @@ import { SiteFooter } from "@/src/site/footer";
 import { SiteHeader } from "@/src/site/header";
 import { pageMetadata } from "@/src/site/page-meta";
 import { LINK_CLASS, RichText, SiteLink } from "@/src/site/rich-text";
-import { AUTHOR } from "@/src/site/site";
 import type { Rich } from "@/src/site/text";
 
 const copy = siteCopy();
@@ -63,14 +62,10 @@ export default function AboutPage() {
             <SiteLink href={about.who.github.href} newTab={a11y.newTab}>
               {about.who.github.text}
             </SiteLink>
-            {AUTHOR.linkedin ? (
-              <>
-                <span aria-hidden="true">·</span>
-                <SiteLink href={AUTHOR.linkedin} newTab={a11y.newTab}>
-                  {about.who.linkedin}
-                </SiteLink>
-              </>
-            ) : null}
+            <span aria-hidden="true">·</span>
+            <SiteLink href={about.who.website.href} newTab={a11y.newTab}>
+              {about.who.website.text}
+            </SiteLink>
           </p>
         </Section>
 

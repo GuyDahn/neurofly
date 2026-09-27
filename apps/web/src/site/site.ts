@@ -10,8 +10,7 @@ export const AUTHOR = {
   jobTitle: "Full-stack developer & SEO strategist",
   city: "Tel Aviv",
   github: "https://github.com/GuyDahn",
-  /** Empty until the profile URL is confirmed. Links to it only render when it is set. */
-  linkedin: "",
+  website: "https://guy-dev.com",
 } as const;
 
 export const COFFEE_URL = "https://buymeacoffee.com/guydahn";

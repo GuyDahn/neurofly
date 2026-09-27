@@ -36,13 +36,13 @@ export function siteJsonLd() {
         "@id": person,
         name: AUTHOR.name,
         jobTitle: AUTHOR.jobTitle,
-        url: `${SITE_URL}/about#who-made-this`,
+        url: AUTHOR.website,
         address: {
           "@type": "PostalAddress",
           addressLocality: AUTHOR.city,
           addressCountry: "IL",
         },
-        sameAs: [AUTHOR.github, AUTHOR.linkedin].filter(Boolean),
+        sameAs: [AUTHOR.github],
       },
     ],
   };

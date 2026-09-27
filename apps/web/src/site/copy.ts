@@ -271,7 +271,7 @@ const en = {
       title: "Who made this",
       body: `WiredMind was built by ${AUTHOR.name}, a full-stack developer and SEO strategist in ${AUTHOR.city}, over one week in October 2026.`,
       github: { text: "GitHub", href: AUTHOR.github } satisfies Link,
-      linkedin: "LinkedIn",
+      website: { text: "guy-dev.com", href: AUTHOR.website } satisfies Link,
     },
     support: {
       id: "support",
