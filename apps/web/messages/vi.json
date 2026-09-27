@@ -43,7 +43,9 @@
     "home": "Trang chủ WiredMind",
     "lessons": "Bài học",
     "teachers": "Dành cho giáo viên",
-    "about": "Giới thiệu"
+    "about": "Giới thiệu",
+    "themeLight": "Chuyển sang chế độ sáng",
+    "themeDark": "Chuyển sang chế độ tối"
   },
   "a11y": {
     "skip": "Chuyển đến nội dung",
@@ -64,6 +66,7 @@
     "githubLabel": "Giúp dịch hoặc đóng góp trên GitHub",
     "about": "Giới thiệu",
     "code": "Mã nguồn: MIT",
+    "feedback": "Phản hồi",
     "credits": "Nơ-ron lấy từ connectome <malecns>MaleCNS v1.0</malecns> của <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Đại học Cambridge</cambridge>, <mrc>Phòng thí nghiệm Sinh học Phân tử MRC</mrc> và <google>Google Research</google>, theo giấy phép <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Xem mã nguồn trên GitHub",
-      "science": "Điều gì là thật, điều gì được đơn giản hóa"
+      "science": "Điều gì là thật, điều gì được đơn giản hóa",
+      "feedback": "Có điều gì chưa rõ hoặc bị lỗi không? Hãy cho tôi biết."
     }
   },
   "about": {

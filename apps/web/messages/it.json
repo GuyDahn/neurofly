@@ -43,7 +43,9 @@
     "home": "Pagina iniziale di WiredMind",
     "lessons": "Lezioni",
     "teachers": "Per gli insegnanti",
-    "about": "Il progetto"
+    "about": "Il progetto",
+    "themeLight": "Passa alla modalità chiara",
+    "themeDark": "Passa alla modalità scura"
   },
   "a11y": {
     "skip": "Vai al contenuto",
@@ -64,6 +66,7 @@
     "githubLabel": "Aiuta a tradurre o contribuisci su GitHub",
     "about": "Il progetto",
     "code": "Codice: MIT",
+    "feedback": "Feedback",
     "credits": "Neuroni dal connettoma <malecns>MaleCNS v1.0</malecns> di <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Università di Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc> e <google>Google Research</google>, con licenza <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Guarda il codice sorgente su GitHub",
-      "science": "Cosa è reale e cosa è semplificato"
+      "science": "Cosa è reale e cosa è semplificato",
+      "feedback": "Qualcosa non è chiaro o non funziona? Dimmelo."
     }
   },
   "about": {

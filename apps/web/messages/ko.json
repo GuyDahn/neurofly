@@ -43,7 +43,9 @@
     "home": "WiredMind 홈",
     "lessons": "수업",
     "teachers": "교사용 안내",
-    "about": "소개"
+    "about": "소개",
+    "themeLight": "라이트 모드로 전환",
+    "themeDark": "다크 모드로 전환"
   },
   "a11y": {
     "skip": "본문으로 건너뛰기",
@@ -64,6 +66,7 @@
     "githubLabel": "GitHub에서 번역을 돕거나 기여하기",
     "about": "소개",
     "code": "코드: MIT",
+    "feedback": "피드백",
     "credits": "뉴런 데이터는 <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>케임브리지 대학교</cambridge>, <mrc>MRC 분자생물학 연구소</mrc>, <google>Google Research</google>가 만든 <malecns>MaleCNS v1.0</malecns> 커넥톰에서 가져왔어요. 라이선스: <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "GitHub에서 소스 코드 보기",
-      "science": "실제 그대로인 것과 단순화한 것"
+      "science": "실제 그대로인 것과 단순화한 것",
+      "feedback": "이해하기 어렵거나 작동하지 않는 부분이 있나요? 알려주세요."
     }
   },
   "about": {

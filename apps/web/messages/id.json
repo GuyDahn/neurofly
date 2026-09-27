@@ -43,7 +43,9 @@
     "home": "Beranda WiredMind",
     "lessons": "Pelajaran",
     "teachers": "Untuk guru",
-    "about": "Tentang"
+    "about": "Tentang",
+    "themeLight": "Beralih ke mode terang",
+    "themeDark": "Beralih ke mode gelap"
   },
   "a11y": {
     "skip": "Langsung ke konten",
@@ -64,6 +66,7 @@
     "githubLabel": "Bantu menerjemahkan atau berkontribusi di GitHub",
     "about": "Tentang",
     "code": "Kode: MIT",
+    "feedback": "Masukan",
     "credits": "Neuron dari konektom <malecns>MaleCNS v1.0</malecns> buatan <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Universitas Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc>, dan <google>Google Research</google>, dengan lisensi <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Lihat kode sumber di GitHub",
-      "science": "Mana yang asli, mana yang disederhanakan"
+      "science": "Mana yang asli, mana yang disederhanakan",
+      "feedback": "Ada yang tidak jelas atau rusak? Beri tahu saya."
     }
   },
   "about": {

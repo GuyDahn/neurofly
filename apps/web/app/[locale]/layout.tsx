@@ -65,7 +65,9 @@ export default async function LocaleLayout({
   // the landing page ships none. The error pages read their four strings
   // from this inert JSON instead.
   return (
-    <html lang={locale} dir={direction(locale)}>
+    // The inline theme script sets the `dark` class before hydration, which
+    // never matches this server render; suppress the expected mismatch.
+    <html lang={locale} dir={direction(locale)} suppressHydrationWarning>
       <body className="bg-canvas text-fg antialiased">
         <script
           id="theme-init"

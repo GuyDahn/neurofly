@@ -43,7 +43,9 @@
     "home": "WiredMind — главная страница",
     "lessons": "Уроки",
     "teachers": "Учителям",
-    "about": "О проекте"
+    "about": "О проекте",
+    "themeLight": "Переключить на светлую тему",
+    "themeDark": "Переключить на тёмную тему"
   },
   "a11y": {
     "skip": "Перейти к содержимому",
@@ -64,6 +66,7 @@
     "githubLabel": "Помогите с переводом или разработкой на GitHub",
     "about": "О проекте",
     "code": "Код: MIT",
+    "feedback": "Отзывы",
     "credits": "Нейроны взяты из коннектома <malecns>MaleCNS v1.0</malecns>, созданного <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Кембриджским университетом</cambridge>, <mrc>Лабораторией молекулярной биологии MRC</mrc> и <google>Google Research</google>, по лицензии <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Исходный код на GitHub",
-      "science": "Что настоящее, а что упрощено"
+      "science": "Что настоящее, а что упрощено",
+      "feedback": "Что-то непонятно или не работает? Расскажите мне."
     }
   },
   "about": {

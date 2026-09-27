@@ -43,7 +43,9 @@
     "home": "WiredMindのホーム",
     "lessons": "レッスン",
     "teachers": "先生方へ",
-    "about": "このサイトについて"
+    "about": "このサイトについて",
+    "themeLight": "ライトモードに切り替える",
+    "themeDark": "ダークモードに切り替える"
   },
   "a11y": {
     "skip": "本文へスキップ",
@@ -64,6 +66,7 @@
     "githubLabel": "GitHubで翻訳や開発に協力する",
     "about": "このサイトについて",
     "code": "コード：MITライセンス",
+    "feedback": "フィードバック",
     "credits": "ニューロンのデータ：<janelia>HHMI Janelia FlyEM</janelia>、<cambridge>ケンブリッジ大学</cambridge>、<mrc>MRC分子生物学研究所</mrc>、<google>Google Research</google>による<malecns>MaleCNS v1.0</malecns>コネクトーム（<ccby>CC BY 4.0</ccby>）。"
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "GitHubでソースコードを見る",
-      "science": "本物の部分と、単純化した部分"
+      "science": "本物の部分と、単純化した部分",
+      "feedback": "わかりにくい点や不具合があれば教えてください。"
     }
   },
   "about": {

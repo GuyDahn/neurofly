@@ -21,7 +21,7 @@ import {
   SiteLink,
 } from "@/src/site/rich-text";
 import { shareCard } from "@/src/og/share-card";
-import { PAPER, REPO_URL } from "@/src/site/site";
+import { FEEDBACK_URL, PAPER, REPO_URL } from "@/src/site/site";
 import { findLesson, LESSONS } from "@/src/viewer/modules";
 
 const TEACHER_POINTS = [
@@ -274,6 +274,13 @@ export default async function HomePage({
               >
                 {t("landing.teachers.science")}
               </Link>
+              <SiteLink
+                href={FEEDBACK_URL}
+                newTab={newTab}
+                className={`${LINK_CLASS} self-start text-base text-fg-muted sm:self-auto`}
+              >
+                {t("landing.teachers.feedback")}
+              </SiteLink>
             </div>
           </div>
         </section>

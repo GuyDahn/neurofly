@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { localePath, type Locale } from "../i18n/locales.js";
 import { LINK_CLASS, richLinks, SiteLink } from "./rich-text.js";
-import { AUTHOR, COFFEE_URL, LINKS, REPO_URL } from "./site.js";
+import { AUTHOR, COFFEE_URL, FEEDBACK_URL, LINKS, REPO_URL } from "./site.js";
 
 function GitHubIcon() {
   return (
@@ -97,6 +97,10 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
             <span aria-hidden="true"> · </span>
             <SiteLink href={LINKS.license} newTab={t("a11y.newTab")}>
               {t("footer.code")}
+            </SiteLink>
+            <span aria-hidden="true"> · </span>
+            <SiteLink href={FEEDBACK_URL} newTab={t("a11y.newTab")}>
+              {t("footer.feedback")}
             </SiteLink>
           </p>
         </div>

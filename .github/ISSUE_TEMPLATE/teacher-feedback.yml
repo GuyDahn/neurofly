@@ -1,0 +1,39 @@
+name: Feedback
+description: Something unclear or broken? Tell me here. No account or technical detail needed.
+title: "feedback: "
+labels: ["feedback"]
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: What happened, or what would help?
+      description: Plain language is perfect.
+    validations:
+      required: true
+  - type: dropdown
+    id: lesson
+    attributes:
+      label: Which lesson?
+      options:
+        - Smell
+        - Compass
+        - Escape
+        - Not about a lesson
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device / browser
+      description: Optional, e.g. "iPad, Safari" or "Windows laptop, Chrome".
+  - type: dropdown
+    id: role
+    attributes:
+      label: Your role
+      options:
+        - Teacher
+        - Student
+        - Researcher
+        - Other
+    validations:
+      required: true

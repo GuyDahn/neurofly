@@ -16,7 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootNotFound() {
   const t = await getTranslations({ locale: DEFAULT_LOCALE });
   return (
-    <html lang={DEFAULT_LOCALE} dir="ltr">
+    // The inline theme script sets the `dark` class before hydration, which
+    // never matches this server render; suppress the expected mismatch.
+    <html lang={DEFAULT_LOCALE} dir="ltr" suppressHydrationWarning>
       <body className="bg-canvas text-fg antialiased">
         <script
           id="theme-init"

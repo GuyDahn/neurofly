@@ -43,7 +43,9 @@
     "home": "WiredMind होम पेज",
     "lessons": "पाठ",
     "teachers": "शिक्षकों के लिए",
-    "about": "परिचय"
+    "about": "परिचय",
+    "themeLight": "लाइट मोड में बदलें",
+    "themeDark": "डार्क मोड में बदलें"
   },
   "a11y": {
     "skip": "सीधे मुख्य सामग्री पर जाएँ",
@@ -64,6 +66,7 @@
     "githubLabel": "GitHub पर अनुवाद में मदद करें या योगदान दें",
     "about": "परिचय",
     "code": "कोड: MIT",
+    "feedback": "फ़ीडबैक",
     "credits": "न्यूरॉन <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>कैम्ब्रिज विश्वविद्यालय</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc> और <google>Google Research</google> के <malecns>MaleCNS v1.0</malecns> कनेक्टोम से लिए गए हैं, <ccby>CC BY 4.0</ccby> लाइसेंस के तहत।"
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "GitHub पर सोर्स कोड देखें",
-      "science": "क्या असली है और क्या सरल किया गया है"
+      "science": "क्या असली है और क्या सरल किया गया है",
+      "feedback": "कुछ स्पष्ट नहीं है या काम नहीं कर रहा? मुझे बताएँ।"
     }
   },
   "about": {

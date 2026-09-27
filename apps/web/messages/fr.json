@@ -43,7 +43,9 @@
     "home": "Accueil WiredMind",
     "lessons": "Leçons",
     "teachers": "Enseignants",
-    "about": "À propos"
+    "about": "À propos",
+    "themeLight": "Passer au mode clair",
+    "themeDark": "Passer au mode sombre"
   },
   "a11y": {
     "skip": "Aller au contenu",
@@ -64,6 +66,7 @@
     "githubLabel": "Aidez à traduire ou contribuez sur GitHub",
     "about": "À propos",
     "code": "Code : MIT",
+    "feedback": "Commentaires",
     "credits": "Neurones issus du connectome <malecns>MaleCNS v1.0</malecns> de <janelia>HHMI Janelia FlyEM</janelia>, de l’<cambridge>université de Cambridge</cambridge>, du <mrc>MRC Laboratory of Molecular Biology</mrc> et de <google>Google Research</google>, sous licence <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Voir le code source sur GitHub",
-      "science": "Ce qui est réel et ce qui est simplifié"
+      "science": "Ce qui est réel et ce qui est simplifié",
+      "feedback": "Quelque chose n’est pas clair ou ne fonctionne pas ? Dites-le-moi."
     }
   },
   "about": {

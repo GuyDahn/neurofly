@@ -43,7 +43,9 @@
     "home": "WiredMind首页",
     "lessons": "课程",
     "teachers": "教师专区",
-    "about": "关于"
+    "about": "关于",
+    "themeLight": "切换到浅色模式",
+    "themeDark": "切换到深色模式"
   },
   "a11y": {
     "skip": "跳到正文",
@@ -64,6 +66,7 @@
     "githubLabel": "在GitHub上帮忙翻译或参与贡献",
     "about": "关于",
     "code": "代码：MIT许可证",
+    "feedback": "反馈",
     "credits": "神经元数据来自<malecns>MaleCNS v1.0</malecns>连接组，由<janelia>HHMI Janelia FlyEM</janelia>、<cambridge>剑桥大学</cambridge>、<mrc>MRC分子生物学实验室</mrc>和<google>Google Research</google>共同完成，采用<ccby>CC BY 4.0</ccby>许可。"
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "在GitHub上查看源代码",
-      "science": "哪些是真实的，哪些做了简化"
+      "science": "哪些是真实的，哪些做了简化",
+      "feedback": "有不清楚或损坏的地方吗？告诉我。"
     }
   },
   "about": {

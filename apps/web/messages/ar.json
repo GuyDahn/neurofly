@@ -43,7 +43,9 @@
     "home": "الصفحة الرئيسية لموقع WiredMind",
     "lessons": "الدروس",
     "teachers": "للمعلمين",
-    "about": "عن الموقع"
+    "about": "عن الموقع",
+    "themeLight": "التبديل إلى الوضع الفاتح",
+    "themeDark": "التبديل إلى الوضع الداكن"
   },
   "a11y": {
     "skip": "انتقل إلى المحتوى",
@@ -64,6 +66,7 @@
     "githubLabel": "ساعد في الترجمة أو شارك في التطوير على GitHub",
     "about": "عن الموقع",
     "code": "الشيفرة: MIT",
+    "feedback": "ملاحظات",
     "credits": "العصبونات مأخوذة من كونكتوم <malecns>MaleCNS v1.0</malecns> الذي أنتجه <janelia>HHMI Janelia FlyEM</janelia> و<cambridge>جامعة كامبريدج</cambridge> و<mrc>مختبر MRC للبيولوجيا الجزيئية</mrc> و<google>Google Research</google>، وهو متاح بترخيص <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "اطّلع على الشيفرة المصدرية في GitHub",
-      "science": "ما الحقيقي وما المبسّط"
+      "science": "ما الحقيقي وما المبسّط",
+      "feedback": "هل يوجد شيء غير واضح أو معطل؟ أخبرني."
     }
   },
   "about": {
