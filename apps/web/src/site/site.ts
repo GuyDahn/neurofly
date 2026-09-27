@@ -29,7 +29,7 @@ export const LINKS = {
   shiu: "https://doi.org/10.1038/s41586-024-07763-9",
   janelia: "https://www.janelia.org/project-team/flyem",
   cambridge: "https://www.zoo.cam.ac.uk/",
-  mrcLmb: "https://mrclmb.ac.uk/",
+  mrcLmb: "https://www2.mrc-lmb.cam.ac.uk/",
   googleResearch: "https://research.google/",
   license: `${REPO_URL}/blob/main/LICENSE`,
   dataLicense: `${REPO_URL}/blob/main/DATA_LICENSE.md`,
