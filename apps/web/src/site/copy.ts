@@ -295,8 +295,24 @@ const en = {
     builtBy: `Built by ${AUTHOR.name}`,
     github: "GitHub",
     about: "About",
-    license: "Code MIT · Data CC BY 4.0",
+    code: { text: "Code: MIT", href: LINKS.license } satisfies Link,
   },
+  /** Shown wherever the neurons are, including every lesson: the people who mapped them come first. */
+  dataCredit: [
+    "Neurons from the ",
+    { text: "MaleCNS v1.0", href: LINKS.maleCns },
+    " connectome by ",
+    { text: "HHMI Janelia FlyEM", href: LINKS.janelia },
+    ", the ",
+    { text: "University of Cambridge", href: LINKS.cambridge },
+    ", the ",
+    { text: "MRC Laboratory of Molecular Biology", href: LINKS.mrcLmb },
+    ", and ",
+    { text: "Google Research", href: LINKS.googleResearch },
+    ", under ",
+    { text: "CC BY 4.0", href: LINKS.ccBy },
+    ".",
+  ] satisfies Rich,
 };
 
 type Widen<T> = T extends string

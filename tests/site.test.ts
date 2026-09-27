@@ -24,9 +24,19 @@ import { cascadeSvg } from "../apps/web/src/site/cascade-svg.js";
 import { siteCopy } from "../apps/web/src/site/copy.js";
 import { jsonLdScript, siteJsonLd } from "../apps/web/src/site/json-ld.js";
 import { pageMetadata } from "../apps/web/src/site/page-meta.js";
-import { AUTHOR, COFFEE_URL, SITE_URL } from "../apps/web/src/site/site.js";
+import {
+  AUTHOR,
+  COFFEE_URL,
+  LINKS,
+  SITE_URL,
+} from "../apps/web/src/site/site.js";
 import { sitemapEntries } from "../apps/web/src/site/sitemap.js";
-import { fill, isExternal, type Rich } from "../apps/web/src/site/text.js";
+import {
+  fill,
+  isExternal,
+  type Link,
+  type Rich,
+} from "../apps/web/src/site/text.js";
 import { versioned } from "../apps/web/src/viewer/load-circuit.js";
 import { LESSONS } from "../apps/web/src/viewer/modules.js";
 import { keepContext, orientDownstream } from "../scripts/cascade-bake.js";
@@ -238,6 +248,23 @@ describe("site copy", () => {
     });
     assert.equal(COFFEE_URL, copy.support.coffee.href);
     assert.equal(copy.footer.builtBy, "Built by Guy Dahan");
+  });
+
+  it("credits the institutions behind the neurons, with a link to each", () => {
+    const links = copy.dataCredit.filter(
+      (part): part is Link => typeof part !== "string",
+    );
+    assert.deepEqual(
+      links.map((link) => link.href),
+      [
+        LINKS.maleCns,
+        LINKS.janelia,
+        LINKS.cambridge,
+        LINKS.mrcLmb,
+        LINKS.googleResearch,
+        LINKS.ccBy,
+      ],
+    );
   });
 
   it("is plain data, so client pages can take it and a translator can copy it", () => {

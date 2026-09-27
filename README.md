@@ -1,45 +1,89 @@
 # WiredMind
 
+[![CI](https://github.com/GuyDahn/wiredmind-edu/actions/workflows/ci.yml/badge.svg)](https://github.com/GuyDahn/wiredmind-edu/actions/workflows/ci.yml) [![Code: MIT](https://img.shields.io/badge/code-MIT-blue)](LICENSE) [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey)](DATA_LICENSE.md)
+
 Free classroom lessons on the real wiring of a fruit fly's nervous system. Students stimulate and silence neurons from the MaleCNS connectome in the browser, with no install and no login.
 
-**[wiredmind-edu.vercel.app](https://wiredmind-edu.vercel.app)** · [What's real and what's simplified](#whats-real-and-whats-simplified) · [Roadmap and good first issues](#roadmap--good-first-issues)
+**[Open WiredMind](https://wiredmind-edu.vercel.app)** · [What's real and what's simplified](#whats-real-and-whats-simplified) · [Roadmap and good first issues](#roadmap--good-first-issues)
 
 ![The escape lesson mid-stimulation: looming neurons firing in the MaleCNS wiring diagram](docs/screenshot.webp)
 
-Three short lessons run on three circuits cut from the Janelia MaleCNS v1.0 connectome: how a fly remembers a smell, how it knows which way it's facing, and how it escapes a swatter in 30 milliseconds. The wiring is real. The activity is a deliberately simple simulation, and [the section below](#whats-real-and-whats-simplified) says exactly where that line falls. The app keeps the science checkable by students and teachers, and it keeps the heavy neuron data out of git so the repository stays something a stranger can clone.
+Every neuron and synapse count in WiredMind comes from MaleCNS v1.0, the complete connectome of a male fruit fly's central nervous system. The activity is a deliberately simple simulation, and [the section below](#whats-real-and-whats-simplified) says exactly where that line falls. Each lesson's claims are checked by tests that run it on the real circuits, and the heavy neuron data stays out of git so the repository is something a stranger can clone.
 
-## Run locally
+## The lessons
+
+| Lesson                                                                                       | What students do                                                                                                              | Circuit                               |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 1. [How a fly remembers a smell](https://wiredmind-edu.vercel.app/modules/smell-memory)      | Send a smell from the receptors to the Kenyon cells and output neurons, then silence the Kenyon cells and see what goes dark. | Smell pathway, 4,500 neurons          |
+| 2. [How a fly knows which way it's facing](https://wiredmind-edu.vercel.app/modules/compass) | Push the compass bump around with the turn neurons, then silence the ring neurons and watch it drift.                         | Head-direction compass, 4,000 neurons |
+| 3. [The 30-millisecond escape](https://wiredmind-edu.vercel.app/modules/escape)              | Follow a swatter from the looming neurons to the giant fiber and the jump neurons, then silence the giant fiber.              | Giant fiber escape, 3,000 neurons     |
+
+Each lesson is four or five one-tap steps, one check question, and free play, about 10 minutes in all. For a class, that is one or two periods with discussion. The Share button copies a link that replays a student's run, spike for spike.
+
+## Run it locally
+
+You need Node 22.22.3 or newer (pinned in `.nvmrc`) and pnpm 10. The Python data pipeline and the full test suite also need [uv](https://docs.astral.sh/uv/) with Python 3.12.
 
 ```bash
-pnpm install
-uv sync --directory tools/data
-pnpm data:fetch
-pnpm dev
+pnpm install        # also installs the git hooks
+pnpm data:fetch     # downloads data-v1 (about 19 MB) and bakes the landing loop
+pnpm dev            # http://localhost:3000
 ```
 
-Node is pinned in `.nvmrc` (22.22.3). Python is 3.12, managed with uv. `pnpm data:fetch` reads `data.lock.json` and downloads the baked assets for that `data-vN` GitHub Release into `apps/web/public/data/`, checking sha256 as it goes, then bakes the landing page loop from them. That directory is gitignored. If you already have the circuit files, `pnpm data:cascade` rebakes only the loop.
+`pnpm data:fetch` reads `data.lock.json`, downloads that data release from GitHub into `apps/web/public/data/`, checks each file's sha256, and bakes the landing page loop from the escape circuit. That directory is gitignored. If you already have the circuit files, `pnpm data:cascade` rebakes only the loop.
 
-`uv run --directory tools/data make-data` rebuilds those assets from the MaleCNS flat files in `tools/data/raw/` (also gitignored). The publish command is in [tools/data/release.md](tools/data/release.md).
+To rebuild the data itself, run `uv sync --directory tools/data`, then `uv run --directory tools/data make-data`. It downloads the MaleCNS flat files into `tools/data/raw/` (also gitignored), checks their MD5s, and cuts the circuits out of them. [tools/data/README.md](tools/data/README.md) describes each stage, and [tools/data/release.md](tools/data/release.md) has the publish command.
+
+Before a pull request, run the same checks as CI:
+
+```bash
+pnpm lint           # ESLint, Prettier, and ruff
+pnpm typecheck
+pnpm test           # node:test suites and pytest
+```
+
+The science tests skip until `pnpm data:fetch` has run.
 
 ## How it works
 
-MaleCNS data is cut down to a subcircuit, simulated with a leaky integrate-and-fire (LIF) model, and shown in the viewer: data → subcircuit → LIF sim → viewer.
+The pipeline is data → subcircuit → simulation → viewer. A Python pipeline cuts three circuits of 3,000 to 4,500 neurons out of MaleCNS and bakes them into `graph.bin` (the wiring), `neurons.json` (types and labels), and a Draco-compressed glTF (the shapes). They are published as a GitHub Release (`data-v1`) and pinned by sha256 in `data.lock.json`. The browser runs a leaky integrate-and-fire (LIF) simulation of the circuit with seeded noise, so the same button presses on the same ticks always give the same spikes, and draws the result with three.js.
 
-| Page                    | What it is                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------ |
-| `/`                     | Landing page: an 8-second loop of the escape lesson's first swatter, the lessons, teachers |
-| `/modules/smell-memory` | Lesson 1, "How a fly remembers a smell" (olfactory circuit)                                |
-| `/modules/compass`      | Lesson 2, "How a fly knows which way it's facing" (compass circuit)                        |
-| `/modules/escape`       | Lesson 3, "The 30-millisecond escape" (giant fiber circuit)                                |
-| `/about`                | What's real and what's simplified, who made it, and how to support it                      |
+| Page                    | What it is                                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `/`                     | Landing page: an 8-second loop of the escape lesson's first swatter, the lessons, and a section for teachers |
+| `/modules/smell-memory` | Lesson 1                                                                                                     |
+| `/modules/compass`      | Lesson 2                                                                                                     |
+| `/modules/escape`       | Lesson 3                                                                                                     |
+| `/about`                | What's real and what's simplified, credits, who made it, and how to support it                               |
+| `/sim-bench`            | Simulator speed on your machine, for developers (not indexed)                                                |
 
-`tests/lesson-science.test.ts` runs each lesson's steps on the real circuits and checks what the copy says lights up, moves, or goes dark. `tests/about-science.test.ts` checks the numbers the about page quotes against the same data. Both skip until `pnpm data:fetch` has run.
+**Science tests.** `tests/lesson-science.test.ts` runs each lesson's steps on the real circuits and checks what the copy says lights up, moves, or goes dark. `tests/about-science.test.ts` checks the numbers the about page quotes against the same data, so the copy cannot drift from a new data release.
 
-The Share button copies a replay link. Its `?r=` parameter is base64url for the lesson id, the noise seed, and each button press with the simulator tick it landed on, so opening the link repeats the same spikes. Links made before the landing page pointed at `/?r=`; those redirect to the lesson.
+**Share links.** A link's `?r=` parameter is base64url for the lesson id, the noise seed, and each button press with the simulator tick it landed on, so opening it repeats the same spikes. Links made before the landing page existed pointed at `/?r=` and redirect to the lesson.
 
-The landing loop is baked, not recorded. `scripts/cascade-bake.ts` reads the escape circuit, draws each neuron's centerline the way the viewer does, runs the escape lesson's first stimulus on the lesson's seed, and writes the first 64 ms of spikes to `escape-cascade.json` (about 45 KB compressed) next to the circuit files. The page plays it on a 2D canvas at 100 times slower than life, holds still for readers who prefer reduced motion, and pauses off screen.
+**The landing loop** is baked, not recorded. `scripts/cascade-bake.ts` reads the escape circuit, traces each neuron's centerline the way the viewer does, runs the escape lesson's first stimulus on the lesson's seed, and writes the first 64 ms of spikes to `escape-cascade.json` (about 45 KB compressed). The page draws it on a 2D canvas 100 times slower than life, holds a still frame for readers who prefer reduced motion, and pauses off screen.
 
-Everything under `/data/` is served with a one-year immutable cache. The viewer asks for each circuit file with `?v=<data release>`, and the landing page asks for the loop with a hash of its contents, so new data is always a new URL.
+**Hosting.** Vercel builds from `apps/web` with `pnpm --dir ../.. data:fetch && pnpm build` ([apps/web/vercel.json](apps/web/vercel.json)) and serves `wiredmind-edu.vercel.app`. Everything under `/data/` gets a one-year immutable cache. The viewer asks for each circuit file with `?v=<data release>`, and the landing page asks for the loop with a hash of its contents, so new data is always a new URL. There are no accounts and no cookies: page views are counted with Vercel Web Analytics, which is cookie-free, and replay parameters are stripped before a view is sent.
+
+**Speed.** Measured on the live site over a throttled 4G connection (9 Mbps, 170 ms round trip) with the CPU slowed four times: the landing page paints in 0.9 s. A lesson's text paints in under a second, and its circuit is ready to use after 4.7 s (escape) to 6 s (smell and compass). Most of that wait is downloading and decoding the 3D meshes, which [the roadmap](#roadmap--good-first-issues) aims to cut.
+
+### Where things are
+
+```text
+apps/web/             Next.js app, and the Vercel project root
+  app/                routes: landing, about, lessons, share image, sitemap, robots
+  content/            circuit definitions (module.json) and lesson scripts (modules/*.json)
+  src/sim/            leaky integrate-and-fire simulator
+  src/viewer/         3D viewer, lesson runner, and share-link replays
+  src/site/           landing loop, site copy, footer, and metadata
+  public/draco/       Draco decoder, copied from three.js
+scripts/              data download and sha256 checks, the landing-loop bake, git hooks
+tools/data/           Python pipeline that cuts the circuits out of MaleCNS
+tests/                node:test suites, including the science checks
+data.lock.json        the data release tag and each file's sha256
+```
+
+Some internal names still carry the project's working title, Neurofly: the `NFLY` header in `graph.bin` and the `neurofly_data` Python package. Renaming them would break the published `data-v1` files.
 
 ## What's real and what's simplified
 
@@ -59,9 +103,9 @@ WiredMind is a teaching tool, not a research model. If you know the fly literatu
 - **No gap junctions.** The connectome records chemical synapses only, so the model has no electrical synapses. This matters most in the escape lesson: in a real fly the giant fiber's connection to the jump motor neuron (TTMn) is a mixed synapse that leans heavily on gap junctions. Here that link is its 90 chemical synapses.
 - **Nothing learns.** The smell lesson shows where odor memories are stored, at the Kenyon cell to MBON synapses, but its cut has no dopaminergic neurons, no APL neuron, and no learning rule, so those weights never change.
 - **Idealized stimulation.** Stimulate drives every neuron in a group with independent Poisson input (40 Hz for 200 ms in the smell and escape lessons, 60 Hz for 800 ms on the P-EN2 turn neurons), and every event crosses threshold (W<sub>syn</sub> × 250, as in Shiu et al.), much like optogenetic activation. The lesson's smell is all 1,861 ORNs in the cut at once, not an odor-specific receptor pattern. The swatter is all 304 LC4 and LPLC2 cells at once, not recruitment that follows a growing looming object.
-- **Silence is a hard clamp.** Silenced neurons are held at rest and send nothing, Shiu et al.'s removal of outgoing synapses. Genetic tools such as Kir2.1 or tetanus toxin are partial and slower, and tetanus toxin leaves gap junctions working.
+- **Silence is a hard clamp.** Silenced neurons are held at rest and send nothing, as in Shiu et al.'s removal of outgoing synapses. Genetic tools such as Kir2.1 or tetanus toxin are partial and slower, and tetanus toxin leaves gap junctions working.
 - **Compass landmarks.** The ring neurons receive no visual input in the model. Silencing them removes their GABAergic inhibition of the E-PG compass neurons, which is what lets the bump drift in the lesson.
-- **Timing.** Latencies come out of the uniform delay and time constants and were not fitted to recordings. The viewer advances 0.2 to 2 ms of fly time per frame, depending on the device, and stops simulating 150 ms after the last stimulus, because some cuts have excitatory loops that would otherwise reverberate without the inhibition left outside. The landing loop plays the first 64 ms of the escape 100 times slower than life.
+- **Timing.** Latencies come out of the uniform delay and time constants and were not fitted to recordings. In the escape lesson the jump neurons first fire 13.2 ms after the stimulus starts. The viewer advances 0.2 to 2 ms of fly time per frame, depending on the device, and stops simulating 150 ms after the last stimulus, because some cuts have excitatory loops that would otherwise reverberate without the inhibition left outside.
 - **Drawings, not morphology.** Each neuron is a 12-point line through its skeleton. Flashes mark spikes; the moving dots are illustration, not conduction.
 
 **What a research tool would do differently**
@@ -76,7 +120,7 @@ To go deeper, query the dataset in [neuPrint](https://neuprint.janelia.org/?data
 
 ## Roadmap / good first issues
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) first. Any change to lesson copy has to pass the science tests on the real circuits.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and open an issue before starting anything large. Any change to lesson copy has to pass the science tests on the real circuits.
 
 **Good first issues**
 
@@ -89,31 +133,36 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) first. Any change to lesson copy has to 
 **Roadmap**
 
 - **Translations.** Hebrew is next, with a right-to-left layout. Site text lives in [apps/web/src/site/copy.ts](apps/web/src/site/copy.ts) and lesson text in [apps/web/content/modules/](apps/web/content/modules/).
+- **Lighter lesson downloads.** The viewer draws one 12-point line per neuron, but each lesson downloads full Draco tube meshes (1.4 MB compressed for the escape circuit) and decodes them to get those lines. A data release that ships the lines, the way the landing loop already does, would roughly halve a lesson's download and skip decoding.
+- **Decode off the main thread.** Parsing a circuit and tracing its lines run on the main thread, and that is most of a lesson's blocking time on slow phones. A worker would keep the page responsive while it loads.
 - **Learning in the smell circuit.** Add dopaminergic neurons to the cut and a dopamine-gated Kenyon cell to MBON rule, so the model remembers instead of only showing where memory lives.
 - **Gap junctions for the escape circuit,** with a conductance taken from giant fiber recordings.
 - **Offline classrooms.** Cache the data release in a service worker for schools with patchy Wi-Fi.
 - **More circuits,** such as CO₂ avoidance or courtship song.
 - **A WebGPU simulator** behind `SIM_WEBGPU_ENABLED`, if larger cuts need it. [docs/NOTES-webgpu-fly.md](docs/NOTES-webgpu-fly.md) has notes.
 
+## Contributing
+
+[CONTRIBUTING.md](CONTRIBUTING.md) covers setup, the git hooks, and the rules for data: neuron data, raw downloads, and baked assets never go in git. Commits follow [Conventional Commits](https://www.conventionalcommits.org/). [USER_TEST.md](USER_TEST.md) is a printable script for watching one person try lesson 1, if you want to test with a real student. Everyone taking part is expected to follow the [code of conduct](CODE_OF_CONDUCT.md).
+
 ## Credits
 
-Neuron data is MaleCNS v1.0 from [HHMI Janelia FlyEM](https://www.janelia.org/project-team/flyem), the [University of Cambridge](https://www.zoo.cam.ac.uk/), the [MRC Laboratory of Molecular Biology](https://mrclmb.ac.uk/), and [Google Research](https://research.google/). The dataset is CC BY 4.0. See [DATA_LICENSE.md](DATA_LICENSE.md).
+Neurons from the MaleCNS v1.0 connectome by [HHMI Janelia FlyEM](https://www.janelia.org/project-team/flyem), the [University of Cambridge](https://www.zoo.cam.ac.uk/), the [MRC Laboratory of Molecular Biology](https://mrclmb.ac.uk/), and [Google Research](https://research.google/), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). WiredMind changes the data: it cuts out three small circuits, drops connections of fewer than five synapses, and draws each neuron as a simplified line.
 
 > Berg, S., Beckett, I. R., Costa, M., Schlegel, P., Januszewski, M., et al. (2026). Sexual dimorphism in the complete _Drosophila_ male central nervous system connectome. _Cell_ 189, 5504–5526.e15. https://doi.org/10.1016/j.cell.2026.08.015
 
-The simulator uses the neuron model and parameters of Shiu, P. K., et al. (2024). A _Drosophila_ computational brain model reveals sensorimotor processing. _Nature_ 634, 210–219. https://doi.org/10.1038/s41586-024-07763-9
+The simulator uses the neuron model and parameters of:
 
-Built by [Guy Dahan](https://guy-dev.com). The code is MIT licensed; see [LICENSE](LICENSE). WiredMind is free and always will be. If it helped your class, [coffee keeps the server humming](https://buymeacoffee.com/guydahn).
+> Shiu, P. K., et al. (2024). A _Drosophila_ computational brain model reveals sensorimotor processing. _Nature_ 634, 210–219. https://doi.org/10.1038/s41586-024-07763-9
 
-## Built with
+The Draco decoder in `apps/web/public/draco/` is Google's glTF build (Apache-2.0), copied unchanged from three.js 0.169.0. Nothing else is vendored. [docs/NOTES-webgpu-fly.md](docs/NOTES-webgpu-fly.md) records what in [abgnydn/webgpu-fly](https://github.com/abgnydn/webgpu-fly) (MIT) could be ported later; none of that code was copied.
 
-- [Next.js](https://nextjs.org/)
-- [Three.js](https://threejs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Vercel](https://vercel.com/)
+Built with [Next.js](https://nextjs.org/), [three.js](https://threejs.org/), [Tailwind CSS](https://tailwindcss.com/), and [Vercel](https://vercel.com/).
 
-The Vercel project deploys to the free `wiredmind-edu.vercel.app` hostname. There is no custom domain. The build command is `pnpm data:fetch && pnpm build`. Page views are counted with Vercel Web Analytics, which sets no cookies.
+## License
 
-Some internal names still carry the project's working title, Neurofly: the `NFLY` header in `graph.bin` and the `neurofly_data` Python package. Renaming them would break the published `data-v1` files.
+The code is MIT licensed; see [LICENSE](LICENSE). The neuron data, and anything baked from it, is CC BY 4.0; [DATA_LICENSE.md](DATA_LICENSE.md) says how to credit it if you reuse it.
 
-No other code is vendored. [docs/NOTES-webgpu-fly.md](docs/NOTES-webgpu-fly.md) records what in [abgnydn/webgpu-fly](https://github.com/abgnydn/webgpu-fly) (MIT) is worth porting later. That kernel was not copied.
+## Who made this
+
+Built by [Guy Dahan](https://guy-dev.com) over one week in September 2026. WiredMind is free and always will be. If it helped your class, [coffee keeps the server humming](https://buymeacoffee.com/guydahn).
