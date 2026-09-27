@@ -17,12 +17,12 @@ describe("data lock", () => {
   it("builds a GitHub Release URL for the pinned tag", () => {
     const lock: DataLock = {
       version: "data-v1",
-      repository: "GuyDahn/neurofly",
+      repository: "GuyDahn/wiredmind-edu",
       files: [],
     };
     assert.equal(
       assetUrl(lock, "neurons.json"),
-      "https://github.com/GuyDahn/neurofly/releases/download/data-v1/neurons.json",
+      "https://github.com/GuyDahn/wiredmind-edu/releases/download/data-v1/neurons.json",
     );
   });
 
@@ -30,14 +30,14 @@ describe("data lock", () => {
     assert.throws(() =>
       assertLock({
         version: "latest",
-        repository: "GuyDahn/neurofly",
+        repository: "GuyDahn/wiredmind-edu",
         files: [],
       }),
     );
     assert.throws(() =>
       assertLock({
         version: "data-v1",
-        repository: "GuyDahn/neurofly",
+        repository: "GuyDahn/wiredmind-edu",
         files: [{ name: "../neurons.json", sha256: DIGEST }],
       }),
     );
@@ -48,7 +48,7 @@ describe("data lock", () => {
     try {
       const lock: DataLock = {
         version: "data-v2",
-        repository: "GuyDahn/neurofly",
+        repository: "GuyDahn/wiredmind-edu",
         files: [{ name: "neurons.json", sha256: DIGEST }],
       };
       const written = await fetchLockedAssets({
