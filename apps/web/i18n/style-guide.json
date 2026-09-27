@@ -1,0 +1,33 @@
+{
+  "$comment": "How WiredMind sounds in each language. `pnpm i18n:draft` gives the translator the shared rules and the language's own notes; reviewers can sharpen a language here.",
+  "shared": [
+    "Readers are students aged about 11 to 16 and their teachers. Write the way a good science teacher talks to a class: short sentences, plain words, one idea at a time. Keep the English's warmth and its honesty about what is simplified.",
+    "Keep every scientific term from the glossary exactly as given (inflect it as the grammar needs). In lesson copy each <term> keeps the scientific name and its <gloss> is a short, friendly nickname in parentheses: three words or fewer where the language allows.",
+    "Buttons are named in lesson text: 'Tap Stimulate', 'silence the Kenyon cells'. Use exactly your translations of viewer.controls.stimulate, viewer.controls.silence, and viewer.lesson.cueSwitchOn for them, so the words on screen match the words in the lesson.",
+    "Keep the colors (orange, yellow, blue, pink, green, violet) and what each one names; students match them to the screen.",
+    "Keep every number as digits (0-9), with your language's usual decimal and thousands separators. Keep units (ms, mV, Hz) as symbols.",
+    "Never translate the brand WiredMind, the names in the glossary's keep list, cell type codes (LC4, LPLC2, P-EN2, E-PG), or anything inside {curly braces}.",
+    "Keep every <tag> and </tag> exactly, around the words that mean the same thing in your sentence. A link tag may move anywhere its words go.",
+    "Use your language's own quotation marks and punctuation, and non-breaking spaces where its typography wants them.",
+    "Page titles (meta.*.title, meta.lessonTitle, meta.notFoundTitle) must stay within 60 characters and descriptions within 155, after the placeholders are filled; count a Chinese, Japanese, or Korean character as two. Write them for search results: say what the page is and why it is worth a click."
+  ],
+  "locales": {
+    "he": "Modern Hebrew without niqqud. Address students in the plural imperative (לחצו, שלחו, צפו), which reads as gender-neutral in Israeli classrooms. Hebrew quotation marks \"…\" and gershayim in abbreviations (מ״מ). Latin names and units stay in Latin script.",
+    "ar": "Modern Standard Arabic that a secondary-school student in any Arab country reads easily. Address the student with the singular imperative (اضغط، أرسل، شاهد) as the neutral classroom form. Western digits (0-9), Arabic comma (،) and question mark (؟). Latin names and units stay in Latin script.",
+    "es": "Neutral Spanish that reads naturally in both Spain and Latin America; avoid regional slang and vosotros. Address students with tú. Use «…» or \"…\" consistently.",
+    "fr": "French for collège and lycée. Lessons and the viewer address the student with tu; the landing page, the about page, and the teachers' section use vous. Typographic spaces before : ; ? ! and inside « … ». Respect accents on capitals (É, À).",
+    "de": "German for Schülerinnen und Schüler. Lessons and the viewer use du; the landing page, the about page, and the teachers' section use Sie. Quotation marks „…“. Prefer established German terms; English loanwords only where German science classes use them (Gap Junctions).",
+    "pt-BR": "Brazilian Portuguese with você throughout. Use \"…\" quotation marks. Prefer terms a Brazilian biology textbook would use.",
+    "ru": "Russian for school students. Lessons and the viewer use ты; the landing page, the about page, and the teachers' section use вы. Quotation marks «…», the long dash —, and the letter ё where it matters for reading.",
+    "zh-CN": "Simplified Chinese for mainland middle and high school students. Address the reader as 你. Full-width punctuation (，。：；！？“”（）), no spaces between Chinese characters, one space around Latin words and numbers is optional; stay consistent.",
+    "ja": "Japanese in です・ます style. Lessons use gentle instructions (〜してください, 〜してみましょう). Full-width punctuation (、。「」（）). Use the katakana and kanji terms from the glossary.",
+    "ko": "Korean in polite 해요체 throughout. Use the glossary terms; add the English in parentheses only where a Korean student would not know the term.",
+    "hi": "Standard Hindi in Devanagari that a CBSE secondary student reads easily. Use आप. Where Indian classrooms say the English-origin word (न्यूरॉन, सिग्नल), use it rather than a rare Sanskrit coinage. Western digits (0-9).",
+    "it": "Italian for scuola media and superiore, addressing the student with tu throughout. Quotation marks «…».",
+    "tr": "Turkish for ortaokul and lise. Lessons and the viewer use sen; the landing page, the about page, and the teachers' section use siz. Mind the dotted and dotless i in capitals (İ, I).",
+    "pl": "Polish for szkoła podstawowa and liceum. Lessons and the viewer use ty; site pages use neutral, impersonal forms. Quotation marks „…”.",
+    "nl": "Dutch with je and jij throughout, as Dutch websites do. Prefer established Dutch terms; English loanwords only where Dutch biology classes use them.",
+    "id": "Bahasa Indonesia. Lessons and the viewer address the student with kamu; the landing page, the about page, and the teachers' section use Anda.",
+    "vi": "Vietnamese for trung học students. Address the reader as bạn. Use full diacritics."
+  }
+}

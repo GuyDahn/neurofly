@@ -1,13 +1,8 @@
-/** A link inside a sentence of site copy. */
-export type Link = { text: string; href: string };
-
 /**
- * A sentence split into plain runs and links, in reading order, so a
- * translation can put the link anywhere in the sentence.
+ * Fills `{name}` placeholders. Only for the few messages a client component
+ * formats on every frame; `pnpm i18n:check` keeps those messages to plain
+ * placeholders.
  */
-export type Rich = readonly (string | Link)[];
-
-/** Fills `{name}` placeholders in a copy template. */
 export function fill(
   template: string,
   values: Record<string, string | number>,

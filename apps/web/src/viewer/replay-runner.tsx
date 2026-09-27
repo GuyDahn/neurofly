@@ -1,16 +1,17 @@
 "use client";
 
+import { useFormatter, useTranslations } from "next-intl";
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { enqueue } from "./commands.js";
+import { useCircuitCopy } from "./copy.js";
 import type { LessonEntry } from "./modules.js";
-import { PanelCredit } from "./module-runner.js";
+import { PanelCredit, PanelTranslateNotice } from "./module-runner.js";
 import { Controls, FOCUS_RING } from "./panel.js";
 import { startPlayback, stopPlayback } from "./recorder.js";
 import type { Replay, ReplayCommand } from "./replay.js";
 import { Sheet, type SheetState } from "./sheet.js";
 import { useViewerStore } from "./store.js";
 import { Toolbar } from "./toolbar.js";
-import type { ModuleSpec } from "./types.js";
 
 const BUTTON = `min-h-12 flex-1 rounded-xl px-4 text-base font-semibold transition-colors ${FOCUS_RING}`;
 
@@ -31,7 +32,11 @@ export function ReplayRunner({
   /** Site credit at the very end of the panel. */
   credit?: ReactNode;
 }) {
-  const { module, lesson } = entry;
+  const { module } = entry;
+  const t = useTranslations("viewer.replay");
+  const title = useTranslations("lessons")(`${entry.id}.title`);
+  const format = useFormatter();
+  const circuit = useCircuitCopy(module);
   const [sheet, setSheet] = useState<SheetState>("min");
   const [run, setRun] = useState(0);
   const playback = useViewerStore((state) => state.playback);
@@ -70,7 +75,7 @@ export function ReplayRunner({
     <Sheet
       state={sheet}
       onState={setSheet}
-      label={`Replay of ${lesson.title}`}
+      label={t("label", { title })}
       footer={
         done ? (
           <div className="flex gap-2">
@@ -79,14 +84,14 @@ export function ReplayRunner({
               onClick={() => setRun((value) => value + 1)}
               className={`${BUTTON} border border-white/20 text-zinc-100 hover:bg-white/5`}
             >
-              Watch again
+              {t("watchAgain")}
             </button>
             <button
               type="button"
               onClick={onExit}
               className={`${BUTTON} bg-zinc-50 text-zinc-950 hover:bg-white`}
             >
-              Start the lesson
+              {t("start")}
             </button>
           </div>
         ) : (
@@ -95,14 +100,17 @@ export function ReplayRunner({
               <span aria-hidden="true" className="md:hidden">
                 ↑
               </span>
-              <span aria-hidden="true" className="hidden md:inline">
+              <span
+                aria-hidden="true"
+                className="hidden md:inline rtl:-scale-x-100"
+              >
                 →
               </span>
-              Replaying a shared run
+              {t("replaying")}
             </p>
             <div
               role="progressbar"
-              aria-label="Replay progress"
+              aria-label={t("progress")}
               aria-valuemin={0}
               aria-valuemax={replay.actions.length}
               aria-valuenow={applied}
@@ -116,25 +124,26 @@ export function ReplayRunner({
               />
             </div>
             <p className="text-xs text-zinc-400 tabular-nums">
-              Press {Math.min(applied, replay.actions.length)} of{" "}
-              {replay.actions.length}, on the same ticks and seed
+              {t("pressOf", {
+                number: Math.min(applied, replay.actions.length),
+                total: replay.actions.length,
+              })}
             </p>
           </div>
         )
       }
     >
+      <PanelTranslateNotice />
       <Toolbar entry={entry} />
       <section
-        aria-label="Replay"
+        aria-label={t("section")}
         className="flex flex-col gap-3 rounded-2xl bg-white/[0.06] p-4"
       >
         <p className="text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
-          {done ? "Replay finished" : "Replay"}
+          {done ? t("finished") : t("section")}
         </p>
         <p className="text-lg leading-snug text-zinc-50">
-          {done
-            ? "That was the whole run. Every button works now, so try your own."
-            : `Someone shared their run of “${lesson.title}”. Watch it happen again, spike for spike.`}
+          {done ? t("over") : t("shared", { title })}
         </p>
         <ol className="flex flex-col gap-1.5 text-sm">
           {replay.actions.map((action, index) => (
@@ -142,12 +151,21 @@ export function ReplayRunner({
               key={index}
               className={`flex items-baseline gap-2 ${index < applied ? "text-zinc-200" : "text-zinc-400"}`}
             >
-              <span className="w-5 shrink-0 text-right tabular-nums">
-                {index + 1}
+              <span className="w-5 shrink-0 text-end tabular-nums">
+                {format.number(index + 1)}
               </span>
-              <span className="flex-1">{describe(module, action.command)}</span>
+              <span className="flex-1">
+                {t(pressKey(action.command), {
+                  name: circuit.name(action.command.colorGroup),
+                })}
+              </span>
               <span className="shrink-0 text-xs text-zinc-400 tabular-nums">
-                {(action.tick / 10).toFixed(1)} ms
+                {t("tick", {
+                  ms: format.number(action.tick / 10, {
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 1,
+                  }),
+                })}
               </span>
             </li>
           ))}
@@ -159,11 +177,10 @@ export function ReplayRunner({
   );
 }
 
-function describe(module: ModuleSpec, command: ReplayCommand): string {
-  const list = command.type === "stimulate" ? module.stimuli : module.silence;
-  const name =
-    list.find((item) => item.colorGroup === command.colorGroup)?.name ??
-    command.colorGroup;
-  if (command.type === "stimulate") return `Stimulate ${name}`;
-  return command.on ? `Silence ${name}` : `Switch on ${name}`;
+/** Which message names a press: stimulate, silence, or switch on. */
+function pressKey(
+  command: ReplayCommand,
+): "stimulate" | "silence" | "switchOn" {
+  if (command.type === "stimulate") return "stimulate";
+  return command.on ? "silence" : "switchOn";
 }

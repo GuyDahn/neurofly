@@ -13,7 +13,6 @@ export const CASCADE_FILE = "escape-cascade.json";
 
 export type CascadeGroup = {
   colorGroup: string;
-  label: string;
   color: string;
   /** Neurons in the group. */
   count: number;

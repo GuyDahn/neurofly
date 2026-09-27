@@ -1,0 +1,535 @@
+{
+  "_meta": {
+    "locale": "it",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27"
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: esplora il vero cervello di un moscerino",
+      "description": "Lezioni gratuite per la classe sul vero cervello del moscerino della frutta: stimola e silenzia i neuroni del connettoma MaleCNS nel browser. Senza login."
+    },
+    "about": {
+      "title": "Il progetto WiredMind: cosa è reale e cosa è semplificato",
+      "description": "Cosa è reale e cosa è semplificato nelle lezioni di WiredMind sul cervello del moscerino della frutta, chi le ha create e come sostenere il progetto."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Pagina non trovata · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Guarda il riflesso di fuga di un moscerino sfrecciare nei suoi veri circuiti",
+      "subtitle": "Lezioni gratuite per la classe sul connettoma MaleCNS"
+    },
+    "about": {
+      "title": "Cosa è reale e cosa è semplificato",
+      "subtitle": "Come WiredMind trasforma un vero connettoma in una lezione per la classe"
+    },
+    "lessonLabel": "Lezione {number} di {total}",
+    "alt": "{title}, su un fermo immagine del riflesso di fuga nella mappa dei collegamenti di un vero moscerino della frutta"
+  },
+  "manifest": {
+    "name": "WiredMind: lezioni sul cervello del moscerino della frutta",
+    "description": "Lezioni gratuite per la classe sui veri collegamenti del cervello di un moscerino della frutta."
+  },
+  "jsonLd": {
+    "educationalLevel": "Scuola secondaria di primo e secondo grado",
+    "learningResourceType": "Lezione interattiva",
+    "audience": "Studenti e insegnanti"
+  },
+  "nav": {
+    "label": "Sito",
+    "home": "Pagina iniziale di WiredMind",
+    "lessons": "Lezioni",
+    "teachers": "Per gli insegnanti",
+    "about": "Il progetto"
+  },
+  "a11y": {
+    "skip": "Vai al contenuto",
+    "newTab": "(si apre in una nuova scheda)"
+  },
+  "language": {
+    "button": "Lingua: {language}",
+    "menu": "Scegli una lingua"
+  },
+  "translate": {
+    "notice": "WiredMind non è ancora disponibile in {language}, quindi questa pagina è in inglese.",
+    "cta": "Aiuta a tradurlo",
+    "dismiss": "Chiudi"
+  },
+  "footer": {
+    "builtBy": "Creato da {author}",
+    "github": "GitHub",
+    "githubLabel": "Aiuta a tradurre o contribuisci su GitHub",
+    "about": "Il progetto",
+    "code": "Codice: MIT",
+    "credits": "Neuroni dal connettoma <malecns>MaleCNS v1.0</malecns> di <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Università di Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc> e <google>Google Research</google>, con licenza <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "WiredMind è gratuito e lo sarà sempre. Se è stato utile alla tua classe, un caffè tiene acceso il server.",
+    "coffee": "☕ Offrimi un caffè"
+  },
+  "credits": {
+    "title": "Da dove vengono i neuroni",
+    "body": "Ogni neurone e ogni numero di sinapsi viene dal <malecns>connettoma MaleCNS v1.0</malecns> del sistema nervoso centrale del moscerino della frutta maschio, realizzato da <janelia>HHMI Janelia FlyEM</janelia>, dall’<cambridge>Università di Cambridge</cambridge>, dall’<mrc>MRC Laboratory of Molecular Biology</mrc> e da <google>Google Research</google>.",
+    "license": "I dati sono distribuiti con licenza <ccby>CC BY 4.0</ccby>. WiredMind li modifica: ritaglia tre piccoli circuiti, scarta i collegamenti con meno di cinque sinapsi e disegna ogni neurone come una linea semplificata. Il simulatore usa il modello di neurone di <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Lezioni gratuite di neuroscienze per la classe",
+      "title": "Attiva un neurone nel cervello di un vero moscerino della frutta e guarda il segnale sfrecciare dagli occhi alle zampe.",
+      "lead": "WiredMind simula nel browser il sistema nervoso di un moscerino della frutta, a partire dalla sua vera mappa dei collegamenti. Gli studenti stimolano i neuroni, li silenziano e vedono che cosa cambia, in tre brevi lezioni guidate.",
+      "start": "Inizia la prima lezione",
+      "teachers": "Per gli insegnanti"
+    },
+    "loop": {
+      "label": "Animazione del riflesso di fuga nella mappa dei collegamenti del moscerino",
+      "caption": "I primi {spanMs} ms dopo la comparsa di uno scacciamosche, dalla lezione sulla fuga, rallentati {slowdown} volte. I collegamenti sono reali, dal connettoma MaleCNS. Gli impulsi vengono da una semplice simulazione. <simplified>Cosa è semplificato</simplified>",
+      "steps": {
+        "looming": "I neuroni di avvicinamento avvistano lo scacciamosche",
+        "gf": "La fibra gigante si attiva",
+        "jump": "I neuroni del salto fanno scattare le zampe"
+      },
+      "cells": "{count, plural, one {# cellula} many {# di cellule} other {# cellule}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms nel tempo del moscerino",
+      "waiting": "Scacciamosche in arrivo",
+      "pause": "Metti in pausa l’animazione",
+      "play": "Avvia l’animazione",
+      "loading": "Caricamento del circuito…",
+      "failed": "L’animazione non si è caricata. Le lezioni funzionano lo stesso."
+    },
+    "lessons": {
+      "title": "Tre lezioni, un vero sistema nervoso",
+      "lead": "Ogni lezione si completa in pochi tocchi. Gli studenti stimolano e silenziano tipi di cellule reali, rispondono a una domanda e poi esplorano da soli.",
+      "lesson": "Lezione {number}",
+      "meta": "{steps, plural, one {# passaggio} many {# di passaggi} other {# passaggi}} e una domanda · circa 10 minuti",
+      "start": "Inizia la lezione {number}"
+    },
+    "teachers": {
+      "title": "Per gli insegnanti",
+      "lead": "Scrivi il link alla lavagna o invialo ai dispositivi degli studenti. Non c’è nient’altro da preparare.",
+      "points": {
+        "periods": {
+          "title": "1–2 ore di lezione",
+          "body": "Ogni lezione dura circa 10 minuti. Tutte e tre, discussione compresa, stanno in una o due ore."
+        },
+        "install": {
+          "title": "Niente da installare, nessun login",
+          "body": "Funziona nel browser su portatili, Chromebook, tablet e smartphone. Gli studenti non devono mai creare un account né inserire un indirizzo email."
+        },
+        "free": {
+          "title": "Gratis",
+          "body": "Niente pubblicità, niente versioni a pagamento, niente da comprare."
+        },
+        "open": {
+          "title": "Codice aperto",
+          "body": "Il codice ha licenza MIT, quindi puoi leggere come funziona o farne girare una copia tutta tua."
+        },
+        "share": {
+          "title": "Esperimenti da condividere",
+          "body": "Il pulsante «Condividi» copia un link che riproduce l’esperimento di uno studente, impulso per impulso, così vedi esattamente quello che ha visto."
+        },
+        "honest": {
+          "title": "Trasparente sulla scienza",
+          "body": "Un modello semplice di collegamenti reali. La pagina del progetto spiega esattamente cosa è reale e cosa è semplificato."
+        }
+      },
+      "source": "Guarda il codice sorgente su GitHub",
+      "science": "Cosa è reale e cosa è semplificato"
+    }
+  },
+  "about": {
+    "title": "Il progetto WiredMind",
+    "lead": "WiredMind è una serie di lezioni gratuite per la classe, costruite sulla vera mappa dei collegamenti di un moscerino della frutta. È uno strumento didattico, non un modello di ricerca. Questa pagina è per chi vuole sapere esattamente dove passa il confine.",
+    "onThisPage": "In questa pagina",
+    "real": {
+      "title": "Cosa è reale e cosa è semplificato",
+      "realTitle": "Reale",
+      "realItems": {
+        "neurons": {
+          "title": "I neuroni.",
+          "body": "Ogni lezione usa da 3.000 a 4.500 neuroni ricostruiti dal connettoma <malecns>MaleCNS v1.0</malecns>, l’intero sistema nervoso centrale di un moscerino maschio, con i tipi cellulari assegnati dai suoi autori."
+        },
+        "synapses": {
+          "title": "Il numero di sinapsi.",
+          "body": "Il peso di ogni collegamento è il numero di sinapsi che il dataset riporta tra le due cellule, con una confidenza di rilevamento di almeno 0,5."
+        },
+        "signs": {
+          "title": "Il segno delle connessioni.",
+          "body": "Il neurotrasmettitore previsto per un neurone decide se il neurone eccita o inibisce: l’acetilcolina eccita, il GABA e il glutammato inibiscono. Le cellule che, secondo le previsioni, rilasciano dopamina, serotonina, octopamina o un trasmettitore incerto non hanno effetto nel modello."
+        },
+        "shapes": {
+          "title": "Forme e posizioni.",
+          "body": "Ogni neurone è disegnato a partire dal suo scheletro nel dataset, nel punto in cui si trova davvero nel moscerino."
+        }
+      },
+      "simplifiedTitle": "Semplificato",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Piccoli ritagli.",
+          "body": "Ogni lezione simula un sottocircuito da 3.000 a 4.500 neuroni, non l’intero sistema nervoso. Il circuito dell’olfatto comprende quattro popolazioni di cellule: recettori, neuroni di proiezione, cellule di Kenyon e neuroni di uscita. I circuiti della bussola e della fuga si estendono di due passaggi sinaptici attorno ai loro tipi cellulari iniziali e tengono i partner collegati più fortemente. I collegamenti con meno di cinque sinapsi vengono scartati. Tutto ciò che resta fuori dal ritaglio sparisce, compresa l’inibizione che normalmente terrebbe in equilibrio la rete."
+        },
+        "model": {
+          "title": "Un solo modello di neurone per tutte le cellule.",
+          "body": "Neuroni puntiformi di tipo leaky integrate-and-fire, con gli stessi parametri ovunque: i valori pubblicati da <shiu>Shiu et al. (2024)</shiu>, cioè riposo e reset a −52 mV, soglia a −45 mV, costante di tempo di membrana di 20 ms, costante di tempo sinaptica di 5 ms, periodo refrattario di 2,2 ms, ritardo di 1,8 ms, 0,275 mV per sinapsi. Niente calcolo dendritico, niente neuroni a potenziale graduato o senza impulsi, niente neuromodulazione e niente apprendimento: le sinapsi non cambiano mai."
+        },
+        "gaps": {
+          "title": "Niente giunzioni comunicanti.",
+          "body": "Il connettoma registra solo le sinapsi chimiche, quindi le sinapsi elettriche mancano. Questo conta soprattutto nella lezione sulla fuga: in un moscerino vero il collegamento tra la fibra gigante e il motoneurone del salto è una sinapsi mista, che si basa molto sulle giunzioni comunicanti. Qui quel collegamento è fatto solo delle sue 90 sinapsi chimiche."
+        },
+        "learning": {
+          "title": "Niente apprendimento.",
+          "body": "La lezione sull’olfatto mostra dove un moscerino conserva i ricordi degli odori, cioè nelle sinapsi tra cellule di Kenyon e neuroni di uscita, ma il modello non ha neuroni dopaminergici né plasticità. Il ritaglio lascia fuori anche il neurone APL, che mantiene sparsa l’attività delle cellule di Kenyon."
+        },
+        "stimulation": {
+          "title": "Stimolazione idealizzata.",
+          "body": "«Stimola» invia a ogni neurone di un gruppo un ingresso di Poisson indipendente (40 Hz per 200 ms nelle lezioni sull’olfatto e sulla fuga, 60 Hz per 800 ms per i neuroni di svolta), con ogni evento abbastanza forte da attivare la cellula, un po’ come un’attivazione optogenetica. Un odore vero attiva pochi tipi di recettori in una certa combinazione; l’odore della lezione attiva tutti i 1.861 neuroni recettori del ritaglio. Lo scacciamosche attiva tutte insieme le 304 cellule di avvicinamento, mentre un oggetto vero in avvicinamento le recluta man mano che si ingrandisce."
+        },
+        "silence": {
+          "title": "Silenziare è un blocco totale.",
+          "body": "Un gruppo silenziato resta a riposo, non genera mai impulsi e non trasmette nulla. Gli strumenti veri per silenziare i neuroni, come Kir2.1 o la tossina tetanica, sono parziali, più lenti e possono lasciare attive le sinapsi elettriche."
+        },
+        "compass": {
+          "title": "I punti di riferimento della bussola.",
+          "body": "Nel modello i neuroni ad anello non ricevono input visivi. Silenziarli toglie la loro inibizione sulla bussola, ed è questo che qui fa andare il picco alla deriva. In un moscerino vero portano dentro punti di riferimento e altri indizi dai sensi."
+        },
+        "timing": {
+          "title": "I tempi.",
+          "body": "Le latenze derivano da un ritardo uniforme di 1,8 ms e dalle costanti di tempo di membrana e sinaptica, non da registrazioni. Cadono in un intervallo plausibile, ma niente è stato regolato per corrispondere alle latenze di fuga misurate. Il visualizzatore mostra tutto al rallentatore, da 0,2 a 2 ms di tempo del moscerino per fotogramma a seconda del dispositivo, e smette di simulare 150 ms dopo l’ultimo stimolo, perché in alcuni ritagli ci sono anelli eccitatori che, senza l’inibizione rimasta fuori, risuonerebbero all’infinito."
+        },
+        "drawings": {
+          "title": "Disegni, non morfologia.",
+          "body": "Ogni neurone è disegnato come una linea di 12 punti lungo il suo scheletro, non con le sue vere ramificazioni. I lampi indicano gli impulsi. I puntini in movimento sono un’illustrazione, non la velocità di conduzione né il percorso reale di un impulso."
+        }
+      },
+      "researchTitle": "Cosa farebbe diversamente uno strumento di ricerca",
+      "researchItems": {
+        "whole": "Simulare l’intero sistema nervoso centrale, o ritagliarlo lungo confini motivati con ingressi modellati, e tenere le connessioni deboli.",
+        "fit": "Adattare alle registrazioni i parametri di ogni tipo cellulare, ammettere neuroni a potenziale graduato e senza impulsi, e usare modelli a conduttanza o multicompartimentali dove contano i dendriti.",
+        "add": "Aggiungere le giunzioni comunicanti da altri dati, i neuromodulatori come dopamina e octopamina, e la plasticità, per esempio la depressione controllata dalla dopamina nelle sinapsi tra cellule di Kenyon e neuroni di uscita.",
+        "drive": "Stimolare i neuroni sensoriali come fa il mondo: combinazioni di recettori specifiche per ogni odore, e stimoli in avvicinamento che reclutano le cellule man mano che l’oggetto si ingrandisce.",
+        "uncertain": "Trattare come incerti le previsioni dei trasmettitori e i pesi, farli variare in modo sistematico, usare molti semi casuali e confrontare i risultati con l’elettrofisiologia e il comportamento."
+      },
+      "furtherTitle": "Vai alla fonte",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: consulta MaleCNS v1.0 cellula per cellula e sinapsi per sinapsi.",
+        "paper": "<paper>L’articolo su MaleCNS</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: il modello leaky integrate-and-fire dell’intero cervello da cui WiredMind prende in prestito i parametri.",
+        "code": "<code>Il codice sorgente</code>: la pipeline dei dati, il simulatore, le lezioni e i test che verificano le affermazioni di ogni lezione sui circuiti reali."
+      }
+    },
+    "who": {
+      "title": "Chi l’ha creato",
+      "body": "WiredMind è stato creato da {author}, sviluppatore full-stack ed esperto di strategie SEO a Tel Aviv, in una settimana, a settembre 2026.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Sostieni il progetto"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "body": "Nessun account. L’unico cookie ricorda la lingua che scegli dal menu delle lingue. Le visite alle pagine sono contate con Vercel Web Analytics, che non usa cookie."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Come un moscerino ricorda un odore",
+      "summary": "Manda un odore nel cervello di un vero moscerino e trova le cellule che lo ricordano.",
+      "description": "Manda un odore nel cervello di un vero moscerino, seguilo fino al corpo fungiforme e scopri le cellule che lo ricordano. Lezione gratuita di 10 minuti.",
+      "steps": {
+        "send": {
+          "text": "Un moscerino sente gli odori con le <term>antenne</term> <gloss>(due piccoli nasi)</gloss>. Tocca «Stimola» per far entrare un odore. Guarda come si accendono i neuroni arancioni.",
+          "result": "Quelli arancioni sono i <term>recettori olfattivi</term> <gloss>(acchiappaodori)</gloss> e si attivano per primi. Ogni odore comincia da qui."
+        },
+        "follow": {
+          "text": "Tocca di nuovo «Stimola» e segui i colori. In giallo, i <term>neuroni di proiezione</term> <gloss>(messaggeri dell’odore)</gloss> portano l’odore verso l’interno. In blu, le <term>cellule di Kenyon</term> <gloss>(smistatrici di odori)</gloss> lo ricevono subito dopo.",
+          "result": "Le cellule blu trasformano ogni odore in una combinazione tutta sua."
+        },
+        "read": {
+          "text": "Tocca «Stimola» ancora una volta. Ora guarda quelli rosa: sono i <term>neuroni di uscita</term> <gloss>(lettori di ricordi)</gloss>. Leggono la combinazione blu.",
+          "result": "Quando un odore arriva insieme allo zucchero o a un pericolo, i collegamenti dal blu al rosa cambiano. Gli scienziati pensano che il ricordo sia proprio questo cambiamento."
+        },
+        "silence": {
+          "text": "Ora silenzia le <term>cellule di Kenyon</term> <gloss>(smistatrici di odori)</gloss>. L’odore lo mandiamo noi. Che cosa sparisce?",
+          "result": "La luce rosa quasi sparisce. L’odore entra lo stesso, ma i lettori di ricordi non hanno niente da leggere."
+        },
+        "restore": {
+          "text": "Tocca di nuovo il pulsante delle <term>cellule di Kenyon</term> <gloss>(smistatrici di odori)</gloss> per riattivarle. Mandiamo di nuovo lo stesso odore.",
+          "result": "La luce rosa torna. Il moscerino può di nuovo leggere il ricordo dell’odore."
+        }
+      },
+      "check": {
+        "question": "Hai silenziato le <term>cellule di Kenyon</term> <gloss>(cellule blu)</gloss>. Perché le cellule rosa si sono spente?",
+        "choices": {
+          "never": {
+            "text": "L’odore non è mai entrato nel moscerino.",
+            "feedback": "Non proprio. Le cellule arancioni e gialle si sono accese lo stesso, quindi l’odore è entrato. Si è fermato alle cellule blu."
+          },
+          "pattern": {
+            "text": "Le cellule blu passano la combinazione di ogni odore alle cellule rosa.",
+            "feedback": "Sì! Le cellule blu smistano ogni odore in una combinazione e le cellule rosa la leggono. Senza combinazione non c’è niente da ricordare."
+          },
+          "both": {
+            "text": "Hai disattivato anche le cellule rosa.",
+            "feedback": "Non proprio. Hai disattivato solo le cellule blu. Le cellule rosa sono rimaste attive, ma non avevano niente da leggere."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Esplorazione libera",
+        "text": "Ora tutti i pulsanti funzionano. Prima prova a indovinare, poi tocca: che cosa si spegne se silenzi i messaggeri gialli dell’odore? Prova a silenziare due colori insieme."
+      }
+    },
+    "compass": {
+      "title": "Come un moscerino sa da che parte è rivolto",
+      "summary": "Fai girare la bussola di un vero moscerino e scopri che cosa la tiene ferma.",
+      "description": "Fai girare la bussola interna di un vero moscerino, poi silenzia i neuroni ad anello e guardala andare alla deriva. Lezione gratuita di 10 minuti.",
+      "steps": {
+        "left": {
+          "text": "Tocca «Stimola» per attivare i <term>neuroni di svolta</term> di sinistra <gloss>(segnale per girare)</gloss>. Poi guarda il quadrante della bussola.",
+          "result": "I <term>neuroni bussola</term> <gloss>(cellule di rotta)</gloss> si accendono da un lato. Quella zona luminosa, il picco, indica da che parte è rivolto il moscerino."
+        },
+        "right": {
+          "text": "Ora tocca «Stimola» sui <term>neuroni di svolta</term> di destra <gloss>(segnale opposto)</gloss>. Tieni d’occhio il picco.",
+          "result": "Il picco si è spostato lungo il quadrante. I segnali di svolta dei due lati lo spingono in direzioni opposte, così cambia anche la rotta del moscerino."
+        },
+        "silence": {
+          "text": "Silenzia i <term>neuroni ad anello</term> <gloss>(occhi della bussola)</gloss>. Portano dentro quello che vede il moscerino. Il segnale di destra lo mandiamo noi.",
+          "result": "Il picco scivola via dal suo posto e vaga. Senza punti di riferimento, la bussola va alla deriva."
+        },
+        "restore": {
+          "text": "Tocca di nuovo il pulsante dei <term>neuroni ad anello</term> <gloss>(occhi della bussola)</gloss> per riattivarli. Mandiamo di nuovo lo stesso segnale.",
+          "result": "Il picco resta di nuovo fermo al suo posto. I punti di riferimento tengono la bussola del moscerino sulla rotta giusta."
+        }
+      },
+      "check": {
+        "question": "Hai silenziato gli occhi della bussola (le cellule viola). Perché il picco è andato alla deriva?",
+        "choices": {
+          "never": {
+            "text": "Il segnale di svolta non è mai arrivato alla bussola.",
+            "feedback": "Non proprio. Le cellule di rotta verdi si sono accese lo stesso, quindi il segnale è arrivato. Niente teneva fermo il picco."
+          },
+          "landmarks": {
+            "text": "Niente diceva alla bussola dove fossero i punti di riferimento, così il picco è scivolato via.",
+            "feedback": "Sì! Le cellule viola portano dentro quello che vede il moscerino. Senza di loro, niente aggancia il picco al mondo esterno."
+          },
+          "both": {
+            "text": "Hai disattivato anche le cellule di rotta verdi.",
+            "feedback": "Non proprio. Hai silenziato solo le cellule viola. Le cellule di rotta verdi hanno continuato ad attivarsi, ma niente le teneva ferme."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Esplorazione libera",
+        "text": "Ora tutti i pulsanti funzionano. Prima prova a indovinare, poi tocca: dove va il picco se attivi insieme i due segnali di svolta? Prova anche con le cellule viola silenziate."
+      }
+    },
+    "escape": {
+      "title": "La fuga in 30 millisecondi",
+      "summary": "Trova il filo che permette a un moscerino di sfuggire allo scacciamosche.",
+      "description": "Dagli occhi alle zampe in 30 ms: segui lo scacciamosche lungo la fibra gigante di un vero moscerino, poi taglia il filo. Lezione gratuita di 10 minuti.",
+      "steps": {
+        "loom": {
+          "text": "Uno scacciamosche piomba sul moscerino. Tocca «Stimola» per attivare i <term>neuroni di avvicinamento</term> <gloss>(sentinelle)</gloss>.",
+          "result": "Si attivano e, in pochi millesimi di secondo, si attiva anche la <term>fibra gigante</term> <gloss>(filo di fuga)</gloss>."
+        },
+        "jump": {
+          "text": "Tocca di nuovo «Stimola». Segui la <term>fibra gigante</term> <gloss>(filo di fuga)</gloss> giù nel <term>cordone nervoso</term> <gloss>(midollo spinale)</gloss>.",
+          "result": "I <term>neuroni del salto</term> <gloss>(motori delle zampe)</gloss> si attivano entro 30 millisecondi. Fanno scattare le zampe centrali e il moscerino salta via."
+        },
+        "silence": {
+          "text": "Ora silenzia la <term>fibra gigante</term> <gloss>(filo di fuga)</gloss>. Lo scacciamosche lo mandiamo noi. Guarda i <term>neuroni del salto</term> <gloss>(motori delle zampe)</gloss>.",
+          "result": "I <term>neuroni di avvicinamento</term> <gloss>(sentinelle)</gloss> si attivano ancora, ma i <term>neuroni del salto</term> restano spenti. La fuga veloce non c’è più."
+        },
+        "restore": {
+          "text": "Tocca di nuovo il pulsante della <term>fibra gigante</term> <gloss>(filo di fuga)</gloss> per riattivarla. Mandiamo di nuovo lo stesso scacciamosche.",
+          "result": "I <term>neuroni del salto</term> <gloss>(motori delle zampe)</gloss> si attivano di nuovo. I moscerini veri hanno anche vie di fuga più lente, ma questa è la più veloce."
+        }
+      },
+      "check": {
+        "question": "Hai silenziato la <term>fibra gigante</term> <gloss>(filo di fuga)</gloss>. Perché i motori delle zampe sono rimasti spenti?",
+        "choices": {
+          "never": {
+            "text": "Il moscerino non ha mai visto lo scacciamosche.",
+            "feedback": "Non proprio. Le sentinelle blu si sono attivate lo stesso, quindi il moscerino l’ha visto. Il segnale si è fermato al filo di fuga."
+          },
+          "wire": {
+            "text": "Il filo di fuga porta il segnale del salto ai motori delle zampe.",
+            "feedback": "Sì! Le sentinelle avvisano il filo di fuga, e il filo di fuga dice alle zampe di saltare. Se tagli il filo, il salto veloce sparisce."
+          },
+          "both": {
+            "text": "Hai disattivato anche i motori delle zampe.",
+            "feedback": "Non proprio. Hai silenziato solo il filo di fuga. I motori delle zampe sono rimasti attivi, ma non hanno ricevuto nessun segnale."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Esplorazione libera",
+        "text": "Ora tutti i pulsanti funzionano. Prima prova a indovinare, poi tocca: quali colori si accendono ancora con il filo di fuga silenziato? Poi prova invece a silenziare le sentinelle."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Recettori olfattivi",
+        "pn": "Neuroni di proiezione",
+        "kc": "Cellule di Kenyon",
+        "mbon": "Neuroni di uscita"
+      },
+      "stimulate": {
+        "orn": "Attiva i neuroni recettori che per primi captano un odore sull’antenna."
+      },
+      "silence": {
+        "pn": "Impedisce al lobo antennale di portare quell’odore nel corpo fungiforme.",
+        "kc": "Zittisce le cellule che distinguono un odore dall’altro.",
+        "mbon": "Blocca il passaggio del risultato dal corpo fungiforme al resto del cervello."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Neuroni ad anello",
+        "compass": "Neuroni bussola",
+        "turn-left": "Neuroni di svolta di sinistra",
+        "turn-right": "Neuroni di svolta di destra"
+      },
+      "stimulate": {
+        "turn-left": "Attiva le cellule di svolta P-EN2 sul lato sinistro del ponte.",
+        "turn-right": "Attiva le cellule di svolta P-EN2 sul lato destro del ponte."
+      },
+      "silence": {
+        "ring": "Blocca i neuroni ad anello, che portano dentro i punti di riferimento visti dagli occhi.",
+        "compass": "Zittisce le cellule di rotta E-PG, che formano la bussola."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Neuroni di avvicinamento",
+        "gf": "Fibra gigante",
+        "jump": "Neuroni del salto"
+      },
+      "stimulate": {
+        "looming": "Attiva le cellule dell’occhio LC4 e LPLC2, che avvistano qualcosa in picchiata."
+      },
+      "silence": {
+        "looming": "Impedisce alle cellule dell’occhio di segnalare la picchiata.",
+        "gf": "Blocca la fibra gigante, il filo di fuga più veloce del moscerino.",
+        "jump": "Zittisce i motoneuroni che fanno scattare le zampe centrali."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Lezione {number}",
+      "canvasHelp": "Vista tridimensionale dei neuroni. Trascina per ruotarla. Usa due dita per lo zoom.",
+      "loading": "Caricamento del circuito…",
+      "loadingPercent": "Caricamento del circuito… {percent}%"
+    },
+    "load": {
+      "unavailable": "I file del circuito non sono disponibili. Ricarica la pagina per riprovare.",
+      "damaged": "I file del circuito sono danneggiati. Ricarica la pagina per riprovare.",
+      "failed": "Il circuito non si è caricato. Ricarica la pagina per riprovare."
+    },
+    "controls": {
+      "stimulate": "Stimola",
+      "silence": "Silenzia",
+      "activity": "Attività",
+      "reset": "Azzera",
+      "dragHint": "Trascina il cervello per ruotarlo. Usa due dita per lo zoom.",
+      "activityLabel": "Attività: {group}",
+      "locked": "Bloccato",
+      "lockedHint": "Non si usa in questo passaggio. Nell’esplorazione libera si sbloccano tutti i pulsanti.",
+      "stimulateNamed": "Stimola: {name}",
+      "silenceNamed": "Silenzia: {name}",
+      "silencedNamed": "In silenzio: {name}",
+      "silenced": "In silenzio · tocca per riattivare"
+    },
+    "sheet": {
+      "more": "Mostra di più",
+      "less": "Mostra di meno"
+    },
+    "toolbar": {
+      "lessonOf": "Lezione {number} di {total}",
+      "share": "Condividi",
+      "copied": "Link copiato. Riproduce il tuo esperimento.",
+      "copiedEmpty": "Link copiato. Per condividere un esperimento, prima premi un pulsante.",
+      "copyThis": "Copia questo link:",
+      "linkLabel": "Link a questo esperimento"
+    },
+    "lesson": {
+      "tapCue": "Tocca il pulsante luminoso in basso.",
+      "watching": "Guarda il cervello…",
+      "again": "Ricomincia la lezione",
+      "next": "Avanti",
+      "question": "Una domanda veloce",
+      "freePlay": "Inizia l’esplorazione libera",
+      "pickAnswer": "Scegli la risposta che ti sembra giusta.",
+      "nextLesson": "Prossima lezione: {title}",
+      "finished": "Hai finito tutte le lezioni. Continua a esplorare.",
+      "cueStimulate": "Stimola",
+      "cueSilence": "Silenzia",
+      "cueSwitchOn": "Riattiva",
+      "loadingBrain": "Caricamento del cervello…",
+      "gettingReady": "Un attimo… guarda il cervello",
+      "watchBrain": "Guarda il cervello",
+      "puffProgress": "Avanzamento dello stimolo",
+      "puffClock": "{name}: {elapsed} di {total} ms, al rallentatore",
+      "slowMotion": "Al rallentatore, così puoi seguire tutto",
+      "step": "Passaggio {number} di {total}",
+      "quickQuestion": "Domanda veloce",
+      "done": "Lezione completata",
+      "answers": "Risposte",
+      "tryAnother": "Prova un’altra risposta."
+    },
+    "replay": {
+      "label": "Replay di {title}",
+      "section": "Replay",
+      "finished": "Replay finito",
+      "shared": "Qualcuno ha condiviso il suo esperimento nella lezione «{title}». Rivedilo impulso per impulso.",
+      "over": "L’esperimento è finito. Ora tutti i pulsanti funzionano: prova a farne uno tuo.",
+      "replaying": "Replay di un esperimento condiviso",
+      "progress": "Avanzamento del replay",
+      "pressOf": "Tocco {number} di {total}, negli stessi istanti e con lo stesso seme casuale",
+      "tick": "{ms} ms",
+      "watchAgain": "Guarda di nuovo",
+      "start": "Inizia la lezione",
+      "stimulate": "Stimola: {name}",
+      "silence": "Silenzia: {name}",
+      "switchOn": "Riattiva: {name}",
+      "notice": "{problem} Ecco invece la lezione.",
+      "errors": {
+        "unknownLesson": "Questo replay è di una lezione che questo sito non ha.",
+        "unknownButton": "Questo replay usa un pulsante che questa lezione non ha più.",
+        "empty": "Questo link di replay è vuoto o troppo lungo.",
+        "version": "Questo link di replay viene da un’altra versione.",
+        "seed": "Il seme casuale di questo replay è troppo grande.",
+        "tooMany": "Questo replay ha troppi passaggi per essere riprodotto.",
+        "tooLong": "Questo replay dura troppo per essere riprodotto.",
+        "broken": "Questo link di replay è rotto o incompleto.",
+        "generic": "Quel link di replay non ha funzionato."
+      }
+    },
+    "compass": {
+      "label": "Quadrante della bussola. Gli spicchi luminosi e l’ago mostrano dove si trova il picco sull’anello.",
+      "left": "S",
+      "right": "D",
+      "caption": "Bussola · vista da dietro"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Questa pagina non esiste",
+      "body": "Il link potrebbe essere vecchio o scritto male. Le lezioni sono sempre qui.",
+      "home": "Vai alle lezioni"
+    },
+    "error": {
+      "title": "Qualcosa è andato storto",
+      "body": "C’è stato un errore nella pagina. Riprova o torna alle lezioni.",
+      "retry": "Riprova",
+      "home": "Vai alle lezioni"
+    }
+  }
+}

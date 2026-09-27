@@ -7,12 +7,20 @@ import {
   decodeReplay,
   encodeReplay,
   MAX_ACTIONS,
+  ReplayError,
   replayProblem,
   replayUrl,
   type Replay,
+  type ReplayErrorCode,
 } from "../apps/web/src/viewer/replay.js";
 import { createViewerSession } from "../apps/web/src/viewer/session.js";
 import { olfactoryCircuit } from "./sim-circuits.js";
+
+/** Matches a ReplayError with this code, the reason the viewer translates. */
+function code(expected: ReplayErrorCode) {
+  return (error: unknown) =>
+    error instanceof ReplayError && error.code === expected;
+}
 
 const sample: Replay = {
   lessonId: "smell-memory",
@@ -91,12 +99,12 @@ describe("replay links", () => {
 
   it("refuses broken, cut-off, and oversized links", () => {
     const good = encodeReplay(sample);
-    assert.throws(() => decodeReplay(""), /empty or too long/);
-    assert.throws(() => decodeReplay("not base64!"), /broken/);
-    assert.throws(() => decodeReplay(good.slice(0, -3)), /broken|cut off/);
-    assert.throws(() => decodeReplay(`${good}AA`), /broken/);
-    assert.throws(() => decodeReplay("Ag"), /different version/);
-    assert.throws(() => decodeReplay("A".repeat(5000)), /too long/);
+    assert.throws(() => decodeReplay(""), code("empty"));
+    assert.throws(() => decodeReplay("not base64!"), code("broken"));
+    assert.throws(() => decodeReplay(good.slice(0, -3)), code("broken"));
+    assert.throws(() => decodeReplay(`${good}AA`), code("broken"));
+    assert.throws(() => decodeReplay("Ag"), code("version"));
+    assert.throws(() => decodeReplay("A".repeat(5000)), code("empty"));
     const flood: Replay = {
       ...sample,
       actions: Array.from({ length: MAX_ACTIONS + 1 }, (_, index) => ({
@@ -105,7 +113,7 @@ describe("replay links", () => {
         command: { type: "stimulate", colorGroup: "orn" },
       })),
     };
-    assert.throws(() => decodeReplay(encodeReplay(flood)), /too many/);
+    assert.throws(() => decodeReplay(encodeReplay(flood)), code("tooMany"));
     const endless: Replay = {
       ...sample,
       actions: [
@@ -116,7 +124,7 @@ describe("replay links", () => {
         },
       ],
     };
-    assert.throws(() => decodeReplay(encodeReplay(endless)), /too long/);
+    assert.throws(() => decodeReplay(encodeReplay(endless)), code("tooLong"));
   });
 
   it("checks the presses against the lesson's buttons", () => {
@@ -132,7 +140,7 @@ describe("replay links", () => {
         },
       ],
     };
-    assert.match(replayProblem(foreign, smell) ?? "", /no longer has/);
+    assert.equal(replayProblem(foreign, smell), "unknownButton");
   });
 });
 

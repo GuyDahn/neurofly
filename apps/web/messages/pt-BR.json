@@ -1,0 +1,535 @@
+{
+  "_meta": {
+    "locale": "pt-BR",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27"
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: explore o cérebro real de uma mosca-da-fruta",
+      "description": "Aulas gratuitas sobre as conexões reais do cérebro de uma mosca-da-fruta. Estimule e silencie neurônios do conectoma MaleCNS no navegador. Sem cadastro."
+    },
+    "about": {
+      "title": "Sobre o WiredMind: o que é real e o que é simplificado",
+      "description": "O que é real e o que é simplificado nas aulas do WiredMind sobre o cérebro da mosca-da-fruta, quem criou o projeto e como apoiá-lo."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Página não encontrada · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Veja o reflexo de fuga de uma mosca correr pelas conexões reais dela",
+      "subtitle": "Aulas gratuitas sobre o conectoma MaleCNS"
+    },
+    "about": {
+      "title": "O que é real e o que é simplificado",
+      "subtitle": "Como o WiredMind transforma um conectoma real em uma aula"
+    },
+    "lessonLabel": "Aula {number} de {total}",
+    "alt": "{title}, sobre um quadro do reflexo de fuga no diagrama de conexões de uma mosca-da-fruta real"
+  },
+  "manifest": {
+    "name": "WiredMind: aulas sobre o cérebro da mosca-da-fruta",
+    "description": "Aulas gratuitas sobre as conexões reais do cérebro de uma mosca-da-fruta."
+  },
+  "jsonLd": {
+    "educationalLevel": "Ensino Fundamental II e Ensino Médio",
+    "learningResourceType": "Aula interativa",
+    "audience": "Alunos e professores"
+  },
+  "nav": {
+    "label": "Site",
+    "home": "Página inicial do WiredMind",
+    "lessons": "Aulas",
+    "teachers": "Para professores",
+    "about": "Sobre"
+  },
+  "a11y": {
+    "skip": "Pular para o conteúdo",
+    "newTab": "(abre em uma nova aba)"
+  },
+  "language": {
+    "button": "Idioma: {language}",
+    "menu": "Escolha um idioma"
+  },
+  "translate": {
+    "notice": "O WiredMind ainda não está disponível em {language}, por isso esta página está em inglês.",
+    "cta": "Ajude a traduzir",
+    "dismiss": "Fechar"
+  },
+  "footer": {
+    "builtBy": "Criado por {author}",
+    "github": "GitHub",
+    "githubLabel": "Ajude a traduzir ou contribua no GitHub",
+    "about": "Sobre",
+    "code": "Código: MIT",
+    "credits": "Neurônios do conectoma <malecns>MaleCNS v1.0</malecns>, feito pelo <janelia>HHMI Janelia FlyEM</janelia>, pela <cambridge>Universidade de Cambridge</cambridge>, pelo <mrc>Laboratório de Biologia Molecular do MRC</mrc> e pelo <google>Google Research</google>, sob a licença <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "O WiredMind é gratuito e sempre vai ser. Se ele ajudou a sua turma, um café mantém o servidor a todo vapor.",
+    "coffee": "☕ Me pague um café"
+  },
+  "credits": {
+    "title": "De onde vêm os neurônios",
+    "body": "Todos os neurônios e todas as contagens de sinapses vêm do <malecns>conectoma MaleCNS v1.0</malecns>, do sistema nervoso central da mosca-da-fruta macho, feito pelo <janelia>HHMI Janelia FlyEM</janelia>, pela <cambridge>Universidade de Cambridge</cambridge>, pelo <mrc>Laboratório de Biologia Molecular do MRC</mrc> e pelo <google>Google Research</google>.",
+    "license": "Os dados estão sob a licença <ccby>CC BY 4.0</ccby>. O WiredMind altera esses dados: recorta três pequenos circuitos, descarta as conexões com menos de cinco sinapses e desenha cada neurônio como uma linha simplificada. O simulador usa o modelo de neurônio de <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Aulas gratuitas de neurociência para a sala de aula",
+      "title": "Dispare um neurônio no cérebro de uma mosca-da-fruta de verdade e veja o sinal correr dos olhos até as pernas.",
+      "lead": "O WiredMind roda no navegador o diagrama de conexões real do sistema nervoso de uma mosca-da-fruta. Os alunos estimulam e silenciam neurônios e veem o que muda, em três aulas curtas e guiadas.",
+      "start": "Começar a primeira aula",
+      "teachers": "Para professores"
+    },
+    "loop": {
+      "label": "Animação do reflexo de fuga no diagrama de conexões da mosca",
+      "caption": "Os primeiros {spanMs} ms depois que um mata-moscas aparece, na aula da fuga, {slowdown} vezes mais devagar. As conexões são reais, do conectoma MaleCNS. Os disparos vêm de uma simulação simples. <simplified>O que é simplificado</simplified>",
+      "steps": {
+        "looming": "Os neurônios de aproximação detectam o mata-moscas",
+        "gf": "A fibra gigante dispara",
+        "jump": "Os neurônios de salto dão o impulso"
+      },
+      "cells": "{count, plural, one {# célula} many {# células} other {# células}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms no tempo da mosca",
+      "waiting": "Lá vem o mata-moscas",
+      "pause": "Pausar a animação",
+      "play": "Reproduzir a animação",
+      "loading": "Carregando o circuito…",
+      "failed": "A animação não carregou. As aulas continuam funcionando."
+    },
+    "lessons": {
+      "title": "Três aulas, um sistema nervoso real",
+      "lead": "Cada aula leva só alguns toques. Os alunos estimulam e silenciam tipos reais de células, respondem a uma pergunta e depois exploram por conta própria.",
+      "lesson": "Aula {number}",
+      "meta": "{steps, plural, one {# passo} many {# passos} other {# passos}} e uma pergunta · cerca de 10 minutos",
+      "start": "Começar a aula {number}"
+    },
+    "teachers": {
+      "title": "Para professores",
+      "lead": "Coloque o link no quadro ou envie para os aparelhos dos próprios alunos. Não precisa configurar mais nada.",
+      "points": {
+        "periods": {
+          "title": "1–2 horas-aula",
+          "body": "Cada aula leva cerca de 10 minutos. As três, com a discussão, cabem em uma ou duas horas-aula."
+        },
+        "install": {
+          "title": "Sem instalação, sem cadastro",
+          "body": "Funciona no navegador de notebooks, Chromebooks, tablets e celulares. Os alunos nunca criam conta nem digitam e-mail."
+        },
+        "free": {
+          "title": "Gratuito",
+          "body": "Sem anúncios, sem plano pago, nada para comprar."
+        },
+        "open": {
+          "title": "Código aberto",
+          "body": "O código tem licença MIT, então você pode ler como ele funciona ou rodar a sua própria cópia."
+        },
+        "share": {
+          "title": "Experimentos compartilháveis",
+          "body": "O botão Compartilhar copia um link que reproduz o experimento de um aluno, disparo por disparo, para você ver o que ele viu."
+        },
+        "honest": {
+          "title": "Transparente sobre a ciência",
+          "body": "Um modelo simples de conexões reais. A página Sobre diz exatamente o que é real e o que é simplificado."
+        }
+      },
+      "source": "Ver o código-fonte no GitHub",
+      "science": "O que é real e o que é simplificado"
+    }
+  },
+  "about": {
+    "title": "Sobre o WiredMind",
+    "lead": "O WiredMind é um conjunto de aulas gratuitas baseadas no diagrama de conexões real de uma mosca-da-fruta. É uma ferramenta de ensino, não um modelo de pesquisa. Esta página é para quem quer saber exatamente onde fica esse limite.",
+    "onThisPage": "Nesta página",
+    "real": {
+      "title": "O que é real e o que é simplificado",
+      "realTitle": "Real",
+      "realItems": {
+        "neurons": {
+          "title": "Os neurônios.",
+          "body": "Cada aula usa de 3.000 a 4.500 neurônios reconstruídos do conectoma <malecns>MaleCNS v1.0</malecns>, que abrange todo o sistema nervoso central de uma mosca macho, com os tipos de célula atribuídos pelos autores."
+        },
+        "synapses": {
+          "title": "O número de sinapses.",
+          "body": "O peso de cada conexão é o número de sinapses que o conjunto de dados registra entre as duas células, com confiança de detecção de 0,5 ou mais."
+        },
+        "signs": {
+          "title": "Os sinais (+ ou −).",
+          "body": "O neurotransmissor previsto de um neurônio define se ele excita ou inibe: a acetilcolina excita; o GABA e o glutamato inibem. Células com previsão de liberar dopamina, serotonina, octopamina ou um transmissor incerto não têm efeito no modelo."
+        },
+        "shapes": {
+          "title": "As formas e as posições.",
+          "body": "Cada neurônio é desenhado a partir do seu próprio esqueleto no conjunto de dados, no lugar onde ele realmente fica na mosca."
+        }
+      },
+      "simplifiedTitle": "Simplificado",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Recortes pequenos.",
+          "body": "Cada aula roda um subcircuito de 3.000 a 4.500 neurônios, não o sistema nervoso inteiro. O circuito do olfato tem quatro populações de células: receptores, neurônios de projeção, células de Kenyon e neurônios de saída. Os circuitos da bússola e da fuga se expandem por dois saltos a partir dos seus tipos de célula iniciais e mantêm os parceiros mais fortemente conectados. As conexões com menos de cinco sinapses são descartadas. Tudo o que fica fora do recorte desaparece, inclusive a inibição que normalmente equilibraria a rede."
+        },
+        "model": {
+          "title": "Um só modelo de neurônio para todas as células.",
+          "body": "Neurônios pontuais do tipo integra-e-dispara com vazamento, com os mesmos parâmetros em toda parte: os valores publicados por <shiu>Shiu et al. (2024)</shiu>. Repouso e reset em −52 mV, limiar em −45 mV, constante de tempo da membrana de 20 ms, constante de tempo sináptica de 5 ms, período refratário de 2,2 ms, atraso de 1,8 ms e 0,275 mV por sinapse. Sem computação dendrítica, sem neurônios de potencial graduado ou que não disparam, sem neuromodulação e sem aprendizado: as sinapses nunca mudam."
+        },
+        "gaps": {
+          "title": "Sem junções comunicantes.",
+          "body": "O conectoma registra apenas sinapses químicas, então as sinapses elétricas ficam de fora. Isso pesa mais na aula da fuga: numa mosca real, a ligação da fibra gigante com o neurônio motor do salto é uma sinapse mista que depende muito de junções comunicantes. Aqui, essa ligação se resume às suas 90 sinapses químicas."
+        },
+        "learning": {
+          "title": "Nada aprende.",
+          "body": "A aula do olfato mostra onde a mosca guarda memórias de cheiros, nas sinapses das células de Kenyon para os neurônios de saída, mas o modelo não tem neurônios dopaminérgicos nem plasticidade. O recorte também deixa de fora o neurônio APL, que mantém esparsa a atividade das células de Kenyon."
+        },
+        "stimulation": {
+          "title": "Estimulação idealizada.",
+          "body": "O botão Estimular ativa todos os neurônios de um grupo com entradas de Poisson independentes (40 Hz por 200 ms nas aulas do olfato e da fuga, 60 Hz por 800 ms para os neurônios de giro), e cada evento é forte o bastante para fazer a célula disparar, como numa ativação optogenética. Um cheiro real ativa alguns tipos de receptor num padrão; o cheiro da aula faz disparar todos os 1.861 neurônios receptores do recorte. O mata-moscas faz disparar de uma vez todas as 304 células de aproximação, enquanto um objeto real que se aproxima vai recrutando essas células à medida que cresce."
+        },
+        "silence": {
+          "title": "Silenciar é um bloqueio total.",
+          "body": "Um grupo silenciado fica em repouso, nunca dispara e não envia nada. As ferramentas reais de silenciamento, como Kir2.1 ou a toxina tetânica, são parciais, mais lentas e podem deixar as sinapses elétricas funcionando."
+        },
+        "compass": {
+          "title": "Os pontos de referência da bússola.",
+          "body": "No modelo, os neurônios em anel não recebem nenhuma entrada visual. Silenciá-los remove a inibição que eles exercem sobre a bússola, e é isso que deixa a bolha de atividade sair do lugar aqui. Numa mosca real, eles trazem dos sentidos pontos de referência e outras pistas."
+        },
+        "timing": {
+          "title": "Os tempos.",
+          "body": "As latências vêm de um único atraso uniforme de 1,8 ms e das constantes de tempo da membrana e das sinapses, não de registros. Elas caem numa faixa plausível, mas nada foi ajustado para bater com latências de fuga medidas. O visualizador mostra tudo em câmera lenta, de 0,2 a 2 ms do tempo da mosca por quadro, dependendo do aparelho, e para de simular 150 ms depois do último estímulo, porque alguns recortes têm circuitos excitatórios que, sem a inibição que ficou de fora, ecoariam para sempre."
+        },
+        "drawings": {
+          "title": "Desenhos, não morfologia.",
+          "body": "Cada neurônio é desenhado como uma linha de 12 pontos ao longo do seu esqueleto, não com os seus ramos reais. Os clarões marcam os disparos. Os pontos em movimento são ilustração, não a velocidade de condução nem o caminho real de um disparo."
+        }
+      },
+      "researchTitle": "O que uma ferramenta de pesquisa faria de outro jeito",
+      "researchItems": {
+        "whole": "Simular todo o sistema nervoso central, ou recortá-lo em limites bem fundamentados, com entradas modeladas, e manter as conexões fracas.",
+        "fit": "Ajustar os parâmetros de cada tipo de célula a partir de registros, admitir neurônios de potencial graduado e neurônios sem disparos, e usar modelos baseados em condutância ou com vários compartimentos onde os dendritos fazem diferença.",
+        "add": "Acrescentar junções comunicantes a partir de outros dados, neuromoduladores como a dopamina e a octopamina, e plasticidade, por exemplo a depressão controlada por dopamina nas sinapses entre células de Kenyon e neurônios de saída.",
+        "drive": "Ativar os neurônios sensoriais do jeito que o mundo faz: padrões de receptores específicos de cada odor e estímulos de aproximação que recrutam células à medida que o objeto cresce.",
+        "uncertain": "Tratar como incertos as previsões de neurotransmissor e os pesos, variar esses valores, rodar muitas sementes aleatórias e comparar os resultados com a eletrofisiologia e o comportamento."
+      },
+      "furtherTitle": "Vá direto à fonte",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: consulte o MaleCNS v1.0 célula por célula e sinapse por sinapse.",
+        "paper": "<paper>O artigo do MaleCNS</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: o modelo integra-e-dispara com vazamento do cérebro inteiro, do qual o WiredMind toma emprestados os parâmetros.",
+        "code": "<code>O código-fonte</code>: o pipeline de dados, o simulador, as aulas e os testes que conferem, nos circuitos reais, o que cada aula afirma."
+      }
+    },
+    "who": {
+      "title": "Quem criou o projeto",
+      "body": "O WiredMind foi criado por {author}, desenvolvedor full-stack e estrategista de SEO em Tel Aviv, ao longo de uma semana em setembro de 2026.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Apoie o projeto"
+    },
+    "privacy": {
+      "title": "Privacidade",
+      "body": "Sem contas. O único cookie guarda o idioma que você escolher no menu de idiomas. As visualizações de página são contadas pelo Vercel Web Analytics, que não usa cookies."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Como uma mosca se lembra de um cheiro",
+      "summary": "Envie um cheiro para o cérebro de uma mosca real e encontre as células que se lembram dele.",
+      "description": "Envie um cheiro ao cérebro real de uma mosca-da-fruta, siga-o até o corpo pedunculado e ache as células que guardam a memória. Aula grátis de 10 minutos.",
+      "steps": {
+        "send": {
+          "text": "A mosca sente cheiros com as <term>antenas</term> <gloss>(o nariz dela)</gloss>. Toque em Estimular para enviar um cheiro. Veja os neurônios laranja acenderem.",
+          "result": "Esses neurônios laranja são os <term>receptores olfativos</term> <gloss>(detectores de cheiro)</gloss>. Eles disparam primeiro. Todo cheiro começa aqui."
+        },
+        "follow": {
+          "text": "Toque em Estimular de novo e siga as cores. Em amarelo, os <term>neurônios de projeção</term> <gloss>(mensageiros do cheiro)</gloss> levam o cheiro para dentro. Em azul, as <term>células de Kenyon</term> <gloss>(separadoras de cheiro)</gloss> pegam o cheiro logo depois.",
+          "result": "As células azuis transformam cada cheiro em um padrão só dele."
+        },
+        "read": {
+          "text": "Toque em Estimular mais uma vez. Agora observe, em rosa, os <term>neurônios de saída</term> <gloss>(leitores da memória)</gloss>. Eles leem o padrão azul.",
+          "result": "Quando um cheiro vem com açúcar ou perigo, as ligações do azul para o rosa mudam. Os cientistas acham que essa mudança é a memória."
+        },
+        "silence": {
+          "text": "Agora toque em Silenciar nas <term>células de Kenyon</term> <gloss>(separadoras de cheiro)</gloss>. Nós mandamos o cheiro para você. O que desaparece?",
+          "result": "A luz rosa quase some. O cheiro ainda entra, mas os leitores da memória não recebem nada para ler."
+        },
+        "restore": {
+          "text": "Toque no botão das <term>células de Kenyon</term> <gloss>(separadoras de cheiro)</gloss> para ligar as células de novo. Nós mandamos o mesmo cheiro.",
+          "result": "A luz rosa volta. A mosca consegue ler de novo a memória do cheiro."
+        }
+      },
+      "check": {
+        "question": "Você silenciou as <term>células de Kenyon</term> <gloss>(as células azuis)</gloss>. Por que as células rosa se apagaram?",
+        "choices": {
+          "never": {
+            "text": "O cheiro nunca entrou na mosca.",
+            "feedback": "Não é bem isso. As células laranja e amarelas ainda acenderam, então o cheiro entrou. Ele parou nas células azuis."
+          },
+          "pattern": {
+            "text": "As células azuis passam o padrão de cada cheiro para as células rosa.",
+            "feedback": "Isso! As células azuis dão a cada cheiro um padrão, e as células rosa leem esse padrão. Sem padrão, não há nada para lembrar."
+          },
+          "both": {
+            "text": "Você também desligou as células rosa.",
+            "feedback": "Não é bem isso. Você só desligou as células azuis. As células rosa continuaram ligadas, mas não tinham nada para ler."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Exploração livre",
+        "text": "Agora todos os botões funcionam. Primeiro dê um palpite, depois toque: o que se apaga se você silenciar os mensageiros amarelos do cheiro? Tente silenciar duas cores ao mesmo tempo."
+      }
+    },
+    "compass": {
+      "title": "Como uma mosca sabe para onde está virada",
+      "summary": "Gire a bússola de uma mosca real e veja o que a mantém no lugar.",
+      "description": "Gire a bússola interna de uma mosca-da-fruta real, silencie os neurônios em anel e veja o senso de direção dela se perder. Aula grátis de 10 minutos.",
+      "steps": {
+        "left": {
+          "text": "Toque em Estimular para disparar os <term>neurônios de giro</term> <gloss>(sinal para virar)</gloss> da esquerda. Depois observe o mostrador da bússola.",
+          "result": "Os <term>neurônios da bússola</term> <gloss>(células de direção)</gloss> acendem de um lado. Essa mancha brilhante, a bolha, mostra para onde a mosca está virada."
+        },
+        "right": {
+          "text": "Agora toque em Estimular nos <term>neurônios de giro</term> <gloss>(o outro sinal)</gloss> da direita. Fique de olho na bolha.",
+          "result": "A bolha girou pelo mostrador. Os sinais para virar de cada lado empurram a bolha em sentidos opostos, então a mosca também muda de direção."
+        },
+        "silence": {
+          "text": "Toque em Silenciar nos <term>neurônios em anel</term> <gloss>(mensageiros da paisagem)</gloss>. Eles trazem o que a mosca vê. Nós mandamos o sinal da direita para você.",
+          "result": "A bolha escorrega do lugar e fica vagando. Sem pontos de referência, a bússola fica à deriva."
+        },
+        "restore": {
+          "text": "Toque no botão dos <term>neurônios em anel</term> <gloss>(mensageiros da paisagem)</gloss> para ligar os neurônios de novo. Nós mandamos o mesmo sinal.",
+          "result": "A bolha volta a ficar firme no lugar. Os pontos de referência mantêm a bússola da mosca no rumo certo."
+        }
+      },
+      "check": {
+        "question": "Você silenciou os mensageiros da paisagem (as células violeta). Por que a bolha saiu do lugar?",
+        "choices": {
+          "never": {
+            "text": "O sinal para virar nunca chegou à bússola.",
+            "feedback": "Não é bem isso. As células de direção verdes ainda acenderam, então o sinal chegou. Nada segurou a bolha no lugar."
+          },
+          "landmarks": {
+            "text": "Nada dizia à bússola onde estavam os pontos de referência, então a bolha escorregou.",
+            "feedback": "Isso! As células violeta trazem o que a mosca vê. Sem elas, nada prende a bolha ao mundo lá fora."
+          },
+          "both": {
+            "text": "Você também desligou as células de direção verdes.",
+            "feedback": "Não é bem isso. Você só silenciou as células violeta. As células de direção verdes continuaram disparando, mas nada as segurava no lugar."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Exploração livre",
+        "text": "Agora todos os botões funcionam. Primeiro dê um palpite, depois toque: para onde vai a bolha se você disparar os dois sinais para virar ao mesmo tempo? Tente também com as células violeta silenciadas."
+      }
+    },
+    "escape": {
+      "title": "A fuga em 30 milissegundos",
+      "summary": "Encontre o fio que tira a mosca de baixo do mata-moscas.",
+      "description": "Siga um mata-moscas dos olhos de uma mosca-da-fruta real até as pernas, pela fibra gigante, em 30 ms. Depois, corte o fio. Aula grátis de 10 minutos.",
+      "steps": {
+        "loom": {
+          "text": "Um mata-moscas vem com tudo para cima da mosca. Toque em Estimular para disparar os <term>neurônios de aproximação</term> <gloss>(vigias do mata-moscas)</gloss>.",
+          "result": "Eles disparam e, em poucos milésimos de segundo, a <term>fibra gigante</term> <gloss>(fio da fuga)</gloss> dispara também."
+        },
+        "jump": {
+          "text": "Toque em Estimular de novo. Siga a <term>fibra gigante</term> <gloss>(fio da fuga)</gloss> descendo até o <term>cordão nervoso</term> <gloss>(a medula dela)</gloss>.",
+          "result": "Os <term>neurônios de salto</term> <gloss>(os lançadores)</gloss> disparam em até 30 milissegundos. Eles fazem as pernas do meio darem um impulso, e a mosca salta para longe."
+        },
+        "silence": {
+          "text": "Agora toque em Silenciar na <term>fibra gigante</term> <gloss>(fio da fuga)</gloss>. Nós mandamos o mata-moscas. Observe os <term>neurônios de salto</term> <gloss>(os lançadores)</gloss>.",
+          "result": "Os <term>neurônios de aproximação</term> <gloss>(vigias do mata-moscas)</gloss> ainda disparam, mas os <term>neurônios de salto</term> ficam apagados. A fuga rápida sumiu."
+        },
+        "restore": {
+          "text": "Toque no botão da <term>fibra gigante</term> <gloss>(fio da fuga)</gloss> para ligar a fibra de novo. Nós mandamos o mesmo mata-moscas.",
+          "result": "Os <term>neurônios de salto</term> <gloss>(os lançadores)</gloss> voltam a disparar. Moscas reais também têm jeitos mais lentos de escapar, mas este é o mais rápido."
+        }
+      },
+      "check": {
+        "question": "Você silenciou a <term>fibra gigante</term> <gloss>(fio da fuga)</gloss>. Por que os lançadores ficaram apagados?",
+        "choices": {
+          "never": {
+            "text": "A mosca nunca viu o mata-moscas.",
+            "feedback": "Não é bem isso. Os vigias do mata-moscas, em azul, ainda dispararam, então a mosca viu o perigo. O sinal parou no fio da fuga."
+          },
+          "wire": {
+            "text": "O fio da fuga leva o sinal do salto até os lançadores.",
+            "feedback": "Isso! Os vigias do mata-moscas avisam o fio da fuga, e o fio da fuga manda as pernas pularem. Corte o fio, e o salto rápido some."
+          },
+          "both": {
+            "text": "Você também desligou os lançadores.",
+            "feedback": "Não é bem isso. Você só silenciou o fio da fuga. Os lançadores continuaram ligados, mas não receberam nenhum sinal."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Exploração livre",
+        "text": "Agora todos os botões funcionam. Primeiro dê um palpite, depois toque: quais cores ainda acendem com o fio da fuga silenciado? Depois, tente silenciar os vigias do mata-moscas em vez do fio da fuga."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Receptores olfativos",
+        "pn": "Neurônios de projeção",
+        "kc": "Células de Kenyon",
+        "mbon": "Neurônios de saída"
+      },
+      "stimulate": {
+        "orn": "Ativa os neurônios receptores que captam o cheiro primeiro, lá na antena."
+      },
+      "silence": {
+        "pn": "Impede que o lobo antenal leve esse cheiro até o corpo pedunculado.",
+        "kc": "Desliga as células que distinguem um cheiro do outro.",
+        "mbon": "Impede que o corpo pedunculado passe o resultado para o resto do cérebro."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Neurônios em anel",
+        "compass": "Neurônios da bússola",
+        "turn-left": "Neurônios de giro da esquerda",
+        "turn-right": "Neurônios de giro da direita"
+      },
+      "stimulate": {
+        "turn-left": "Dispara as células de giro P-EN2 do lado esquerdo da ponte.",
+        "turn-right": "Dispara as células de giro P-EN2 do lado direito da ponte."
+      },
+      "silence": {
+        "ring": "Bloqueia os neurônios em anel, que trazem dos olhos os pontos de referência.",
+        "compass": "Desliga as células de direção E-PG que formam a bússola."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Neurônios de aproximação",
+        "gf": "Fibra gigante",
+        "jump": "Neurônios de salto"
+      },
+      "stimulate": {
+        "looming": "Dispara as células LC4 e LPLC2 dos olhos, que detectam algo se aproximando rápido."
+      },
+      "silence": {
+        "looming": "Impede que as células dos olhos avisem que algo está chegando.",
+        "gf": "Bloqueia a fibra gigante, o fio de fuga mais rápido da mosca.",
+        "jump": "Desliga os neurônios motores que acionam as pernas do meio."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Aula {number}",
+      "canvasHelp": "Vista tridimensional dos neurônios. Arraste para girar. Use dois dedos para dar zoom.",
+      "loading": "Carregando o circuito…",
+      "loadingPercent": "Carregando o circuito… {percent}%"
+    },
+    "load": {
+      "unavailable": "Os arquivos do circuito não estão disponíveis. Atualize a página para tentar de novo.",
+      "damaged": "Os arquivos do circuito estão corrompidos. Atualize a página para tentar de novo.",
+      "failed": "O circuito não carregou. Atualize a página para tentar de novo."
+    },
+    "controls": {
+      "stimulate": "Estimular",
+      "silence": "Silenciar",
+      "activity": "Atividade",
+      "reset": "Reiniciar",
+      "dragHint": "Arraste o cérebro para girar. Use dois dedos para dar zoom.",
+      "activityLabel": "Atividade: {group}",
+      "locked": "Bloqueado",
+      "lockedHint": "Não disponível neste passo. Na exploração livre, todos os botões ficam liberados.",
+      "stimulateNamed": "Estimular {name}",
+      "silenceNamed": "Silenciar: {name}",
+      "silencedNamed": "Silenciado: {name}",
+      "silenced": "Silenciado · toque para ligar"
+    },
+    "sheet": {
+      "more": "Mostrar mais",
+      "less": "Mostrar menos"
+    },
+    "toolbar": {
+      "lessonOf": "Aula {number} de {total}",
+      "share": "Compartilhar",
+      "copied": "Link copiado. Ele reproduz o seu experimento.",
+      "copiedEmpty": "Link copiado. Aperte um botão primeiro para poder compartilhar um experimento.",
+      "copyThis": "Copie este link:",
+      "linkLabel": "Link para este experimento"
+    },
+    "lesson": {
+      "tapCue": "Toque no botão que está brilhando lá embaixo.",
+      "watching": "Observe o cérebro…",
+      "again": "Recomeçar a aula",
+      "next": "Próximo",
+      "question": "Uma pergunta rápida",
+      "freePlay": "Começar a exploração livre",
+      "pickAnswer": "Escolha a resposta que você acha certa.",
+      "nextLesson": "Próxima aula: {title}",
+      "finished": "Você terminou todas as aulas. Continue explorando.",
+      "cueStimulate": "Estimular",
+      "cueSilence": "Silenciar",
+      "cueSwitchOn": "Ligar",
+      "loadingBrain": "Carregando o cérebro…",
+      "gettingReady": "Preparando… observe o cérebro",
+      "watchBrain": "Observe o cérebro",
+      "puffProgress": "Progresso do estímulo",
+      "puffClock": "{name}: {elapsed} de {total} ms, em câmera lenta",
+      "slowMotion": "Em câmera lenta, para você acompanhar",
+      "step": "Passo {number} de {total}",
+      "quickQuestion": "Pergunta rápida",
+      "done": "Aula concluída",
+      "answers": "Respostas",
+      "tryAnother": "Tente outra resposta."
+    },
+    "replay": {
+      "label": "Replay de {title}",
+      "section": "Replay",
+      "finished": "Replay concluído",
+      "shared": "Alguém compartilhou o experimento que fez em “{title}”. Veja tudo acontecer de novo, disparo por disparo.",
+      "over": "Esse foi o experimento inteiro. Agora todos os botões funcionam, então faça o seu.",
+      "replaying": "Reproduzindo um experimento compartilhado",
+      "progress": "Progresso do replay",
+      "pressOf": "Ação {number} de {total}, nos mesmos instantes e com a mesma semente",
+      "tick": "{ms} ms",
+      "watchAgain": "Ver de novo",
+      "start": "Começar a aula",
+      "stimulate": "Estimular {name}",
+      "silence": "Silenciar {name}",
+      "switchOn": "Ligar {name}",
+      "notice": "{problem} Em vez disso, aqui está a aula.",
+      "errors": {
+        "unknownLesson": "Este replay é de uma aula que este site não tem.",
+        "unknownButton": "Este replay usa um botão que esta aula não tem mais.",
+        "empty": "Este link de replay está vazio ou é longo demais.",
+        "version": "Este link de replay é de outra versão.",
+        "seed": "A semente do replay é grande demais.",
+        "tooMany": "Este replay tem passos demais para ser reproduzido.",
+        "tooLong": "Este replay é longo demais para ser reproduzido.",
+        "broken": "Este link de replay está quebrado ou incompleto.",
+        "generic": "Esse link de replay não funcionou."
+      }
+    },
+    "compass": {
+      "label": "Mostrador da bússola. As fatias brilhantes e o ponteiro mostram onde a bolha está no anel.",
+      "left": "E",
+      "right": "D",
+      "caption": "Bússola · vista de trás"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Esta página não existe",
+      "body": "O link pode estar desatualizado ou ter sido digitado errado. As aulas continuam aqui.",
+      "home": "Ir para as aulas"
+    },
+    "error": {
+      "title": "Algo deu errado",
+      "body": "A página encontrou um erro. Tente de novo ou volte para as aulas.",
+      "retry": "Tentar de novo",
+      "home": "Ir para as aulas"
+    }
+  }
+}

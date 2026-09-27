@@ -1,0 +1,227 @@
+{
+  "$comment": "Terms every translation must use the same way. `pnpm i18n:check` holds each language to it, and `pnpm i18n:draft` puts it in the translator's instructions. `term` is the accepted translation; `match` is a regular expression (case-insensitive) that also accepts its inflected forms. Fix a term here, not in one messages file.",
+  "brand": "WiredMind",
+  "keep": [
+    "MaleCNS",
+    "neuPrint",
+    "HHMI Janelia FlyEM",
+    "Google Research",
+    "CC BY 4.0",
+    "Shiu et al.",
+    "GitHub",
+    "Vercel",
+    "MIT",
+    "LC4",
+    "LPLC2",
+    "P-EN2",
+    "E-PG",
+    "Kir2.1",
+    "APL",
+    "GABA",
+    "guy-dev.com",
+    "Drosophila"
+  ],
+  "terms": {
+    "Kenyon cell": {
+      "note": "The intrinsic neurons of the insect mushroom body, named after F. C. Kenyon. Keep the eponym.",
+      "match": "\\bKenyon cells?\\b",
+      "he": { "term": "תא קניון", "match": "תא(?:י|ים)? ?קניון" },
+      "ar": { "term": "خلية كينيون", "match": "كينيون" },
+      "es": { "term": "célula de Kenyon", "match": "c[eé]lulas? de Kenyon" },
+      "fr": { "term": "cellule de Kenyon", "match": "cellules? de Kenyon" },
+      "de": { "term": "Kenyon-Zelle", "match": "Kenyon-?Zell" },
+      "pt-BR": { "term": "célula de Kenyon", "match": "c[eé]lulas? de Kenyon" },
+      "ru": { "term": "клетка Кеньона", "match": "Кеньон" },
+      "zh-CN": { "term": "Kenyon细胞", "match": "Kenyon ?细胞|肯扬细胞" },
+      "ja": { "term": "ケニヨン細胞", "match": "ケニヨン細胞" },
+      "ko": { "term": "케니언 세포", "match": "케니언 ?세포|케년 ?세포" },
+      "hi": { "term": "केनियन कोशिका", "match": "केनियन" },
+      "it": { "term": "cellula di Kenyon", "match": "cellul[ae] di Kenyon" },
+      "tr": { "term": "Kenyon hücresi", "match": "Kenyon hücre" },
+      "pl": { "term": "komórka Kenyona", "match": "komór\\S* Kenyona" },
+      "nl": { "term": "Kenyon-cel", "match": "Kenyon-?cel" },
+      "id": { "term": "sel Kenyon", "match": "sel(?:-sel)? Kenyon" },
+      "vi": { "term": "tế bào Kenyon", "match": "tế bào Kenyon" }
+    },
+    "mushroom body": {
+      "note": "The insect brain structure where odor memories are stored.",
+      "match": "\\bmushroom bod(?:y|ies)\\b",
+      "he": { "term": "גוף הפטרייה", "match": "גו(?:ף|פ\\S*) ה?פטרי" },
+      "ar": { "term": "الجسم الفطري", "match": "فطري" },
+      "es": { "term": "cuerpo fungiforme", "match": "cuerpos? fungiformes?" },
+      "fr": { "term": "corps pédonculé", "match": "corps pédonculés?" },
+      "de": { "term": "Pilzkörper", "match": "Pilzkörper" },
+      "pt-BR": {
+        "term": "corpo pedunculado",
+        "match": "corpos? pedunculados?|corpos? de cogumelo"
+      },
+      "ru": { "term": "грибовидное тело", "match": "грибовидн\\S* тел" },
+      "zh-CN": { "term": "蘑菇体", "match": "蘑菇体" },
+      "ja": { "term": "キノコ体", "match": "キノコ体" },
+      "ko": { "term": "버섯체", "match": "버섯체" },
+      "hi": { "term": "मशरूम बॉडी", "match": "मशरूम बॉडी" },
+      "it": { "term": "corpo fungiforme", "match": "corp[oi] fungiform[ei]" },
+      "tr": { "term": "mantar cisimciği", "match": "mantar cisim" },
+      "pl": { "term": "ciało grzybkowate", "match": "ci[ae]\\S* grzybkowat" },
+      "nl": { "term": "paddenstoellichaam", "match": "paddenstoellicha" },
+      "id": { "term": "badan jamur", "match": "badan jamur" },
+      "vi": { "term": "thể nấm", "match": "thể nấm" }
+    },
+    "giant fiber": {
+      "note": "The giant fiber neuron (DNp01), the fly's fastest escape pathway.",
+      "match": "\\bgiant fiber",
+      "he": { "term": "הסיב הענק", "match": "סיב\\S* ה?ענק" },
+      "ar": { "term": "الليف العملاق", "match": "ليف\\S*\\s+ال?عملاق" },
+      "es": { "term": "fibra gigante", "match": "fibras? gigantes?" },
+      "fr": { "term": "fibre géante", "match": "fibres? géantes?" },
+      "de": { "term": "Riesenfaser", "match": "Riesenfaser" },
+      "pt-BR": { "term": "fibra gigante", "match": "fibras? gigantes?" },
+      "ru": { "term": "гигантское волокно", "match": "гигантск\\S* волок" },
+      "zh-CN": { "term": "巨纤维", "match": "巨纤维" },
+      "ja": { "term": "巨大線維", "match": "巨大線維" },
+      "ko": { "term": "거대 섬유", "match": "거대 ?섬유" },
+      "hi": { "term": "विशाल तंतु", "match": "विशाल तंतु" },
+      "it": { "term": "fibra gigante", "match": "fibr[ae] gigant[ei]" },
+      "tr": { "term": "dev lif", "match": "dev lif" },
+      "pl": { "term": "włókno olbrzymie", "match": "włók\\S* olbrzym" },
+      "nl": { "term": "reuzenvezel", "match": "reuzenvezel" },
+      "id": { "term": "serat raksasa", "match": "serat raksasa" },
+      "vi": { "term": "sợi khổng lồ", "match": "sợi khổng lồ" }
+    },
+    "projection neuron": {
+      "note": "Neurons that carry odor signals from the antennal lobe to the mushroom body.",
+      "match": "\\bprojection neurons?\\b",
+      "he": { "term": "נוירון הקרנה", "match": "נוירו(?:ן|נ\\S*) ה?הקרנה" },
+      "ar": { "term": "عصبونات الإسقاط", "match": "الإسقاط" },
+      "es": {
+        "term": "neurona de proyección",
+        "match": "neuronas? de proyección"
+      },
+      "fr": {
+        "term": "neurone de projection",
+        "match": "neurones? de projection"
+      },
+      "de": { "term": "Projektionsneuron", "match": "Projektionsneuron" },
+      "pt-BR": {
+        "term": "neurônio de projeção",
+        "match": "neurônios? de projeção"
+      },
+      "ru": { "term": "проекционный нейрон", "match": "проекционн\\S* нейрон" },
+      "zh-CN": { "term": "投射神经元", "match": "投射神经元" },
+      "ja": { "term": "投射ニューロン", "match": "投射ニューロン" },
+      "ko": { "term": "투사 뉴런", "match": "투사 ?뉴런" },
+      "hi": { "term": "प्रक्षेपण न्यूरॉन", "match": "प्रक्षेपण न्यूरॉन" },
+      "it": {
+        "term": "neurone di proiezione",
+        "match": "neuron[ei] di proiezione"
+      },
+      "tr": { "term": "projeksiyon nöronu", "match": "projeksiyon nöron" },
+      "pl": { "term": "neuron projekcyjny", "match": "neuron\\S* projekcyjn" },
+      "nl": { "term": "projectieneuron", "match": "projectieneuron" },
+      "id": {
+        "term": "neuron proyeksi",
+        "match": "neuron(?:-neuron)? proyeksi"
+      },
+      "vi": { "term": "nơ-ron chiếu", "match": "nơ-?ron chiếu" }
+    },
+    "output neuron": {
+      "note": "Mushroom body output neurons (MBONs), which read the Kenyon cells' pattern.",
+      "match": "\\boutput neurons?\\b",
+      "he": { "term": "נוירון פלט", "match": "נוירו(?:ן|נ\\S*) ה?פלט" },
+      "ar": { "term": "عصبونات الإخراج", "match": "الإخراج" },
+      "es": { "term": "neurona de salida", "match": "neuronas? de salida" },
+      "fr": { "term": "neurone de sortie", "match": "neurones? de sortie" },
+      "de": { "term": "Ausgangsneuron", "match": "Ausgangsneuron" },
+      "pt-BR": { "term": "neurônio de saída", "match": "neurônios? de saída" },
+      "ru": { "term": "выходной нейрон", "match": "выходн\\S* нейрон" },
+      "zh-CN": { "term": "输出神经元", "match": "输出神经元" },
+      "ja": { "term": "出力ニューロン", "match": "出力ニューロン" },
+      "ko": { "term": "출력 뉴런", "match": "출력 ?뉴런" },
+      "hi": { "term": "आउटपुट न्यूरॉन", "match": "आउटपुट न्यूरॉन" },
+      "it": { "term": "neurone di uscita", "match": "neuron[ei] di uscita" },
+      "tr": { "term": "çıktı nöronu", "match": "çıktı nöron" },
+      "pl": { "term": "neuron wyjściowy", "match": "neuron\\S* wyjściow" },
+      "nl": { "term": "outputneuron", "match": "outputneuron" },
+      "id": {
+        "term": "neuron keluaran",
+        "match": "neuron(?:-neuron)? keluaran"
+      },
+      "vi": { "term": "nơ-ron đầu ra", "match": "nơ-?ron đầu ra" }
+    },
+    "antennal lobe": {
+      "note": "The first smell-processing center of the insect brain.",
+      "match": "\\bantennal lobes?\\b",
+      "he": { "term": "אונת המחושים", "match": "אונ\\S* ה?מחוש" },
+      "ar": { "term": "الفص الهوائي", "match": "فص\\S*\\s+ال?هوائي" },
+      "es": { "term": "lóbulo antenal", "match": "lóbulos? antena(?:l|les)" },
+      "fr": { "term": "lobe antennaire", "match": "lobes? antennaires?" },
+      "de": { "term": "Antennallobus", "match": "Antennallob" },
+      "pt-BR": { "term": "lobo antenal", "match": "lobos? antena(?:l|is)" },
+      "ru": { "term": "антеннальная доля", "match": "антеннальн\\S* дол" },
+      "zh-CN": { "term": "触角叶", "match": "触角叶" },
+      "ja": { "term": "触角葉", "match": "触角葉" },
+      "ko": { "term": "더듬이엽", "match": "더듬이 ?엽" },
+      "hi": { "term": "एंटेनल लोब", "match": "एंटेनल लोब" },
+      "it": { "term": "lobo antennale", "match": "lob[oi] antennal" },
+      "tr": { "term": "anten lobu", "match": "anten lob" },
+      "pl": { "term": "płat czułkowy", "match": "pła[tc]\\S* czułkow" },
+      "nl": { "term": "antennekwab", "match": "antenne-?kwab|antennale kwab" },
+      "id": { "term": "lobus antena", "match": "lobus antena" },
+      "vi": { "term": "thùy râu", "match": "thùy râu" }
+    },
+    "connectome": {
+      "note": "A complete wiring diagram of a nervous system.",
+      "match": "\\bconnectome\\b",
+      "he": { "term": "קונקטום", "match": "קונקטום" },
+      "ar": { "term": "الكونكتوم", "match": "كونكتوم|كونيكتوم" },
+      "es": { "term": "conectoma", "match": "conectoma" },
+      "fr": { "term": "connectome", "match": "connectome" },
+      "de": { "term": "Konnektom", "match": "Konnektom" },
+      "pt-BR": { "term": "conectoma", "match": "conectoma" },
+      "ru": { "term": "коннектом", "match": "коннектом" },
+      "zh-CN": { "term": "连接组", "match": "连接组" },
+      "ja": { "term": "コネクトーム", "match": "コネクトーム" },
+      "ko": { "term": "커넥톰", "match": "커넥톰" },
+      "hi": { "term": "कनेक्टोम", "match": "कनेक्टोम" },
+      "it": { "term": "connettoma", "match": "connettom" },
+      "tr": { "term": "konektom", "match": "konektom" },
+      "pl": { "term": "konektom", "match": "konektom" },
+      "nl": { "term": "connectoom", "match": "connectoom" },
+      "id": { "term": "konektom", "match": "konektom" },
+      "vi": { "term": "connectome", "match": "connectome" }
+    },
+    "gap junction": {
+      "note": "Electrical synapses: channels that join two neurons directly.",
+      "match": "\\bgap junctions?\\b",
+      "he": { "term": "צומת פער", "match": "צ(?:ו)?מת\\S* פער" },
+      "ar": { "term": "الوصلات الفجوية", "match": "فجوي" },
+      "es": {
+        "term": "unión comunicante",
+        "match": "uni(?:ón|ones) (?:comunicantes?|gap|en hendidura)"
+      },
+      "fr": {
+        "term": "jonction communicante",
+        "match": "jonctions? (?:communicantes?|gap)"
+      },
+      "de": { "term": "Gap Junction", "match": "Gap[- ]Junctions?" },
+      "pt-BR": {
+        "term": "junção comunicante",
+        "match": "junç(?:ão|ões) (?:comunicantes?|gap)"
+      },
+      "ru": { "term": "щелевой контакт", "match": "щелев\\S* контакт" },
+      "zh-CN": { "term": "间隙连接", "match": "间隙连接" },
+      "ja": { "term": "ギャップ結合", "match": "ギャップ結合" },
+      "ko": { "term": "간극 연접", "match": "간극 ?연접" },
+      "hi": { "term": "गैप जंक्शन", "match": "गैप जंक्शन" },
+      "it": {
+        "term": "giunzione comunicante",
+        "match": "giunzion[ei] (?:comunicant[ei]|gap)|gap junction"
+      },
+      "tr": { "term": "boşluk bağlantısı", "match": "boşluk bağlantı" },
+      "pl": { "term": "złącze szczelinowe", "match": "złącz\\S* szczelinow" },
+      "nl": { "term": "gap junction", "match": "gap junctions?" },
+      "id": { "term": "taut celah", "match": "taut celah" },
+      "vi": { "term": "khe nối", "match": "khe nối" }
+    }
+  }
+}

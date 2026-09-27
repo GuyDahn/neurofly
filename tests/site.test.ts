@@ -20,26 +20,58 @@ import {
   flashAt,
   stillMoment,
 } from "../apps/web/src/site/cascade-scene.js";
+import { readFileSync } from "node:fs";
+import { LOCALES } from "../apps/web/src/i18n/locales.js";
 import { cascadeSvg } from "../apps/web/src/site/cascade-svg.js";
-import { siteCopy } from "../apps/web/src/site/copy.js";
-import { jsonLdScript, siteJsonLd } from "../apps/web/src/site/json-ld.js";
-import { pageMetadata } from "../apps/web/src/site/page-meta.js";
+import {
+  homeJsonLd,
+  jsonLdScript,
+  lessonJsonLd,
+  pageJsonLd,
+} from "../apps/web/src/site/json-ld.js";
+import { LINK_TAGS } from "../apps/web/src/site/links.js";
+import {
+  languageAlternates,
+  pageMetadata,
+} from "../apps/web/src/site/page-meta.js";
 import {
   AUTHOR,
   COFFEE_URL,
   LINKS,
   SITE_URL,
 } from "../apps/web/src/site/site.js";
-import { sitemapEntries } from "../apps/web/src/site/sitemap.js";
 import {
-  fill,
-  isExternal,
-  type Link,
-  type Rich,
-} from "../apps/web/src/site/text.js";
+  localeSitemapXml,
+  SITEMAP_PAGES,
+  sitemapIndexXml,
+} from "../apps/web/src/site/sitemap.js";
+import { fill, isExternal } from "../apps/web/src/site/text.js";
 import { versioned } from "../apps/web/src/viewer/load-circuit.js";
 import { LESSONS } from "../apps/web/src/viewer/modules.js";
 import { keepContext, orientDownstream } from "../scripts/cascade-bake.js";
+
+type Messages = { [key: string]: string | Messages };
+const en = JSON.parse(
+  readFileSync(
+    new URL("../apps/web/messages/en.json", import.meta.url),
+    "utf8",
+  ),
+) as Messages;
+
+/** One English message by its dotted key. */
+function message(key: string): string {
+  let at: string | Messages | undefined = en;
+  for (const part of key.split(".")) {
+    at = typeof at === "object" ? at[part] : undefined;
+  }
+  if (typeof at !== "string") throw new Error(`no message ${key}`);
+  return at;
+}
+
+/** The link tags a message uses, in order. */
+function tagsIn(text: string): string[] {
+  return [...text.matchAll(/<([a-z]+)>/g)].map((match) => match[1]!);
+}
 
 /** Three neurons: an input, a relay, and a context cell, and a few spikes. */
 function sampleInput(): CascadeInput {
@@ -55,14 +87,12 @@ function sampleInput(): CascadeInput {
     groups: [
       {
         colorGroup: "input",
-        label: "Input",
         color: "#38BDF8",
         count: 1,
         firstTick: 2,
       },
       {
         colorGroup: "relay",
-        label: "Relay",
         color: "#F87171",
         count: 1,
         firstTick: 40,
@@ -148,9 +178,10 @@ describe("loop timeline", () => {
   });
 
   it("says in its caption what the timeline does", () => {
-    const caption = siteCopy()
-      .loop.caption.map((part) => (typeof part === "string" ? part : part.text))
-      .join("");
+    const caption = fill(message("landing.loop.caption"), {
+      spanMs: CASCADE_SPAN_MS,
+      slowdown: Math.round(1 / FLY_MS_PER_WALL_MS),
+    });
     assert.match(caption, new RegExp(`first ${CASCADE_SPAN_MS} ms`));
     assert.match(
       caption,
@@ -235,27 +266,24 @@ describe("cascade bake helpers", () => {
 });
 
 describe("site copy", () => {
-  const copy = siteCopy();
-
   it("asks for coffee in the agreed words, nowhere near a lesson", () => {
     assert.equal(
-      copy.support.pitch,
+      message("support.blurb"),
       "WiredMind is free and always will be. If it helped your class, coffee keeps the server humming.",
     );
-    assert.deepEqual(copy.support.coffee, {
-      text: "☕ Buy me a coffee",
-      href: "https://buymeacoffee.com/guydahn",
-    });
-    assert.equal(COFFEE_URL, copy.support.coffee.href);
-    assert.equal(copy.footer.builtBy, "Built by Guy Dahan");
+    assert.equal(message("support.coffee"), "☕ Buy me a coffee");
+    assert.equal(COFFEE_URL, "https://buymeacoffee.com/guydahn");
+    assert.equal(
+      fill(message("footer.builtBy"), { author: AUTHOR.name }),
+      "Built by Guy Dahan",
+    );
   });
 
   it("credits the institutions behind the neurons, with a link to each", () => {
-    const links = copy.dataCredit.filter(
-      (part): part is Link => typeof part !== "string",
-    );
     assert.deepEqual(
-      links.map((link) => link.href),
+      tagsIn(message("footer.credits")).map(
+        (tag) => LINK_TAGS[tag as keyof typeof LINK_TAGS],
+      ),
       [
         LINKS.maleCns,
         LINKS.janelia,
@@ -267,42 +295,26 @@ describe("site copy", () => {
     );
   });
 
-  it("is plain data, so client pages can take it and a translator can copy it", () => {
-    assert.deepEqual(JSON.parse(JSON.stringify(copy)), copy);
-  });
-
   it("links only to https sites or pages that exist", () => {
     const pages = new Set([
       "/",
       "/about",
       ...LESSONS.map((entry) => entry.path),
     ]);
-    const links: string[] = [];
-    const walk = (value: unknown) => {
-      if (Array.isArray(value)) value.forEach(walk);
-      else if (value && typeof value === "object") {
-        const record = value as Record<string, unknown>;
-        if (typeof record.href === "string") links.push(record.href);
-        Object.values(record).forEach(walk);
-      }
-    };
-    walk(copy);
-    assert.ok(links.length > 10);
-    for (const href of links) {
+    for (const href of Object.values(LINK_TAGS)) {
       if (isExternal(href)) assert.match(href, /^https:\/\//);
       else assert.ok(pages.has(href.split("#")[0]!), `no page for ${href}`);
     }
+    assert.match(LINKS.translate, /CONTRIBUTING\.md#translations$/);
   });
 
   it("says who made it", () => {
-    assert.match(copy.about.who.body, /Guy Dahan/);
-    assert.match(copy.about.who.body, /Tel Aviv/);
-    assert.match(copy.about.who.body, /September 2026/);
-    assert.equal(copy.about.who.github.href, AUTHOR.github);
-    assert.deepEqual(copy.about.who.website, {
-      text: "guy-dev.com",
-      href: "https://guy-dev.com",
-    });
+    const body = fill(message("about.who.body"), { author: AUTHOR.name });
+    assert.match(body, /Guy Dahan/);
+    assert.match(body, /Tel Aviv/);
+    assert.match(body, /September 2026/);
+    assert.equal(message("about.who.website"), "guy-dev.com");
+    assert.equal(AUTHOR.website, "https://guy-dev.com");
   });
 
   it("fills templates and leaves unknown names alone", () => {
@@ -310,19 +322,20 @@ describe("site copy", () => {
       fill("Lesson {n} of {total}", { n: 2 }),
       "Lesson 2 of {total}",
     );
-    assert.equal(fill(copy.loop.cells, { count: 304 }), "304 cells");
-    const rich: Rich = [
-      "See ",
-      { text: "the paper", href: "https://doi.org/x" },
-    ];
-    assert.equal(isExternal((rich[1] as { href: string }).href), true);
+    assert.equal(
+      fill(message("landing.loop.clock"), { ms: "4.2" }),
+      "4.2 ms of fly time",
+    );
+    assert.equal(isExternal("https://doi.org/x"), true);
     assert.equal(isExternal("/about"), false);
   });
 });
 
 describe("site metadata", () => {
   it("describes the site, the project, and its author for search engines", () => {
-    const graph = siteJsonLd()["@graph"];
+    const graph = homeJsonLd({ locale: "he", description: "x" })[
+      "@graph"
+    ] as unknown as Record<string, unknown>[];
     const byType = (type: string) =>
       graph.find((node) => node["@type"] === type) as Record<string, unknown>;
     const person = byType("Person");
@@ -334,39 +347,104 @@ describe("site metadata", () => {
     assert.deepEqual(website.author, { "@id": person["@id"] });
     assert.deepEqual(website.creator, { "@id": person["@id"] });
     assert.deepEqual(organization.founder, { "@id": person["@id"] });
-    assert.equal(website.url, `${SITE_URL}/`);
+    assert.equal(website.url, `${SITE_URL}/he`);
+    assert.equal(website.inLanguage, "he");
+    assert.equal(byType("BreadcrumbList")["@type"], "BreadcrumbList");
     assert.doesNotMatch(jsonLdScript({ bad: "</script>" }), /<\/script>/);
   });
 
-  it("gives every page a full share card, since Next.js does not merge them", () => {
-    const meta = pageMetadata({
-      title: "The 30-millisecond escape",
-      description: "Find the wire.",
-      path: "/modules/escape",
-    });
-    assert.deepEqual(meta.alternates, { canonical: "/modules/escape" });
-    const og = meta.openGraph as Record<string, unknown>;
-    assert.equal(og.type, "website");
-    assert.equal(og.siteName, "WiredMind");
-    assert.equal(og.url, "/modules/escape");
-    assert.equal((og.images as { url: string }[])[0]?.url, "/opengraph-image");
-    const twitter = meta.twitter as Record<string, unknown>;
-    assert.equal(twitter.card, "summary_large_image");
-    assert.equal(
-      pageMetadata({ description: "x", path: "/" }).title,
-      undefined,
+  it("describes each lesson as a free learning resource, with its place in the site", () => {
+    const graph = pageJsonLd(
+      "ar",
+      [
+        { name: "WiredMind", path: "/" },
+        { name: "Lesson", path: "/modules/escape" },
+      ],
+      lessonJsonLd({
+        locale: "ar",
+        path: "/modules/escape",
+        name: "n",
+        description: "d",
+        teaches: "t",
+        educationalLevel: "e",
+        learningResourceType: "l",
+        audience: "a",
+        keywords: ["k"],
+      }),
+    )["@graph"] as unknown as Record<string, unknown>[];
+    const lesson = graph.find((node) => node["@type"] === "LearningResource")!;
+    assert.equal(lesson.inLanguage, "ar");
+    assert.equal(lesson.isAccessibleForFree, true);
+    assert.equal(lesson.url, `${SITE_URL}/ar/modules/escape`);
+    const crumbs = graph.find((node) => node["@type"] === "BreadcrumbList")!;
+    assert.deepEqual(
+      (crumbs.itemListElement as { position: number; item: string }[]).map(
+        (crumb) => [crumb.position, crumb.item],
+      ),
+      [
+        [1, `${SITE_URL}/ar`],
+        [2, `${SITE_URL}/ar/modules/escape`],
+      ],
     );
   });
 
-  it("lists every public page in the sitemap and leaves the bench out", () => {
-    assert.deepEqual(
-      sitemapEntries().map((entry) => entry.url),
-      [
-        `${SITE_URL}/`,
-        ...LESSONS.map((entry) => `${SITE_URL}${entry.path}`),
-        `${SITE_URL}/about`,
-      ],
+  it("gives every page a full share card and every language's address", () => {
+    const meta = pageMetadata({
+      locale: "he",
+      path: "/modules/escape",
+      title: "t · WiredMind",
+      shareTitle: "t",
+      description: "Find the wire.",
+      image: "/og/he/lesson-escape.png?v=1",
+      imageAlt: "alt",
+    });
+    const alternates = meta.alternates as {
+      canonical: string;
+      languages: Record<string, string>;
+    };
+    assert.equal(alternates.canonical, `${SITE_URL}/he/modules/escape`);
+    assert.equal(Object.keys(alternates.languages).length, LOCALES.length + 1);
+    assert.equal(
+      alternates.languages["x-default"],
+      `${SITE_URL}/en/modules/escape`,
     );
+    const og = meta.openGraph as Record<string, unknown>;
+    assert.equal(og.type, "website");
+    assert.equal(og.siteName, "WiredMind");
+    assert.equal(og.locale, "he_IL");
+    assert.equal(og.url, `${SITE_URL}/he/modules/escape`);
+    assert.equal(
+      (og.images as { url: string }[])[0]?.url,
+      "/og/he/lesson-escape.png?v=1",
+    );
+    const twitter = meta.twitter as Record<string, unknown>;
+    assert.equal(twitter.card, "summary_large_image");
+    assert.equal(languageAlternates("/")["x-default"], `${SITE_URL}/`);
+  });
+
+  it("lists every page in one sitemap per language, each naming its translations", () => {
+    const index = sitemapIndexXml(new Map());
+    for (const locale of LOCALES) {
+      assert.match(
+        index,
+        new RegExp(`<loc>${SITE_URL}/sitemaps/${locale}\\.xml</loc>`),
+      );
+    }
+    const xml = localeSitemapXml("he", () => "2026-09-27T10:00:00+03:00");
+    const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
+      (match) => match[1],
+    );
+    assert.deepEqual(
+      urls,
+      SITEMAP_PAGES.map(
+        (page) => `${SITE_URL}/he${page.path === "/" ? "" : page.path}`,
+      ),
+    );
+    const links = xml.match(/<xhtml:link rel="alternate"/g) ?? [];
+    assert.equal(links.length, SITEMAP_PAGES.length * (LOCALES.length + 1));
+    assert.match(xml, /hreflang="x-default" href="https:\/\/[^"]+\/"/);
+    assert.match(xml, /<lastmod>2026-09-27T10:00:00\+03:00<\/lastmod>/);
+    assert.doesNotMatch(xml, /sim-bench/);
   });
 
   it("asks for data files by release, so a year-long cache never goes stale", () => {

@@ -78,6 +78,8 @@ export default function Scene({ module }: { module: ModuleSpec }) {
       },
       (error: unknown) => {
         if (!active) return;
+        // The reader gets a plain sentence; developers get the details.
+        console.error(error);
         useViewerStore.getState().setStatus("error", loadError(error));
       },
     );
@@ -405,6 +407,8 @@ function CircuitView({
       }
     } catch (error) {
       failed.current = true;
+      // The reader gets a plain sentence; developers get the details.
+      console.error(error);
       useViewerStore.getState().setStatus("error", loadError(error));
       return;
     }

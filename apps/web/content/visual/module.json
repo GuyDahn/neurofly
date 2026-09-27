@@ -1,8 +1,6 @@
 {
   "id": "visual",
-  "title": "Heading",
   "circuit": "visual",
-  "summary": "Compass neurons in the ellipsoid body keep track of which way the fly faces.",
   "assets": {
     "gltf": "/data/visual.glb",
     "graph": "/data/visual.graph.bin",
@@ -13,32 +11,23 @@
   "stimulusMs": 800,
   "stimuli": [
     {
-      "colorGroup": "turn-left",
-      "name": "Left turn neurons",
-      "label": "Fires the P-EN2 turning cells on the left side of the bridge."
+      "colorGroup": "turn-left"
     },
     {
-      "colorGroup": "turn-right",
-      "name": "Right turn neurons",
-      "label": "Fires the P-EN2 turning cells on the right side of the bridge."
+      "colorGroup": "turn-right"
     }
   ],
   "silence": [
     {
-      "colorGroup": "ring",
-      "name": "Ring neurons",
-      "label": "Blocks the ring neurons that carry landmarks in from the eyes."
+      "colorGroup": "ring"
     },
     {
-      "colorGroup": "compass",
-      "name": "Compass neurons",
-      "label": "Quiets the E-PG heading cells that make up the compass."
+      "colorGroup": "compass"
     }
   ],
   "groups": [
     {
       "colorGroup": "ring",
-      "label": "Ring neurons",
       "color": "#A78BFA",
       "match": {
         "colorGroups": ["ring"]
@@ -46,7 +35,6 @@
     },
     {
       "colorGroup": "compass",
-      "label": "Compass neurons",
       "color": "#34D399",
       "match": {
         "types": ["EPG", "EPGt"]
@@ -54,7 +42,6 @@
     },
     {
       "colorGroup": "turn-left",
-      "label": "Left turn neurons",
       "color": "#FBBF24",
       "match": {
         "ids": [
@@ -65,7 +52,6 @@
     },
     {
       "colorGroup": "turn-right",
-      "label": "Right turn neurons",
       "color": "#F472B6",
       "match": {
         "ids": [

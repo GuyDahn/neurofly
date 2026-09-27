@@ -1,7 +1,5 @@
 {
   "id": "smell-memory",
-  "title": "How a fly remembers a smell",
-  "summary": "Send a smell into a real fly brain and find the cells that remember it.",
   "circuit": "olfactory",
   "jargon": [
     "antenna",
@@ -15,70 +13,84 @@
   "steps": [
     {
       "id": "send",
-      "text": "A fly smells with its antennae (its two feelers). Tap Stimulate to send a smell in. Watch the orange neurons light up.",
-      "result": "Those orange smell receptors (the smell catchers) fire first. Every smell starts here.",
       "focus": ["orn"],
-      "controls": { "stimulate": ["orn"], "silence": [] },
-      "goal": { "type": "stimulate", "colorGroup": "orn" }
+      "controls": {
+        "stimulate": ["orn"],
+        "silence": []
+      },
+      "goal": {
+        "type": "stimulate",
+        "colorGroup": "orn"
+      }
     },
     {
       "id": "follow",
-      "text": "Tap Stimulate again and follow the colors. Yellow projection neurons (the smell messengers) carry the smell inward. Blue Kenyon cells (the smell sorters) catch it next.",
-      "result": "The blue cells turn each smell into its own pattern.",
       "focus": ["pn", "kc"],
-      "controls": { "stimulate": ["orn"], "silence": [] },
-      "goal": { "type": "stimulate", "colorGroup": "orn" }
+      "controls": {
+        "stimulate": ["orn"],
+        "silence": []
+      },
+      "goal": {
+        "type": "stimulate",
+        "colorGroup": "orn"
+      }
     },
     {
       "id": "read",
-      "text": "Tap Stimulate once more. Now watch the pink output neurons (the memory readers). They read the blue pattern.",
-      "result": "When a smell comes with sugar or danger, the links from blue to pink change. Scientists think that change is the memory.",
       "focus": ["kc", "mbon"],
-      "controls": { "stimulate": ["orn"], "silence": [] },
-      "goal": { "type": "stimulate", "colorGroup": "orn" }
+      "controls": {
+        "stimulate": ["orn"],
+        "silence": []
+      },
+      "goal": {
+        "type": "stimulate",
+        "colorGroup": "orn"
+      }
     },
     {
       "id": "silence",
-      "text": "Now silence the Kenyon cells (the smell sorters). We will send the smell for you. What disappears?",
-      "result": "The pink light almost vanishes. The smell still gets in, but the memory readers get nothing to read.",
       "focus": ["kc", "mbon"],
-      "controls": { "stimulate": [], "silence": ["kc"] },
-      "goal": { "type": "silence", "colorGroup": "kc", "on": true },
+      "controls": {
+        "stimulate": [],
+        "silence": ["kc"]
+      },
+      "goal": {
+        "type": "silence",
+        "colorGroup": "kc",
+        "on": true
+      },
       "puff": "orn"
     },
     {
       "id": "restore",
-      "text": "Tap the Kenyon cells (the smell sorters) button again to switch them back on. We will send the same smell.",
-      "result": "The pink light comes back. The fly can read its smell memory again.",
       "focus": ["kc", "mbon"],
-      "controls": { "stimulate": [], "silence": ["kc"] },
-      "goal": { "type": "silence", "colorGroup": "kc", "on": false },
+      "controls": {
+        "stimulate": [],
+        "silence": ["kc"]
+      },
+      "goal": {
+        "type": "silence",
+        "colorGroup": "kc",
+        "on": false
+      },
       "puff": "orn"
     }
   ],
   "check": {
-    "question": "You silenced the Kenyon cells (the blue cells). Why did the pink cells go dark?",
     "focus": ["kc", "mbon"],
     "choices": [
       {
-        "text": "The smell never got into the fly.",
-        "correct": false,
-        "feedback": "Not quite. The orange and yellow cells still lit up, so the smell got in. It stopped at the blue cells."
+        "id": "never",
+        "correct": false
       },
       {
-        "text": "The blue cells pass each smell's pattern to the pink cells.",
-        "correct": true,
-        "feedback": "Yes! The blue cells sort each smell into a pattern, and the pink cells read it. No pattern means nothing to remember."
+        "id": "pattern",
+        "correct": true
       },
       {
-        "text": "You switched off the pink cells too.",
-        "correct": false,
-        "feedback": "Not quite. You only switched off the blue cells. The pink cells stayed on but had nothing to read."
+        "id": "both",
+        "correct": false
       }
     ]
-  },
-  "freePlay": {
-    "title": "Free play",
-    "text": "Every button works now. Guess first, then tap: what goes dark if you silence the yellow smell messengers? Try silencing two colors at once."
   }
 }

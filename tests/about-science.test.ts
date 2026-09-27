@@ -4,9 +4,8 @@ import { describe, it } from "node:test";
 import { fileURLToPath } from "node:url";
 import { parseGraphBin } from "../apps/web/src/sim/index.js";
 import { readCascade } from "../apps/web/src/site/cascade.js";
-import { siteCopy } from "../apps/web/src/site/copy.js";
-import type { Rich } from "../apps/web/src/site/text.js";
 import { assignGroups } from "../apps/web/src/viewer/groups.js";
+import { plainText } from "../apps/web/src/viewer/lesson.js";
 import { findLesson } from "../apps/web/src/viewer/modules.js";
 import { buildCascade } from "../scripts/cascade-bake.js";
 
@@ -38,15 +37,29 @@ function rows(circuit: string): Row[] {
   return file.neurons;
 }
 
-function text(parts: Rich): string {
-  return parts
-    .map((part) => (typeof part === "string" ? part : part.text))
-    .join("");
-}
+type Item = { title: string; body: string };
 
-const about = siteCopy().about.real;
-const aboutText = [...about.realItems, ...about.simplifiedItems].map(
-  (item) => `${item.title} ${text(item.body)}`,
+const about = (
+  JSON.parse(
+    readFileSync(
+      new URL("../apps/web/messages/en.json", import.meta.url),
+      "utf8",
+    ),
+  ) as {
+    about: {
+      real: {
+        realItems: Record<string, Item>;
+        simplifiedItems: Record<string, Item>;
+      };
+    };
+  }
+).about.real;
+/** The about page's English, as a reader sees it: links are just their words. */
+const aboutText = [
+  ...Object.values(about.realItems),
+  ...Object.values(about.simplifiedItems),
+].map(
+  (item) => `${item.title} ${plainText(item.body).replace(/<\/?\w+>/g, "")}`,
 );
 
 function claims(needle: string): boolean {

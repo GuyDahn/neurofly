@@ -1,0 +1,568 @@
+{
+  "_meta": {
+    "locale": "en",
+    "reviewed": true,
+    "unreviewedKeys": [
+      "meta.home.description",
+      "meta.about.title",
+      "meta.lessonTitle",
+      "meta.notFoundTitle",
+      "og.about.title",
+      "og.about.subtitle",
+      "og.lessonLabel",
+      "og.alt",
+      "manifest.name",
+      "manifest.description",
+      "jsonLd.educationalLevel",
+      "jsonLd.learningResourceType",
+      "jsonLd.audience",
+      "language.button",
+      "language.menu",
+      "translate.notice",
+      "translate.cta",
+      "translate.dismiss",
+      "footer.githubLabel",
+      "lessons.smell-memory.description",
+      "lessons.compass.description",
+      "lessons.escape.description",
+      "about.privacy.body",
+      "viewer.load.unavailable",
+      "viewer.load.damaged",
+      "viewer.load.failed",
+      "errors.notFound.title",
+      "errors.notFound.body",
+      "errors.notFound.home",
+      "errors.error.title",
+      "errors.error.body",
+      "errors.error.retry",
+      "errors.error.home"
+    ]
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: explore a real fruit fly brain",
+      "description": "Free classroom lessons on the real wiring of a fruit fly’s brain. Stimulate and silence neurons from the MaleCNS connectome in your browser. No login."
+    },
+    "about": {
+      "title": "About WiredMind: what’s real and what’s simplified",
+      "description": "What’s real and what’s simplified in WiredMind’s fruit fly brain lessons, who built it, and how to support it."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Page not found · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Watch a fly’s escape reflex race through its real wiring",
+      "subtitle": "Free classroom lessons on the MaleCNS connectome"
+    },
+    "about": {
+      "title": "What’s real and what’s simplified",
+      "subtitle": "How WiredMind turns a real connectome into a classroom lesson"
+    },
+    "lessonLabel": "Lesson {number} of {total}",
+    "alt": "{title}, over a still of the escape reflex in a real fruit fly’s wiring diagram"
+  },
+  "manifest": {
+    "name": "WiredMind: fruit fly brain lessons",
+    "description": "Free classroom lessons on the real wiring of a fruit fly’s brain."
+  },
+  "jsonLd": {
+    "educationalLevel": "Middle school and high school",
+    "learningResourceType": "Interactive lesson",
+    "audience": "Students and teachers"
+  },
+  "nav": {
+    "label": "Site",
+    "home": "WiredMind home",
+    "lessons": "Lessons",
+    "teachers": "For teachers",
+    "about": "About"
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "newTab": "(opens in a new tab)"
+  },
+  "language": {
+    "button": "Language: {language}",
+    "menu": "Choose a language"
+  },
+  "translate": {
+    "notice": "WiredMind isn’t available in {language} yet, so this page is in English.",
+    "cta": "Help translate it",
+    "dismiss": "Dismiss"
+  },
+  "footer": {
+    "builtBy": "Built by {author}",
+    "github": "GitHub",
+    "githubLabel": "Help translate or contribute on GitHub",
+    "about": "About",
+    "code": "Code: MIT",
+    "credits": "Neurons from the <malecns>MaleCNS v1.0</malecns> connectome by <janelia>HHMI Janelia FlyEM</janelia>, the <cambridge>University of Cambridge</cambridge>, the <mrc>MRC Laboratory of Molecular Biology</mrc>, and <google>Google Research</google>, under <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "WiredMind is free and always will be. If it helped your class, coffee keeps the server humming.",
+    "coffee": "☕ Buy me a coffee"
+  },
+  "credits": {
+    "title": "Where the neurons come from",
+    "body": "Every neuron and synapse count comes from the <malecns>MaleCNS v1.0 connectome</malecns> of the male fruit fly’s central nervous system, made by <janelia>HHMI Janelia FlyEM</janelia>, the <cambridge>University of Cambridge</cambridge>, the <mrc>MRC Laboratory of Molecular Biology</mrc>, and <google>Google Research</google>.",
+    "license": "The data is licensed under <ccby>CC BY 4.0</ccby>. WiredMind changes it: it cuts out three small circuits, drops connections of fewer than five synapses, and draws each neuron as a simplified line. The simulator uses the neuron model of <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Free neuroscience lessons for the classroom",
+      "title": "Fire a neuron in a real fruit fly’s brain and watch the signal race from its eyes to its legs.",
+      "lead": "WiredMind runs the real wiring diagram of a fruit fly’s nervous system in the browser. Students stimulate neurons, silence them, and see what changes, in three short guided lessons.",
+      "start": "Start the first lesson",
+      "teachers": "For teachers"
+    },
+    "loop": {
+      "label": "Animation of the escape reflex in the fly’s wiring diagram",
+      "caption": "The first {spanMs} ms after a swatter appears, from the escape lesson, slowed {slowdown} times. The wiring is real, from the MaleCNS connectome. The spikes come from a simple simulation. <simplified>What’s simplified</simplified>",
+      "steps": {
+        "looming": "Looming neurons spot the swatter",
+        "gf": "The giant fiber fires",
+        "jump": "The jump neurons kick"
+      },
+      "cells": "{count, plural, one {# cell} other {# cells}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms of fly time",
+      "waiting": "Swatter incoming",
+      "pause": "Pause the animation",
+      "play": "Play the animation",
+      "loading": "Loading the circuit…",
+      "failed": "The animation did not load. The lessons still work."
+    },
+    "lessons": {
+      "title": "Three lessons, one real nervous system",
+      "lead": "Each lesson is a few taps long. Students stimulate and silence real cell types, answer one question, then explore on their own.",
+      "lesson": "Lesson {number}",
+      "meta": "{steps, plural, one {# step} other {# steps}} and a question · about 10 minutes",
+      "start": "Start lesson {number}"
+    },
+    "teachers": {
+      "title": "For teachers",
+      "lead": "Put the link on the board or send it to students’ own devices. Nothing else to set up.",
+      "points": {
+        "periods": {
+          "title": "1–2 class periods",
+          "body": "Each lesson takes about 10 minutes. All three, with discussion, fit in one or two periods."
+        },
+        "install": {
+          "title": "No install, no login",
+          "body": "It runs in the browser on laptops, Chromebooks, tablets, and phones. Students never make an account or type an email."
+        },
+        "free": {
+          "title": "Free",
+          "body": "No ads, no paid tier, nothing to buy."
+        },
+        "open": {
+          "title": "Open source",
+          "body": "The code is MIT licensed, so you can read how it works or run your own copy."
+        },
+        "share": {
+          "title": "Shareable runs",
+          "body": "The Share button copies a link that replays a student’s run, spike for spike, so you see what they saw."
+        },
+        "honest": {
+          "title": "Honest about the science",
+          "body": "A simple model of real wiring. The about page says exactly what is real and what is simplified."
+        }
+      },
+      "source": "View the source on GitHub",
+      "science": "What’s real and what’s simplified"
+    }
+  },
+  "about": {
+    "title": "About WiredMind",
+    "lead": "WiredMind is a set of free classroom lessons built on the real wiring diagram of a fruit fly. It is a teaching tool, not a research model. This page is for readers who want to know exactly where the line falls.",
+    "onThisPage": "On this page",
+    "real": {
+      "title": "What’s real and what’s simplified",
+      "realTitle": "Real",
+      "realItems": {
+        "neurons": {
+          "title": "The neurons.",
+          "body": "Each lesson uses 3,000 to 4,500 reconstructed neurons from the <malecns>MaleCNS v1.0</malecns> connectome, the whole central nervous system of one male fly, with the cell types its authors assigned."
+        },
+        "synapses": {
+          "title": "The synapse counts.",
+          "body": "The weight of every connection is the number of synapses the dataset reports between the two cells, at detection confidence 0.5 or above."
+        },
+        "signs": {
+          "title": "The signs.",
+          "body": "A neuron’s predicted transmitter sets whether it excites or inhibits: acetylcholine excites, GABA and glutamate inhibit. Cells predicted to release dopamine, serotonin, octopamine, or an unclear transmitter have no effect in the model."
+        },
+        "shapes": {
+          "title": "The shapes and positions.",
+          "body": "Each neuron is drawn from its own skeleton in the dataset, where it really sits in the fly."
+        }
+      },
+      "simplifiedTitle": "Simplified",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Small cuts.",
+          "body": "Each lesson runs a subcircuit of 3,000 to 4,500 neurons, not the whole nervous system. The smell circuit is four cell populations: receptors, projection neurons, Kenyon cells, and output neurons. The compass and escape circuits grow two hops out from their seed cell types and keep the most strongly connected partners. Connections of fewer than five synapses are dropped. Everything outside the cut is gone, including inhibition that would normally balance the network."
+        },
+        "model": {
+          "title": "One neuron model for every cell.",
+          "body": "Leaky integrate-and-fire point neurons with the same parameters everywhere, the published values of <shiu>Shiu et al. (2024)</shiu>: rest and reset −52 mV, threshold −45 mV, membrane time constant 20 ms, synaptic time constant 5 ms, 2.2 ms refractory period, 1.8 ms delay, 0.275 mV per synapse. No dendritic computation, no graded or non-spiking neurons, no neuromodulation, and no learning: synapses never change."
+        },
+        "gaps": {
+          "title": "No gap junctions.",
+          "body": "The connectome records chemical synapses only, so electrical synapses are absent. This matters most in the escape lesson: in a real fly the giant fiber’s link to the jump motor neuron is a mixed synapse that leans heavily on gap junctions. Here that link is its 90 chemical synapses."
+        },
+        "learning": {
+          "title": "Nothing learns.",
+          "body": "The smell lesson shows where a fly stores odor memories, the synapses from Kenyon cells to output neurons, but the model has no dopamine neurons and no plasticity. The cut also leaves out the APL neuron that keeps Kenyon cell activity sparse."
+        },
+        "stimulation": {
+          "title": "Idealized stimulation.",
+          "body": "Stimulate drives every neuron in a group with independent Poisson input (40 Hz for 200 ms in the smell and escape lessons, 60 Hz for 800 ms for the turn neurons), each event strong enough to fire the cell, much like optogenetic activation. A real odor activates a few receptor types in a pattern; the lesson’s smell fires all 1,861 receptor neurons in the cut. The swatter fires all 304 looming cells at once, where a real looming object recruits them as it grows."
+        },
+        "silence": {
+          "title": "Silence is a hard clamp.",
+          "body": "A silenced group sits at rest, never spikes, and sends nothing. Real silencing tools such as Kir2.1 or tetanus toxin are partial, slower, and can leave electrical synapses working."
+        },
+        "compass": {
+          "title": "Compass landmarks.",
+          "body": "The ring neurons receive no visual input in the model. Silencing them removes their inhibition of the compass, which is what lets the bump drift here. In a real fly they bring landmarks and other cues in from the senses."
+        },
+        "timing": {
+          "title": "Timing.",
+          "body": "Latencies come from one uniform 1.8 ms delay and the membrane and synaptic time constants, not from recordings. They land in a plausible range, but nothing was tuned to match measured escape latencies. The viewer plays it all in slow motion, 0.2 to 2 ms of fly time per frame depending on the device, and stops simulating 150 ms after the last stimulus, because some cuts have excitatory loops that would otherwise echo forever without the inhibition left outside."
+        },
+        "drawings": {
+          "title": "Drawings, not morphology.",
+          "body": "Each neuron is drawn as a 12-point line along its skeleton, not its real branches. Flashes mark spikes. The moving dots are illustration, not conduction speed or the real path of a spike."
+        }
+      },
+      "researchTitle": "What a research tool would do differently",
+      "researchItems": {
+        "whole": "Simulate the whole central nervous system, or cut it on principled boundaries with modeled inputs, and keep weak connections.",
+        "fit": "Fit parameters by cell type to recordings, allow graded and non-spiking neurons, and use conductance-based or multi-compartment models where dendrites matter.",
+        "add": "Add gap junctions from other data, neuromodulators such as dopamine and octopamine, and plasticity, for example dopamine-gated depression at Kenyon cell to output neuron synapses.",
+        "drive": "Drive sensory neurons the way the world does: odor-specific receptor patterns, and looming stimuli that recruit cells as the object grows.",
+        "uncertain": "Treat the transmitter predictions and weights as uncertain, sweep them, run many seeds, and compare the results with electrophysiology and behavior."
+      },
+      "furtherTitle": "Go to the source",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: query MaleCNS v1.0 cell by cell and synapse by synapse.",
+        "paper": "<paper>The MaleCNS paper</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: the whole-brain leaky integrate-and-fire model whose parameters WiredMind borrows.",
+        "code": "<code>The source code</code>: the data pipeline, the simulator, the lessons, and tests that check each lesson’s claims on the real circuits."
+      }
+    },
+    "who": {
+      "title": "Who made this",
+      "body": "WiredMind was built by {author}, a full-stack developer and SEO strategist in Tel Aviv, over one week in September 2026.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Support"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "body": "No accounts. The only cookie remembers a language you pick from the language menu. Page views are counted with Vercel Web Analytics, which does not use cookies."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "How a fly remembers a smell",
+      "summary": "Send a smell into a real fly brain and find the cells that remember it.",
+      "description": "Send a smell into a real fruit fly brain, follow it to the mushroom body, and find the cells that store its memory. A free 10-minute lesson.",
+      "steps": {
+        "send": {
+          "text": "A fly smells with its <term>antennae</term> <gloss>(its two feelers)</gloss>. Tap Stimulate to send a smell in. Watch the orange neurons light up.",
+          "result": "Those orange <term>smell receptors</term> <gloss>(the smell catchers)</gloss> fire first. Every smell starts here."
+        },
+        "follow": {
+          "text": "Tap Stimulate again and follow the colors. Yellow <term>projection neurons</term> <gloss>(the smell messengers)</gloss> carry the smell inward. Blue <term>Kenyon cells</term> <gloss>(the smell sorters)</gloss> catch it next.",
+          "result": "The blue cells turn each smell into its own pattern."
+        },
+        "read": {
+          "text": "Tap Stimulate once more. Now watch the pink <term>output neurons</term> <gloss>(the memory readers)</gloss>. They read the blue pattern.",
+          "result": "When a smell comes with sugar or danger, the links from blue to pink change. Scientists think that change is the memory."
+        },
+        "silence": {
+          "text": "Now silence the <term>Kenyon cells</term> <gloss>(the smell sorters)</gloss>. We will send the smell for you. What disappears?",
+          "result": "The pink light almost vanishes. The smell still gets in, but the memory readers get nothing to read."
+        },
+        "restore": {
+          "text": "Tap the <term>Kenyon cells</term> <gloss>(the smell sorters)</gloss> button again to switch them back on. We will send the same smell.",
+          "result": "The pink light comes back. The fly can read its smell memory again."
+        }
+      },
+      "check": {
+        "question": "You silenced the <term>Kenyon cells</term> <gloss>(the blue cells)</gloss>. Why did the pink cells go dark?",
+        "choices": {
+          "never": {
+            "text": "The smell never got into the fly.",
+            "feedback": "Not quite. The orange and yellow cells still lit up, so the smell got in. It stopped at the blue cells."
+          },
+          "pattern": {
+            "text": "The blue cells pass each smell's pattern to the pink cells.",
+            "feedback": "Yes! The blue cells sort each smell into a pattern, and the pink cells read it. No pattern means nothing to remember."
+          },
+          "both": {
+            "text": "You switched off the pink cells too.",
+            "feedback": "Not quite. You only switched off the blue cells. The pink cells stayed on but had nothing to read."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Free play",
+        "text": "Every button works now. Guess first, then tap: what goes dark if you silence the yellow smell messengers? Try silencing two colors at once."
+      }
+    },
+    "compass": {
+      "title": "How a fly knows which way it's facing",
+      "summary": "Push a real fly's compass around and see what holds it in place.",
+      "description": "Push a real fruit fly’s internal compass around, then silence the ring neurons and watch its sense of direction drift. A free 10-minute lesson.",
+      "steps": {
+        "left": {
+          "text": "Tap Stimulate to fire the left <term>turn neurons</term> <gloss>(the turning signal)</gloss>. Then watch the compass dial.",
+          "result": "The <term>compass neurons</term> <gloss>(the heading cells)</gloss> light up on one side. That bright patch, the bump, marks which way the fly faces."
+        },
+        "right": {
+          "text": "Now tap Stimulate on the right <term>turn neurons</term> <gloss>(the other signal)</gloss>. Keep your eyes on the bump.",
+          "result": "The bump swung around the dial. Turning signals from each side push it opposite ways, so the fly's heading turns too."
+        },
+        "silence": {
+          "text": "Silence the <term>ring neurons</term> <gloss>(the landmark carriers)</gloss>. They bring in what the fly sees. We will send the right signal for you.",
+          "result": "The bump slips off its spot and wanders. Without landmarks, the compass drifts."
+        },
+        "restore": {
+          "text": "Tap the <term>ring neurons</term> <gloss>(the landmark carriers)</gloss> button again to switch them back on. We will send the same signal.",
+          "result": "The bump holds its spot again. Landmarks keep the fly's compass true."
+        }
+      },
+      "check": {
+        "question": "You silenced the landmark carriers (the violet cells). Why did the bump drift?",
+        "choices": {
+          "never": {
+            "text": "The turning signal never reached the compass.",
+            "feedback": "Not quite. The green heading cells still lit up, so the signal got there. Nothing held the bump in place."
+          },
+          "landmarks": {
+            "text": "Nothing told the compass where the landmarks were, so the bump slid.",
+            "feedback": "Yes! The violet cells bring in what the fly sees. Without them, nothing pins the bump to the world."
+          },
+          "both": {
+            "text": "You switched off the green heading cells too.",
+            "feedback": "Not quite. You only silenced the violet cells. The green heading cells kept firing, but nothing held them still."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Free play",
+        "text": "Every button works now. Guess first, then tap: where does the bump go if you fire both turning signals at once? Try it with the violet cells silenced."
+      }
+    },
+    "escape": {
+      "title": "The 30-millisecond escape",
+      "summary": "Find the wire that gets a fly out from under a swatter.",
+      "description": "Follow a swatter from a real fruit fly’s eyes down the giant fiber to its legs in 30 ms, then cut the wire. A free 10-minute lesson.",
+      "steps": {
+        "loom": {
+          "text": "A swatter swoops at the fly. Tap Stimulate to fire the <term>looming neurons</term> <gloss>(the swatter spotters)</gloss>.",
+          "result": "They fire, and in a few thousandths of a second the <term>giant fiber</term> <gloss>(the escape wire)</gloss> fires too."
+        },
+        "jump": {
+          "text": "Tap Stimulate again. Follow the <term>giant fiber</term> <gloss>(the escape wire)</gloss> down into the <term>nerve cord</term> <gloss>(its spinal cord)</gloss>.",
+          "result": "The <term>jump neurons</term> <gloss>(the leg kickers)</gloss> fire within 30 milliseconds. They kick the middle legs, and the fly leaps away."
+        },
+        "silence": {
+          "text": "Now silence the <term>giant fiber</term> <gloss>(the escape wire)</gloss>. We will send the swatter. Watch the <term>jump neurons</term> <gloss>(the leg kickers)</gloss>.",
+          "result": "The <term>looming neurons</term> <gloss>(the swatter spotters)</gloss> still fire, but the <term>jump neurons</term> stay dark. The fast escape is gone."
+        },
+        "restore": {
+          "text": "Tap the <term>giant fiber</term> <gloss>(the escape wire)</gloss> button again to switch it back on. We will send the same swatter.",
+          "result": "The <term>jump neurons</term> <gloss>(the leg kickers)</gloss> fire again. Real flies also have slower ways out, but this is the fastest."
+        }
+      },
+      "check": {
+        "question": "You silenced the <term>giant fiber</term> <gloss>(the escape wire)</gloss>. Why did the leg kickers stay dark?",
+        "choices": {
+          "never": {
+            "text": "The fly never saw the swatter.",
+            "feedback": "Not quite. The blue swatter spotters still fired, so the fly saw it. The signal stopped at the escape wire."
+          },
+          "wire": {
+            "text": "The escape wire carries the jump signal to the leg kickers.",
+            "feedback": "Yes! The swatter spotters tell the escape wire, and the escape wire tells the legs to jump. Cut the wire and the fast jump is gone."
+          },
+          "both": {
+            "text": "You switched off the leg kickers too.",
+            "feedback": "Not quite. You only silenced the escape wire. The leg kickers stayed on but got no signal."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Free play",
+        "text": "Every button works now. Guess first, then tap: which colors still light up with the escape wire silenced? Then try silencing the swatter spotters instead."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Smell receptors",
+        "pn": "Projection neurons",
+        "kc": "Kenyon cells",
+        "mbon": "Output neurons"
+      },
+      "stimulate": {
+        "orn": "Turns on the receptor neurons that first catch an odor at the antenna."
+      },
+      "silence": {
+        "pn": "Stops the antennal lobe from carrying that smell into the mushroom body.",
+        "kc": "Quiets the cells that tell one smell apart from another.",
+        "mbon": "Blocks the mushroom body from passing the result to the rest of the brain."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Ring neurons",
+        "compass": "Compass neurons",
+        "turn-left": "Left turn neurons",
+        "turn-right": "Right turn neurons"
+      },
+      "stimulate": {
+        "turn-left": "Fires the P-EN2 turning cells on the left side of the bridge.",
+        "turn-right": "Fires the P-EN2 turning cells on the right side of the bridge."
+      },
+      "silence": {
+        "ring": "Blocks the ring neurons that carry landmarks in from the eyes.",
+        "compass": "Quiets the E-PG heading cells that make up the compass."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Looming neurons",
+        "gf": "Giant fiber",
+        "jump": "Jump neurons"
+      },
+      "stimulate": {
+        "looming": "Fires the LC4 and LPLC2 eye cells that spot something swooping in."
+      },
+      "silence": {
+        "looming": "Stops the eye cells from reporting the swoop.",
+        "gf": "Blocks the giant fiber, the fly’s fastest escape wire.",
+        "jump": "Quiets the motor neurons that kick the middle legs."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Lesson {number}",
+      "canvasHelp": "Three-dimensional view of the neurons. Drag to turn it. Pinch to zoom.",
+      "loading": "Loading the circuit…",
+      "loadingPercent": "Loading the circuit… {percent}%"
+    },
+    "load": {
+      "unavailable": "The circuit files are not available. Refresh the page to try again.",
+      "damaged": "The circuit files are damaged. Refresh the page to try again.",
+      "failed": "The circuit did not load. Refresh the page to try again."
+    },
+    "controls": {
+      "stimulate": "Stimulate",
+      "silence": "Silence",
+      "activity": "Activity",
+      "reset": "Reset",
+      "dragHint": "Drag the brain to turn it. Pinch to zoom.",
+      "activityLabel": "{group} activity",
+      "locked": "Locked",
+      "lockedHint": "Not in this step. Every button opens in free play.",
+      "stimulateNamed": "Stimulate {name}",
+      "silenceNamed": "Silence: {name}",
+      "silencedNamed": "Silenced: {name}",
+      "silenced": "Silenced · tap to switch on"
+    },
+    "sheet": {
+      "more": "Show more",
+      "less": "Show less"
+    },
+    "toolbar": {
+      "lessonOf": "Lesson {number} of {total}",
+      "share": "Share",
+      "copied": "Link copied. It replays your run.",
+      "copiedEmpty": "Link copied. Press a button first to share a run.",
+      "copyThis": "Copy this link:",
+      "linkLabel": "Link to this run"
+    },
+    "lesson": {
+      "tapCue": "Tap the glowing button at the bottom.",
+      "watching": "Watch the brain…",
+      "again": "Start the lesson again",
+      "next": "Next",
+      "question": "One quick question",
+      "freePlay": "Start free play",
+      "pickAnswer": "Pick the answer you think is right.",
+      "nextLesson": "Next lesson: {title}",
+      "finished": "You finished every lesson. Keep exploring.",
+      "cueStimulate": "Stimulate",
+      "cueSilence": "Silence",
+      "cueSwitchOn": "Switch on",
+      "loadingBrain": "Loading the brain…",
+      "gettingReady": "Getting ready… watch the brain",
+      "watchBrain": "Watch the brain",
+      "puffProgress": "Puff progress",
+      "puffClock": "{name}: {elapsed} of {total} ms, in slow motion",
+      "slowMotion": "In slow motion, so you can follow it",
+      "step": "Step {number} of {total}",
+      "quickQuestion": "Quick question",
+      "done": "Lesson done",
+      "answers": "Answers",
+      "tryAnother": "Try another answer."
+    },
+    "replay": {
+      "label": "Replay of {title}",
+      "section": "Replay",
+      "finished": "Replay finished",
+      "shared": "Someone shared their run of “{title}”. Watch it happen again, spike for spike.",
+      "over": "That was the whole run. Every button works now, so try your own.",
+      "replaying": "Replaying a shared run",
+      "progress": "Replay progress",
+      "pressOf": "Press {number} of {total}, on the same ticks and seed",
+      "tick": "{ms} ms",
+      "watchAgain": "Watch again",
+      "start": "Start the lesson",
+      "stimulate": "Stimulate {name}",
+      "silence": "Silence {name}",
+      "switchOn": "Switch on {name}",
+      "notice": "{problem} Here is the lesson instead.",
+      "errors": {
+        "unknownLesson": "This replay is for a lesson this site does not have.",
+        "unknownButton": "This replay uses a button this lesson no longer has.",
+        "empty": "This replay link is empty or too long.",
+        "version": "This replay link is from a different version.",
+        "seed": "The replay seed is too big.",
+        "tooMany": "This replay has too many steps to play.",
+        "tooLong": "This replay runs too long to play.",
+        "broken": "This replay link is broken or cut off.",
+        "generic": "That replay link did not work."
+      }
+    },
+    "compass": {
+      "label": "Compass dial. The glowing wedges and the needle show where the bump sits on the ring.",
+      "left": "L",
+      "right": "R",
+      "caption": "Compass · from behind"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "This page does not exist",
+      "body": "The link may be old or mistyped. The lessons are still here.",
+      "home": "Go to the lessons"
+    },
+    "error": {
+      "title": "Something went wrong",
+      "body": "The page hit an error. Try again, or go back to the lessons.",
+      "retry": "Try again",
+      "home": "Go to the lessons"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { CompassReadout } from "./compass.js";
+import type { LoadErrorCode } from "./load-circuit.js";
 
 export type ViewerStatus = "loading" | "ready" | "error";
 
@@ -19,7 +20,8 @@ export type PlaybackState = {
 
 type ViewerState = {
   status: ViewerStatus;
-  error: string | null;
+  /** Why the circuit did not load. The stage says it in the reader's language. */
+  error: LoadErrorCode | null;
   progress: number;
   stimulating: Record<string, boolean>;
   silenced: Record<string, boolean>;
@@ -36,7 +38,7 @@ type ViewerState = {
    * so the circuit a learner just left never takes them.
    */
   circuit: string | null;
-  setStatus: (status: ViewerStatus, error?: string | null) => void;
+  setStatus: (status: ViewerStatus, error?: LoadErrorCode | null) => void;
   setProgress: (progress: number) => void;
   setStimulating: (colorGroup: string, on: boolean) => void;
   setSilenced: (colorGroup: string, on: boolean) => void;

@@ -12,12 +12,13 @@ export type LessonGoal =
   | { type: "stimulate"; colorGroup: string }
   | { type: "silence"; colorGroup: string; on: boolean };
 
+/**
+ * One step of a lesson. Its words are in messages, under
+ * lessons.<lesson>.steps.<step>: `text` says what to do and shows as soon as
+ * the step opens, `result` says what just happened once the puff is over.
+ */
 export type LessonStep = {
   id: string;
-  /** What to do. Shown as soon as the step opens. */
-  text: string;
-  /** What just happened. Shown once the learner has acted and the puff is over. */
-  result: string;
   /** Color groups drawn at full brightness. Everything else dims. */
   focus: string[];
   /** Controls unlocked before the goal is met. */
@@ -27,22 +28,23 @@ export type LessonStep = {
   puff: string | null;
 };
 
+/** An answer to the check question. Its text and feedback are in messages. */
 export type LessonChoice = {
-  text: string;
+  id: string;
   correct: boolean;
-  feedback: string;
 };
 
+/** A lesson's structure. Everything it says lives in messages, under lessons.<id>. */
 export type LessonModule = {
   id: string;
-  title: string;
-  summary: string;
   circuit: string;
-  /** Terms that need a short gloss in parentheses wherever they appear. */
+  /**
+   * English terms that need a short gloss in parentheses on first use. The
+   * English copy marks them <term>, and tests hold it to this list.
+   */
   jargon: string[];
   steps: LessonStep[];
-  check: { question: string; focus: string[]; choices: LessonChoice[] };
-  freePlay: { title: string; text: string };
+  check: { focus: string[]; choices: LessonChoice[] };
 };
 
 export type LessonPhase =
@@ -72,34 +74,39 @@ export function readLesson(value: unknown, module: ModuleSpec): LessonModule {
       );
     }
     return {
-      text: text(row.text, `check.choices[${index}].text`),
+      id: text(row.id, `check.choices[${index}].id`),
       correct: row.correct,
-      feedback: text(row.feedback, `check.choices[${index}].feedback`),
     };
   });
   if (choices.filter((choice) => choice.correct).length !== 1) {
     throw new Error("lesson check needs exactly one correct choice");
   }
-  const freePlay = object(record.freePlay, "freePlay");
+  unique(
+    steps.map((step) => step.id),
+    "step ids",
+  );
+  unique(
+    choices.map((choice) => choice.id),
+    "choice ids",
+  );
   return {
     id: text(record.id, "id"),
-    title: text(record.title, "title"),
-    summary: text(record.summary, "summary"),
     circuit,
     jargon: list(record.jargon, "jargon").map((item, index) =>
       text(item, `jargon[${index}]`),
     ),
     steps,
     check: {
-      question: text(check.question, "check.question"),
       focus: groupList(check.focus, "check.focus", groups),
       choices,
     },
-    freePlay: {
-      title: text(freePlay.title, "freePlay.title"),
-      text: text(freePlay.text, "freePlay.text"),
-    },
   };
+}
+
+function unique(ids: string[], what: string) {
+  if (new Set(ids).size !== ids.length) {
+    throw new Error(`lesson repeats ${what}`);
+  }
 }
 
 /** How a control looks right now: open, open and pointed at, or locked. */
@@ -165,6 +172,31 @@ export function unglossed(value: string, jargon: readonly string[]): string[] {
 
 export type GlossPart = { kind: "text" | "term" | "gloss"; value: string };
 
+const MARKUP = /<(term|gloss)>([^<]*)<\/\1>/g;
+
+/** Lesson copy without its <term> and <gloss> tags, as a reader sees it. */
+export function plainText(markup: string): string {
+  return markup.replace(MARKUP, "$2");
+}
+
+/**
+ * The parts a lesson string marks up: every <term> in bold, every <gloss>
+ * as an aside. Matches what glossParts finds in the plain English text.
+ */
+export function markupParts(markup: string): GlossPart[] {
+  const parts: GlossPart[] = [];
+  let at = 0;
+  for (const found of markup.matchAll(MARKUP)) {
+    const index = found.index ?? 0;
+    if (index > at)
+      parts.push({ kind: "text", value: markup.slice(at, index) });
+    parts.push({ kind: found[1] as "term" | "gloss", value: found[2] ?? "" });
+    at = index + found[0].length;
+  }
+  if (at < markup.length) parts.push({ kind: "text", value: markup.slice(at) });
+  return parts;
+}
+
 /**
  * Splits copy into plain text, jargon terms, and the short glosses that follow
  * them, so a gloss can read as an aside rather than as another thing.
@@ -224,8 +256,6 @@ function readStep(
   }
   const step: LessonStep = {
     id: text(row.id, `${field}.id`),
-    text: text(row.text, `${field}.text`),
-    result: text(row.result, `${field}.result`),
     focus: groupList(row.focus, `${field}.focus`, known.groups),
     controls: {
       stimulate: groupList(
