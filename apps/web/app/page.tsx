@@ -8,13 +8,15 @@ import { siteCopy } from "@/src/site/copy";
 import { EscapeLoop } from "@/src/site/escape-loop";
 import { SiteFooter } from "@/src/site/footer";
 import { SiteHeader } from "@/src/site/header";
+import { pageMetadata } from "@/src/site/page-meta";
 import { LINK_CLASS, RichText, SiteLink } from "@/src/site/rich-text";
 import { fill } from "@/src/site/text";
 import { findLesson, LESSONS } from "@/src/viewer/modules";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export const metadata: Metadata = pageMetadata({
+  description: siteCopy().meta.description,
+  path: "/",
+});
 
 const BUTTON =
   "inline-flex min-h-12 items-center justify-center rounded-xl px-5 text-base font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";

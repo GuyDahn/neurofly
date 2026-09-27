@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CreditLine } from "@/src/site/footer";
+import { pageMetadata } from "@/src/site/page-meta";
 import { findLesson, LESSONS } from "@/src/viewer/modules";
 import { Viewer } from "@/src/viewer/viewer";
 
@@ -19,20 +20,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const entry = findLesson((await params).id);
   if (!entry) return {};
-  return {
+  return pageMetadata({
     title: entry.lesson.title,
     description: entry.lesson.summary,
-    alternates: { canonical: entry.path },
-    openGraph: {
-      title: entry.lesson.title,
-      description: entry.lesson.summary,
-      url: entry.path,
-    },
-    twitter: {
-      title: entry.lesson.title,
-      description: entry.lesson.summary,
-    },
-  };
+    path: entry.path,
+  });
 }
 
 export default async function LessonPage({
