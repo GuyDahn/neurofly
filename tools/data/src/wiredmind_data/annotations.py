@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import pyarrow.feather as feather
 
-from neurofly_data.sources import EXCITATORY_NT, EXCLUDED_STATUS, INHIBITORY_NT, RAW_FILES
+from wiredmind_data.sources import EXCITATORY_NT, EXCLUDED_STATUS, INHIBITORY_NT, RAW_FILES
 
 
 @dataclass(frozen=True)

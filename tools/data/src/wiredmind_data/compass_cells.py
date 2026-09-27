@@ -22,8 +22,8 @@ from pathlib import Path
 import numpy as np
 import pyarrow.feather as feather
 
-from neurofly_data.skeletons import parse_swc
-from neurofly_data.sources import RAW_FILES
+from wiredmind_data.skeletons import parse_swc
+from wiredmind_data.sources import RAW_FILES
 
 DATA_ROOT = Path(__file__).resolve().parents[2]
 RAW_DIR = DATA_ROOT / "raw"

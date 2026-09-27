@@ -44,7 +44,7 @@ describe("data lock", () => {
   });
 
   it("downloads a pinned file only when the sha256 matches", async () => {
-    const directory = await mkdtemp(path.join(tmpdir(), "neurofly-data-"));
+    const directory = await mkdtemp(path.join(tmpdir(), "wiredmind-data-"));
     try {
       const lock: DataLock = {
         version: "data-v2",

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from neurofly_data.annotations import NeuronRecord
+from wiredmind_data.annotations import NeuronRecord
 
 
 class SeedMatchError(RuntimeError):

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from neurofly_data.annotations import NeuronRecord
+from wiredmind_data.annotations import NeuronRecord
 
 
 def hop_appearance(

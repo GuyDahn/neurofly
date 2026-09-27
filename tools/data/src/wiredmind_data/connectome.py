@@ -9,8 +9,8 @@ import pyarrow as pa
 import pyarrow.feather as feather
 import pyarrow.ipc as ipc
 
-from neurofly_data.annotations import NeuronRecord
-from neurofly_data.sources import RAW_FILES
+from wiredmind_data.annotations import NeuronRecord
+from wiredmind_data.sources import RAW_FILES
 
 PRE_NAMES = ("bodyId_pre", "body_pre", "pre", "bodyid_pre")
 POST_NAMES = ("bodyId_post", "body_post", "post", "bodyid_post")

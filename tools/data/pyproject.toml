@@ -1,5 +1,5 @@
 [project]
-name = "neurofly-data"
+name = "wiredmind-data"
 version = "0.0.0"
 description = "Local tooling for MaleCNS inputs. Raw and baked neuron data stay out of git."
 requires-python = ">=3.12"
@@ -12,8 +12,8 @@ dependencies = [
 ]
 
 [project.scripts]
-make-data = "neurofly_data.make_data:main"
-compass-cells = "neurofly_data.compass_cells:main"
+make-data = "wiredmind_data.make_data:main"
+compass-cells = "wiredmind_data.compass_cells:main"
 
 [build-system]
 requires = ["hatchling"]

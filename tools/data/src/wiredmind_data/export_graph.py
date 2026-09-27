@@ -8,9 +8,9 @@ from pathlib import Path
 
 import numpy as np
 
-from neurofly_data.extract_subcircuit import SeedSpec, Subcircuit
-from neurofly_data.labels import hop_appearance
-from neurofly_data.sources import CITATION, DATASET, LICENSE, WEIGHT_INT16_MAX
+from wiredmind_data.extract_subcircuit import SeedSpec, Subcircuit
+from wiredmind_data.labels import hop_appearance
+from wiredmind_data.sources import CITATION, DATASET, LICENSE, WEIGHT_INT16_MAX
 
 MAGIC = b"NFLY"
 VERSION = 1
