@@ -13,6 +13,7 @@ import { EscapeLoop, type LoopStep } from "@/src/site/escape-loop";
 import { SiteFooter } from "@/src/site/footer";
 import { SiteHeader } from "@/src/site/header";
 import { homeJsonLd, jsonLdScript } from "@/src/site/json-ld";
+import { LINK_TAGS } from "@/src/site/links";
 import { pageMetadata, shareImagePath } from "@/src/site/page-meta";
 import {
   ForwardArrow,
@@ -152,6 +153,18 @@ export default async function HomePage({
                 }}
                 caption={t.rich("landing.loop.caption", {
                   ...links,
+                  // Unlike the credit links in the footer, this is the only
+                  // interactive control in the caption, so it gets the full
+                  // 44px hit area rather than staying text-sized.
+                  simplified: (chunks) => (
+                    <SiteLink
+                      href={localePath(locale, LINK_TAGS.simplified)}
+                      newTab={newTab}
+                      className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+                    >
+                      {chunks}
+                    </SiteLink>
+                  ),
                   spanMs: CASCADE_SPAN_MS,
                   slowdown: Math.round(1 / FLY_MS_PER_WALL_MS),
                 })}
@@ -187,7 +200,7 @@ export default async function HomePage({
                   <h3 className="text-xl leading-snug font-semibold text-fg">
                     <Link
                       href={localePath(locale, entry.path)}
-                      className="after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none"
+                      className="inline-flex min-h-11 items-center after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none"
                     >
                       {t(`lessons.${entry.id}.title`)}
                     </Link>
@@ -270,14 +283,14 @@ export default async function HomePage({
               </SiteLink>
               <Link
                 href={`${localePath(locale, "/about")}#real-and-simplified`}
-                className={`${LINK_CLASS} self-start text-base text-fg-muted sm:self-auto`}
+                className={`${LINK_CLASS} inline-flex min-h-11 items-center self-start text-base text-fg-muted sm:self-auto`}
               >
                 {t("landing.teachers.science")}
               </Link>
               <SiteLink
                 href={FEEDBACK_URL}
                 newTab={newTab}
-                className={`${LINK_CLASS} self-start text-base text-fg-muted sm:self-auto`}
+                className={`${LINK_CLASS} inline-flex min-h-11 items-center self-start text-base text-fg-muted sm:self-auto`}
               >
                 {t("landing.teachers.feedback")}
               </SiteLink>
@@ -289,6 +302,7 @@ export default async function HomePage({
           id="credits"
           aria-labelledby="credits-title"
           className="scroll-mt-4 border-t border-border"
+          data-tap-target="text"
         >
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <h2

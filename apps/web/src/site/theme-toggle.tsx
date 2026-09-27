@@ -49,7 +49,7 @@ export function ThemeToggle({
       type="button"
       onClick={toggle}
       aria-label={isDark === null ? undefined : isDark ? light : dark}
-      className="flex min-h-10 min-w-10 items-center justify-center rounded-md text-fg-subtle transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+      className="flex min-h-11 min-w-11 items-center justify-center rounded-md text-fg-subtle transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
     >
       {isDark === null ? (
         <span className="block size-5" />

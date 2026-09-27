@@ -219,7 +219,7 @@ export function ModuleRunner({
           <button
             type="button"
             onClick={startOver}
-            className="self-start text-sm text-fg-subtle underline underline-offset-4 hover:text-fg-muted"
+            className="inline-flex min-h-11 items-center self-start text-sm text-fg-subtle underline underline-offset-4 hover:text-fg-muted"
           >
             {t("again")}
           </button>
@@ -251,7 +251,10 @@ export function PanelTranslateNotice() {
 export function PanelCredit({ children }: { children?: ReactNode }) {
   if (!children) return null;
   return (
-    <div className="border-t border-border pt-4 text-xs text-fg-subtle">
+    <div
+      className="border-t border-border pt-4 text-xs text-fg-subtle"
+      data-tap-target="text"
+    >
       {children}
     </div>
   );

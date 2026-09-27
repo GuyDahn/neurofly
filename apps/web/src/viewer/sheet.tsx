@@ -117,7 +117,7 @@ export function Sheet({
           event.preventDefault();
           onState(settle(state, 0, base, viewport));
         }}
-        className="flex h-7 w-full shrink-0 touch-none items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring md:hidden"
+        className="flex h-11 w-full shrink-0 touch-none items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring md:hidden"
       >
         <span className="h-1.5 w-10 rounded-full bg-fg/20" />
       </button>

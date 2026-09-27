@@ -23,7 +23,7 @@ export function Toolbar({ entry }: { entry: LessonEntry }) {
           aria-expanded={open}
           aria-controls="lesson-list"
           onClick={() => setOpen((value) => !value)}
-          className={`flex min-h-10 items-center gap-2 rounded-full border border-border-strong px-3.5 text-sm font-semibold text-fg-muted hover:bg-overlay ${FOCUS_RING}`}
+          className={`flex min-h-11 items-center gap-2 rounded-full border border-border-strong px-3.5 text-sm font-semibold text-fg-muted hover:bg-overlay ${FOCUS_RING}`}
         >
           {t("lessonOf", { number: entry.number, total: LESSONS.length })}
           <svg
@@ -108,7 +108,7 @@ export function ShareButton({ entry }: { entry: LessonEntry }) {
       <button
         type="button"
         onClick={() => void share()}
-        className={`flex min-h-10 items-center gap-2 rounded-full bg-overlay-strong px-3.5 text-sm font-semibold text-fg hover:bg-fg/15 ${FOCUS_RING}`}
+        className={`flex min-h-11 items-center gap-2 rounded-full bg-overlay-strong px-3.5 text-sm font-semibold text-fg hover:bg-fg/15 ${FOCUS_RING}`}
       >
         <svg
           aria-hidden="true"

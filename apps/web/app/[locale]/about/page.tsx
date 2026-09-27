@@ -68,16 +68,28 @@ export default async function AboutPage({
           aria-label={t("about.onThisPage")}
           className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-fg-subtle"
         >
-          <a href="#real-and-simplified" className={LINK_CLASS}>
+          <a
+            href="#real-and-simplified"
+            className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+          >
             {t("about.real.title")}
           </a>
-          <a href="#credits" className={LINK_CLASS}>
+          <a
+            href="#credits"
+            className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+          >
             {t("credits.title")}
           </a>
-          <a href="#who-made-this" className={LINK_CLASS}>
+          <a
+            href="#who-made-this"
+            className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+          >
             {t("about.who.title")}
           </a>
-          <a href="#support" className={LINK_CLASS}>
+          <a
+            href="#support"
+            className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+          >
             {t("about.support.title")}
           </a>
         </nav>
@@ -208,6 +220,7 @@ function Section({
       id={id}
       aria-labelledby={`${id}-title`}
       className="mt-14 flex scroll-mt-6 flex-col gap-4 border-t border-border pt-10"
+      data-tap-target="text"
     >
       <h2
         id={`${id}-title`}

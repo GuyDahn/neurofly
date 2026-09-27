@@ -115,7 +115,10 @@ function Stage({ entry }: { entry: LessonEntry }) {
     <div className="relative order-1 min-h-0 flex-1 bg-zinc-950 md:order-2">
       <header className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-3 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
         <div className="min-w-0">
-          <p className="text-xs font-semibold tracking-[0.16em] text-zinc-400 uppercase">
+          <p
+            className="text-xs font-semibold tracking-[0.16em] text-zinc-400 uppercase"
+            data-tap-target="text"
+          >
             <Link
               href={localePath(locale, "/")}
               lang="en"

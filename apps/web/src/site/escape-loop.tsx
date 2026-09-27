@@ -162,7 +162,7 @@ export function EscapeLoop({
             type="button"
             onClick={toggle}
             aria-label={playing ? copy.pause : copy.play}
-            className="absolute end-3 bottom-3 flex size-10 items-center justify-center rounded-full border border-white/15 bg-zinc-950/70 text-zinc-100 backdrop-blur hover:bg-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="absolute end-3 bottom-3 flex size-11 items-center justify-center rounded-full border border-white/15 bg-zinc-950/70 text-zinc-100 backdrop-blur hover:bg-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             {playing ? (
               <svg

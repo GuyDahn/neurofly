@@ -70,7 +70,7 @@ export function LanguageMenu({
         aria-controls={list}
         aria-label={label}
         onClick={() => setOpen((value) => !value)}
-        className="flex min-h-10 min-w-10 items-center justify-center gap-1.5 rounded-md px-1.5 text-fg-muted transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        className="flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-md px-1.5 text-fg-muted transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
         <GlobeIcon />
         <span className="hidden sm:inline" lang={current}>
