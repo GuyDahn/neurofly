@@ -57,14 +57,17 @@ export default async function HomePage() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(60%_60%_at_75%_20%,rgb(56_189_248/0.12),transparent),radial-gradient(40%_40%_at_20%_60%,rgb(248_113_113/0.08),transparent)]"
           />
-          <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-16 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center lg:gap-12 lg:pt-16 lg:pb-24">
-            <div className="flex flex-col gap-6">
+          {/* Phones read the hook, watch the loop, then act. Wide screens put the loop beside the words. */}
+          <div className="relative mx-auto grid max-w-6xl gap-8 px-4 pt-10 pb-16 [grid-template-areas:'title'_'loop'_'body'] sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-x-12 lg:gap-y-6 lg:pt-16 lg:pb-24 lg:[grid-template-areas:'title_loop'_'body_loop']">
+            <div className="flex flex-col gap-5 [grid-area:title] lg:self-end">
               <p className="text-xs font-semibold tracking-[0.16em] text-sky-300 uppercase">
                 {copy.hero.eyebrow}
               </p>
               <h1 className="text-3xl leading-tight font-semibold tracking-tight text-balance text-zinc-50 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
                 {copy.hero.title}
               </h1>
+            </div>
+            <div className="flex flex-col gap-6 [grid-area:body] lg:self-start">
               <p className="max-w-xl text-lg leading-relaxed text-pretty text-zinc-300">
                 {copy.hero.lead}
               </p>
@@ -85,12 +88,14 @@ export default async function HomePage() {
                 </Link>
               </div>
             </div>
-            <EscapeLoop
-              src={await cascadeUrl()}
-              steps={steps}
-              copy={copy.loop}
-              newTab={copy.a11y.newTab}
-            />
+            <div className="[grid-area:loop] lg:self-center">
+              <EscapeLoop
+                src={await cascadeUrl()}
+                steps={steps}
+                copy={copy.loop}
+                newTab={copy.a11y.newTab}
+              />
+            </div>
           </div>
         </section>
 
@@ -214,23 +219,23 @@ export default async function HomePage() {
           aria-labelledby="credits-title"
           className="scroll-mt-4 border-t border-white/10"
         >
-          <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <h2
               id="credits-title"
               className="text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl"
             >
               {copy.credits.title}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-zinc-300">
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-300">
               <RichText parts={copy.credits.body} newTab={copy.a11y.newTab} />
             </p>
-            <blockquote className="mt-6 border-l-2 border-white/20 pl-4 text-sm leading-relaxed text-zinc-300">
+            <blockquote className="mt-6 max-w-3xl border-l-2 border-white/20 pl-4 text-sm leading-relaxed text-zinc-300">
               {copy.credits.citation}{" "}
               <SiteLink href={copy.credits.doi.href} newTab={copy.a11y.newTab}>
                 {copy.credits.doi.text}
               </SiteLink>
             </blockquote>
-            <p className="mt-6 text-sm leading-relaxed text-zinc-400">
+            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-zinc-400">
               <RichText
                 parts={copy.credits.license}
                 newTab={copy.a11y.newTab}
