@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { enqueue } from "./commands.js";
 import { Glossed } from "./glossed.js";
 import {
@@ -28,10 +34,13 @@ const BUTTON = `min-h-12 w-full rounded-xl px-4 text-base font-semibold transiti
 export function ModuleRunner({
   entry,
   notice,
+  credit,
 }: {
   entry: LessonEntry;
   /** A message to show above the lesson, e.g. why a replay link failed. */
   notice?: string | null;
+  /** Site credit at the very end of the panel. */
+  credit?: ReactNode;
 }) {
   const { module, lesson } = entry;
   const [phase, setPhase] = useState<LessonPhase>({
@@ -212,7 +221,18 @@ export function ModuleRunner({
         )}
       </section>
       <Controls module={module} gate={gate} onAction={onAction} />
+      <PanelCredit>{credit}</PanelCredit>
     </Sheet>
+  );
+}
+
+/** The site credit line, below everything a lesson needs. */
+export function PanelCredit({ children }: { children?: ReactNode }) {
+  if (!children) return null;
+  return (
+    <div className="border-t border-white/10 pt-4 text-xs text-zinc-500">
+      {children}
+    </div>
   );
 }
 

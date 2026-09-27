@@ -1,7 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useEffect, useState, type ReactNode } from "react";
+import { SITE_NAME } from "../site/site.js";
 import { CompassDial } from "./compass-dial.js";
 import { groupColor } from "./module.js";
 import { findLesson, LESSONS, type LessonEntry } from "./modules.js";
@@ -20,7 +22,14 @@ const Scene = dynamic(() => import("./scene.js"), { ssr: false });
 
 type Shared = { entry: LessonEntry; replay: Replay };
 
-export function Viewer({ lessonId }: { lessonId: string }) {
+export function Viewer({
+  lessonId,
+  credit,
+}: {
+  lessonId: string;
+  /** Who made the site, shown at the end of the lesson panel. */
+  credit?: ReactNode;
+}) {
   const home = findLesson(lessonId) ?? LESSONS[0]!;
   const [shared, setShared] = useState<Shared | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -71,7 +80,7 @@ export function Viewer({ lessonId }: { lessonId: string }) {
 
   // A share link can open a different lesson than the page it landed on.
   useEffect(() => {
-    document.title = `${entry.lesson.title} · Neurofly`;
+    document.title = `${entry.lesson.title} · ${SITE_NAME}`;
   }, [entry]);
   return (
     <div className="flex h-dvh flex-col overflow-hidden bg-zinc-950 text-zinc-100 scheme-dark md:flex-row">
@@ -81,9 +90,15 @@ export function Viewer({ lessonId }: { lessonId: string }) {
           entry={shared.entry}
           replay={shared.replay}
           onExit={exitReplay}
+          credit={credit}
         />
       ) : (
-        <ModuleRunner key={entry.id} entry={entry} notice={notice} />
+        <ModuleRunner
+          key={entry.id}
+          entry={entry}
+          notice={notice}
+          credit={credit}
+        />
       )}
       <Stage entry={entry} />
     </div>
@@ -101,7 +116,13 @@ function Stage({ entry }: { entry: LessonEntry }) {
     <div className="relative order-1 min-h-0 flex-1 bg-zinc-950 md:order-2">
       <header className="pointer-events-none absolute top-0 right-0 left-0 z-10 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
         <p className="text-xs font-semibold tracking-[0.16em] text-zinc-400 uppercase">
-          Neurofly · Lesson {entry.number}
+          <Link
+            href="/"
+            className="pointer-events-auto rounded-sm hover:text-zinc-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            {SITE_NAME}
+          </Link>{" "}
+          · Lesson {entry.number}
         </p>
         <h1 className="max-w-md text-xl font-semibold tracking-tight text-zinc-50 md:text-3xl">
           {lesson.title}

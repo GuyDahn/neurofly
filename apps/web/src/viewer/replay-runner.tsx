@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { enqueue } from "./commands.js";
 import type { LessonEntry } from "./modules.js";
+import { PanelCredit } from "./module-runner.js";
 import { Controls, FOCUS_RING } from "./panel.js";
 import { startPlayback, stopPlayback } from "./recorder.js";
 import type { Replay, ReplayCommand } from "./replay.js";
@@ -21,11 +22,14 @@ export function ReplayRunner({
   entry,
   replay,
   onExit,
+  credit,
 }: {
   entry: LessonEntry;
   replay: Replay;
   /** Leaves the replay for the lesson. */
   onExit: () => void;
+  /** Site credit at the very end of the panel. */
+  credit?: ReactNode;
 }) {
   const { module, lesson } = entry;
   const [sheet, setSheet] = useState<SheetState>("min");
@@ -150,6 +154,7 @@ export function ReplayRunner({
         </ol>
       </section>
       <Controls module={module} readOnly={!done} />
+      <PanelCredit>{credit}</PanelCredit>
     </Sheet>
   );
 }

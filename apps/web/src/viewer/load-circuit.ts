@@ -10,6 +10,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { centerline, packPaths, type NeuronPaths } from "./centerline.js";
 import { CompassReadout, compassWedges } from "./compass.js";
 import { FlashField } from "./flash.js";
+import { dracoParts, readGlb, type GltfJson } from "./glb.js";
 import { assignGroups, bodyIndex, type NeuronRow } from "./groups.js";
 import { createFlashTexture, createNeuronMaterial } from "./materials.js";
 import { emptyGroups } from "./module.js";
@@ -199,8 +200,20 @@ async function fetchJson(url: string): Promise<unknown> {
   return response.json() as Promise<unknown>;
 }
 
+/**
+ * /data files are cached for a year, so each request names the data release
+ * the build fetched. A new release is a new URL.
+ */
+export function versioned(url: string, version: string | undefined): string {
+  if (!version) return url;
+  const join = url.includes("?") ? "&" : "?";
+  return `${url}${join}v=${encodeURIComponent(version)}`;
+}
+
 async function fetchOk(url: string): Promise<Response> {
-  const response = await fetch(url);
+  const response = await fetch(
+    versioned(url, process.env.NEXT_PUBLIC_DATA_VERSION),
+  );
   if (!response.ok) {
     throw new Error(
       "The circuit files are not available. Run pnpm data:fetch and refresh.",
@@ -396,25 +409,6 @@ function decodePosition(
   });
 }
 
-type GltfJson = {
-  nodes?: Array<{
-    name?: string;
-    mesh?: number;
-    extras?: { bodyId?: unknown };
-  }>;
-  meshes?: Array<{
-    primitives?: Array<{
-      extensions?: {
-        KHR_draco_mesh_compression?: {
-          bufferView?: number;
-          attributes?: { POSITION?: number };
-        };
-      };
-    }>;
-  }>;
-  bufferViews?: Array<{ byteOffset?: number; byteLength?: number }>;
-};
-
 function lineJobs(
   json: GltfJson,
   bin: Uint8Array,
@@ -422,75 +416,14 @@ function lineJobs(
   member: Int16Array,
   module: ModuleSpec,
 ): DracoJob[] {
-  const indexOfBody = bodyIndex(neurons);
   const palette = module.groups.map((group) => new Color(group.color));
   const context = new Color(CONTEXT_COLOR);
-  const seen = new Uint8Array(neurons.length);
-  const jobs: DracoJob[] = [];
-  for (const node of json.nodes ?? []) {
-    if (typeof node.mesh !== "number") continue;
-    const bodyId = asId(node.extras?.bodyId) ?? asId(node.name);
-    if (bodyId === null) continue;
-    const neuron = indexOfBody.get(bodyId);
-    if (neuron === undefined || seen[neuron] === 1) continue;
-    const primitive = json.meshes?.[node.mesh]?.primitives?.[0];
-    const dracoExt = primitive?.extensions?.KHR_draco_mesh_compression;
-    const bufferView = dracoExt?.bufferView;
-    const positionId = dracoExt?.attributes?.POSITION;
-    if (bufferView === undefined || positionId === undefined) continue;
-    const bytes = bufferViewBytes(json, bin, bufferView);
-    if (!bytes) continue;
-    seen[neuron] = 1;
-    jobs.push({
-      neuron,
-      color: palette[member[neuron] ?? -1] ?? context,
-      bytes,
-      positionId,
-    });
-  }
-  return jobs;
-}
-
-function bufferViewBytes(
-  json: GltfJson,
-  bin: Uint8Array,
-  index: number,
-): ArrayBuffer | null {
-  const view = json.bufferViews?.[index];
-  if (!view || typeof view.byteLength !== "number") return null;
-  const start = view.byteOffset ?? 0;
-  const slice = bin.subarray(start, start + view.byteLength);
-  const copy = new Uint8Array(slice.byteLength);
-  copy.set(slice);
-  return copy.buffer;
-}
-
-function readGlb(buffer: ArrayBuffer): { json: GltfJson; bin: Uint8Array } {
-  const view = new DataView(buffer);
-  if (buffer.byteLength < 20 || view.getUint32(0, true) !== 0x46546c67) {
-    throw new Error("The circuit model is not a glTF file.");
-  }
-  let offset = 12;
-  const jsonLength = view.getUint32(offset, true);
-  const jsonType = view.getUint32(offset + 4, true);
-  offset += 8;
-  if (jsonType !== 0x4e4f534a) {
-    throw new Error("The circuit model is missing its description.");
-  }
-  const jsonBytes = new Uint8Array(buffer, offset, jsonLength);
-  const json = JSON.parse(new TextDecoder().decode(jsonBytes)) as GltfJson;
-  offset += jsonLength;
-  const binLength = view.getUint32(offset, true);
-  offset += 8;
-  return { json, bin: new Uint8Array(buffer, offset, binLength) };
-}
-
-function asId(value: unknown): number | null {
-  if (typeof value === "number" && Number.isInteger(value) && value >= 0) {
-    return value;
-  }
-  if (typeof value === "string" && /^\d+$/.test(value)) return Number(value);
-  return null;
+  return dracoParts(json, bin, bodyIndex(neurons), neurons.length).map(
+    (part) => ({
+      ...part,
+      color: palette[member[part.neuron] ?? -1] ?? context,
+    }),
+  );
 }
 
 function yieldToMain(): Promise<void> {

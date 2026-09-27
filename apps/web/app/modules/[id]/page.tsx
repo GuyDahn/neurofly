@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { CreditLine } from "@/src/site/footer";
 import { findLesson, LESSONS } from "@/src/viewer/modules";
 import { Viewer } from "@/src/viewer/viewer";
 
@@ -19,8 +20,18 @@ export async function generateMetadata({
   const entry = findLesson((await params).id);
   if (!entry) return {};
   return {
-    title: `${entry.lesson.title} · Neurofly`,
+    title: entry.lesson.title,
     description: entry.lesson.summary,
+    alternates: { canonical: entry.path },
+    openGraph: {
+      title: entry.lesson.title,
+      description: entry.lesson.summary,
+      url: entry.path,
+    },
+    twitter: {
+      title: entry.lesson.title,
+      description: entry.lesson.summary,
+    },
   };
 }
 
@@ -31,5 +42,6 @@ export default async function LessonPage({
 }) {
   const entry = findLesson((await params).id);
   if (!entry) notFound();
-  return <Viewer lessonId={entry.id} />;
+  // No coffee link here: nothing asks students for anything mid-lesson.
+  return <Viewer lessonId={entry.id} credit={<CreditLine coffee={false} />} />;
 }

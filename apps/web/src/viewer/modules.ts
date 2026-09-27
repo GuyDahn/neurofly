@@ -31,7 +31,7 @@ function entry(
 }
 
 export const LESSONS: readonly LessonEntry[] = [
-  entry(1, "/", olfactoryCircuit, smellMemoryLesson),
+  entry(1, "/modules/smell-memory", olfactoryCircuit, smellMemoryLesson),
   entry(2, "/modules/compass", visualCircuit, compassLesson),
   entry(3, "/modules/escape", escapeCircuit, escapeLesson),
 ];
