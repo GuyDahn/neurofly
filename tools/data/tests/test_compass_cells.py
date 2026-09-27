@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from neurofly_data.compass_cells import (
+from wiredmind_data.compass_cells import (
     WEDGE_ORDER,
     back_view_angle,
     check_ring,

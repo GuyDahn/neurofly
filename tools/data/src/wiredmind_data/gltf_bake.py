@@ -27,7 +27,7 @@ from pygltflib import (
     Scene,
 )
 
-from neurofly_data.sources import DATASET, GLB_BYTE_LIMIT, LICENSE
+from wiredmind_data.sources import DATASET, GLB_BYTE_LIMIT, LICENSE
 
 COLORS: dict[str, list[float]] = {
     "orn": [0.93, 0.55, 0.16, 1.0],
@@ -205,7 +205,7 @@ def write_glb(
     gltf = GLTF2(
         asset=Asset(
             version="2.0",
-            generator="neurofly make-data",
+            generator="wiredmind make-data",
             extras={
                 "dataset": DATASET,
                 "license": LICENSE,

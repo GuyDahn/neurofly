@@ -1,9 +1,9 @@
 import numpy as np
 import pytest
 
-from neurofly_data.annotations import NeuronRecord
-from neurofly_data.export_graph import HEADER, MAGIC, VERSION, pack_graph
-from neurofly_data.extract_subcircuit import SeedMatchError, SeedSpec, extract_subcircuit
+from wiredmind_data.annotations import NeuronRecord
+from wiredmind_data.export_graph import HEADER, MAGIC, VERSION, pack_graph
+from wiredmind_data.extract_subcircuit import SeedMatchError, SeedSpec, extract_subcircuit
 
 
 def _neuron(body_id: int, type_name: str, class_name: str = "") -> NeuronRecord:

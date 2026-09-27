@@ -6,7 +6,7 @@ import hashlib
 import urllib.request
 from pathlib import Path
 
-from neurofly_data.sources import FLAT_PREFIX, RAW_FILES
+from wiredmind_data.sources import FLAT_PREFIX, RAW_FILES
 
 
 def md5_file(path: Path) -> str:

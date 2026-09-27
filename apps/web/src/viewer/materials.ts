@@ -46,7 +46,7 @@ export function createNeuronMaterial(
     color: "#ffffff",
     vertexColors: true,
   });
-  material.customProgramCacheKey = () => "neurofly-line-focus-v1";
+  material.customProgramCacheKey = () => "wiredmind-line-focus-v1";
   material.onBeforeCompile = (shader) => {
     shader.uniforms.flashMap = { value: texture };
     shader.uniforms.focusMap = { value: focus };
@@ -67,7 +67,7 @@ export function createNeuronMaterial(
       )
       .replace(
         "#include <color_fragment>",
-        `#include <color_fragment>\nfloat neuroflyFocus = texture2D(focusMap, vec2((vNeuronIndex + 0.5) / max(neuronCount, 1.0), 0.5)).r;\ndiffuseColor.rgb *= mix(${DIM_LEVEL.toFixed(3)}, 1.0, neuroflyFocus);\nfloat neuroflyFlash = texture2D(flashMap, vec2((vNeuronIndex + 0.5) / max(neuronCount, 1.0), 0.5)).r;\ndiffuseColor.rgb += diffuseColor.rgb * neuroflyFlash * 2.5;\n// Dimmed neurons sit just in front of the far plane, so the focus draws over them.\ngl_FragDepth = mix(gl_FragCoord.z, 0.99995 + gl_FragCoord.z * 0.00004, 1.0 - neuroflyFocus);`,
+        `#include <color_fragment>\nfloat wiredmindFocus = texture2D(focusMap, vec2((vNeuronIndex + 0.5) / max(neuronCount, 1.0), 0.5)).r;\ndiffuseColor.rgb *= mix(${DIM_LEVEL.toFixed(3)}, 1.0, wiredmindFocus);\nfloat wiredmindFlash = texture2D(flashMap, vec2((vNeuronIndex + 0.5) / max(neuronCount, 1.0), 0.5)).r;\ndiffuseColor.rgb += diffuseColor.rgb * wiredmindFlash * 2.5;\n// Dimmed neurons sit just in front of the far plane, so the focus draws over them.\ngl_FragDepth = mix(gl_FragCoord.z, 0.99995 + gl_FragCoord.z * 0.00004, 1.0 - wiredmindFocus);`,
       );
   };
   return material;

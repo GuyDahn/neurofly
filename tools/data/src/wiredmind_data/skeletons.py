@@ -9,7 +9,7 @@ from pathlib import Path
 
 import numpy as np
 
-from neurofly_data.sources import SKELETON_URL
+from wiredmind_data.sources import SKELETON_URL
 
 
 def skeleton_path(raw_dir: Path, body_id: int) -> Path:

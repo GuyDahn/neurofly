@@ -14,14 +14,14 @@ from pathlib import Path
 import numpy as np
 import yaml
 
-from neurofly_data.annotations import load_neurons
-from neurofly_data.connectome import load_edges
-from neurofly_data.download import download_raw
-from neurofly_data.export_graph import neuron_rows, write_circuit_files
-from neurofly_data.extract_subcircuit import SeedSpec, extract_subcircuit
-from neurofly_data.gltf_bake import bake_circuit
-from neurofly_data.skeletons import fetch_skeletons, load_polylines
-from neurofly_data.sources import GLB_BYTE_LIMIT, NEURON_COUNT_MAX, NEURON_COUNT_MIN
+from wiredmind_data.annotations import load_neurons
+from wiredmind_data.connectome import load_edges
+from wiredmind_data.download import download_raw
+from wiredmind_data.export_graph import neuron_rows, write_circuit_files
+from wiredmind_data.extract_subcircuit import SeedSpec, extract_subcircuit
+from wiredmind_data.gltf_bake import bake_circuit
+from wiredmind_data.skeletons import fetch_skeletons, load_polylines
+from wiredmind_data.sources import GLB_BYTE_LIMIT, NEURON_COUNT_MAX, NEURON_COUNT_MIN
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 DATA_ROOT = Path(__file__).resolve().parents[2]

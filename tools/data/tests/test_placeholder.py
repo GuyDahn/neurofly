@@ -1,4 +1,4 @@
-from neurofly_data import __version__
+from wiredmind_data import __version__
 
 
 def test_package_imports() -> None:
