@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef } from "react";
 import type { Wedge } from "./compass.js";
 import { useViewerStore } from "./store.js";
@@ -13,9 +14,13 @@ const OUTER = 54;
  * The ellipsoid body ring, flattened. Each wedge sits at the angle its
  * compass neurons occupy in the real brain, seen from behind the fly, and
  * glows with their flashes. The needle points at the bump.
+ *
+ * L and R are the fly's own left and right, so the dial never mirrors for
+ * right-to-left languages; only the letters are translated.
  */
 export function CompassDial({ color }: { color: string }) {
   const readout = useViewerStore((state) => state.compass);
+  const t = useTranslations("viewer.compass");
   const wedgeRefs = useRef<(SVGPathElement | null)[]>([]);
   const needleRef = useRef<SVGGElement>(null);
   const shapes = useMemo(
@@ -64,63 +69,64 @@ export function CompassDial({ color }: { color: string }) {
   if (!readout) return null;
   return (
     <figure className="pointer-events-none flex select-none flex-col items-center gap-1 rounded-2xl bg-zinc-950/75 px-2 pt-2 pb-1.5 backdrop-blur-sm">
-      <svg
-        role="img"
-        aria-label="Compass dial. The glowing wedges and the needle show where the bump sits on the ring."
-        viewBox={`0 0 ${SIZE} ${SIZE}`}
-        className="size-28 md:size-36"
-      >
-        <circle
-          cx={CENTER}
-          cy={CENTER}
-          r={(INNER + OUTER) / 2}
-          fill="none"
-          stroke="rgb(255 255 255 / 0.08)"
-          strokeWidth={OUTER - INNER + 4}
-        />
-        {shapes.map((shape, index) => (
-          <path
-            key={shape.key}
-            ref={(element) => {
-              wedgeRefs.current[index] = element;
-            }}
-            d={shape.d}
-            fill={color}
-            fillOpacity={0.1}
-            stroke="#09090b"
-            strokeWidth={1.5}
-          />
-        ))}
-        <g ref={needleRef} opacity={0}>
-          <line
-            x1={CENTER}
-            y1={CENTER}
-            x2={CENTER}
-            y2={CENTER - INNER + 4}
-            stroke="white"
-            strokeWidth={3}
-            strokeLinecap="round"
-          />
-          <circle cx={CENTER} cy={CENTER - INNER + 4} r={3.5} fill="white" />
-        </g>
-        <circle cx={CENTER} cy={CENTER} r={3} fill="white" opacity={0.6} />
-        <text
-          x={8}
-          y={CENTER + 4}
-          className="fill-zinc-400 text-[11px] font-semibold"
+      {/* The fly's own left and right: never mirrored, whatever the language. */}
+      <div dir="ltr" className="flex items-center gap-1">
+        <span
+          aria-hidden="true"
+          className="text-[11px] font-semibold text-zinc-400"
         >
-          L
-        </text>
-        <text
-          x={SIZE - 15}
-          y={CENTER + 4}
-          className="fill-zinc-400 text-[11px] font-semibold"
+          {t("left")}
+        </span>
+        <svg
+          role="img"
+          aria-label={t("label")}
+          viewBox={`0 0 ${SIZE} ${SIZE}`}
+          className="size-28 md:size-36"
         >
-          R
-        </text>
-      </svg>
+          <circle
+            cx={CENTER}
+            cy={CENTER}
+            r={(INNER + OUTER) / 2}
+            fill="none"
+            stroke="rgb(255 255 255 / 0.08)"
+            strokeWidth={OUTER - INNER + 4}
+          />
+          {shapes.map((shape, index) => (
+            <path
+              key={shape.key}
+              ref={(element) => {
+                wedgeRefs.current[index] = element;
+              }}
+              d={shape.d}
+              fill={color}
+              fillOpacity={0.1}
+              stroke="#09090b"
+              strokeWidth={1.5}
+            />
+          ))}
+          <g ref={needleRef} opacity={0}>
+            <line
+              x1={CENTER}
+              y1={CENTER}
+              x2={CENTER}
+              y2={CENTER - INNER + 4}
+              stroke="white"
+              strokeWidth={3}
+              strokeLinecap="round"
+            />
+            <circle cx={CENTER} cy={CENTER - INNER + 4} r={3.5} fill="white" />
+          </g>
+          <circle cx={CENTER} cy={CENTER} r={3} fill="white" opacity={0.6} />
+        </svg>
+        <span
+          aria-hidden="true"
+          className="text-[11px] font-semibold text-zinc-400"
+        >
+          {t("right")}
+        </span>
+      </div>
       <figcaption className="text-[10px] font-semibold tracking-[0.14em] text-zinc-400 uppercase">
-        Compass · from behind
+        {t("caption")}
       </figcaption>
     </figure>
   );

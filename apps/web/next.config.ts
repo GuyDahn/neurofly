@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const dataLock = JSON.parse(
@@ -13,23 +14,14 @@ const nextConfig: NextConfig = {
   // The code is open source, so production errors may as well be readable.
   productionBrowserSourceMaps: true,
   transpilePackages: ["three"],
+  // HarfBuzz shapes the share images' text. It loads its WebAssembly next to
+  // its own module, so Node runs it from node_modules instead of a bundle.
+  serverExternalPackages: ["harfbuzzjs"],
   outputFileTracingRoot: root,
   env: {
     // The viewer asks for /data files with ?v=<release>, so a year-long cache
     // can never serve one data release's file to code expecting another.
     NEXT_PUBLIC_DATA_VERSION: dataLock.version,
-  },
-  async redirects() {
-    return [
-      {
-        // Lesson 1 lived at / before the landing page. Share links made then
-        // still replay: the lesson page reads ?r= and moves to the right lesson.
-        source: "/",
-        has: [{ type: "query", key: "r" }],
-        destination: "/modules/smell-memory",
-        permanent: true,
-      },
-    ];
   },
   async headers() {
     return [
@@ -68,4 +60,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+
+export default withNextIntl(nextConfig);

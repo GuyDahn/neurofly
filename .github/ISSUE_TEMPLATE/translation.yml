@@ -1,0 +1,34 @@
+name: Translation
+description: Report a string that reads wrong, offer to review a language, or ask for a new one.
+title: "translation: "
+labels: ["translation"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is this about?
+      options:
+        - A string reads wrong or is mistranslated
+        - I can review a whole language
+        - Please add a new language
+    validations:
+      required: true
+  - type: input
+    id: locale
+    attributes:
+      label: Language
+      description: Its code, such as he, pt-BR, or zh-CN, or its name.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: A page, such as /he/modules/escape, or a message key, such as lessons.escape.steps.loom.text.
+  - type: textarea
+    id: details
+    attributes:
+      label: What should it say, and why?
+      description: For a scientific term, name the textbook or paper classes in that language use. Translation guide, glossary, and review steps are in CONTRIBUTING.md#translations.
+    validations:
+      required: true

@@ -1,0 +1,535 @@
+{
+  "_meta": {
+    "locale": "de",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27"
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: Das Gehirn einer echten Fruchtfliege erkunden",
+      "description": "Kostenlose Lektionen für den Unterricht: Neuronen aus dem MaleCNS-Konnektom einer echten Fruchtfliege im Browser stimulieren und stummschalten. Ohne Login."
+    },
+    "about": {
+      "title": "Über WiredMind: Was echt ist und was vereinfacht",
+      "description": "Was an den Fruchtfliegen-Lektionen von WiredMind echt ist und was vereinfacht, wer sie entwickelt hat und wie Sie das Projekt unterstützen können."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Seite nicht gefunden · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "So rast der Fluchtreflex einer Fliege durch ihre echte Verschaltung",
+      "subtitle": "Kostenlose Lektionen zum MaleCNS-Konnektom für den Unterricht"
+    },
+    "about": {
+      "title": "Was echt ist und was vereinfacht",
+      "subtitle": "Wie WiredMind ein echtes Konnektom in den Unterricht bringt"
+    },
+    "lessonLabel": "Lektion {number} von {total}",
+    "alt": "{title}, über einem Standbild des Fluchtreflexes im Schaltplan einer echten Fruchtfliege"
+  },
+  "manifest": {
+    "name": "WiredMind: Lektionen zum Fruchtfliegengehirn",
+    "description": "Kostenlose Lektionen für den Unterricht zur echten Verschaltung eines Fruchtfliegengehirns."
+  },
+  "jsonLd": {
+    "educationalLevel": "Sekundarstufe I und II",
+    "learningResourceType": "Interaktive Lektion",
+    "audience": "Schülerinnen, Schüler und Lehrkräfte"
+  },
+  "nav": {
+    "label": "Website",
+    "home": "WiredMind-Startseite",
+    "lessons": "Lektionen",
+    "teachers": "Für Lehrkräfte",
+    "about": "Über das Projekt"
+  },
+  "a11y": {
+    "skip": "Zum Inhalt springen",
+    "newTab": "(öffnet in einem neuen Tab)"
+  },
+  "language": {
+    "button": "Sprache: {language}",
+    "menu": "Sprache wählen"
+  },
+  "translate": {
+    "notice": "WiredMind gibt es noch nicht auf {language}, deshalb ist diese Seite auf Englisch.",
+    "cta": "Beim Übersetzen helfen",
+    "dismiss": "Schließen"
+  },
+  "footer": {
+    "builtBy": "Entwickelt von {author}",
+    "github": "GitHub",
+    "githubLabel": "Auf GitHub beim Übersetzen helfen oder mitwirken",
+    "about": "Über das Projekt",
+    "code": "Code: MIT",
+    "credits": "Neuronen aus dem Konnektom <malecns>MaleCNS v1.0</malecns> von <janelia>HHMI Janelia FlyEM</janelia>, der <cambridge>University of Cambridge</cambridge>, dem <mrc>MRC Laboratory of Molecular Biology</mrc> und <google>Google Research</google>, lizenziert unter <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "WiredMind ist kostenlos und bleibt es auch. Wenn es Ihrer Klasse geholfen hat: Ein Kaffee hält den Server am Laufen.",
+    "coffee": "☕ Einen Kaffee spendieren"
+  },
+  "credits": {
+    "title": "Woher die Neuronen stammen",
+    "body": "Alle Neuronen und Synapsenzahlen stammen aus dem <malecns>Konnektom MaleCNS v1.0</malecns> des zentralen Nervensystems einer männlichen Fruchtfliege, erstellt von <janelia>HHMI Janelia FlyEM</janelia>, der <cambridge>University of Cambridge</cambridge>, dem <mrc>MRC Laboratory of Molecular Biology</mrc> und <google>Google Research</google>.",
+    "license": "Die Daten stehen unter der Lizenz <ccby>CC BY 4.0</ccby>. WiredMind verändert sie: Es schneidet drei kleine Schaltkreise heraus, lässt Verbindungen mit weniger als fünf Synapsen weg und zeichnet jedes Neuron als vereinfachte Linie. Der Simulator nutzt das Neuronenmodell von <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Kostenlose Neurobiologie-Lektionen für den Unterricht",
+      "title": "Bringen Sie ein Neuron im Gehirn einer echten Fruchtfliege zum Feuern und sehen Sie zu, wie das Signal von den Augen bis in die Beine rast.",
+      "lead": "WiredMind lässt den echten Schaltplan des Nervensystems einer Fruchtfliege im Browser laufen. Schülerinnen und Schüler stimulieren Neuronen, schalten sie stumm und sehen, was sich verändert – in drei kurzen, angeleiteten Lektionen.",
+      "start": "Erste Lektion starten",
+      "teachers": "Für Lehrkräfte"
+    },
+    "loop": {
+      "label": "Animation des Fluchtreflexes im Schaltplan der Fliege",
+      "caption": "Aus der Fluchtlektion: die ersten {spanMs} ms, nachdem eine Fliegenklatsche auftaucht, {slowdown}-fach verlangsamt. Die Verschaltung ist echt und stammt aus dem MaleCNS-Konnektom. Die Aktionspotenziale kommen aus einer einfachen Simulation. <simplified>Was vereinfacht ist</simplified>",
+      "steps": {
+        "looming": "Annäherungsneuronen erkennen die Fliegenklatsche",
+        "gf": "Die Riesenfaser feuert",
+        "jump": "Die Sprungneuronen lösen den Sprung aus"
+      },
+      "cells": "{count, plural, one {# Zelle} other {# Zellen}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms Fliegenzeit",
+      "waiting": "Fliegenklatsche im Anflug",
+      "pause": "Animation anhalten",
+      "play": "Animation abspielen",
+      "loading": "Schaltkreis wird geladen …",
+      "failed": "Die Animation konnte nicht geladen werden. Die Lektionen funktionieren trotzdem."
+    },
+    "lessons": {
+      "title": "Drei Lektionen, ein echtes Nervensystem",
+      "lead": "Jede Lektion ist in wenigen Klicks erledigt. Schülerinnen und Schüler stimulieren echte Zelltypen und schalten sie stumm, beantworten eine Frage und erkunden danach selbst weiter.",
+      "lesson": "Lektion {number}",
+      "meta": "{steps, plural, one {# Schritt} other {# Schritte}} und eine Frage · etwa 10 Minuten",
+      "start": "Lektion {number} starten"
+    },
+    "teachers": {
+      "title": "Für Lehrkräfte",
+      "lead": "Schreiben Sie den Link an die Tafel oder schicken Sie ihn auf die Geräte der Schülerinnen und Schüler. Sonst gibt es nichts einzurichten.",
+      "points": {
+        "periods": {
+          "title": "1–2 Unterrichtsstunden",
+          "body": "Jede Lektion dauert etwa 10 Minuten. Alle drei passen samt Besprechung in ein bis zwei Schulstunden."
+        },
+        "install": {
+          "title": "Keine Installation, keine Anmeldung",
+          "body": "Alles läuft im Browser – auf Laptops, Chromebooks, Tablets und Smartphones. Schülerinnen und Schüler legen nie ein Konto an und geben keine E-Mail-Adresse ein."
+        },
+        "free": {
+          "title": "Kostenlos",
+          "body": "Keine Werbung, keine Bezahlversion, nichts zu kaufen."
+        },
+        "open": {
+          "title": "Open Source",
+          "body": "Der Code steht unter der MIT-Lizenz. Sie können also nachlesen, wie alles funktioniert, oder eine eigene Kopie betreiben."
+        },
+        "share": {
+          "title": "Versuche teilen",
+          "body": "Der Knopf „Teilen“ kopiert einen Link, der einen Versuch Impuls für Impuls wiedergibt. So sehen Sie genau, was Ihre Schülerinnen und Schüler gesehen haben."
+        },
+        "honest": {
+          "title": "Wissenschaftlich ehrlich",
+          "body": "Ein einfaches Modell echter Verschaltung. Die Seite „Über das Projekt“ erklärt genau, was echt ist und was vereinfacht."
+        }
+      },
+      "source": "Quellcode auf GitHub ansehen",
+      "science": "Was echt ist und was vereinfacht"
+    }
+  },
+  "about": {
+    "title": "Über WiredMind",
+    "lead": "WiredMind ist eine Reihe kostenloser Lektionen für den Unterricht, die auf dem echten Schaltplan einer Fruchtfliege beruhen. Es ist ein Lehrmittel, kein Forschungsmodell. Diese Seite ist für alle, die genau wissen wollen, wo die Grenze verläuft.",
+    "onThisPage": "Auf dieser Seite",
+    "real": {
+      "title": "Was echt ist und was vereinfacht",
+      "realTitle": "Echt",
+      "realItems": {
+        "neurons": {
+          "title": "Die Neuronen.",
+          "body": "Jede Lektion nutzt 3.000 bis 4.500 rekonstruierte Neuronen aus dem Konnektom <malecns>MaleCNS v1.0</malecns>, dem gesamten zentralen Nervensystem einer männlichen Fliege, mit den Zelltypen, die seine Autorinnen und Autoren zugeordnet haben."
+        },
+        "synapses": {
+          "title": "Die Synapsenzahlen.",
+          "body": "Das Gewicht jeder Verbindung ist die Zahl der Synapsen, die der Datensatz zwischen den beiden Zellen angibt, bei einer Erkennungssicherheit von 0,5 oder mehr."
+        },
+        "signs": {
+          "title": "Die Vorzeichen.",
+          "body": "Der vorhergesagte Transmitter eines Neurons legt fest, ob es erregt oder hemmt: Acetylcholin erregt, GABA und Glutamat hemmen. Zellen, für die Dopamin, Serotonin, Octopamin oder ein unklarer Transmitter vorhergesagt ist, haben im Modell keine Wirkung."
+        },
+        "shapes": {
+          "title": "Die Formen und Positionen.",
+          "body": "Jedes Neuron wird nach seinem eigenen Skelett im Datensatz gezeichnet, genau dort, wo es in der Fliege wirklich liegt."
+        }
+      },
+      "simplifiedTitle": "Vereinfacht",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Kleine Ausschnitte.",
+          "body": "Jede Lektion simuliert einen Teilschaltkreis aus 3.000 bis 4.500 Neuronen, nicht das ganze Nervensystem. Der Geruchsschaltkreis besteht aus vier Zellpopulationen: Rezeptoren, Projektionsneuronen, Kenyon-Zellen und Ausgangsneuronen. Die Schaltkreise für Kompass und Flucht reichen von ihren Start-Zelltypen aus zwei synaptische Schritte weit und behalten die am stärksten verbundenen Partner. Verbindungen mit weniger als fünf Synapsen fallen weg. Alles außerhalb des Ausschnitts fehlt, auch Hemmung, die das Netzwerk normalerweise im Gleichgewicht halten würde."
+        },
+        "model": {
+          "title": "Ein Neuronenmodell für alle Zellen.",
+          "body": "Leaky-Integrate-and-Fire-Punktneuronen mit überall denselben Parametern, den veröffentlichten Werten von <shiu>Shiu et al. (2024)</shiu>: Ruhe- und Reset-Potenzial −52 mV, Schwelle −45 mV, Membranzeitkonstante 20 ms, synaptische Zeitkonstante 5 ms, Refraktärzeit 2,2 ms, Verzögerung 1,8 ms, 0,275 mV pro Synapse. Keine dendritische Verarbeitung, keine Neuronen mit graduierten Potenzialen oder ohne Aktionspotenziale, keine Neuromodulation und kein Lernen: Synapsen verändern sich nie."
+        },
+        "gaps": {
+          "title": "Keine Gap Junctions.",
+          "body": "Das Konnektom erfasst nur chemische Synapsen, elektrische Synapsen fehlen also. Das wirkt sich am stärksten in der Fluchtlektion aus: In einer echten Fliege ist die Verbindung der Riesenfaser zum Sprung-Motoneuron eine gemischte Synapse, die stark auf Gap Junctions beruht. Hier besteht diese Verbindung nur aus ihren 90 chemischen Synapsen."
+        },
+        "learning": {
+          "title": "Nichts lernt dazu.",
+          "body": "Die Duftlektion zeigt, wo eine Fliege Erinnerungen an Düfte speichert, nämlich in den Synapsen von den Kenyon-Zellen zu den Ausgangsneuronen. Das Modell hat aber keine Dopamin-Neuronen und keine Plastizität. Der Ausschnitt lässt außerdem das APL-Neuron weg, das die Aktivität der Kenyon-Zellen spärlich hält."
+        },
+        "stimulation": {
+          "title": "Idealisierte Stimulation.",
+          "body": "„Stimulieren“ versorgt jedes Neuron einer Gruppe mit unabhängigen Poisson-Eingängen (40 Hz für 200 ms in den Lektionen zu Duft und Flucht, 60 Hz für 800 ms bei den Drehneuronen); jedes Ereignis ist stark genug, um die Zelle feuern zu lassen, ganz ähnlich wie bei optogenetischer Aktivierung. Ein echter Duft aktiviert wenige Rezeptortypen in einem Muster; der Duft der Lektion lässt alle 1.861 Rezeptorneuronen im Ausschnitt feuern. Die Fliegenklatsche lässt alle 304 Annäherungszellen gleichzeitig feuern; ein echtes herannahendes Objekt rekrutiert sie nach und nach, während es größer wird."
+        },
+        "silence": {
+          "title": "Stummschalten heißt: komplett aus.",
+          "body": "Eine stummgeschaltete Gruppe bleibt im Ruhezustand, feuert nie und sendet nichts. Echte Methoden zum Stummschalten wie Kir2.1 oder Tetanustoxin wirken nur teilweise und langsamer und können elektrische Synapsen weiterarbeiten lassen."
+        },
+        "compass": {
+          "title": "Landmarken für den Kompass.",
+          "body": "Die Ringneuronen bekommen im Modell keine visuellen Eingänge. Schaltet man sie stumm, fällt ihre hemmende Wirkung auf den Kompass weg, und genau dadurch kann der Leuchtfleck hier driften. In einer echten Fliege liefern sie Landmarken und andere Hinweise aus den Sinnesorganen."
+        },
+        "timing": {
+          "title": "Zeitabläufe.",
+          "body": "Die Latenzen ergeben sich aus einer einheitlichen Verzögerung von 1,8 ms und den Zeitkonstanten von Membran und Synapsen, nicht aus Messungen. Sie liegen in einem plausiblen Bereich, aber nichts wurde auf gemessene Fluchtlatenzen abgestimmt. Die Darstellung zeigt alles in Zeitlupe, je nach Gerät 0,2 bis 2 ms Fliegenzeit pro Bild, und hört 150 ms nach dem letzten Reiz auf zu simulieren, weil manche Ausschnitte erregende Schleifen enthalten, die ohne die weggelassene Hemmung sonst endlos nachhallen würden."
+        },
+        "drawings": {
+          "title": "Zeichnungen, keine Morphologie.",
+          "body": "Jedes Neuron ist als Linie aus 12 Punkten entlang seines Skeletts gezeichnet, nicht mit seinen echten Verzweigungen. Lichtblitze markieren Aktionspotenziale. Die wandernden Punkte dienen nur der Veranschaulichung: Sie zeigen weder die Leitungsgeschwindigkeit noch den echten Weg eines Aktionspotenzials."
+        }
+      },
+      "researchTitle": "Was ein Forschungswerkzeug anders machen würde",
+      "researchItems": {
+        "whole": "Das gesamte zentrale Nervensystem simulieren oder es an begründeten Grenzen mit modellierten Eingängen zuschneiden und schwache Verbindungen behalten.",
+        "fit": "Parameter je Zelltyp an Messungen anpassen, Neuronen mit graduierten Potenzialen und ohne Aktionspotenziale zulassen und leitfähigkeitsbasierte oder Mehrkompartimentmodelle nutzen, wo Dendriten eine Rolle spielen.",
+        "add": "Gap Junctions aus anderen Daten ergänzen, außerdem Neuromodulatoren wie Dopamin und Octopamin sowie Plastizität, zum Beispiel dopaminabhängige Abschwächung an den Synapsen von Kenyon-Zellen zu Ausgangsneuronen.",
+        "drive": "Sinnesneuronen so ansteuern, wie es die Welt tut: mit duftspezifischen Rezeptormustern und mit Annäherungsreizen, die immer mehr Zellen rekrutieren, je größer das Objekt wird.",
+        "uncertain": "Transmitter-Vorhersagen und Gewichte als unsicher behandeln, sie systematisch variieren, viele Zufallsstartwerte durchrechnen und die Ergebnisse mit Elektrophysiologie und Verhalten vergleichen."
+      },
+      "furtherTitle": "Zu den Quellen",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: MaleCNS v1.0 Zelle für Zelle und Synapse für Synapse abfragen.",
+        "paper": "<paper>Die MaleCNS-Publikation</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: das Leaky-Integrate-and-Fire-Modell des ganzen Gehirns, dessen Parameter WiredMind übernimmt.",
+        "code": "<code>Der Quellcode</code>: die Datenpipeline, der Simulator, die Lektionen und Tests, die die Aussagen jeder Lektion an den echten Schaltkreisen überprüfen."
+      }
+    },
+    "who": {
+      "title": "Wer dahintersteckt",
+      "body": "WiredMind wurde von {author} entwickelt, einem Full-Stack-Entwickler und SEO-Strategen aus Tel Aviv, innerhalb einer Woche im September 2026.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Unterstützung"
+    },
+    "privacy": {
+      "title": "Datenschutz",
+      "body": "Keine Konten. Das einzige Cookie speichert eine Sprache, die Sie im Sprachmenü auswählen. Seitenaufrufe werden mit Vercel Web Analytics gezählt, das keine Cookies verwendet."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Wie sich eine Fliege einen Duft merkt",
+      "summary": "Einen Duft in ein echtes Fliegengehirn schicken und die Zellen finden, die ihn sich merken.",
+      "description": "Einen Duft durch ein echtes Fruchtfliegengehirn bis in den Pilzkörper verfolgen und die Zellen finden, die ihn speichern. Kostenlose 10-Minuten-Lektion.",
+      "steps": {
+        "send": {
+          "text": "Eine Fliege riecht mit ihren <term>Antennen</term> <gloss>(ihren zwei Fühlern)</gloss>. Tippe auf „Stimulieren“, um einen Duft hineinzuschicken. Sieh zu, wie die orangefarbenen Neuronen aufleuchten.",
+          "result": "Diese orangefarbenen <term>Duftrezeptoren</term> <gloss>(die Duftfänger)</gloss> feuern zuerst. Hier beginnt jeder Duft."
+        },
+        "follow": {
+          "text": "Tippe noch einmal auf „Stimulieren“ und folge den Farben. Gelbe <term>Projektionsneuronen</term> <gloss>(die Duftboten)</gloss> tragen den Duft nach innen. Blaue <term>Kenyon-Zellen</term> <gloss>(die Duftsortierer)</gloss> fangen ihn als Nächstes auf.",
+          "result": "Die blauen Zellen machen aus jedem Duft ein eigenes Muster."
+        },
+        "read": {
+          "text": "Tippe ein weiteres Mal auf „Stimulieren“. Achte jetzt auf die pinkfarbenen <term>Ausgangsneuronen</term> <gloss>(die Gedächtnisleser)</gloss>. Sie lesen das blaue Muster.",
+          "result": "Wenn ein Duft zusammen mit Zucker oder Gefahr auftritt, verändern sich die Verbindungen von Blau zu Pink. Forschende vermuten, dass diese Veränderung die Erinnerung ist."
+        },
+        "silence": {
+          "text": "Schalte jetzt die <term>Kenyon-Zellen</term> <gloss>(die Duftsortierer)</gloss> stumm. Wir schicken den Duft für dich hinein. Was verschwindet?",
+          "result": "Das pinkfarbene Leuchten verschwindet fast ganz. Der Duft kommt zwar noch hinein, aber die Gedächtnisleser bekommen nichts zu lesen."
+        },
+        "restore": {
+          "text": "Tippe noch einmal auf den Knopf der <term>Kenyon-Zellen</term> <gloss>(der Duftsortierer)</gloss>, um sie wieder einzuschalten. Wir schicken denselben Duft.",
+          "result": "Das pinkfarbene Leuchten kommt zurück. Die Fliege kann ihr Duftgedächtnis wieder lesen."
+        }
+      },
+      "check": {
+        "question": "Du hast die <term>Kenyon-Zellen</term> <gloss>(die blauen Zellen)</gloss> stummgeschaltet. Warum sind die pinkfarbenen Zellen dunkel geworden?",
+        "choices": {
+          "never": {
+            "text": "Der Duft ist gar nicht in die Fliege gelangt.",
+            "feedback": "Nicht ganz. Die orangefarbenen und gelben Zellen haben noch geleuchtet, der Duft ist also hineingekommen. Er ist bei den blauen Zellen hängen geblieben."
+          },
+          "pattern": {
+            "text": "Die blauen Zellen geben das Muster jedes Duftes an die pinkfarbenen Zellen weiter.",
+            "feedback": "Genau! Die blauen Zellen sortieren jeden Duft in ein Muster, und die pinkfarbenen Zellen lesen es. Ohne Muster gibt es nichts zu merken."
+          },
+          "both": {
+            "text": "Du hast auch die pinkfarbenen Zellen ausgeschaltet.",
+            "feedback": "Nicht ganz. Du hast nur die blauen Zellen ausgeschaltet. Die pinkfarbenen Zellen blieben an, hatten aber nichts zu lesen."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Freies Experimentieren",
+        "text": "Jetzt funktionieren alle Knöpfe. Rate zuerst, dann tippe: Was wird dunkel, wenn du die gelben Duftboten stummschaltest? Probiere auch, zwei Farben gleichzeitig stummzuschalten."
+      }
+    },
+    "compass": {
+      "title": "Woher eine Fliege weiß, wohin sie schaut",
+      "summary": "Den Kompass einer echten Fliege verschieben und herausfinden, was ihn an seinem Platz hält.",
+      "description": "Den inneren Kompass einer echten Fruchtfliege verschieben, dann die Ringneuronen stummschalten und zusehen, wie er driftet. Kostenlose 10-Minuten-Lektion.",
+      "steps": {
+        "left": {
+          "text": "Tippe auf „Stimulieren“, um die linken <term>Drehneuronen</term> <gloss>(das Drehsignal)</gloss> feuern zu lassen. Beobachte dann die Kompassanzeige.",
+          "result": "Die <term>Kompassneuronen</term> <gloss>(die Richtungszellen)</gloss> leuchten auf einer Seite auf. Dieser Leuchtfleck zeigt, wohin die Fliege schaut."
+        },
+        "right": {
+          "text": "Tippe jetzt bei den rechten <term>Drehneuronen</term> <gloss>(dem anderen Signal)</gloss> auf „Stimulieren“. Behalte den Leuchtfleck im Blick.",
+          "result": "Der Leuchtfleck ist über die Anzeige gewandert. Die Drehsignale von links und rechts schieben ihn in entgegengesetzte Richtungen. So ändert sich auch, wohin die Fliege schaut."
+        },
+        "silence": {
+          "text": "Schalte die <term>Ringneuronen</term> <gloss>(die Landmarkenboten)</gloss> stumm. Sie melden, was die Fliege sieht. Wir schicken das Signal von rechts für dich.",
+          "result": "Der Leuchtfleck rutscht von seinem Platz und wandert umher. Ohne Landmarken driftet der Kompass."
+        },
+        "restore": {
+          "text": "Tippe noch einmal auf den Knopf der <term>Ringneuronen</term> <gloss>(der Landmarkenboten)</gloss>, um sie wieder einzuschalten. Wir schicken dasselbe Signal.",
+          "result": "Der Leuchtfleck bleibt wieder an seinem Platz. Landmarken halten den Kompass der Fliege auf Kurs."
+        }
+      },
+      "check": {
+        "question": "Du hast die Landmarkenboten (die violetten Zellen) stummgeschaltet. Warum ist der Leuchtfleck abgedriftet?",
+        "choices": {
+          "never": {
+            "text": "Das Drehsignal ist gar nicht beim Kompass angekommen.",
+            "feedback": "Nicht ganz. Die grünen Richtungszellen haben noch geleuchtet, das Signal ist also angekommen. Aber nichts hat den Leuchtfleck an seinem Platz gehalten."
+          },
+          "landmarks": {
+            "text": "Nichts hat dem Kompass gezeigt, wo die Landmarken sind, deshalb ist der Leuchtfleck verrutscht.",
+            "feedback": "Genau! Die violetten Zellen melden, was die Fliege sieht. Ohne sie ist der Leuchtfleck nicht mehr an der Außenwelt verankert."
+          },
+          "both": {
+            "text": "Du hast auch die grünen Richtungszellen ausgeschaltet.",
+            "feedback": "Nicht ganz. Du hast nur die violetten Zellen stummgeschaltet. Die grünen Richtungszellen haben weiter gefeuert, aber nichts hat sie festgehalten."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Freies Experimentieren",
+        "text": "Jetzt funktionieren alle Knöpfe. Rate zuerst, dann tippe: Wohin wandert der Leuchtfleck, wenn du beide Drehsignale gleichzeitig feuern lässt? Probiere es auch mit stummgeschalteten violetten Zellen."
+      }
+    },
+    "escape": {
+      "title": "Die Flucht in 30 Millisekunden",
+      "summary": "Die Leitung finden, die eine Fliege vor der Fliegenklatsche rettet.",
+      "description": "Die Flucht einer echten Fruchtfliege verfolgen: in 30 ms von den Augen über die Riesenfaser in die Beine. Dann die Leitung kappen. 10 Minuten, kostenlos.",
+      "steps": {
+        "loom": {
+          "text": "Eine Fliegenklatsche saust auf die Fliege zu. Tippe auf „Stimulieren“, um die <term>Annäherungsneuronen</term> <gloss>(die Klatschen-Späher)</gloss> feuern zu lassen.",
+          "result": "Sie feuern, und nach wenigen Tausendstelsekunden feuert auch die <term>Riesenfaser</term> <gloss>(die Fluchtleitung)</gloss>."
+        },
+        "jump": {
+          "text": "Tippe noch einmal auf „Stimulieren“. Folge der <term>Riesenfaser</term> <gloss>(der Fluchtleitung)</gloss> hinunter ins <term>Bauchmark</term> <gloss>(das Fliegen-Rückenmark)</gloss>.",
+          "result": "Die <term>Sprungneuronen</term> <gloss>(die Beinkicker)</gloss> feuern innerhalb von 30 Millisekunden. Sie lassen die Mittelbeine nach unten schnellen, und die Fliege springt davon."
+        },
+        "silence": {
+          "text": "Schalte jetzt die <term>Riesenfaser</term> <gloss>(die Fluchtleitung)</gloss> stumm. Wir schicken die Fliegenklatsche. Beobachte die <term>Sprungneuronen</term> <gloss>(die Beinkicker)</gloss>.",
+          "result": "Die <term>Annäherungsneuronen</term> <gloss>(die Klatschen-Späher)</gloss> feuern noch, aber die <term>Sprungneuronen</term> bleiben dunkel. Die schnelle Flucht ist weg."
+        },
+        "restore": {
+          "text": "Tippe noch einmal auf den Knopf der <term>Riesenfaser</term> <gloss>(der Fluchtleitung)</gloss>, um sie wieder einzuschalten. Wir schicken dieselbe Fliegenklatsche.",
+          "result": "Die <term>Sprungneuronen</term> <gloss>(die Beinkicker)</gloss> feuern wieder. Echte Fliegen haben auch langsamere Fluchtwege, aber dieser ist der schnellste."
+        }
+      },
+      "check": {
+        "question": "Du hast die <term>Riesenfaser</term> <gloss>(die Fluchtleitung)</gloss> stummgeschaltet. Warum sind die Beinkicker dunkel geblieben?",
+        "choices": {
+          "never": {
+            "text": "Die Fliege hat die Fliegenklatsche gar nicht gesehen.",
+            "feedback": "Nicht ganz. Die blauen Klatschen-Späher haben noch gefeuert, die Fliege hat die Fliegenklatsche also gesehen. Das Signal ist an der Fluchtleitung hängen geblieben."
+          },
+          "wire": {
+            "text": "Die Fluchtleitung bringt das Sprungsignal zu den Beinkickern.",
+            "feedback": "Genau! Die Klatschen-Späher alarmieren die Fluchtleitung, und die Fluchtleitung gibt den Beinen das Signal zum Sprung. Kappst du die Leitung, ist der schnelle Sprung weg."
+          },
+          "both": {
+            "text": "Du hast auch die Beinkicker ausgeschaltet.",
+            "feedback": "Nicht ganz. Du hast nur die Fluchtleitung stummgeschaltet. Die Beinkicker blieben an, bekamen aber kein Signal."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Freies Experimentieren",
+        "text": "Jetzt funktionieren alle Knöpfe. Rate zuerst, dann tippe: Welche Farben leuchten noch, wenn die Fluchtleitung stummgeschaltet ist? Schalte danach stattdessen die Klatschen-Späher stumm."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Duftrezeptoren",
+        "pn": "Projektionsneuronen",
+        "kc": "Kenyon-Zellen",
+        "mbon": "Ausgangsneuronen"
+      },
+      "stimulate": {
+        "orn": "Aktiviert die Rezeptorneuronen, die einen Duft als Erste an der Antenne auffangen."
+      },
+      "silence": {
+        "pn": "Verhindert, dass der Antennallobus den Duft in den Pilzkörper weiterleitet.",
+        "kc": "Legt die Zellen still, die Düfte auseinanderhalten.",
+        "mbon": "Hindert den Pilzkörper daran, das Ergebnis an den Rest des Gehirns weiterzugeben."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Ringneuronen",
+        "compass": "Kompassneuronen",
+        "turn-left": "Linke Drehneuronen",
+        "turn-right": "Rechte Drehneuronen"
+      },
+      "stimulate": {
+        "turn-left": "Lässt die P-EN2-Drehzellen auf der linken Seite der Brücke feuern.",
+        "turn-right": "Lässt die P-EN2-Drehzellen auf der rechten Seite der Brücke feuern."
+      },
+      "silence": {
+        "ring": "Blockiert die Ringneuronen, die Landmarken von den Augen weiterleiten.",
+        "compass": "Legt die E-PG-Richtungszellen still, die den Kompass bilden."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Annäherungsneuronen",
+        "gf": "Riesenfaser",
+        "jump": "Sprungneuronen"
+      },
+      "stimulate": {
+        "looming": "Lässt die LC4- und LPLC2-Augenzellen feuern, die erkennen, wenn etwas heransaust."
+      },
+      "silence": {
+        "looming": "Hindert die Augenzellen daran, den Anflug zu melden.",
+        "gf": "Blockiert die Riesenfaser, die schnellste Fluchtleitung der Fliege.",
+        "jump": "Legt die Motoneuronen still, die die Mittelbeine nach unten schnellen lassen."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Lektion {number}",
+      "canvasHelp": "Dreidimensionale Ansicht der Neuronen. Ziehe, um sie zu drehen. Zoome mit zwei Fingern.",
+      "loading": "Schaltkreis wird geladen …",
+      "loadingPercent": "Schaltkreis wird geladen … {percent} %"
+    },
+    "load": {
+      "unavailable": "Die Dateien des Schaltkreises sind nicht verfügbar. Lade die Seite neu, um es noch einmal zu versuchen.",
+      "damaged": "Die Dateien des Schaltkreises sind beschädigt. Lade die Seite neu, um es noch einmal zu versuchen.",
+      "failed": "Der Schaltkreis konnte nicht geladen werden. Lade die Seite neu, um es noch einmal zu versuchen."
+    },
+    "controls": {
+      "stimulate": "Stimulieren",
+      "silence": "Stummschalten",
+      "activity": "Aktivität",
+      "reset": "Zurücksetzen",
+      "dragHint": "Ziehe am Gehirn, um es zu drehen. Zoome mit zwei Fingern.",
+      "activityLabel": "Aktivität: {group}",
+      "locked": "Gesperrt",
+      "lockedHint": "Nicht in diesem Schritt. Beim freien Experimentieren kannst du alle Knöpfe nutzen.",
+      "stimulateNamed": "{name} stimulieren",
+      "silenceNamed": "Stummschalten: {name}",
+      "silencedNamed": "Stummgeschaltet: {name}",
+      "silenced": "Stummgeschaltet · zum Einschalten tippen"
+    },
+    "sheet": {
+      "more": "Mehr anzeigen",
+      "less": "Weniger anzeigen"
+    },
+    "toolbar": {
+      "lessonOf": "Lektion {number} von {total}",
+      "share": "Teilen",
+      "copied": "Link kopiert. Er spielt deinen Versuch noch einmal ab.",
+      "copiedEmpty": "Link kopiert. Drücke zuerst einen Knopf, um einen Versuch zu teilen.",
+      "copyThis": "Kopiere diesen Link:",
+      "linkLabel": "Link zu diesem Versuch"
+    },
+    "lesson": {
+      "tapCue": "Tippe unten auf den leuchtenden Knopf.",
+      "watching": "Beobachte das Gehirn …",
+      "again": "Lektion neu starten",
+      "next": "Weiter",
+      "question": "Eine kurze Frage",
+      "freePlay": "Frei experimentieren",
+      "pickAnswer": "Wähle die Antwort, die du für richtig hältst.",
+      "nextLesson": "Nächste Lektion: {title}",
+      "finished": "Du hast alle Lektionen geschafft. Entdecke ruhig weiter.",
+      "cueStimulate": "Stimulieren",
+      "cueSilence": "Stummschalten",
+      "cueSwitchOn": "Einschalten",
+      "loadingBrain": "Gehirn wird geladen …",
+      "gettingReady": "Gleich geht’s los … beobachte das Gehirn",
+      "watchBrain": "Beobachte das Gehirn",
+      "puffProgress": "Fortschritt des Reizes",
+      "puffClock": "{name}: {elapsed} von {total} ms, in Zeitlupe",
+      "slowMotion": "In Zeitlupe, damit du alles verfolgen kannst",
+      "step": "Schritt {number} von {total}",
+      "quickQuestion": "Kurze Frage",
+      "done": "Lektion geschafft",
+      "answers": "Antworten",
+      "tryAnother": "Probiere eine andere Antwort."
+    },
+    "replay": {
+      "label": "Wiedergabe: {title}",
+      "section": "Wiedergabe",
+      "finished": "Wiedergabe beendet",
+      "shared": "Jemand hat einen Versuch aus der Lektion „{title}“ geteilt. Sieh zu, wie alles noch einmal passiert, Impuls für Impuls.",
+      "over": "Das war der ganze Versuch. Jetzt funktionieren alle Knöpfe, also starte deinen eigenen.",
+      "replaying": "Ein geteilter Versuch wird abgespielt",
+      "progress": "Fortschritt der Wiedergabe",
+      "pressOf": "Knopfdruck {number} von {total}, mit gleichen Zeitschritten und gleichem Zufallswert",
+      "tick": "{ms} ms",
+      "watchAgain": "Noch einmal ansehen",
+      "start": "Lektion starten",
+      "stimulate": "{name} stimulieren",
+      "silence": "{name} stummschalten",
+      "switchOn": "{name} einschalten",
+      "notice": "{problem} Hier ist stattdessen die Lektion.",
+      "errors": {
+        "unknownLesson": "Diese Wiedergabe gehört zu einer Lektion, die es hier nicht gibt.",
+        "unknownButton": "Diese Wiedergabe nutzt einen Knopf, den es in dieser Lektion nicht mehr gibt.",
+        "empty": "Dieser Wiedergabe-Link ist leer oder zu lang.",
+        "version": "Dieser Wiedergabe-Link stammt aus einer anderen Version.",
+        "seed": "Der Zufallswert dieser Wiedergabe ist zu groß.",
+        "tooMany": "Diese Wiedergabe hat zu viele Schritte, um sie abzuspielen.",
+        "tooLong": "Diese Wiedergabe ist zu lang, um sie abzuspielen.",
+        "broken": "Dieser Wiedergabe-Link ist fehlerhaft oder abgeschnitten.",
+        "generic": "Dieser Wiedergabe-Link hat nicht funktioniert."
+      }
+    },
+    "compass": {
+      "label": "Kompassanzeige. Die leuchtenden Segmente und die Nadel zeigen, wo der Leuchtfleck auf dem Ring sitzt.",
+      "left": "L",
+      "right": "R",
+      "caption": "Kompass · Ansicht von hinten"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Diese Seite gibt es nicht",
+      "body": "Der Link ist vielleicht veraltet oder falsch geschrieben. Die Lektionen sind aber noch da.",
+      "home": "Zu den Lektionen"
+    },
+    "error": {
+      "title": "Etwas ist schiefgelaufen",
+      "body": "Auf der Seite ist ein Fehler aufgetreten. Versuchen Sie es noch einmal oder gehen Sie zurück zu den Lektionen.",
+      "retry": "Erneut versuchen",
+      "home": "Zu den Lektionen"
+    }
+  }
+}

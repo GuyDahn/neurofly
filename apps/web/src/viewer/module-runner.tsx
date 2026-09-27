@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useFormatter, useLocale, useTranslations } from "next-intl";
 import {
   useCallback,
   useEffect,
@@ -8,8 +9,11 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { DEFAULT_LOCALE, localePath } from "../i18n/locales.js";
+import { LINKS } from "../site/site.js";
+import { TranslateNotice } from "../site/translate-notice.js";
 import { enqueue } from "./commands.js";
-import { Glossed } from "./glossed.js";
+import { useCircuitCopy, useLessonCopy } from "./copy.js";
 import {
   controlState,
   focusFor,
@@ -43,6 +47,8 @@ export function ModuleRunner({
   credit?: ReactNode;
 }) {
   const { module, lesson } = entry;
+  const t = useTranslations("viewer.lesson");
+  const copy = useLessonCopy(lesson);
   const [phase, setPhase] = useState<LessonPhase>({
     kind: "step",
     index: 0,
@@ -142,7 +148,7 @@ export function ModuleRunner({
     <Sheet
       state={sheet}
       onState={setSheet}
-      label={lesson.title}
+      label={copy.plain("title")}
       moment={`${phase.kind}-${phase.kind === "step" ? phase.index : ""}-${revealed}`}
       footer={
         <Footer
@@ -159,6 +165,7 @@ export function ModuleRunner({
         />
       }
     >
+      <PanelTranslateNotice />
       <Toolbar entry={entry} />
       {notice ? (
         <p
@@ -169,26 +176,24 @@ export function ModuleRunner({
         </p>
       ) : null}
       <section
-        aria-label={lesson.title}
+        aria-label={copy.plain("title")}
         className="flex flex-col gap-4 rounded-2xl bg-white/[0.06] p-4"
       >
         <Progress lesson={lesson} phase={phase} />
         {phase.kind === "step" && step ? (
           <>
             <p className="text-lg leading-snug text-zinc-50">
-              <Glossed text={step.text} jargon={lesson.jargon} />
+              {copy.rich(`steps.${step.id}.text`)}
             </p>
             <div aria-live="polite" className="flex flex-col gap-4">
               {revealed ? (
-                <p className="border-l-4 border-white/40 pl-3 text-base leading-snug text-zinc-200">
-                  <Glossed text={step.result} jargon={lesson.jargon} />
+                <p className="border-s-4 border-white/40 ps-3 text-base leading-snug text-zinc-200">
+                  {copy.rich(`steps.${step.id}.result`)}
                 </p>
               ) : phase.done ? (
-                <p className="text-sm text-zinc-400">Watch the brain…</p>
+                <p className="text-sm text-zinc-400">{t("watching")}</p>
               ) : (
-                <p className="text-sm text-zinc-400">
-                  Tap the glowing button at the bottom.
-                </p>
+                <p className="text-sm text-zinc-400">{t("tapCue")}</p>
               )}
             </div>
           </>
@@ -203,10 +208,10 @@ export function ModuleRunner({
         {phase.kind === "free" ? (
           <>
             <h2 className="text-lg font-semibold text-zinc-50">
-              {lesson.freePlay.title}
+              {copy.plain("freePlay.title")}
             </h2>
             <p className="text-base leading-snug text-zinc-200">
-              <Glossed text={lesson.freePlay.text} jargon={lesson.jargon} />
+              {copy.rich("freePlay.text")}
             </p>
           </>
         ) : null}
@@ -216,13 +221,29 @@ export function ModuleRunner({
             onClick={startOver}
             className="self-start text-sm text-zinc-400 underline underline-offset-4 hover:text-zinc-200"
           >
-            Start the lesson again
+            {t("again")}
           </button>
         )}
       </section>
       <Controls module={module} gate={gate} onAction={onAction} />
       <PanelCredit>{credit}</PanelCredit>
     </Sheet>
+  );
+}
+
+/** Asks for help translating, for readers the site does not speak to yet. */
+export function PanelTranslateNotice() {
+  const locale = useLocale();
+  const t = useTranslations("translate");
+  if (locale !== DEFAULT_LOCALE) return null;
+  return (
+    <TranslateNotice
+      notice={t("notice", { language: "{language}" })}
+      cta={t("cta")}
+      dismiss={t("dismiss")}
+      href={LINKS.translate}
+      className="-mx-4 -mt-1 md:-mt-4"
+    />
   );
 }
 
@@ -261,6 +282,9 @@ function Footer({
   onFree: () => void;
 }) {
   const { module, lesson } = entry;
+  const t = useTranslations("viewer.lesson");
+  const titles = useTranslations("lessons");
+  const locale = useLocale();
   if (goal)
     return <CueButton module={module} goal={goal} onAction={onAction} />;
   if (watching) return <Watching module={module} pending={puffPending} />;
@@ -271,7 +295,7 @@ function Footer({
         onClick={onNext}
         className={`${BUTTON} bg-zinc-50 text-zinc-950 hover:bg-white`}
       >
-        {phase.index + 1 < lesson.steps.length ? "Next" : "One quick question"}
+        {phase.index + 1 < lesson.steps.length ? t("next") : t("question")}
       </button>
     );
   }
@@ -282,26 +306,24 @@ function Footer({
         onClick={onFree}
         className={`${BUTTON} bg-zinc-50 text-zinc-950 hover:bg-white`}
       >
-        Start free play
+        {t("freePlay")}
       </button>
     ) : (
       <p className="py-3 text-center text-sm text-zinc-400">
-        Pick the answer you think is right.
+        {t("pickAnswer")}
       </p>
     );
   }
   const after = LESSONS.find((item) => item.number === entry.number + 1);
   return after ? (
     <Link
-      href={after.path}
+      href={localePath(locale, after.path)}
       className={`${BUTTON} flex items-center justify-center gap-2 bg-zinc-50 text-zinc-950 hover:bg-white`}
     >
-      Next lesson: {after.lesson.title}
+      {t("nextLesson", { title: titles(`${after.id}.title`) })}
     </Link>
   ) : (
-    <p className="py-3 text-center text-sm text-zinc-400">
-      You finished every lesson. Keep exploring.
-    </p>
+    <p className="py-3 text-center text-sm text-zinc-400">{t("finished")}</p>
   );
 }
 
@@ -316,18 +338,21 @@ function CueButton({
   onAction: (action: ControlAction) => void;
 }) {
   const status = useViewerStore((state) => state.status);
+  const t = useTranslations("viewer.lesson");
+  const circuit = useCircuitCopy(module);
   const ready = status === "ready";
   const color = groupColor(module, goal.colorGroup);
-  const list = goal.type === "stimulate" ? module.stimuli : module.silence;
-  const name =
-    list.find((item) => item.colorGroup === goal.colorGroup)?.name ??
-    goal.colorGroup;
+  const name = circuit.name(goal.colorGroup);
   const action: ControlAction =
     goal.type === "stimulate"
       ? { type: "stimulate", colorGroup: goal.colorGroup }
       : { type: "silence", colorGroup: goal.colorGroup, on: goal.on };
   const verb =
-    goal.type === "stimulate" ? "Stimulate" : goal.on ? "Silence" : "Switch on";
+    goal.type === "stimulate"
+      ? t("cueStimulate")
+      : goal.on
+        ? t("cueSilence")
+        : t("cueSwitchOn");
   const filled = goal.type === "stimulate";
   return (
     <button
@@ -335,12 +360,12 @@ function CueButton({
       disabled={!ready}
       data-cue=""
       onClick={() => press(action, onAction)}
-      className={`flex min-h-14 w-full touch-manipulation items-center gap-3 rounded-2xl px-4 py-2.5 text-left transition-transform active:scale-[0.99] disabled:opacity-50 ${FOCUS_RING} ${filled ? "text-zinc-950" : "border-2 bg-white/5 text-zinc-50"}`}
+      className={`flex min-h-14 w-full touch-manipulation items-center gap-3 rounded-2xl px-4 py-2.5 text-start transition-transform active:scale-[0.99] disabled:opacity-50 ${FOCUS_RING} ${filled ? "text-zinc-950" : "border-2 bg-white/5 text-zinc-50"}`}
       style={filled ? { backgroundColor: color } : { borderColor: color }}
     >
       <span className="flex flex-1 flex-col">
         <span className="text-xs font-semibold tracking-[0.14em] uppercase opacity-80">
-          {ready ? verb : "Loading the brain…"}
+          {ready ? verb : t("loadingBrain")}
         </span>
         <span className="text-lg leading-tight font-semibold">{name}</span>
       </span>
@@ -362,25 +387,25 @@ function Watching({
   pending: boolean;
 }) {
   const puff = useViewerStore((state) => state.puff);
+  const t = useTranslations("viewer.lesson");
+  const format = useFormatter();
+  const circuit = useCircuitCopy(module);
   const fraction = puff ? Math.min(1, puff.elapsedMs / puff.totalMs) : 0;
-  const name = puff
-    ? (module.stimuli.find((item) => item.colorGroup === puff.colorGroup)
-        ?.name ?? puff.colorGroup)
-    : null;
+  const name = puff ? circuit.name(puff.colorGroup) : null;
   return (
     <div className="flex flex-col gap-2 py-1" aria-live="polite">
       <p className="flex items-center gap-2 text-base font-semibold text-zinc-50">
         <span aria-hidden="true" className="md:hidden">
           ↑
         </span>
-        <span aria-hidden="true" className="hidden md:inline">
+        <span aria-hidden="true" className="hidden md:inline rtl:-scale-x-100">
           →
         </span>
-        {pending ? "Getting ready… watch the brain" : "Watch the brain"}
+        {pending ? t("gettingReady") : t("watchBrain")}
       </p>
       <div
         role="progressbar"
-        aria-label="Puff progress"
+        aria-label={t("puffProgress")}
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round(fraction * 100)}
@@ -393,8 +418,12 @@ function Watching({
       </div>
       <p className="text-xs text-zinc-400 tabular-nums">
         {name && puff
-          ? `${name}: ${Math.round(puff.elapsedMs)} of ${puff.totalMs} ms, in slow motion`
-          : "In slow motion, so you can follow it"}
+          ? t("puffClock", {
+              name,
+              elapsed: format.number(Math.round(puff.elapsedMs)),
+              total: format.number(puff.totalMs),
+            })
+          : t("slowMotion")}
       </p>
     </div>
   );
@@ -407,6 +436,7 @@ function Progress({
   lesson: LessonModule;
   phase: LessonPhase;
 }) {
+  const t = useTranslations("viewer.lesson");
   const total = lesson.steps.length + 1;
   const at =
     phase.kind === "step"
@@ -416,10 +446,10 @@ function Progress({
         : total;
   const label =
     phase.kind === "step"
-      ? `Step ${phase.index + 1} of ${lesson.steps.length}`
+      ? t("step", { number: phase.index + 1, total: lesson.steps.length })
       : phase.kind === "check"
-        ? "Quick question"
-        : "Lesson done";
+        ? t("quickQuestion")
+        : t("done");
   return (
     <div className="flex flex-col gap-2">
       <p className="text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
@@ -449,6 +479,8 @@ function Check({
   const choice = picked === null ? undefined : lesson.check.choices[picked];
   const solved = choice?.correct === true;
   const feedbackRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("viewer.lesson");
+  const copy = useLessonCopy(lesson);
 
   // On a phone the feedback sits below the answers.
   useEffect(() => {
@@ -464,9 +496,13 @@ function Check({
   return (
     <>
       <p className="text-lg leading-snug text-zinc-50">
-        <Glossed text={lesson.check.question} jargon={lesson.jargon} />
+        {copy.rich("check.question")}
       </p>
-      <div role="group" aria-label="Answers" className="flex flex-col gap-2">
+      <div
+        role="group"
+        aria-label={t("answers")}
+        className="flex flex-col gap-2"
+      >
         {lesson.check.choices.map((item, index) => {
           const chosen = picked === index;
           const tone = !chosen
@@ -476,14 +512,14 @@ function Check({
               : "border-amber-400 bg-amber-400/10 text-zinc-50";
           return (
             <button
-              key={item.text}
+              key={item.id}
               type="button"
               disabled={solved}
               aria-pressed={chosen}
               onClick={() => onPick(index)}
-              className={`min-h-12 rounded-xl border px-4 py-3 text-left text-base leading-snug disabled:cursor-default ${FOCUS_RING} ${tone}`}
+              className={`min-h-12 rounded-xl border px-4 py-3 text-start text-base leading-snug disabled:cursor-default ${FOCUS_RING} ${tone}`}
             >
-              {item.text}
+              {copy.plain(`check.choices.${item.id}.text`)}
             </button>
           );
         })}
@@ -491,8 +527,9 @@ function Check({
       <div ref={feedbackRef} aria-live="polite" className="scroll-mb-4">
         {choice ? (
           <p className="text-base leading-snug text-zinc-200">
-            <Glossed text={choice.feedback} jargon={lesson.jargon} />
-            {solved ? null : " Try another answer."}
+            {copy.rich(`check.choices.${choice.id}.feedback`)}
+            {/* A margin, not a space: Chinese and Japanese put none between sentences. */}
+            {solved ? null : <span className="ms-1">{t("tryAnother")}</span>}
           </p>
         ) : null}
       </div>

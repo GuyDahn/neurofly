@@ -1,0 +1,535 @@
+{
+  "_meta": {
+    "locale": "pl",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27"
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: prawdziwy mózg muszki owocowej do odkrycia",
+      "description": "Darmowe lekcje o prawdziwych połączeniach w mózgu muszki owocowej. Pobudzanie i wyciszanie neuronów z konektomu MaleCNS w przeglądarce. Bez logowania."
+    },
+    "about": {
+      "title": "O projekcie WiredMind: co jest prawdziwe, a co uproszczone",
+      "description": "Co w lekcjach WiredMind o mózgu muszki owocowej jest prawdziwe, a co uproszczone, kto je stworzył i jak można wesprzeć projekt."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Nie znaleziono strony · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Odruch ucieczki pędzi przez prawdziwe połączenia muszki",
+      "subtitle": "Darmowe lekcje oparte na konektomie MaleCNS"
+    },
+    "about": {
+      "title": "Co jest prawdziwe, a co uproszczone",
+      "subtitle": "Jak WiredMind zamienia prawdziwy konektom w szkolną lekcję"
+    },
+    "lessonLabel": "Lekcja {number} z {total}",
+    "alt": "{title} na tle stopklatki z odruchem ucieczki na prawdziwej mapie połączeń muszki owocowej"
+  },
+  "manifest": {
+    "name": "WiredMind: lekcje o mózgu muszki owocowej",
+    "description": "Darmowe lekcje o prawdziwych połączeniach w mózgu muszki owocowej."
+  },
+  "jsonLd": {
+    "educationalLevel": "Szkoła podstawowa i szkoła średnia",
+    "learningResourceType": "Lekcja interaktywna",
+    "audience": "Uczniowie i nauczyciele"
+  },
+  "nav": {
+    "label": "Menu główne",
+    "home": "WiredMind – strona główna",
+    "lessons": "Lekcje",
+    "teachers": "Dla nauczycieli",
+    "about": "O projekcie"
+  },
+  "a11y": {
+    "skip": "Przejdź do treści",
+    "newTab": "(otwiera się w nowej karcie)"
+  },
+  "language": {
+    "button": "Język: {language}",
+    "menu": "Wybierz język"
+  },
+  "translate": {
+    "notice": "WiredMind nie jest jeszcze dostępny w języku {language}, więc ta strona jest po angielsku.",
+    "cta": "Pomóż w tłumaczeniu",
+    "dismiss": "Zamknij"
+  },
+  "footer": {
+    "builtBy": "Autor: {author}",
+    "github": "GitHub",
+    "githubLabel": "Pomoc w tłumaczeniu i rozwoju projektu na GitHubie",
+    "about": "O projekcie",
+    "code": "Kod: MIT",
+    "credits": "Neurony z konektomu <malecns>MaleCNS v1.0</malecns> opracowanego przez <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Uniwersytet Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc> i <google>Google Research</google>, na licencji <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "WiredMind jest darmowy i zawsze taki będzie. Jeśli przydał się na lekcji, kawa pomoże utrzymać serwer na chodzie.",
+    "coffee": "☕ Postaw mi kawę"
+  },
+  "credits": {
+    "title": "Skąd pochodzą neurony",
+    "body": "Wszystkie neurony i liczby synaps pochodzą z <malecns>konektomu MaleCNS v1.0</malecns>, który obejmuje ośrodkowy układ nerwowy samca muszki owocowej. Opracowały go <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Uniwersytet Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc> i <google>Google Research</google>.",
+    "license": "Dane są udostępnione na licencji <ccby>CC BY 4.0</ccby>. WiredMind je zmienia: wycina z nich trzy małe obwody, pomija połączenia liczące mniej niż pięć synaps i rysuje każdy neuron jako uproszczoną linię. Symulator korzysta z modelu neuronu z pracy <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Darmowe lekcje neurobiologii dla szkół",
+      "title": "Wystarczy pobudzić neuron w prawdziwym mózgu muszki owocowej, by zobaczyć, jak sygnał pędzi od jej oczu do nóg.",
+      "lead": "WiredMind uruchamia w przeglądarce prawdziwą mapę połączeń układu nerwowego muszki owocowej. W trzech krótkich lekcjach z przewodnikiem uczniowie pobudzają neurony, wyciszają je i sprawdzają, co się zmienia.",
+      "start": "Zacznij pierwszą lekcję",
+      "teachers": "Dla nauczycieli"
+    },
+    "loop": {
+      "label": "Animacja odruchu ucieczki na mapie połączeń muszki",
+      "caption": "Pierwsze {spanMs} ms po pojawieniu się packi, z lekcji o ucieczce, spowolnione {slowdown} razy. Połączenia są prawdziwe, z konektomu MaleCNS. Impulsy pochodzą z prostej symulacji. <simplified>Co jest uproszczone</simplified>",
+      "steps": {
+        "looming": "Neurony zbliżeniowe wykrywają packę",
+        "gf": "Włókno olbrzymie wysyła impuls",
+        "jump": "Neurony skoku uruchamiają nogi"
+      },
+      "cells": "{count, plural, one {# komórka} few {# komórki} many {# komórek} other {# komórki}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms czasu muszki",
+      "waiting": "Nadlatuje packa",
+      "pause": "Wstrzymaj animację",
+      "play": "Odtwórz animację",
+      "loading": "Wczytywanie obwodu…",
+      "failed": "Nie udało się wczytać animacji. Lekcje nadal działają."
+    },
+    "lessons": {
+      "title": "Trzy lekcje, jeden prawdziwy układ nerwowy",
+      "lead": "Każda lekcja to tylko kilka kliknięć. Uczniowie pobudzają i wyciszają prawdziwe typy komórek, odpowiadają na jedno pytanie, a potem eksperymentują na własną rękę.",
+      "lesson": "Lekcja {number}",
+      "meta": "{steps, plural, one {# krok} few {# kroki} many {# kroków} other {# kroku}} i pytanie · około 10 minut",
+      "start": "Zacznij lekcję {number}"
+    },
+    "teachers": {
+      "title": "Dla nauczycieli",
+      "lead": "Wystarczy umieścić link na tablicy albo wysłać go uczniom na ich urządzenia. Niczego więcej nie trzeba ustawiać.",
+      "points": {
+        "periods": {
+          "title": "1–2 godziny lekcyjne",
+          "body": "Każda lekcja trwa około 10 minut. Wszystkie trzy, razem z dyskusją, mieszczą się w jednej lub dwóch godzinach lekcyjnych."
+        },
+        "install": {
+          "title": "Bez instalacji i logowania",
+          "body": "Działa w przeglądarce na laptopach, Chromebookach, tabletach i telefonach. Uczniowie nie zakładają kont i nie podają adresów e-mail."
+        },
+        "free": {
+          "title": "Za darmo",
+          "body": "Bez reklam, bez płatnej wersji, nic do kupienia."
+        },
+        "open": {
+          "title": "Otwarty kod",
+          "body": "Kod jest na licencji MIT, więc można sprawdzić, jak działa, albo uruchomić własną kopię."
+        },
+        "share": {
+          "title": "Udostępnianie eksperymentów",
+          "body": "Przycisk „Udostępnij” kopiuje link, który odtwarza eksperyment ucznia impuls po impulsie, więc widać dokładnie to, co uczeń miał na ekranie."
+        },
+        "honest": {
+          "title": "Uczciwie o nauce",
+          "body": "Prosty model prawdziwych połączeń. Strona „O projekcie” dokładnie wyjaśnia, co jest prawdziwe, a co uproszczone."
+        }
+      },
+      "source": "Kod źródłowy na GitHubie",
+      "science": "Co jest prawdziwe, a co uproszczone"
+    }
+  },
+  "about": {
+    "title": "O projekcie WiredMind",
+    "lead": "WiredMind to zestaw darmowych lekcji zbudowanych na prawdziwej mapie połączeń muszki owocowej. To narzędzie dydaktyczne, a nie model badawczy. Ta strona jest dla tych, którzy chcą dokładnie wiedzieć, gdzie przebiega granica.",
+    "onThisPage": "Na tej stronie",
+    "real": {
+      "title": "Co jest prawdziwe, a co uproszczone",
+      "realTitle": "Prawdziwe",
+      "realItems": {
+        "neurons": {
+          "title": "Neurony.",
+          "body": "W każdej lekcji jest od 3000 do 4500 zrekonstruowanych neuronów z konektomu <malecns>MaleCNS v1.0</malecns>, który obejmuje cały ośrodkowy układ nerwowy jednego samca muszki. Każdy neuron ma typ komórki nadany przez autorów konektomu."
+        },
+        "synapses": {
+          "title": "Liczby synaps.",
+          "body": "Waga każdego połączenia to liczba synaps między dwiema komórkami podana w zbiorze danych, przy pewności wykrycia co najmniej 0,5."
+        },
+        "signs": {
+          "title": "Pobudzanie i hamowanie.",
+          "body": "To, czy neuron pobudza, czy hamuje, zależy od jego przewidywanego neuroprzekaźnika: acetylocholina pobudza, a GABA i glutaminian hamują. Komórki, które według przewidywań wydzielają dopaminę, serotoninę, oktopaminę albo niejasny przekaźnik, nie mają w modelu żadnego wpływu."
+        },
+        "shapes": {
+          "title": "Kształty i położenie.",
+          "body": "Każdy neuron jest narysowany na podstawie własnego szkieletu ze zbioru danych, w miejscu, w którym naprawdę leży w muszce."
+        }
+      },
+      "simplifiedTitle": "Uproszczone",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Małe wycinki.",
+          "body": "Każda lekcja uruchamia podobwód liczący od 3000 do 4500 neuronów, a nie cały układ nerwowy. Obwód węchowy to cztery populacje komórek: receptory, neurony projekcyjne, komórki Kenyona i neurony wyjściowe. Obwody kompasu i ucieczki sięgają dwa kroki dalej od swoich startowych typów komórek i zachowują najsilniej połączonych partnerów. Połączenia liczące mniej niż pięć synaps są pomijane. Wszystko poza wycinkiem znika, także hamowanie, które normalnie równoważyłoby sieć."
+        },
+        "model": {
+          "title": "Jeden model neuronu dla wszystkich komórek.",
+          "body": "Punktowe neurony typu leaky integrate-and-fire, wszędzie z tymi samymi parametrami, czyli z wartościami opublikowanymi przez <shiu>Shiu et al. (2024)</shiu>: potencjał spoczynkowy i potencjał resetu −52 mV, próg −45 mV, stała czasowa błony 20 ms, synaptyczna stała czasowa 5 ms, okres refrakcji 2,2 ms, opóźnienie 1,8 ms, 0,275 mV na synapsę. Bez obliczeń w dendrytach, bez neuronów z potencjałami stopniowanymi i neuronów bezimpulsowych, bez neuromodulacji i bez uczenia się: synapsy nigdy się nie zmieniają."
+        },
+        "gaps": {
+          "title": "Brak złączy szczelinowych.",
+          "body": "Konektom zawiera tylko synapsy chemiczne, więc brakuje w nim synaps elektrycznych. Najbardziej liczy się to w lekcji o ucieczce: u prawdziwej muszki połączenie włókna olbrzymiego z neuronem ruchowym skoku to synapsa mieszana, która w dużej mierze opiera się na złączach szczelinowych. Tutaj to połączenie tworzy tylko jego 90 synaps chemicznych."
+        },
+        "learning": {
+          "title": "Nic się nie uczy.",
+          "body": "Lekcja o zapachu pokazuje, gdzie muszka przechowuje wspomnienia zapachów: w synapsach między komórkami Kenyona a neuronami wyjściowymi. Model nie ma jednak neuronów dopaminowych ani plastyczności. Wycinek pomija też neuron APL, dzięki któremu aktywność komórek Kenyona pozostaje rzadka."
+        },
+        "stimulation": {
+          "title": "Wyidealizowane pobudzanie.",
+          "body": "Przycisk „Pobudź” podaje każdemu neuronowi w grupie niezależne wejście Poissona (40 Hz przez 200 ms w lekcjach o zapachu i o ucieczce, 60 Hz przez 800 ms dla neuronów skrętu). Każde zdarzenie jest na tyle silne, że komórka wysyła impuls, podobnie jak przy aktywacji optogenetycznej. Prawdziwy zapach pobudza kilka typów receptorów według określonego wzoru, a zapach z lekcji uruchamia wszystkie 1861 neuronów receptorowych w wycinku. Packa pobudza naraz wszystkie 304 komórki zbliżeniowe, a prawdziwy zbliżający się obiekt angażuje je stopniowo, w miarę jak rośnie."
+        },
+        "silence": {
+          "title": "Wyciszenie to twarda blokada.",
+          "body": "Wyciszona grupa pozostaje w spoczynku, nigdy nie wysyła impulsów i niczego nie przekazuje. Prawdziwe narzędzia do wyciszania, takie jak Kir2.1 czy toksyna tężcowa, działają tylko częściowo i wolniej, a synapsy elektryczne mogą przy nich dalej działać."
+        },
+        "compass": {
+          "title": "Punkty orientacyjne kompasu.",
+          "body": "W modelu neurony pierścieniowe nie dostają żadnych sygnałów wzrokowych. Ich wyciszenie znosi hamowanie, którym działają na kompas, i właśnie dlatego górka aktywności może tu dryfować. U prawdziwej muszki te neurony przynoszą ze zmysłów punkty orientacyjne i inne wskazówki."
+        },
+        "timing": {
+          "title": "Czas i opóźnienia.",
+          "body": "Czasy reakcji wynikają z jednego, wszędzie takiego samego opóźnienia 1,8 ms oraz ze stałych czasowych błony i synaps, a nie z pomiarów. Mieszczą się w wiarygodnym zakresie, ale nic nie zostało dostrojone do zmierzonych czasów ucieczki. Wizualizacja pokazuje wszystko w zwolnionym tempie, od 0,2 do 2 ms czasu muszki na klatkę, zależnie od urządzenia, i kończy symulację 150 ms po ostatnim bodźcu. Niektóre wycinki mają bowiem pętle pobudzające, które bez hamowania pozostawionego poza wycinkiem krążyłyby bez końca."
+        },
+        "drawings": {
+          "title": "Rysunki, a nie morfologia.",
+          "body": "Każdy neuron jest narysowany jako linia z 12 punktów biegnąca wzdłuż jego szkieletu, a nie jako prawdziwe rozgałęzienia. Błyski oznaczają impulsy. Ruchome kropki to tylko ilustracja, a nie prędkość przewodzenia ani prawdziwa droga impulsu."
+        }
+      },
+      "researchTitle": "Co narzędzie badawcze zrobiłoby inaczej",
+      "researchItems": {
+        "whole": "Symulować cały ośrodkowy układ nerwowy albo wycinać go wzdłuż przemyślanych granic, z modelowanymi wejściami, i zachowywać słabe połączenia.",
+        "fit": "Dopasowywać parametry do nagrań osobno dla każdego typu komórek, uwzględniać neurony z potencjałami stopniowanymi i neurony bezimpulsowe, a tam, gdzie liczą się dendryty, stosować modele przewodnościowe lub wielokompartmentowe.",
+        "add": "Dodać złącza szczelinowe z innych danych, neuromodulatory, takie jak dopamina i oktopamina, oraz plastyczność, na przykład zależne od dopaminy osłabianie synaps między komórkami Kenyona a neuronami wyjściowymi.",
+        "drive": "Pobudzać neurony czuciowe tak, jak robi to świat: wzorami receptorów swoistymi dla danego zapachu i bodźcami zbliżania, które angażują kolejne komórki, w miarę jak obiekt rośnie.",
+        "uncertain": "Traktować przewidywane neuroprzekaźniki i wagi jako niepewne, sprawdzać różne ich wartości, uruchamiać symulacje z wieloma ziarnami losowania i porównywać wyniki z elektrofizjologią i zachowaniem."
+      },
+      "furtherTitle": "Do źródeł",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: przeszukiwanie MaleCNS v1.0 komórka po komórce i synapsa po synapsie.",
+        "paper": "<paper>Publikacja o MaleCNS</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: model całego mózgu z neuronami typu leaky integrate-and-fire, z którego parametrów korzysta WiredMind.",
+        "code": "<code>Kod źródłowy</code>: przetwarzanie danych, symulator, lekcje oraz testy, które sprawdzają twierdzenia każdej lekcji na prawdziwych obwodach."
+      }
+    },
+    "who": {
+      "title": "Kto za tym stoi",
+      "body": "WiredMind zbudował {author}, full-stack developer i strateg SEO z Tel Awiwu, w ciągu jednego tygodnia we wrześniu 2026 roku.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Wsparcie"
+    },
+    "privacy": {
+      "title": "Prywatność",
+      "body": "Bez kont użytkowników. Jedyny plik cookie zapamiętuje język wybrany w menu języka. Odsłony stron są liczone przez Vercel Web Analytics, które nie korzysta z plików cookie."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Jak muszka zapamiętuje zapach",
+      "summary": "Wyślij zapach do prawdziwego mózgu muszki i znajdź komórki, które go zapamiętują.",
+      "description": "Wyślij zapach do prawdziwego mózgu muszki owocowej, śledź go aż do ciała grzybkowatego i znajdź komórki, które go zapamiętują. Darmowa lekcja na 10 minut.",
+      "steps": {
+        "send": {
+          "text": "Muszka wącha <term>czułkami</term> <gloss>(dwoma różkami)</gloss>. Naciśnij „Pobudź”, żeby wysłać do niej zapach. Zobacz, jak zapalają się pomarańczowe neurony.",
+          "result": "Te pomarańczowe <term>receptory węchowe</term> <gloss>(łapacze zapachów)</gloss> wysyłają impulsy jako pierwsze. Tu zaczyna się droga każdego zapachu."
+        },
+        "follow": {
+          "text": "Naciśnij znowu „Pobudź” i śledź kolory. Żółte <term>neurony projekcyjne</term> <gloss>(posłańcy zapachu)</gloss> niosą zapach w głąb mózgu. Dalej przejmują go niebieskie <term>komórki Kenyona</term> <gloss>(sortery zapachów)</gloss>.",
+          "result": "Niebieskie komórki zamieniają każdy zapach w jego własny wzór."
+        },
+        "read": {
+          "text": "Naciśnij „Pobudź” jeszcze raz. Teraz patrz na różowe <term>neurony wyjściowe</term> <gloss>(czytniki pamięci)</gloss>. Odczytują niebieski wzór.",
+          "result": "Gdy zapach pojawia się razem z cukrem albo z niebezpieczeństwem, zmieniają się połączenia od niebieskich do różowych komórek. Naukowcy uważają, że właśnie ta zmiana jest pamięcią."
+        },
+        "silence": {
+          "text": "Teraz wycisz <term>komórki Kenyona</term> <gloss>(sortery zapachów)</gloss>. Zapach wyślemy za ciebie. Co zniknie?",
+          "result": "Różowe światło prawie znika. Zapach wciąż dociera do mózgu, ale czytniki pamięci nie mają czego odczytać."
+        },
+        "restore": {
+          "text": "Włącz z powrotem <term>komórki Kenyona</term> <gloss>(sortery zapachów)</gloss>: naciśnij jeszcze raz ich przycisk. Wyślemy ten sam zapach.",
+          "result": "Różowe światło wraca. Muszka znów może odczytać swoje wspomnienie zapachu."
+        }
+      },
+      "check": {
+        "question": "Po wyciszeniu <term>komórek Kenyona</term> <gloss>(tych niebieskich)</gloss> różowe komórki zgasły. Dlaczego?",
+        "choices": {
+          "never": {
+            "text": "Zapach w ogóle nie dostał się do muszki.",
+            "feedback": "Niezupełnie. Pomarańczowe i żółte komórki wciąż się zapalały, więc zapach dotarł do mózgu. Zatrzymał się dopiero na niebieskich komórkach."
+          },
+          "pattern": {
+            "text": "Niebieskie komórki przekazują wzór każdego zapachu różowym komórkom.",
+            "feedback": "Tak! Niebieskie komórki układają każdy zapach we wzór, a różowe go odczytują. Nie ma wzoru, nie ma czego zapamiętać."
+          },
+          "both": {
+            "text": "Różowe komórki też były wyłączone.",
+            "feedback": "Niezupełnie. Wyłączone były tylko niebieskie komórki. Różowe działały dalej, ale nie miały czego odczytać."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Swobodne eksperymenty",
+        "text": "Teraz działa każdy przycisk. Najpierw zgadnij, potem naciśnij: co zgaśnie, jeśli wyciszysz żółtych posłańców zapachu? Spróbuj wyciszyć dwa kolory naraz."
+      }
+    },
+    "compass": {
+      "title": "Skąd muszka wie, w którą stronę jest zwrócona",
+      "summary": "Poobracaj kompasem prawdziwej muszki i zobacz, co utrzymuje go w miejscu.",
+      "description": "Poobracaj wewnętrznym kompasem prawdziwej muszki owocowej, wycisz neurony pierścieniowe i zobacz, jak muszka gubi kierunek. Darmowa lekcja na 10 minut.",
+      "steps": {
+        "left": {
+          "text": "Naciśnij „Pobudź”, żeby uruchomić lewe <term>neurony skrętu</term> <gloss>(sygnał skrętu)</gloss>. Potem obserwuj tarczę kompasu.",
+          "result": "<term>Neurony kompasu</term> <gloss>(komórki kierunku)</gloss> zapalają się po jednej stronie. Ta jasna plama to tak zwana górka. Pokazuje, w którą stronę zwrócona jest muszka."
+        },
+        "right": {
+          "text": "Teraz naciśnij „Pobudź”, żeby uruchomić prawe <term>neurony skrętu</term> <gloss>(drugi sygnał)</gloss>. Nie spuszczaj oka z górki.",
+          "result": "Górka przesunęła się po tarczy. Sygnały skrętu z lewej i z prawej pchają ją w przeciwne strony, więc muszka też się obraca."
+        },
+        "silence": {
+          "text": "Wycisz <term>neurony pierścieniowe</term> <gloss>(kurierów widoków)</gloss>. Dostarczają mózgowi to, co widzi muszka. Prawy sygnał wyślemy za ciebie.",
+          "result": "Górka zsuwa się ze swojego miejsca i wędruje. Bez punktów orientacyjnych kompas dryfuje."
+        },
+        "restore": {
+          "text": "Włącz z powrotem <term>neurony pierścieniowe</term> <gloss>(kurierów widoków)</gloss>: naciśnij jeszcze raz ich przycisk. Wyślemy ten sam sygnał.",
+          "result": "Górka znów trzyma się swojego miejsca. Punkty orientacyjne pilnują, żeby kompas muszki się nie mylił."
+        }
+      },
+      "check": {
+        "question": "Po wyciszeniu kurierów widoków (fioletowych komórek) górka zaczęła dryfować. Dlaczego?",
+        "choices": {
+          "never": {
+            "text": "Sygnał skrętu w ogóle nie dotarł do kompasu.",
+            "feedback": "Niezupełnie. Zielone komórki kierunku wciąż się zapalały, więc sygnał dotarł. Po prostu nic nie trzymało górki w miejscu."
+          },
+          "landmarks": {
+            "text": "Nic nie mówiło kompasowi, gdzie są punkty orientacyjne, więc górka się zsunęła.",
+            "feedback": "Tak! Fioletowe komórki dostarczają mózgowi to, co widzi muszka. Bez nich nic nie przypina górki do świata."
+          },
+          "both": {
+            "text": "Zielone komórki kierunku też były wyłączone.",
+            "feedback": "Niezupełnie. Wyciszone były tylko fioletowe komórki. Zielone komórki kierunku dalej wysyłały impulsy, ale nic nie trzymało ich w miejscu."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Swobodne eksperymenty",
+        "text": "Teraz działa każdy przycisk. Najpierw zgadnij, potem naciśnij: dokąd pójdzie górka, jeśli pobudzisz oba sygnały skrętu naraz? Spróbuj też z wyciszonymi fioletowymi komórkami."
+      }
+    },
+    "escape": {
+      "title": "Ucieczka w 30 milisekund",
+      "summary": "Znajdź kabel, dzięki któremu muszka ucieka spod packi.",
+      "description": "Prześledź sygnał o packce od oczu prawdziwej muszki owocowej przez włókno olbrzymie do nóg w 30 ms, a potem przetnij kabel. Darmowa lekcja na 10 minut.",
+      "steps": {
+        "loom": {
+          "text": "Packa pędzi prosto na muszkę. Naciśnij „Pobudź”, żeby uruchomić <term>neurony zbliżeniowe</term> <gloss>(wykrywacze packi)</gloss>.",
+          "result": "Wysyłają impulsy, a po kilku tysięcznych sekundy impuls wysyła też <term>włókno olbrzymie</term> <gloss>(kabel ucieczki)</gloss>."
+        },
+        "jump": {
+          "text": "Naciśnij jeszcze raz „Pobudź”. Śledź <term>włókno olbrzymie</term> <gloss>(kabel ucieczki)</gloss> w dół, aż do <term>łańcuszka nerwowego</term> <gloss>(jej rdzenia kręgowego)</gloss>.",
+          "result": "<term>Neurony skoku</term> <gloss>(motorki nóg)</gloss> wysyłają impulsy w ciągu 30 milisekund. Sprawiają, że środkowe nogi kopią, a muszka odskakuje."
+        },
+        "silence": {
+          "text": "Teraz wycisz <term>włókno olbrzymie</term> <gloss>(kabel ucieczki)</gloss>. Packę wyślemy my. Obserwuj <term>neurony skoku</term> <gloss>(motorki nóg)</gloss>.",
+          "result": "<term>Neurony zbliżeniowe</term> <gloss>(wykrywacze packi)</gloss> nadal wysyłają impulsy, ale <term>neurony skoku</term> pozostają ciemne. Szybkiej ucieczki już nie ma."
+        },
+        "restore": {
+          "text": "Włącz z powrotem <term>włókno olbrzymie</term> <gloss>(kabel ucieczki)</gloss>: naciśnij jeszcze raz jego przycisk. Wyślemy tę samą packę.",
+          "result": "<term>Neurony skoku</term> <gloss>(motorki nóg)</gloss> znów wysyłają impulsy. Prawdziwe muszki mają też wolniejsze drogi ucieczki, ale ta jest najszybsza."
+        }
+      },
+      "check": {
+        "question": "Po wyciszeniu <term>włókna olbrzymiego</term> <gloss>(kabla ucieczki)</gloss> motorki nóg pozostały ciemne. Dlaczego?",
+        "choices": {
+          "never": {
+            "text": "Muszka w ogóle nie zobaczyła packi.",
+            "feedback": "Niezupełnie. Niebieskie wykrywacze packi wciąż wysyłały impulsy, więc muszka ją zobaczyła. Sygnał zatrzymał się na kablu ucieczki."
+          },
+          "wire": {
+            "text": "Kabel ucieczki niesie motorkom nóg sygnał do skoku.",
+            "feedback": "Tak! Wykrywacze packi dają znać kablowi ucieczki, a kabel ucieczki każe nogom skoczyć. Przetnij kabel, a szybkiego skoku nie będzie."
+          },
+          "both": {
+            "text": "Motorki nóg też były wyłączone.",
+            "feedback": "Niezupełnie. Wyciszony był tylko kabel ucieczki. Motorki nóg działały dalej, ale nie dostały sygnału."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Swobodne eksperymenty",
+        "text": "Teraz działa każdy przycisk. Najpierw zgadnij, potem naciśnij: które kolory wciąż się zapalają, gdy kabel ucieczki jest wyciszony? Potem spróbuj zamiast niego wyciszyć wykrywacze packi."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Receptory węchowe",
+        "pn": "Neurony projekcyjne",
+        "kc": "Komórki Kenyona",
+        "mbon": "Neurony wyjściowe"
+      },
+      "stimulate": {
+        "orn": "Pobudza neurony receptorowe, które jako pierwsze wyłapują zapach na czułkach."
+      },
+      "silence": {
+        "pn": "Blokuje drogę zapachu z płata czułkowego do ciała grzybkowatego.",
+        "kc": "Wycisza komórki, które odróżniają jeden zapach od drugiego.",
+        "mbon": "Blokuje przekazywanie wyniku z ciała grzybkowatego do reszty mózgu."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Neurony pierścieniowe",
+        "compass": "Neurony kompasu",
+        "turn-left": "Lewe neurony skrętu",
+        "turn-right": "Prawe neurony skrętu"
+      },
+      "stimulate": {
+        "turn-left": "Pobudza komórki skrętu P-EN2 po lewej stronie mostka.",
+        "turn-right": "Pobudza komórki skrętu P-EN2 po prawej stronie mostka."
+      },
+      "silence": {
+        "ring": "Blokuje neurony pierścieniowe, które przynoszą z oczu punkty orientacyjne.",
+        "compass": "Wycisza komórki kierunku E-PG, z których składa się kompas."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Neurony zbliżeniowe",
+        "gf": "Włókno olbrzymie",
+        "jump": "Neurony skoku"
+      },
+      "stimulate": {
+        "looming": "Pobudza komórki oka LC4 i LPLC2, które wykrywają, że coś szybko nadlatuje."
+      },
+      "silence": {
+        "looming": "Nie pozwala komórkom oka zgłosić nalotu.",
+        "gf": "Blokuje włókno olbrzymie, najszybszy kabel ucieczki muszki.",
+        "jump": "Wycisza neurony ruchowe, które uruchamiają kopnięcie środkowych nóg."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Lekcja {number}",
+      "canvasHelp": "Trójwymiarowy widok neuronów. Przeciągnij, żeby go obrócić. Przybliżaj dwoma palcami.",
+      "loading": "Wczytywanie obwodu…",
+      "loadingPercent": "Wczytywanie obwodu… {percent}%"
+    },
+    "load": {
+      "unavailable": "Pliki obwodu są niedostępne. Odśwież stronę, żeby spróbować jeszcze raz.",
+      "damaged": "Pliki obwodu są uszkodzone. Odśwież stronę, żeby spróbować jeszcze raz.",
+      "failed": "Nie udało się wczytać obwodu. Odśwież stronę, żeby spróbować jeszcze raz."
+    },
+    "controls": {
+      "stimulate": "Pobudź",
+      "silence": "Wycisz",
+      "activity": "Aktywność",
+      "reset": "Resetuj",
+      "dragHint": "Przeciągnij mózg, żeby go obrócić. Przybliżaj dwoma palcami.",
+      "activityLabel": "Aktywność: {group}",
+      "locked": "Zablokowane",
+      "lockedHint": "Nie w tym kroku. W swobodnych eksperymentach działa każdy przycisk.",
+      "stimulateNamed": "Pobudź: {name}",
+      "silenceNamed": "Wycisz: {name}",
+      "silencedNamed": "Wyciszone: {name}",
+      "silenced": "Wyciszone · naciśnij, by włączyć"
+    },
+    "sheet": {
+      "more": "Pokaż więcej",
+      "less": "Pokaż mniej"
+    },
+    "toolbar": {
+      "lessonOf": "Lekcja {number} z {total}",
+      "share": "Udostępnij",
+      "copied": "Link skopiowany. Odtwarza twój eksperyment.",
+      "copiedEmpty": "Link skopiowany. Najpierw naciśnij jakiś przycisk, żeby było co udostępnić.",
+      "copyThis": "Skopiuj ten link:",
+      "linkLabel": "Link do tego eksperymentu"
+    },
+    "lesson": {
+      "tapCue": "Naciśnij świecący przycisk na dole.",
+      "watching": "Obserwuj mózg…",
+      "again": "Zacznij lekcję od nowa",
+      "next": "Dalej",
+      "question": "Jedno szybkie pytanie",
+      "freePlay": "Zacznij swobodne eksperymenty",
+      "pickAnswer": "Wybierz odpowiedź, która twoim zdaniem jest prawidłowa.",
+      "nextLesson": "Następna lekcja: {title}",
+      "finished": "Wszystkie lekcje za tobą. Odkrywaj dalej.",
+      "cueStimulate": "Pobudź",
+      "cueSilence": "Wycisz",
+      "cueSwitchOn": "Włącz",
+      "loadingBrain": "Wczytywanie mózgu…",
+      "gettingReady": "Jeszcze chwila… obserwuj mózg",
+      "watchBrain": "Obserwuj mózg",
+      "puffProgress": "Postęp bodźca",
+      "puffClock": "{name}: {elapsed} z {total} ms, w zwolnionym tempie",
+      "slowMotion": "W zwolnionym tempie, żeby łatwiej było to śledzić",
+      "step": "Krok {number} z {total}",
+      "quickQuestion": "Szybkie pytanie",
+      "done": "Lekcja ukończona",
+      "answers": "Odpowiedzi",
+      "tryAnother": "Spróbuj innej odpowiedzi."
+    },
+    "replay": {
+      "label": "Powtórka: {title}",
+      "section": "Powtórka",
+      "finished": "Koniec powtórki",
+      "shared": "Ktoś udostępnił swój eksperyment z lekcji „{title}”. Zobacz go jeszcze raz, impuls po impulsie.",
+      "over": "To był cały eksperyment. Teraz działa każdy przycisk, więc spróbuj po swojemu.",
+      "replaying": "Powtórka udostępnionego eksperymentu",
+      "progress": "Postęp powtórki",
+      "pressOf": "Naciśnięcie {number} z {total}, w tych samych taktach i z tym samym ziarnem",
+      "tick": "{ms} ms",
+      "watchAgain": "Obejrzyj jeszcze raz",
+      "start": "Zacznij lekcję",
+      "stimulate": "Pobudź: {name}",
+      "silence": "Wycisz: {name}",
+      "switchOn": "Włącz: {name}",
+      "notice": "{problem} Oto lekcja zamiast powtórki.",
+      "errors": {
+        "unknownLesson": "Ta powtórka dotyczy lekcji, której nie ma w tym serwisie.",
+        "unknownButton": "Ta powtórka używa przycisku, którego ta lekcja już nie ma.",
+        "empty": "Ten link do powtórki jest pusty albo za długi.",
+        "version": "Ten link do powtórki pochodzi z innej wersji.",
+        "seed": "Ziarno powtórki jest za duże.",
+        "tooMany": "Ta powtórka ma za dużo kroków, żeby ją odtworzyć.",
+        "tooLong": "Ta powtórka trwa za długo, żeby ją odtworzyć.",
+        "broken": "Ten link do powtórki jest uszkodzony albo ucięty.",
+        "generic": "Ten link do powtórki nie zadziałał."
+      }
+    },
+    "compass": {
+      "label": "Tarcza kompasu. Świecące wycinki i igła pokazują, gdzie na pierścieniu jest górka.",
+      "left": "L",
+      "right": "P",
+      "caption": "Kompas · widok od tyłu"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Ta strona nie istnieje",
+      "body": "Link może być nieaktualny albo mieć literówkę. Lekcje wciąż tu są.",
+      "home": "Przejdź do lekcji"
+    },
+    "error": {
+      "title": "Coś poszło nie tak",
+      "body": "Na stronie wystąpił błąd. Można spróbować jeszcze raz albo wrócić do lekcji.",
+      "retry": "Spróbuj ponownie",
+      "home": "Przejdź do lekcji"
+    }
+  }
+}

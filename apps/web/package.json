@@ -9,9 +9,13 @@
     "data:fetch": "pnpm --dir ../.. run data:fetch"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.9.0",
     "@react-three/fiber": "^9.8.1",
     "@vercel/analytics": "^2.0.1",
+    "bidi-js": "^1.1.0",
+    "harfbuzzjs": "^1.6.2",
     "next": "^15.5.4",
+    "next-intl": "^4.14.7",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "three": "0.169.0",
@@ -22,6 +26,7 @@
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@types/three": "0.169.0",
+    "schema-dts": "^2.0.0",
     "tailwindcss": "^4.1.13"
   }
 }

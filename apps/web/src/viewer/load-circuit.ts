@@ -96,17 +96,30 @@ export function openCircuit(module: ModuleSpec): Ticket {
   };
 }
 
-export function loadError(error: unknown): string {
-  const message = error instanceof Error ? error.message : "";
-  if (
-    message.startsWith("The ") ||
-    message.startsWith("module.json") ||
-    message.includes("graph.bin") ||
-    message.includes("neuron")
+/**
+ * What went wrong loading a circuit, for the reader: the files are missing,
+ * damaged, or something else failed. The viewer says it in the reader's
+ * language, from viewer.load, and logs the details for developers.
+ */
+export type LoadErrorCode = "unavailable" | "damaged" | "failed";
+
+/** A circuit that could not load, and why. */
+export class CircuitError extends Error {
+  constructor(
+    readonly code: LoadErrorCode,
+    message: string,
   ) {
-    return message;
+    super(message);
   }
-  return "The circuit did not load. Run pnpm data:fetch and refresh.";
+}
+
+export function loadError(error: unknown): LoadErrorCode {
+  if (error instanceof CircuitError) return error.code;
+  const message = error instanceof Error ? error.message : "";
+  if (message.startsWith("module.json") || message.includes("graph.bin")) {
+    return "damaged";
+  }
+  return "failed";
 }
 
 async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
@@ -121,12 +134,18 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
   const neurons = readNeurons(neuronFile, module.circuit);
   const graph = parseGraphBin(graphBuffer);
   if (graph.neuronCount !== neurons.length) {
-    throw new Error("The wiring and the neuron list do not match.");
+    throw new CircuitError(
+      "damaged",
+      "The wiring and the neuron list do not match.",
+    );
   }
   const assigned = assignGroups(neurons, module.groups);
   const absent = emptyGroups(module, assigned.groups);
   if (absent.length > 0) {
-    throw new Error(`The circuit has no ${absent[0]} neurons.`);
+    throw new CircuitError(
+      "damaged",
+      `The circuit has no ${absent[0]} neurons.`,
+    );
   }
   const compass = module.compass
     ? new CompassReadout(compassWedges(module.compass, bodyIndex(neurons)))
@@ -215,7 +234,8 @@ async function fetchOk(url: string): Promise<Response> {
     versioned(url, process.env.NEXT_PUBLIC_DATA_VERSION),
   );
   if (!response.ok) {
-    throw new Error(
+    throw new CircuitError(
+      "unavailable",
       "The circuit files are not available. Run pnpm data:fetch and refresh.",
     );
   }
@@ -224,23 +244,29 @@ async function fetchOk(url: string): Promise<Response> {
 
 function readNeurons(value: unknown, circuit: string): NeuronRow[] {
   if (!value || typeof value !== "object") {
-    throw new Error("The neuron list is missing.");
+    throw new CircuitError("damaged", "The neuron list is missing.");
   }
   const record = value as Record<string, unknown>;
   if (record.circuit !== circuit) {
-    throw new Error("The neuron list is for a different circuit.");
+    throw new CircuitError(
+      "damaged",
+      "The neuron list is for a different circuit.",
+    );
   }
   if (!Array.isArray(record.neurons)) {
-    throw new Error("The neuron list is missing.");
+    throw new CircuitError("damaged", "The neuron list is missing.");
   }
   const rows: NeuronRow[] = [];
   for (const item of record.neurons) {
     if (!item || typeof item !== "object") {
-      throw new Error("The neuron list has a gap.");
+      throw new CircuitError("damaged", "The neuron list has a gap.");
     }
     const row = item as Record<string, unknown>;
     if (typeof row.id !== "number" || typeof row.colorGroup !== "string") {
-      throw new Error("The neuron list is missing an id or a color group.");
+      throw new CircuitError(
+        "damaged",
+        "The neuron list is missing an id or a color group.",
+      );
     }
     rows.push({
       id: row.id,
@@ -269,7 +295,10 @@ async function mergeLines(
   await yieldToMain();
   const jobs = lineJobs(json, bin, neurons, member, module);
   if (jobs.length === 0) {
-    throw new Error("The circuit model has no neurons to draw.");
+    throw new CircuitError(
+      "damaged",
+      "The circuit model has no neurons to draw.",
+    );
   }
   const draco = new DRACOLoader();
   draco.setDecoderPath("/draco/");
@@ -313,7 +342,10 @@ async function mergeLines(
     draco.dispose();
   }
   if (positions.length < 6) {
-    throw new Error("The circuit model has no neurons to draw.");
+    throw new CircuitError(
+      "damaged",
+      "The circuit model has no neurons to draw.",
+    );
   }
   const geometry = new BufferGeometry();
   geometry.setAttribute(
@@ -403,7 +435,13 @@ function decodePosition(
         { position: positionId },
         null,
         undefined,
-        () => reject(new Error("The circuit model could not be decoded.")),
+        () =>
+          reject(
+            new CircuitError(
+              "damaged",
+              "The circuit model could not be decoded.",
+            ),
+          ),
       )
       .catch(reject);
   });

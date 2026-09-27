@@ -34,4 +34,6 @@ export const LINKS = {
   license: `${REPO_URL}/blob/main/LICENSE`,
   dataLicense: `${REPO_URL}/blob/main/DATA_LICENSE.md`,
   issues: `${REPO_URL}/issues`,
+  /** How to add or review a language. */
+  translate: `${REPO_URL}/blob/main/CONTRIBUTING.md#translations`,
 } as const;

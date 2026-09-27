@@ -1,68 +1,76 @@
 {
   "id": "escape",
-  "title": "The 30-millisecond escape",
-  "summary": "Find the wire that gets a fly out from under a swatter.",
   "circuit": "escape",
   "jargon": ["looming neurons", "giant fiber", "jump neurons", "nerve cord"],
   "steps": [
     {
       "id": "loom",
-      "text": "A swatter swoops at the fly. Tap Stimulate to fire the looming neurons (the swatter spotters).",
-      "result": "They fire, and in a few thousandths of a second the giant fiber (the escape wire) fires too.",
       "focus": ["looming", "gf"],
-      "controls": { "stimulate": ["looming"], "silence": [] },
-      "goal": { "type": "stimulate", "colorGroup": "looming" }
+      "controls": {
+        "stimulate": ["looming"],
+        "silence": []
+      },
+      "goal": {
+        "type": "stimulate",
+        "colorGroup": "looming"
+      }
     },
     {
       "id": "jump",
-      "text": "Tap Stimulate again. Follow the giant fiber (the escape wire) down into the nerve cord (its spinal cord).",
-      "result": "The jump neurons (the leg kickers) fire within 30 milliseconds. They kick the middle legs, and the fly leaps away.",
       "focus": ["gf", "jump"],
-      "controls": { "stimulate": ["looming"], "silence": [] },
-      "goal": { "type": "stimulate", "colorGroup": "looming" }
+      "controls": {
+        "stimulate": ["looming"],
+        "silence": []
+      },
+      "goal": {
+        "type": "stimulate",
+        "colorGroup": "looming"
+      }
     },
     {
       "id": "silence",
-      "text": "Now silence the giant fiber (the escape wire). We will send the swatter. Watch the jump neurons (the leg kickers).",
-      "result": "The looming neurons (the swatter spotters) still fire, but the jump neurons stay dark. The fast escape is gone.",
       "focus": ["looming", "gf", "jump"],
-      "controls": { "stimulate": [], "silence": ["gf"] },
-      "goal": { "type": "silence", "colorGroup": "gf", "on": true },
+      "controls": {
+        "stimulate": [],
+        "silence": ["gf"]
+      },
+      "goal": {
+        "type": "silence",
+        "colorGroup": "gf",
+        "on": true
+      },
       "puff": "looming"
     },
     {
       "id": "restore",
-      "text": "Tap the giant fiber (the escape wire) button again to switch it back on. We will send the same swatter.",
-      "result": "The jump neurons (the leg kickers) fire again. Real flies also have slower ways out, but this is the fastest.",
       "focus": ["gf", "jump"],
-      "controls": { "stimulate": [], "silence": ["gf"] },
-      "goal": { "type": "silence", "colorGroup": "gf", "on": false },
+      "controls": {
+        "stimulate": [],
+        "silence": ["gf"]
+      },
+      "goal": {
+        "type": "silence",
+        "colorGroup": "gf",
+        "on": false
+      },
       "puff": "looming"
     }
   ],
   "check": {
-    "question": "You silenced the giant fiber (the escape wire). Why did the leg kickers stay dark?",
     "focus": ["gf", "jump"],
     "choices": [
       {
-        "text": "The fly never saw the swatter.",
-        "correct": false,
-        "feedback": "Not quite. The blue swatter spotters still fired, so the fly saw it. The signal stopped at the escape wire."
+        "id": "never",
+        "correct": false
       },
       {
-        "text": "The escape wire carries the jump signal to the leg kickers.",
-        "correct": true,
-        "feedback": "Yes! The swatter spotters tell the escape wire, and the escape wire tells the legs to jump. Cut the wire and the fast jump is gone."
+        "id": "wire",
+        "correct": true
       },
       {
-        "text": "You switched off the leg kickers too.",
-        "correct": false,
-        "feedback": "Not quite. You only silenced the escape wire. The leg kickers stayed on but got no signal."
+        "id": "both",
+        "correct": false
       }
     ]
-  },
-  "freePlay": {
-    "title": "Free play",
-    "text": "Every button works now. Guess first, then tap: which colors still light up with the escape wire silenced? Then try silencing the swatter spotters instead."
   }
 }

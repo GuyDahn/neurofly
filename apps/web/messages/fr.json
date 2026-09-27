@@ -1,0 +1,535 @@
+{
+  "_meta": {
+    "locale": "fr",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27"
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind : explorez un vrai cerveau de drosophile",
+      "description": "Leçons gratuites pour la classe sur le vrai câblage d’un cerveau de drosophile. Stimulez ou faites taire les neurones du connectome MaleCNS. Sans compte."
+    },
+    "about": {
+      "title": "À propos de WiredMind : ce qui est réel ou simplifié",
+      "description": "Ce qui est réel et ce qui est simplifié dans les leçons de WiredMind sur le cerveau de la drosophile, qui a créé le site et comment le soutenir."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Page introuvable · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Regardez le réflexe de fuite d’une mouche filer dans son vrai câblage",
+      "subtitle": "Des leçons gratuites pour la classe sur le connectome MaleCNS"
+    },
+    "about": {
+      "title": "Ce qui est réel, ce qui est simplifié",
+      "subtitle": "Comment WiredMind fait d’un vrai connectome une leçon pour la classe"
+    },
+    "lessonLabel": "Leçon {number} sur {total}",
+    "alt": "{title}, sur une image fixe du réflexe de fuite dans le schéma de câblage d’une vraie drosophile"
+  },
+  "manifest": {
+    "name": "WiredMind : leçons sur le cerveau de la drosophile",
+    "description": "Des leçons gratuites pour la classe sur le vrai câblage du cerveau d’une drosophile."
+  },
+  "jsonLd": {
+    "educationalLevel": "Collège et lycée",
+    "learningResourceType": "Leçon interactive",
+    "audience": "Élèves et enseignants"
+  },
+  "nav": {
+    "label": "Site",
+    "home": "Accueil WiredMind",
+    "lessons": "Leçons",
+    "teachers": "Enseignants",
+    "about": "À propos"
+  },
+  "a11y": {
+    "skip": "Aller au contenu",
+    "newTab": "(s’ouvre dans un nouvel onglet)"
+  },
+  "language": {
+    "button": "Langue : {language}",
+    "menu": "Choisir une langue"
+  },
+  "translate": {
+    "notice": "WiredMind n’est pas encore disponible en {language} : cette page est donc en anglais.",
+    "cta": "Aidez à le traduire",
+    "dismiss": "Fermer"
+  },
+  "footer": {
+    "builtBy": "Créé par {author}",
+    "github": "GitHub",
+    "githubLabel": "Aidez à traduire ou contribuez sur GitHub",
+    "about": "À propos",
+    "code": "Code : MIT",
+    "credits": "Neurones issus du connectome <malecns>MaleCNS v1.0</malecns> de <janelia>HHMI Janelia FlyEM</janelia>, de l’<cambridge>université de Cambridge</cambridge>, du <mrc>MRC Laboratory of Molecular Biology</mrc> et de <google>Google Research</google>, sous licence <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "WiredMind est gratuit et le restera toujours. S’il a aidé votre classe, un café fait ronronner le serveur.",
+    "coffee": "☕ Offrez-moi un café"
+  },
+  "credits": {
+    "title": "D’où viennent les neurones",
+    "body": "Tous les neurones et tous les nombres de synapses proviennent du <malecns>connectome MaleCNS v1.0</malecns>, qui décrit le système nerveux central de la drosophile mâle. Ce connectome a été réalisé par <janelia>HHMI Janelia FlyEM</janelia>, l’<cambridge>université de Cambridge</cambridge>, le <mrc>MRC Laboratory of Molecular Biology</mrc> et <google>Google Research</google>.",
+    "license": "Les données sont publiées sous licence <ccby>CC BY 4.0</ccby>. WiredMind les modifie : il en extrait trois petits circuits, écarte les connexions de moins de cinq synapses et dessine chaque neurone comme une ligne simplifiée. Le simulateur utilise le modèle de neurone de <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Leçons de neurosciences gratuites pour la classe",
+      "title": "Activez un neurone dans le cerveau d’une vraie drosophile et regardez le signal filer de ses yeux à ses pattes.",
+      "lead": "WiredMind fait tourner dans le navigateur le vrai schéma de câblage du système nerveux d’une drosophile. Les élèves stimulent des neurones, les font taire et observent ce qui change, en trois courtes leçons guidées.",
+      "start": "Commencer la première leçon",
+      "teachers": "Pour les enseignants"
+    },
+    "loop": {
+      "label": "Animation du réflexe de fuite dans le schéma de câblage de la mouche",
+      "caption": "Les {spanMs} ms qui suivent l’apparition d’un tue-mouches, dans la leçon sur la fuite, ralenties {slowdown} fois. Le câblage est réel, tiré du connectome MaleCNS. Les impulsions, elles, viennent d’une simulation simple. <simplified>Ce qui est simplifié</simplified>",
+      "steps": {
+        "looming": "Les neurones d’approche repèrent le tue-mouches",
+        "gf": "La fibre géante s’active",
+        "jump": "Les neurones du saut font bondir la mouche"
+      },
+      "cells": "{count, plural, one {# cellule} many {# cellules} other {# cellules}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms en temps de mouche",
+      "waiting": "Tue-mouches en approche",
+      "pause": "Mettre l’animation en pause",
+      "play": "Lancer l’animation",
+      "loading": "Chargement du circuit…",
+      "failed": "L’animation ne s’est pas chargée. Les leçons fonctionnent quand même."
+    },
+    "lessons": {
+      "title": "Trois leçons, un vrai système nerveux",
+      "lead": "Chaque leçon ne demande que quelques gestes. Les élèves stimulent et font taire de vrais types de cellules, répondent à une question, puis explorent par eux-mêmes.",
+      "lesson": "Leçon {number}",
+      "meta": "{steps, plural, one {# étape} many {# étapes} other {# étapes}} et une question · environ 10 minutes",
+      "start": "Commencer la leçon {number}"
+    },
+    "teachers": {
+      "title": "Pour les enseignants",
+      "lead": "Affichez le lien au tableau ou envoyez-le sur les appareils des élèves. Rien d’autre à préparer.",
+      "points": {
+        "periods": {
+          "title": "1 à 2 heures de cours",
+          "body": "Chaque leçon dure environ 10 minutes. Les trois, discussion comprise, tiennent en une ou deux heures de cours."
+        },
+        "install": {
+          "title": "Sans installation ni compte",
+          "body": "Tout fonctionne dans le navigateur, sur ordinateur portable, Chromebook, tablette ou téléphone. Les élèves ne créent jamais de compte et ne saisissent jamais d’adresse e-mail."
+        },
+        "free": {
+          "title": "Gratuit",
+          "body": "Pas de publicité, pas de version payante, rien à acheter."
+        },
+        "open": {
+          "title": "Code source ouvert",
+          "body": "Le code est sous licence MIT : vous pouvez voir comment il fonctionne ou héberger votre propre copie."
+        },
+        "share": {
+          "title": "Des essais à partager",
+          "body": "Le bouton « Partager » copie un lien qui rejoue l’essai d’un élève, impulsion par impulsion : vous voyez exactement ce qu’il a vu."
+        },
+        "honest": {
+          "title": "Scientifiquement honnête",
+          "body": "Un modèle simple d’un câblage réel. La page « À propos » dit exactement ce qui est réel et ce qui est simplifié."
+        }
+      },
+      "source": "Voir le code source sur GitHub",
+      "science": "Ce qui est réel et ce qui est simplifié"
+    }
+  },
+  "about": {
+    "title": "À propos de WiredMind",
+    "lead": "WiredMind est un ensemble de leçons gratuites pour la classe, construites sur le vrai schéma de câblage d’une drosophile. C’est un outil pédagogique, pas un modèle de recherche. Cette page s’adresse à ceux qui veulent savoir exactement où passe la frontière.",
+    "onThisPage": "Sur cette page",
+    "real": {
+      "title": "Ce qui est réel et ce qui est simplifié",
+      "realTitle": "Réel",
+      "realItems": {
+        "neurons": {
+          "title": "Les neurones.",
+          "body": "Chaque leçon utilise de 3 000 à 4 500 neurones reconstruits, issus du connectome <malecns>MaleCNS v1.0</malecns>, qui couvre tout le système nerveux central d’une mouche mâle, avec les types cellulaires attribués par ses auteurs."
+        },
+        "synapses": {
+          "title": "Le nombre de synapses.",
+          "body": "Le poids de chaque connexion est le nombre de synapses que le jeu de données recense entre les deux cellules, avec une confiance de détection d’au moins 0,5."
+        },
+        "signs": {
+          "title": "Le signe des connexions.",
+          "body": "Le neurotransmetteur prédit pour un neurone détermine s’il excite ou s’il inhibe : l’acétylcholine excite, le GABA et le glutamate inhibent. Les cellules dont on prédit qu’elles libèrent de la dopamine, de la sérotonine, de l’octopamine ou un transmetteur incertain n’ont aucun effet dans le modèle."
+        },
+        "shapes": {
+          "title": "Les formes et les positions.",
+          "body": "Chaque neurone est dessiné d’après son propre squelette dans le jeu de données, là où il se trouve réellement dans la mouche."
+        }
+      },
+      "simplifiedTitle": "Simplifié",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "De petits extraits.",
+          "body": "Chaque leçon fait tourner un sous-circuit de 3 000 à 4 500 neurones, et non tout le système nerveux. Le circuit de l’odorat compte quatre populations de cellules : les récepteurs, les neurones de projection, les cellules de Kenyon et les neurones de sortie. Les circuits de la boussole et de la fuite s’étendent sur deux relais synaptiques à partir de leurs types cellulaires de départ et gardent les partenaires les plus fortement connectés. Les connexions de moins de cinq synapses sont écartées. Tout ce qui se trouve hors de l’extrait disparaît, y compris l’inhibition qui équilibrerait normalement le réseau."
+        },
+        "model": {
+          "title": "Un seul modèle de neurone pour toutes les cellules.",
+          "body": "Des neurones ponctuels de type « intègre-et-tire à fuite », avec les mêmes paramètres partout, les valeurs publiées par <shiu>Shiu et al. (2024)</shiu> : repos et réinitialisation à −52 mV, seuil à −45 mV, constante de temps membranaire de 20 ms, constante de temps synaptique de 5 ms, période réfractaire de 2,2 ms, délai de 1,8 ms, 0,275 mV par synapse. Aucun calcul dendritique, aucun neurone à réponse graduée ou sans potentiel d’action, aucune neuromodulation et aucun apprentissage : les synapses ne changent jamais."
+        },
+        "gaps": {
+          "title": "Pas de jonctions communicantes.",
+          "body": "Le connectome ne recense que les synapses chimiques : les synapses électriques en sont donc absentes. Cela compte surtout dans la leçon sur la fuite : chez une vraie mouche, le lien entre la fibre géante et le motoneurone du saut est une synapse mixte qui repose en grande partie sur des jonctions communicantes. Ici, ce lien se résume à ses 90 synapses chimiques."
+        },
+        "learning": {
+          "title": "Pas d’apprentissage.",
+          "body": "La leçon sur l’odorat montre où une mouche stocke ses souvenirs d’odeurs, dans les synapses entre les cellules de Kenyon et les neurones de sortie, mais le modèle n’a ni neurones à dopamine ni plasticité. L’extrait laisse aussi de côté le neurone APL, qui maintient une activité parcimonieuse dans les cellules de Kenyon."
+        },
+        "stimulation": {
+          "title": "Une stimulation idéalisée.",
+          "body": "« Stimuler » envoie à chaque neurone d’un groupe une entrée de Poisson indépendante (40 Hz pendant 200 ms dans les leçons sur l’odorat et la fuite, 60 Hz pendant 800 ms pour les neurones de rotation), chaque événement étant assez fort pour faire décharger la cellule, un peu comme une activation optogénétique. Une vraie odeur active quelques types de récepteurs selon un motif ; l’odeur de la leçon active les 1 861 neurones récepteurs de l’extrait. Le tue-mouches active d’un coup les 304 cellules d’approche, alors qu’un vrai objet qui approche les recrute à mesure qu’il grossit."
+        },
+        "silence": {
+          "title": "« Faire taire » est un blocage total.",
+          "body": "Un groupe réduit au silence reste au repos, n’émet jamais d’impulsion et ne transmet rien. Les vrais outils pour faire taire des neurones, comme Kir2.1 ou la toxine tétanique, sont partiels, plus lents, et peuvent laisser fonctionner les synapses électriques."
+        },
+        "compass": {
+          "title": "Les repères de la boussole.",
+          "body": "Dans le modèle, les neurones en anneau ne reçoivent aucune entrée visuelle. Les faire taire supprime l’inhibition qu’ils exercent sur la boussole, et c’est ce qui fait dériver la bosse ici. Chez une vraie mouche, ils apportent des repères et d’autres indices venus des sens."
+        },
+        "timing": {
+          "title": "Le minutage.",
+          "body": "Les latences viennent d’un délai uniforme de 1,8 ms et des constantes de temps membranaire et synaptique, pas d’enregistrements. Elles tombent dans une plage plausible, mais rien n’a été réglé pour correspondre aux latences de fuite mesurées. Le visualiseur montre tout au ralenti, de 0,2 à 2 ms de temps de mouche par image selon l’appareil, et arrête la simulation 150 ms après le dernier stimulus : certains extraits contiennent des boucles excitatrices qui, sans l’inhibition restée hors de l’extrait, résonneraient sans fin."
+        },
+        "drawings": {
+          "title": "Des dessins, pas la vraie morphologie.",
+          "body": "Chaque neurone est dessiné comme une ligne de 12 points le long de son squelette, sans ses vraies ramifications. Les éclairs marquent les impulsions. Les points qui se déplacent sont une illustration : ils ne montrent ni la vitesse de conduction ni le vrai trajet d’une impulsion."
+        }
+      },
+      "researchTitle": "Ce qu’un outil de recherche ferait autrement",
+      "researchItems": {
+        "whole": "Simuler tout le système nerveux central, ou le découper selon des frontières justifiées avec des entrées modélisées, et garder les connexions faibles.",
+        "fit": "Ajuster les paramètres de chaque type cellulaire sur des enregistrements, admettre des neurones à réponse graduée ou sans potentiel d’action, et utiliser des modèles à conductances ou multicompartimentaux là où les dendrites comptent.",
+        "add": "Ajouter des jonctions communicantes tirées d’autres données, des neuromodulateurs comme la dopamine et l’octopamine, et de la plasticité, par exemple une dépression contrôlée par la dopamine aux synapses entre cellules de Kenyon et neurones de sortie.",
+        "drive": "Stimuler les neurones sensoriels comme le fait le monde réel : des motifs de récepteurs propres à chaque odeur, et des stimuli d’approche qui recrutent les cellules à mesure que l’objet grossit.",
+        "uncertain": "Traiter les prédictions de neurotransmetteurs et les poids comme incertains, les faire varier, lancer de nombreuses graines aléatoires et comparer les résultats avec l’électrophysiologie et le comportement."
+      },
+      "furtherTitle": "Aller à la source",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint> : pour interroger MaleCNS v1.0 cellule par cellule et synapse par synapse.",
+        "paper": "<paper>L’article sur MaleCNS</paper> : <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu> : le modèle « intègre-et-tire à fuite » du cerveau entier dont WiredMind reprend les paramètres.",
+        "code": "<code>Le code source</code> : la chaîne de traitement des données, le simulateur, les leçons, et les tests qui vérifient les affirmations de chaque leçon sur les vrais circuits."
+      }
+    },
+    "who": {
+      "title": "Qui a créé ce site",
+      "body": "WiredMind a été créé par {author}, développeur full-stack et stratège SEO à Tel-Aviv, en une semaine, en septembre 2026.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Soutenir"
+    },
+    "privacy": {
+      "title": "Confidentialité",
+      "body": "Aucun compte. Le seul cookie retient la langue que vous choisissez dans le menu des langues. Les pages vues sont comptées avec Vercel Web Analytics, qui n’utilise pas de cookies."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Comment une mouche se souvient d’une odeur",
+      "summary": "Envoyer une odeur dans un vrai cerveau de mouche et trouver les cellules qui s’en souviennent.",
+      "description": "Envoyer une odeur dans un vrai cerveau de drosophile, la suivre jusqu’au corps pédonculé et trouver où se loge son souvenir. Leçon gratuite de 10 minutes.",
+      "steps": {
+        "send": {
+          "text": "Une mouche sent avec ses <term>antennes</term> <gloss>(ses deux capteurs)</gloss>. Appuie sur « Stimuler » pour lui envoyer une odeur. Regarde les neurones orange s’allumer.",
+          "result": "Ces neurones orange sont les <term>récepteurs olfactifs</term> <gloss>(les attrape-odeurs)</gloss> : ils s’activent en premier. Toute odeur commence ici."
+        },
+        "follow": {
+          "text": "Appuie de nouveau sur « Stimuler » et suis les couleurs. En jaune, les <term>neurones de projection</term> <gloss>(les messagers d’odeurs)</gloss> emportent l’odeur vers l’intérieur du cerveau. En bleu, les <term>cellules de Kenyon</term> <gloss>(les trieuses d’odeurs)</gloss> la captent ensuite.",
+          "result": "Les cellules bleues donnent à chaque odeur son propre motif."
+        },
+        "read": {
+          "text": "Appuie encore une fois sur « Stimuler ». Regarde maintenant les <term>neurones de sortie</term> <gloss>(les décodeurs)</gloss>, en rose. Ils décodent le motif bleu.",
+          "result": "Quand une odeur arrive avec du sucre ou un danger, les liens du bleu vers le rose changent. Les scientifiques pensent que ce changement, c’est la mémoire."
+        },
+        "silence": {
+          "text": "Maintenant, fais taire les <term>cellules de Kenyon</term> <gloss>(les trieuses d’odeurs)</gloss>. On envoie l’odeur à ta place. Qu’est-ce qui disparaît ?",
+          "result": "La lumière rose disparaît presque. L’odeur entre toujours, mais les décodeurs n’ont plus rien à décoder."
+        },
+        "restore": {
+          "text": "Appuie de nouveau sur le bouton des <term>cellules de Kenyon</term> <gloss>(les trieuses d’odeurs)</gloss> pour les réactiver. On envoie la même odeur.",
+          "result": "La lumière rose revient. La mouche retrouve le souvenir de cette odeur."
+        }
+      },
+      "check": {
+        "question": "Tu as fait taire les <term>cellules de Kenyon</term> <gloss>(les cellules bleues)</gloss>. Pourquoi les cellules roses se sont-elles éteintes ?",
+        "choices": {
+          "never": {
+            "text": "L’odeur n’est jamais entrée dans la mouche.",
+            "feedback": "Pas tout à fait. Les cellules orange et jaunes se sont quand même allumées : l’odeur est donc bien entrée. Elle s’est arrêtée aux cellules bleues."
+          },
+          "pattern": {
+            "text": "Les cellules bleues transmettent le motif de chaque odeur aux cellules roses.",
+            "feedback": "Oui ! Les cellules bleues traduisent chaque odeur en un motif, et les cellules roses le décodent. Sans motif, rien à retenir."
+          },
+          "both": {
+            "text": "Tu as aussi fait taire les cellules roses.",
+            "feedback": "Pas tout à fait. Tu as seulement fait taire les cellules bleues. Les cellules roses sont restées actives, mais n’avaient rien à décoder."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Exploration libre",
+        "text": "Tous les boutons fonctionnent maintenant. Devine d’abord, puis appuie : qu’est-ce qui s’éteint si tu fais taire les messagers d’odeurs, en jaune ? Essaie de faire taire deux couleurs à la fois."
+      }
+    },
+    "compass": {
+      "title": "Comment une mouche s’oriente",
+      "summary": "Faire tourner la boussole d’une vraie mouche et voir ce qui la maintient en place.",
+      "description": "Faire tourner la boussole interne d’une vraie drosophile, puis faire taire les neurones en anneau et la voir dériver. Leçon gratuite de 10 minutes.",
+      "steps": {
+        "left": {
+          "text": "Appuie sur « Stimuler » pour activer les <term>neurones de rotation</term> <gloss>(l’ordre de tourner)</gloss> du côté gauche. Puis regarde le cadran de la boussole.",
+          "result": "Les <term>neurones de la boussole</term> <gloss>(les cellules d’orientation)</gloss> s’allument d’un côté. Cette tache brillante, la « bosse », montre de quel côté la mouche est tournée."
+        },
+        "right": {
+          "text": "Maintenant, appuie sur « Stimuler » pour les <term>neurones de rotation</term> <gloss>(l’autre ordre)</gloss> du côté droit. Garde les yeux sur la bosse.",
+          "result": "La bosse a tourné autour du cadran. Les ordres de tourner venus de chaque côté la poussent dans des sens opposés : la mouche change donc d’orientation, elle aussi."
+        },
+        "silence": {
+          "text": "Fais taire les <term>neurones en anneau</term> <gloss>(les porte-repères)</gloss>. Ils apportent ce que la mouche voit. On envoie l’ordre de droite à ta place.",
+          "result": "La bosse quitte sa place et se met à errer. Sans repères, la boussole dérive."
+        },
+        "restore": {
+          "text": "Appuie de nouveau sur le bouton des <term>neurones en anneau</term> <gloss>(les porte-repères)</gloss> pour les réactiver. On envoie le même ordre.",
+          "result": "La bosse tient de nouveau sa place. Grâce aux repères, la boussole de la mouche reste fiable."
+        }
+      },
+      "check": {
+        "question": "Tu as fait taire les porte-repères (les cellules violettes). Pourquoi la bosse a-t-elle dérivé ?",
+        "choices": {
+          "never": {
+            "text": "L’ordre de tourner n’est jamais arrivé jusqu’à la boussole.",
+            "feedback": "Pas tout à fait. Les cellules d’orientation vertes se sont quand même allumées : l’ordre est donc bien arrivé. Rien ne retenait la bosse en place."
+          },
+          "landmarks": {
+            "text": "Rien n’indiquait à la boussole où étaient les repères, alors la bosse a glissé.",
+            "feedback": "Oui ! Les cellules violettes apportent ce que la mouche voit. Sans elles, rien n’ancre la bosse dans le monde réel."
+          },
+          "both": {
+            "text": "Tu as aussi fait taire les cellules d’orientation vertes.",
+            "feedback": "Pas tout à fait. Tu as seulement fait taire les cellules violettes. Les cellules d’orientation vertes ont continué à s’activer, mais rien ne les retenait en place."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Exploration libre",
+        "text": "Tous les boutons fonctionnent maintenant. Devine d’abord, puis appuie : où va la bosse si tu envoies les deux ordres de tourner en même temps ? Refais l’essai en faisant taire les cellules violettes."
+      }
+    },
+    "escape": {
+      "title": "La fuite en 30 millisecondes",
+      "summary": "Trouver le fil qui permet à une mouche d’échapper à un tue-mouches.",
+      "description": "Des yeux aux pattes d’une vraie drosophile en 30 ms : suivre l’alerte au tue-mouches par la fibre géante, puis couper le fil. Leçon gratuite de 10 minutes.",
+      "steps": {
+        "loom": {
+          "text": "Un tue-mouches fond sur la mouche. Appuie sur « Stimuler » pour activer les <term>neurones d’approche</term> <gloss>(les guetteurs)</gloss>.",
+          "result": "Ils s’activent et, en quelques millièmes de seconde, la <term>fibre géante</term> <gloss>(le fil d’évasion)</gloss> s’active à son tour."
+        },
+        "jump": {
+          "text": "Appuie de nouveau sur « Stimuler ». Suis la <term>fibre géante</term> <gloss>(le fil d’évasion)</gloss> qui descend jusque dans le <term>cordon nerveux</term> <gloss>(sa moelle épinière)</gloss>.",
+          "result": "Les <term>neurones du saut</term> <gloss>(les propulseurs)</gloss> s’activent en moins de 30 millisecondes. Ils détendent d’un coup les pattes du milieu, et la mouche s’envole d’un bond."
+        },
+        "silence": {
+          "text": "Maintenant, fais taire la <term>fibre géante</term> <gloss>(le fil d’évasion)</gloss>. On envoie le tue-mouches. Regarde les <term>neurones du saut</term> <gloss>(les propulseurs)</gloss>.",
+          "result": "Les <term>neurones d’approche</term> <gloss>(les guetteurs)</gloss> s’activent toujours, mais les <term>neurones du saut</term> restent éteints. La fuite rapide a disparu."
+        },
+        "restore": {
+          "text": "Appuie de nouveau sur le bouton de la <term>fibre géante</term> <gloss>(le fil d’évasion)</gloss> pour la réactiver. On envoie le même tue-mouches.",
+          "result": "Les <term>neurones du saut</term> <gloss>(les propulseurs)</gloss> s’activent de nouveau. Les vraies mouches ont aussi des façons plus lentes de s’échapper, mais celle-ci est la plus rapide."
+        }
+      },
+      "check": {
+        "question": "Tu as fait taire la <term>fibre géante</term> <gloss>(le fil d’évasion)</gloss>. Pourquoi les propulseurs sont-ils restés éteints ?",
+        "choices": {
+          "never": {
+            "text": "La mouche n’a jamais vu le tue-mouches.",
+            "feedback": "Pas tout à fait. Les guetteurs bleus se sont quand même activés : la mouche a donc bien vu le tue-mouches. Le signal s’est arrêté au fil d’évasion."
+          },
+          "wire": {
+            "text": "Le fil d’évasion transmet le signal de saut aux propulseurs.",
+            "feedback": "Oui ! Les guetteurs préviennent le fil d’évasion, et le fil d’évasion ordonne aux pattes de sauter. Coupe le fil, et le saut rapide disparaît."
+          },
+          "both": {
+            "text": "Tu as aussi fait taire les propulseurs.",
+            "feedback": "Pas tout à fait. Tu as seulement fait taire le fil d’évasion. Les propulseurs sont restés actifs, mais n’ont reçu aucun signal."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Exploration libre",
+        "text": "Tous les boutons fonctionnent maintenant. Devine d’abord, puis appuie : quelles couleurs s’allument encore si tu fais taire le fil d’évasion ? Essaie ensuite plutôt de faire taire les guetteurs."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Récepteurs olfactifs",
+        "pn": "Neurones de projection",
+        "kc": "Cellules de Kenyon",
+        "mbon": "Neurones de sortie"
+      },
+      "stimulate": {
+        "orn": "Active les neurones récepteurs de l’antenne, les premiers à capter une odeur."
+      },
+      "silence": {
+        "pn": "Empêche le lobe antennaire de transmettre cette odeur au corps pédonculé.",
+        "kc": "Réduit au silence les cellules qui distinguent une odeur d’une autre.",
+        "mbon": "Empêche le corps pédonculé de transmettre le résultat au reste du cerveau."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Neurones en anneau",
+        "compass": "Neurones de la boussole",
+        "turn-left": "Neurones de rotation de gauche",
+        "turn-right": "Neurones de rotation de droite"
+      },
+      "stimulate": {
+        "turn-left": "Active les cellules de rotation P-EN2 du côté gauche du pont.",
+        "turn-right": "Active les cellules de rotation P-EN2 du côté droit du pont."
+      },
+      "silence": {
+        "ring": "Bloque les neurones en anneau, qui apportent les repères venus des yeux.",
+        "compass": "Réduit au silence les cellules d’orientation E-PG qui forment la boussole."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Neurones d’approche",
+        "gf": "Fibre géante",
+        "jump": "Neurones du saut"
+      },
+      "stimulate": {
+        "looming": "Active les cellules visuelles LC4 et LPLC2, qui repèrent un objet fonçant sur la mouche."
+      },
+      "silence": {
+        "looming": "Empêche les cellules visuelles de signaler l’attaque.",
+        "gf": "Bloque la fibre géante, le fil d’évasion le plus rapide de la mouche.",
+        "jump": "Réduit au silence les motoneurones qui détendent les pattes du milieu."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Leçon {number}",
+      "canvasHelp": "Vue en trois dimensions des neurones. Fais glisser pour la faire pivoter. Pince l’écran pour zoomer.",
+      "loading": "Chargement du circuit…",
+      "loadingPercent": "Chargement du circuit… {percent} %"
+    },
+    "load": {
+      "unavailable": "Les fichiers du circuit ne sont pas disponibles. Recharge la page pour réessayer.",
+      "damaged": "Les fichiers du circuit sont endommagés. Recharge la page pour réessayer.",
+      "failed": "Le circuit ne s’est pas chargé. Recharge la page pour réessayer."
+    },
+    "controls": {
+      "stimulate": "Stimuler",
+      "silence": "Faire taire",
+      "activity": "Activité",
+      "reset": "Réinitialiser",
+      "dragHint": "Fais glisser le cerveau pour le faire pivoter. Pince l’écran pour zoomer.",
+      "activityLabel": "Activité : {group}",
+      "locked": "Verrouillé",
+      "lockedHint": "Pas à cette étape. Tous les boutons se débloquent en exploration libre.",
+      "stimulateNamed": "Stimuler : {name}",
+      "silenceNamed": "Faire taire : {name}",
+      "silencedNamed": "Réduit au silence : {name}",
+      "silenced": "Réduit au silence · appuie pour réactiver"
+    },
+    "sheet": {
+      "more": "Afficher plus",
+      "less": "Afficher moins"
+    },
+    "toolbar": {
+      "lessonOf": "Leçon {number} sur {total}",
+      "share": "Partager",
+      "copied": "Lien copié. Il rejoue ton essai.",
+      "copiedEmpty": "Lien copié. Appuie d’abord sur un bouton pour partager un essai.",
+      "copyThis": "Copie ce lien :",
+      "linkLabel": "Lien vers cet essai"
+    },
+    "lesson": {
+      "tapCue": "Appuie sur le bouton qui brille, en bas.",
+      "watching": "Regarde le cerveau…",
+      "again": "Recommencer la leçon",
+      "next": "Suivant",
+      "question": "Une petite question",
+      "freePlay": "Passer à l’exploration libre",
+      "pickAnswer": "Choisis la réponse qui te semble juste.",
+      "nextLesson": "Leçon suivante : {title}",
+      "finished": "Tu as terminé toutes les leçons. Continue à explorer.",
+      "cueStimulate": "Stimuler",
+      "cueSilence": "Faire taire",
+      "cueSwitchOn": "Réactiver",
+      "loadingBrain": "Chargement du cerveau…",
+      "gettingReady": "Préparation… regarde le cerveau",
+      "watchBrain": "Regarde le cerveau",
+      "puffProgress": "Progression de la stimulation",
+      "puffClock": "{name} : {elapsed} sur {total} ms, au ralenti",
+      "slowMotion": "Au ralenti, pour que tu puisses suivre",
+      "step": "Étape {number} sur {total}",
+      "quickQuestion": "Petite question",
+      "done": "Leçon terminée",
+      "answers": "Réponses",
+      "tryAnother": "Essaie une autre réponse."
+    },
+    "replay": {
+      "label": "Rediffusion : {title}",
+      "section": "Rediffusion",
+      "finished": "Rediffusion terminée",
+      "shared": "Quelqu’un a partagé son essai de la leçon « {title} ». Regarde-le se rejouer, impulsion par impulsion.",
+      "over": "C’était l’essai en entier. Tous les boutons fonctionnent maintenant, alors fais ton propre essai.",
+      "replaying": "Rediffusion d’un essai partagé",
+      "progress": "Progression de la rediffusion",
+      "pressOf": "Appui {number} sur {total}, aux mêmes instants et avec la même graine",
+      "tick": "{ms} ms",
+      "watchAgain": "Revoir",
+      "start": "Commencer la leçon",
+      "stimulate": "Stimuler : {name}",
+      "silence": "Faire taire : {name}",
+      "switchOn": "Réactiver : {name}",
+      "notice": "{problem} Voici la leçon à la place.",
+      "errors": {
+        "unknownLesson": "Cette rediffusion concerne une leçon que ce site n’a pas.",
+        "unknownButton": "Cette rediffusion utilise un bouton que cette leçon n’a plus.",
+        "empty": "Ce lien de rediffusion est vide ou trop long.",
+        "version": "Ce lien de rediffusion vient d’une autre version.",
+        "seed": "La graine de la rediffusion est trop grande.",
+        "tooMany": "Cette rediffusion a trop d’étapes pour être lue.",
+        "tooLong": "Cette rediffusion est trop longue pour être lue.",
+        "broken": "Ce lien de rediffusion est cassé ou incomplet.",
+        "generic": "Ce lien de rediffusion n’a pas fonctionné."
+      }
+    },
+    "compass": {
+      "label": "Cadran de la boussole. Les secteurs lumineux et l’aiguille montrent où se trouve la bosse sur l’anneau.",
+      "left": "G",
+      "right": "D",
+      "caption": "Boussole · vue de dos"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Cette page n’existe pas",
+      "body": "Le lien est peut-être ancien ou mal saisi. Les leçons, elles, sont toujours là.",
+      "home": "Aller aux leçons"
+    },
+    "error": {
+      "title": "Une erreur s’est produite",
+      "body": "La page a rencontré une erreur. Réessayez, ou revenez aux leçons.",
+      "retry": "Réessayer",
+      "home": "Aller aux leçons"
+    }
+  }
+}

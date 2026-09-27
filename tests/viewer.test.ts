@@ -19,6 +19,22 @@ import {
   ticksIn,
 } from "../apps/web/src/viewer/session.js";
 
+const en = JSON.parse(
+  readFileSync(
+    new URL("../apps/web/messages/en.json", import.meta.url),
+    "utf8",
+  ),
+) as {
+  circuits: Record<
+    string,
+    {
+      groups: Record<string, string>;
+      stimulate: Record<string, string>;
+      silence: Record<string, string>;
+    }
+  >;
+};
+
 function content(path: string): unknown {
   return JSON.parse(
     readFileSync(
@@ -47,16 +63,28 @@ describe("module.json", () => {
     );
   });
 
-  it("gives every button and toggle one plain sentence", () => {
+  it("gives every button and toggle a name and one plain sentence", () => {
     for (const circuit of CIRCUITS) {
       const spec = readModule(content(`${circuit}/module.json`));
-      for (const control of [...spec.stimuli, ...spec.silence]) {
-        assert.equal(
-          isOneSentence(control.label),
-          true,
-          `${circuit} ${control.colorGroup}`,
+      const copy = en.circuits[circuit];
+      for (const group of spec.groups) {
+        assert.ok(
+          copy.groups[group.colorGroup],
+          `${circuit} ${group.colorGroup}`,
         );
-        assert.ok(control.name.length > 0);
+      }
+      for (const [kind, controls] of [
+        ["stimulate", spec.stimuli],
+        ["silence", spec.silence],
+      ] as const) {
+        for (const control of controls) {
+          const label = copy[kind][control.colorGroup] ?? "";
+          assert.equal(
+            isOneSentence(label),
+            true,
+            `${circuit} ${kind} ${control.colorGroup}`,
+          );
+        }
       }
       for (const group of spec.groups) {
         assert.match(group.color, /^#[0-9A-Fa-f]{6}$/);
@@ -138,19 +166,16 @@ describe("neuron groups", () => {
       [
         {
           colorGroup: "turn",
-          label: "Turn",
           color: "#000001",
           match: match({ ids: [11] }),
         },
         {
           colorGroup: "epg",
-          label: "E-PG",
           color: "#000002",
           match: match({ types: ["EPG"] }),
         },
         {
           colorGroup: "ring",
-          label: "Ring",
           color: "#000003",
           match: match({ colorGroups: ["ring"] }),
         },

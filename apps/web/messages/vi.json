@@ -1,0 +1,535 @@
+{
+  "_meta": {
+    "locale": "vi",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27"
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: khám phá bộ não thật của ruồi giấm",
+      "description": "Bài học miễn phí cho lớp học về não ruồi giấm thật. Kích thích và làm im lặng nơ-ron từ connectome MaleCNS ngay trên trình duyệt. Không cần đăng nhập."
+    },
+    "about": {
+      "title": "Về WiredMind: điều gì là thật, điều gì được đơn giản hóa",
+      "description": "Điều gì là thật và điều gì được đơn giản hóa trong các bài học về não ruồi giấm của WiredMind, ai đã làm ra và cách ủng hộ dự án."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Không tìm thấy trang · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Xem phản xạ thoát hiểm của ruồi lao vút qua mạng kết nối thật",
+      "subtitle": "Bài học miễn phí cho lớp học, dựa trên connectome MaleCNS"
+    },
+    "about": {
+      "title": "Điều gì là thật, điều gì được đơn giản hóa",
+      "subtitle": "Cách WiredMind biến một connectome thật thành bài học trên lớp"
+    },
+    "lessonLabel": "Bài {number}/{total}",
+    "alt": "{title}, trên nền ảnh tĩnh về phản xạ thoát hiểm trong bản đồ kết nối của một con ruồi giấm thật"
+  },
+  "manifest": {
+    "name": "WiredMind: bài học về não ruồi giấm",
+    "description": "Bài học miễn phí cho lớp học về mạng kết nối thật trong não ruồi giấm."
+  },
+  "jsonLd": {
+    "educationalLevel": "Trung học cơ sở và trung học phổ thông",
+    "learningResourceType": "Bài học tương tác",
+    "audience": "Học sinh và giáo viên"
+  },
+  "nav": {
+    "label": "Trang web",
+    "home": "Trang chủ WiredMind",
+    "lessons": "Bài học",
+    "teachers": "Dành cho giáo viên",
+    "about": "Giới thiệu"
+  },
+  "a11y": {
+    "skip": "Chuyển đến nội dung",
+    "newTab": "(mở trong thẻ mới)"
+  },
+  "language": {
+    "button": "Ngôn ngữ: {language}",
+    "menu": "Chọn ngôn ngữ"
+  },
+  "translate": {
+    "notice": "WiredMind chưa có bản {language}, nên trang này đang hiển thị bằng tiếng Anh.",
+    "cta": "Giúp dịch trang web",
+    "dismiss": "Đóng"
+  },
+  "footer": {
+    "builtBy": "Do {author} xây dựng",
+    "github": "GitHub",
+    "githubLabel": "Giúp dịch hoặc đóng góp trên GitHub",
+    "about": "Giới thiệu",
+    "code": "Mã nguồn: MIT",
+    "credits": "Nơ-ron lấy từ connectome <malecns>MaleCNS v1.0</malecns> của <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Đại học Cambridge</cambridge>, <mrc>Phòng thí nghiệm Sinh học Phân tử MRC</mrc> và <google>Google Research</google>, theo giấy phép <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "WiredMind miễn phí và sẽ luôn miễn phí. Nếu trang web đã giúp ích cho lớp của bạn, một ly cà phê sẽ giữ cho máy chủ tiếp tục chạy đều.",
+    "coffee": "☕ Mời mình một ly cà phê"
+  },
+  "credits": {
+    "title": "Nơ-ron đến từ đâu",
+    "body": "Mọi nơ-ron và mọi số lượng xi-náp đều lấy từ <malecns>connectome MaleCNS v1.0</malecns> của hệ thần kinh trung ương ruồi giấm đực, do <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Đại học Cambridge</cambridge>, <mrc>Phòng thí nghiệm Sinh học Phân tử MRC</mrc> và <google>Google Research</google> thực hiện.",
+    "license": "Dữ liệu được cấp phép theo <ccby>CC BY 4.0</ccby>. WiredMind có thay đổi dữ liệu: cắt ra ba mạch nhỏ, bỏ các kết nối có ít hơn năm xi-náp và vẽ mỗi nơ-ron thành một đường đơn giản. Trình mô phỏng dùng mô hình nơ-ron của <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Bài học khoa học thần kinh miễn phí cho lớp học",
+      "title": "Kích hoạt một nơ-ron trong não của một con ruồi giấm thật và xem tín hiệu lao vút từ mắt xuống chân.",
+      "lead": "WiredMind chạy bản đồ kết nối thật của hệ thần kinh ruồi giấm ngay trên trình duyệt. Qua ba bài học ngắn có hướng dẫn, học sinh kích thích nơ-ron, làm im lặng chúng và xem điều gì thay đổi.",
+      "start": "Bắt đầu bài học đầu tiên",
+      "teachers": "Dành cho giáo viên"
+    },
+    "loop": {
+      "label": "Hoạt ảnh phản xạ thoát hiểm trong bản đồ kết nối của ruồi",
+      "caption": "{spanMs} ms đầu tiên sau khi vỉ đập ruồi xuất hiện, trích từ bài học thoát hiểm, được làm chậm {slowdown} lần. Các kết nối là thật, lấy từ connectome MaleCNS. Các xung thần kinh đến từ một mô phỏng đơn giản. <simplified>Những gì được đơn giản hóa</simplified>",
+      "steps": {
+        "looming": "Nơ-ron phát hiện vật lao tới nhận ra vỉ đập ruồi",
+        "gf": "Sợi khổng lồ phát xung",
+        "jump": "Nơ-ron nhảy khiến chân đạp mạnh"
+      },
+      "cells": "{count, plural, other {# tế bào}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms theo đồng hồ của ruồi",
+      "waiting": "Vỉ đập ruồi đang lao tới",
+      "pause": "Tạm dừng hoạt ảnh",
+      "play": "Phát hoạt ảnh",
+      "loading": "Đang tải mạch thần kinh…",
+      "failed": "Không tải được hoạt ảnh. Các bài học vẫn dùng bình thường."
+    },
+    "lessons": {
+      "title": "Ba bài học, một hệ thần kinh thật",
+      "lead": "Mỗi bài học chỉ cần vài lần nhấn. Học sinh kích thích và làm im lặng các loại tế bào thật, trả lời một câu hỏi, rồi tự mình khám phá.",
+      "lesson": "Bài {number}",
+      "meta": "{steps, plural, other {# bước}} và một câu hỏi · khoảng 10 phút",
+      "start": "Bắt đầu bài {number}"
+    },
+    "teachers": {
+      "title": "Dành cho giáo viên",
+      "lead": "Đưa liên kết lên bảng hoặc gửi đến thiết bị riêng của học sinh. Không cần thiết lập gì thêm.",
+      "points": {
+        "periods": {
+          "title": "1–2 tiết học",
+          "body": "Mỗi bài học mất khoảng 10 phút. Cả ba bài, kèm thảo luận, vừa đủ trong một hoặc hai tiết."
+        },
+        "install": {
+          "title": "Không cài đặt, không đăng nhập",
+          "body": "Chạy ngay trên trình duyệt của máy tính xách tay, Chromebook, máy tính bảng và điện thoại. Học sinh không cần tạo tài khoản hay nhập email."
+        },
+        "free": {
+          "title": "Miễn phí",
+          "body": "Không quảng cáo, không có gói trả phí, không phải mua gì."
+        },
+        "open": {
+          "title": "Mã nguồn mở",
+          "body": "Mã nguồn dùng giấy phép MIT, nên bạn có thể đọc xem nó hoạt động thế nào hoặc tự chạy một bản của riêng mình."
+        },
+        "share": {
+          "title": "Chia sẻ thí nghiệm",
+          "body": "Nút Chia sẻ sao chép một liên kết phát lại thí nghiệm của học sinh, đúng từng xung thần kinh, để bạn thấy những gì các em đã thấy."
+        },
+        "honest": {
+          "title": "Trung thực về khoa học",
+          "body": "Một mô hình đơn giản chạy trên mạng kết nối thật. Trang giới thiệu nói rõ điều gì là thật và điều gì được đơn giản hóa."
+        }
+      },
+      "source": "Xem mã nguồn trên GitHub",
+      "science": "Điều gì là thật, điều gì được đơn giản hóa"
+    }
+  },
+  "about": {
+    "title": "Giới thiệu WiredMind",
+    "lead": "WiredMind là bộ bài học miễn phí cho lớp học, xây dựng trên bản đồ kết nối thật của một con ruồi giấm. Đây là công cụ dạy học, không phải mô hình nghiên cứu. Trang này dành cho những ai muốn biết chính xác ranh giới nằm ở đâu.",
+    "onThisPage": "Trên trang này",
+    "real": {
+      "title": "Điều gì là thật, điều gì được đơn giản hóa",
+      "realTitle": "Những gì là thật",
+      "realItems": {
+        "neurons": {
+          "title": "Các nơ-ron.",
+          "body": "Mỗi bài học dùng từ 3.000 đến 4.500 nơ-ron được tái dựng từ connectome <malecns>MaleCNS v1.0</malecns>, tức toàn bộ hệ thần kinh trung ương của một con ruồi đực, cùng các loại tế bào mà nhóm tác giả đã xác định."
+        },
+        "synapses": {
+          "title": "Số lượng xi-náp.",
+          "body": "Trọng số của mỗi kết nối là số xi-náp mà bộ dữ liệu ghi nhận giữa hai tế bào, với độ tin cậy phát hiện từ 0,5 trở lên."
+        },
+        "signs": {
+          "title": "Dấu của kết nối.",
+          "body": "Chất dẫn truyền thần kinh được dự đoán của một nơ-ron quyết định nó gây hưng phấn hay ức chế: acetylcholine gây hưng phấn, GABA và glutamate gây ức chế. Các tế bào được dự đoán tiết dopamine, serotonin, octopamine hoặc một chất dẫn truyền chưa rõ thì không có tác dụng gì trong mô hình."
+        },
+        "shapes": {
+          "title": "Hình dạng và vị trí.",
+          "body": "Mỗi nơ-ron được vẽ theo bộ khung của chính nó trong bộ dữ liệu, đúng vị trí thật của nó trong cơ thể ruồi."
+        }
+      },
+      "simplifiedTitle": "Những gì được đơn giản hóa",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Những phần cắt nhỏ.",
+          "body": "Mỗi bài học chạy một mạch con gồm 3.000 đến 4.500 nơ-ron, không phải toàn bộ hệ thần kinh. Mạch khứu giác gồm bốn nhóm tế bào: thụ thể, nơ-ron chiếu, tế bào Kenyon và nơ-ron đầu ra. Mạch la bàn và mạch thoát hiểm được mở rộng thêm hai bước kết nối từ các loại tế bào khởi đầu, rồi giữ lại những tế bào có kết nối mạnh nhất với chúng. Các kết nối có ít hơn năm xi-náp bị loại bỏ. Mọi thứ nằm ngoài phần cắt đều không còn, kể cả sự ức chế vốn thường giữ cân bằng cho mạng lưới."
+        },
+        "model": {
+          "title": "Một mô hình nơ-ron cho mọi tế bào.",
+          "body": "Nơ-ron điểm kiểu tích hợp và phát xung có rò rỉ (leaky integrate-and-fire), dùng cùng một bộ tham số ở mọi nơi, theo các giá trị đã công bố của <shiu>Shiu et al. (2024)</shiu>: điện thế nghỉ và điện thế đặt lại −52 mV, ngưỡng −45 mV, hằng số thời gian màng 20 ms, hằng số thời gian xi-náp 5 ms, thời gian trơ 2,2 ms, độ trễ 1,8 ms, 0,275 mV cho mỗi xi-náp. Không có tính toán ở sợi nhánh, không có nơ-ron tín hiệu phân cấp hay nơ-ron không phát xung, không có điều biến thần kinh và không có học tập: các xi-náp không bao giờ thay đổi."
+        },
+        "gaps": {
+          "title": "Không có khe nối.",
+          "body": "Connectome chỉ ghi lại các xi-náp hóa học, nên không có xi-náp điện. Điều này quan trọng nhất trong bài học thoát hiểm: ở ruồi thật, liên kết từ sợi khổng lồ đến nơ-ron vận động điều khiển cú nhảy là một xi-náp hỗn hợp dựa nhiều vào khe nối. Ở đây, liên kết đó chỉ gồm 90 xi-náp hóa học của nó."
+        },
+        "learning": {
+          "title": "Không có quá trình học.",
+          "body": "Bài học về mùi cho thấy nơi ruồi lưu giữ ký ức về mùi, tức các xi-náp từ tế bào Kenyon đến nơ-ron đầu ra, nhưng mô hình không có nơ-ron dopamine và không có tính dẻo xi-náp. Phần cắt cũng bỏ qua nơ-ron APL, vốn giữ cho hoạt động của tế bào Kenyon luôn thưa thớt."
+        },
+        "stimulation": {
+          "title": "Kích thích được lý tưởng hóa.",
+          "body": "Nút Kích thích kích hoạt mọi nơ-ron trong một nhóm bằng đầu vào Poisson độc lập (40 Hz trong 200 ms ở bài học về mùi và bài học thoát hiểm, 60 Hz trong 800 ms với nơ-ron rẽ), mỗi sự kiện đủ mạnh để làm tế bào phát xung, gần giống kích hoạt bằng quang di truyền. Một mùi thật chỉ kích hoạt vài loại thụ thể theo một mẫu hình; còn mùi trong bài học làm cả 1.861 nơ-ron thụ thể trong phần cắt phát xung. Vỉ đập ruồi làm cả 304 tế bào phát hiện vật lao tới phát xung cùng lúc, trong khi một vật lao tới thật sẽ huy động dần các tế bào này khi nó to lên."
+        },
+        "silence": {
+          "title": "Làm im lặng là tắt hẳn.",
+          "body": "Một nhóm bị làm im lặng sẽ nằm yên ở điện thế nghỉ, không bao giờ phát xung và không gửi đi gì cả. Các công cụ làm im lặng thật như Kir2.1 hay độc tố uốn ván chỉ có tác dụng một phần, chậm hơn và có thể để các xi-náp điện vẫn hoạt động."
+        },
+        "compass": {
+          "title": "Điểm mốc của la bàn.",
+          "body": "Trong mô hình, nơ-ron vòng không nhận đầu vào thị giác nào. Làm im lặng chúng sẽ gỡ bỏ sự ức chế của chúng lên la bàn, và chính điều đó khiến đốm sáng bị trôi ở đây. Ở ruồi thật, chúng đưa điểm mốc và các tín hiệu khác từ giác quan vào."
+        },
+        "timing": {
+          "title": "Thời gian.",
+          "body": "Các độ trễ được tính từ một khoảng trễ đồng nhất 1,8 ms cùng các hằng số thời gian của màng và xi-náp, chứ không lấy từ số liệu ghi đo. Chúng nằm trong một khoảng hợp lý, nhưng không có gì được tinh chỉnh để khớp với độ trễ thoát hiểm đã đo được. Trình xem phát mọi thứ ở tốc độ chậm, 0,2 đến 2 ms thời gian của ruồi cho mỗi khung hình tùy thiết bị, và ngừng mô phỏng 150 ms sau kích thích cuối cùng, vì một số phần cắt có các vòng lặp hưng phấn lẽ ra sẽ vang vọng mãi khi thiếu phần ức chế đã bị cắt bỏ."
+        },
+        "drawings": {
+          "title": "Hình vẽ, không phải hình thái thật.",
+          "body": "Mỗi nơ-ron được vẽ thành một đường 12 điểm dọc theo bộ khung của nó, chứ không phải các nhánh thật. Các chớp sáng đánh dấu xung thần kinh. Những chấm di chuyển chỉ để minh họa, không thể hiện tốc độ dẫn truyền hay đường đi thật của một xung."
+        }
+      },
+      "researchTitle": "Một công cụ nghiên cứu sẽ làm khác đi thế nào",
+      "researchItems": {
+        "whole": "Mô phỏng toàn bộ hệ thần kinh trung ương, hoặc cắt theo những ranh giới có cơ sở cùng với đầu vào được mô hình hóa, và giữ lại các kết nối yếu.",
+        "fit": "Khớp tham số theo từng loại tế bào với số liệu ghi đo, cho phép nơ-ron tín hiệu phân cấp và nơ-ron không phát xung, đồng thời dùng mô hình dựa trên độ dẫn hoặc mô hình nhiều ngăn ở những nơi sợi nhánh đóng vai trò quan trọng.",
+        "add": "Bổ sung khe nối từ các nguồn dữ liệu khác, các chất điều biến thần kinh như dopamine và octopamine, và tính dẻo xi-náp, chẳng hạn sự suy giảm do dopamine điều khiển tại các xi-náp từ tế bào Kenyon đến nơ-ron đầu ra.",
+        "drive": "Kích hoạt nơ-ron cảm giác theo cách thế giới thật vẫn làm: các mẫu hình thụ thể riêng cho từng mùi, và kích thích vật lao tới huy động dần các tế bào khi vật to lên.",
+        "uncertain": "Coi các dự đoán về chất dẫn truyền và các trọng số là chưa chắc chắn, quét qua nhiều giá trị, chạy với nhiều seed ngẫu nhiên, rồi so sánh kết quả với dữ liệu điện sinh lý và hành vi."
+      },
+      "furtherTitle": "Tìm đến tận nguồn",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: tra cứu MaleCNS v1.0 theo từng tế bào và từng xi-náp.",
+        "paper": "<paper>Bài báo về MaleCNS</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: mô hình tích hợp và phát xung có rò rỉ cho toàn bộ não; WiredMind mượn bộ tham số của mô hình này.",
+        "code": "<code>Mã nguồn</code>: quy trình xử lý dữ liệu, trình mô phỏng, các bài học và các bài kiểm thử đối chiếu từng khẳng định của bài học với mạch thật."
+      }
+    },
+    "who": {
+      "title": "Ai đã làm ra trang này",
+      "body": "WiredMind do {author}, một lập trình viên full-stack và chuyên gia chiến lược SEO ở Tel Aviv, xây dựng trong một tuần vào tháng 9 năm 2026.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Ủng hộ"
+    },
+    "privacy": {
+      "title": "Quyền riêng tư",
+      "body": "Không có tài khoản nào. Cookie duy nhất chỉ ghi nhớ ngôn ngữ bạn chọn trong menu ngôn ngữ. Lượt xem trang được đếm bằng Vercel Web Analytics, công cụ này không dùng cookie."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Ruồi ghi nhớ mùi như thế nào",
+      "summary": "Gửi một mùi vào não ruồi thật và tìm những tế bào ghi nhớ mùi đó.",
+      "description": "Gửi một mùi vào não ruồi giấm thật, lần theo nó đến thể nấm và tìm các tế bào lưu giữ ký ức về mùi. Bài học miễn phí dài 10 phút.",
+      "steps": {
+        "send": {
+          "text": "Ruồi ngửi mùi bằng <term>anten</term> <gloss>(hai sợi râu)</gloss>. Nhấn nút Kích thích để gửi một mùi vào. Hãy xem các nơ-ron màu cam sáng lên.",
+          "result": "Những nơ-ron màu cam ấy là <term>thụ thể mùi</term> <gloss>(người bắt mùi)</gloss>. Chúng phát xung đầu tiên. Mọi mùi đều bắt đầu từ đây."
+        },
+        "follow": {
+          "text": "Nhấn nút Kích thích lần nữa và dõi theo các màu. Màu vàng là <term>nơ-ron chiếu</term> <gloss>(người đưa tin mùi)</gloss>, chúng mang mùi vào trong. Màu xanh dương là <term>tế bào Kenyon</term> <gloss>(người phân loại mùi)</gloss>, chúng đón mùi ngay sau đó.",
+          "result": "Các tế bào màu xanh dương biến mỗi mùi thành một mẫu hình riêng."
+        },
+        "read": {
+          "text": "Nhấn nút Kích thích thêm một lần nữa. Giờ hãy nhìn màu hồng: đó là <term>nơ-ron đầu ra</term> <gloss>(người đọc ký ức)</gloss>. Chúng đọc mẫu hình của màu xanh dương.",
+          "result": "Khi một mùi đi kèm với đồ ngọt hoặc mối nguy hiểm, các liên kết từ màu xanh dương sang màu hồng sẽ thay đổi. Các nhà khoa học cho rằng chính sự thay đổi đó là ký ức."
+        },
+        "silence": {
+          "text": "Giờ hãy làm im lặng <term>tế bào Kenyon</term> <gloss>(người phân loại mùi)</gloss>. Chúng mình sẽ gửi mùi giúp bạn. Điều gì sẽ biến mất?",
+          "result": "Ánh sáng màu hồng gần như tắt hẳn. Mùi vẫn vào được, nhưng người đọc ký ức chẳng có gì để đọc."
+        },
+        "restore": {
+          "text": "Nhấn nút <term>tế bào Kenyon</term> <gloss>(người phân loại mùi)</gloss> một lần nữa để bật lại chúng. Chúng mình sẽ gửi đúng mùi đó.",
+          "result": "Ánh sáng màu hồng quay trở lại. Ruồi lại đọc được ký ức về mùi của nó."
+        }
+      },
+      "check": {
+        "question": "Bạn đã làm im lặng <term>tế bào Kenyon</term> <gloss>(màu xanh dương)</gloss>. Vì sao các tế bào màu hồng lại tối đi?",
+        "choices": {
+          "never": {
+            "text": "Mùi không hề vào được bên trong ruồi.",
+            "feedback": "Chưa đúng lắm. Các tế bào màu cam và màu vàng vẫn sáng lên, nên mùi đã vào được. Nó dừng lại ở các tế bào màu xanh dương."
+          },
+          "pattern": {
+            "text": "Các tế bào màu xanh dương chuyển mẫu hình của từng mùi sang các tế bào màu hồng.",
+            "feedback": "Đúng rồi! Các tế bào màu xanh dương sắp xếp mỗi mùi thành một mẫu hình, và các tế bào màu hồng đọc mẫu hình đó. Không có mẫu hình thì chẳng có gì để ghi nhớ."
+          },
+          "both": {
+            "text": "Bạn đã tắt luôn cả các tế bào màu hồng.",
+            "feedback": "Chưa đúng lắm. Bạn chỉ tắt các tế bào màu xanh dương thôi. Các tế bào màu hồng vẫn hoạt động nhưng không có gì để đọc."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Khám phá tự do",
+        "text": "Giờ thì nút nào cũng dùng được. Hãy đoán trước rồi mới nhấn: phần nào sẽ tối đi nếu bạn làm im lặng những người đưa tin mùi màu vàng? Thử làm im lặng hai màu cùng lúc xem sao."
+      }
+    },
+    "compass": {
+      "title": "Làm sao ruồi biết mình đang hướng về đâu",
+      "summary": "Đẩy la bàn của một con ruồi thật xoay vòng và xem điều gì giữ nó đúng chỗ.",
+      "description": "Đẩy la bàn trong não ruồi giấm thật xoay vòng, rồi làm im lặng nơ-ron vòng và xem cảm giác phương hướng của ruồi trôi đi. Bài học miễn phí dài 10 phút.",
+      "steps": {
+        "left": {
+          "text": "Nhấn nút Kích thích để <term>nơ-ron rẽ trái</term> <gloss>(tín hiệu rẽ)</gloss> phát xung. Sau đó hãy nhìn mặt la bàn.",
+          "result": "<term>Nơ-ron la bàn</term> <gloss>(tế bào chỉ hướng)</gloss> sáng lên ở một phía. Đốm sáng đó cho biết ruồi đang quay mặt về hướng nào."
+        },
+        "right": {
+          "text": "Giờ hãy nhấn nút Kích thích của <term>nơ-ron rẽ phải</term> <gloss>(tín hiệu kia)</gloss>. Đừng rời mắt khỏi đốm sáng.",
+          "result": "Đốm sáng đã xoay quanh mặt la bàn. Tín hiệu rẽ từ mỗi bên đẩy nó theo hai hướng ngược nhau, nên hướng của ruồi cũng xoay theo."
+        },
+        "silence": {
+          "text": "Hãy làm im lặng <term>nơ-ron vòng</term> <gloss>(người mang điểm mốc)</gloss>. Chúng đưa vào những gì ruồi nhìn thấy. Chúng mình sẽ gửi tín hiệu rẽ phải giúp bạn.",
+          "result": "Đốm sáng trượt khỏi chỗ của nó và đi lang thang. Không có điểm mốc, la bàn bị trôi."
+        },
+        "restore": {
+          "text": "Nhấn nút <term>nơ-ron vòng</term> <gloss>(người mang điểm mốc)</gloss> một lần nữa để bật lại chúng. Chúng mình sẽ gửi đúng tín hiệu đó.",
+          "result": "Đốm sáng lại đứng yên đúng chỗ. Điểm mốc giúp la bàn của ruồi luôn chỉ đúng."
+        }
+      },
+      "check": {
+        "question": "Bạn đã làm im lặng người mang điểm mốc (các tế bào màu tím). Vì sao đốm sáng bị trôi?",
+        "choices": {
+          "never": {
+            "text": "Tín hiệu rẽ không hề đến được la bàn.",
+            "feedback": "Chưa đúng lắm. Các tế bào chỉ hướng màu xanh lá vẫn sáng lên, nên tín hiệu đã đến nơi. Chỉ là không có gì giữ đốm sáng đứng yên."
+          },
+          "landmarks": {
+            "text": "Không có gì cho la bàn biết điểm mốc ở đâu, nên đốm sáng bị trượt đi.",
+            "feedback": "Đúng rồi! Các tế bào màu tím đưa vào những gì ruồi nhìn thấy. Thiếu chúng, không có gì neo đốm sáng vào thế giới bên ngoài."
+          },
+          "both": {
+            "text": "Bạn đã tắt luôn cả các tế bào chỉ hướng màu xanh lá.",
+            "feedback": "Chưa đúng lắm. Bạn chỉ làm im lặng các tế bào màu tím thôi. Các tế bào chỉ hướng màu xanh lá vẫn phát xung, nhưng không có gì giữ chúng đứng yên."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Khám phá tự do",
+        "text": "Giờ thì nút nào cũng dùng được. Hãy đoán trước rồi mới nhấn: đốm sáng sẽ đi đâu nếu bạn cho cả hai tín hiệu rẽ phát xung cùng lúc? Thử lại khi các tế bào màu tím đang bị làm im lặng xem sao."
+      }
+    },
+    "escape": {
+      "title": "Cú thoát hiểm trong 30 mili giây",
+      "summary": "Tìm sợi dây giúp ruồi thoát khỏi chiếc vỉ đang đập xuống.",
+      "description": "Lần theo chiếc vỉ đập ruồi từ mắt ruồi giấm thật, dọc sợi khổng lồ xuống tận chân chỉ trong 30 ms, rồi cắt sợi dây đó. Bài học miễn phí dài 10 phút.",
+      "steps": {
+        "loom": {
+          "text": "Một chiếc vỉ đập ruồi đang lao xuống con ruồi. Nhấn nút Kích thích để <term>nơ-ron phát hiện vật lao tới</term> <gloss>(bộ dò vỉ ruồi)</gloss> phát xung.",
+          "result": "Chúng phát xung, và chỉ vài phần nghìn giây sau, <term>sợi khổng lồ</term> <gloss>(dây thoát hiểm)</gloss> cũng phát xung theo."
+        },
+        "jump": {
+          "text": "Nhấn nút Kích thích lần nữa. Lần theo <term>sợi khổng lồ</term> <gloss>(dây thoát hiểm)</gloss> xuống tận <term>dây thần kinh bụng</term> <gloss>(tủy sống của ruồi)</gloss>.",
+          "result": "<term>Nơ-ron nhảy</term> <gloss>(bộ đạp chân)</gloss> phát xung trong vòng 30 mili giây. Chúng khiến đôi chân giữa đạp mạnh, và ruồi nhảy vọt đi."
+        },
+        "silence": {
+          "text": "Giờ hãy làm im lặng <term>sợi khổng lồ</term> <gloss>(dây thoát hiểm)</gloss>. Chúng mình sẽ gửi vỉ đập ruồi tới. Hãy quan sát <term>nơ-ron nhảy</term> <gloss>(bộ đạp chân)</gloss>.",
+          "result": "<term>Nơ-ron phát hiện vật lao tới</term> <gloss>(bộ dò vỉ ruồi)</gloss> vẫn phát xung, nhưng <term>nơ-ron nhảy</term> thì tối om. Cú thoát hiểm nhanh không còn nữa."
+        },
+        "restore": {
+          "text": "Nhấn nút <term>sợi khổng lồ</term> <gloss>(dây thoát hiểm)</gloss> một lần nữa để bật lại nó. Chúng mình sẽ gửi đúng chiếc vỉ đó.",
+          "result": "<term>Nơ-ron nhảy</term> <gloss>(bộ đạp chân)</gloss> lại phát xung. Ruồi thật còn có những đường thoát chậm hơn, nhưng đây là đường nhanh nhất."
+        }
+      },
+      "check": {
+        "question": "Bạn đã làm im lặng <term>sợi khổng lồ</term> <gloss>(dây thoát hiểm)</gloss>. Vì sao bộ đạp chân vẫn tối?",
+        "choices": {
+          "never": {
+            "text": "Ruồi không hề nhìn thấy chiếc vỉ.",
+            "feedback": "Chưa đúng lắm. Bộ dò vỉ ruồi màu xanh dương vẫn phát xung, nên ruồi đã thấy nó. Tín hiệu dừng lại ở dây thoát hiểm."
+          },
+          "wire": {
+            "text": "Dây thoát hiểm mang tín hiệu nhảy đến bộ đạp chân.",
+            "feedback": "Đúng rồi! Bộ dò vỉ ruồi báo cho dây thoát hiểm, và dây thoát hiểm bảo chân nhảy. Cắt dây đi là cú nhảy nhanh biến mất."
+          },
+          "both": {
+            "text": "Bạn đã tắt luôn cả bộ đạp chân.",
+            "feedback": "Chưa đúng lắm. Bạn chỉ làm im lặng dây thoát hiểm thôi. Bộ đạp chân vẫn hoạt động nhưng không nhận được tín hiệu nào."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Khám phá tự do",
+        "text": "Giờ thì nút nào cũng dùng được. Hãy đoán trước rồi mới nhấn: những màu nào vẫn sáng lên khi dây thoát hiểm bị làm im lặng? Rồi thử đổi sang làm im lặng bộ dò vỉ ruồi xem sao."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Thụ thể mùi",
+        "pn": "Nơ-ron chiếu",
+        "kc": "Tế bào Kenyon",
+        "mbon": "Nơ-ron đầu ra"
+      },
+      "stimulate": {
+        "orn": "Kích hoạt các nơ-ron thụ thể bắt được mùi đầu tiên ở anten."
+      },
+      "silence": {
+        "pn": "Ngăn thùy râu chuyển mùi đó vào thể nấm.",
+        "kc": "Làm im các tế bào giúp phân biệt mùi này với mùi khác.",
+        "mbon": "Chặn thể nấm gửi kết quả đến phần còn lại của não."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Nơ-ron vòng",
+        "compass": "Nơ-ron la bàn",
+        "turn-left": "Nơ-ron rẽ trái",
+        "turn-right": "Nơ-ron rẽ phải"
+      },
+      "stimulate": {
+        "turn-left": "Kích hoạt các tế bào rẽ P-EN2 ở nửa bên trái của cầu tiền não.",
+        "turn-right": "Kích hoạt các tế bào rẽ P-EN2 ở nửa bên phải của cầu tiền não."
+      },
+      "silence": {
+        "ring": "Chặn các nơ-ron vòng, vốn đưa điểm mốc từ mắt vào.",
+        "compass": "Làm im các tế bào chỉ hướng E-PG tạo nên la bàn."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Nơ-ron phát hiện vật lao tới",
+        "gf": "Sợi khổng lồ",
+        "jump": "Nơ-ron nhảy"
+      },
+      "stimulate": {
+        "looming": "Kích hoạt các tế bào thị giác LC4 và LPLC2, chuyên phát hiện vật đang lao tới."
+      },
+      "silence": {
+        "looming": "Ngăn các tế bào thị giác báo tin có vật lao tới.",
+        "gf": "Chặn sợi khổng lồ, dây thoát hiểm nhanh nhất của ruồi.",
+        "jump": "Làm im các nơ-ron vận động khiến đôi chân giữa đạp mạnh."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Bài {number}",
+      "canvasHelp": "Hình ảnh ba chiều của các nơ-ron. Kéo để xoay. Chụm hai ngón tay để thu phóng.",
+      "loading": "Đang tải mạch thần kinh…",
+      "loadingPercent": "Đang tải mạch thần kinh… {percent}%"
+    },
+    "load": {
+      "unavailable": "Các tệp của mạch thần kinh hiện không có sẵn. Hãy tải lại trang để thử lại.",
+      "damaged": "Các tệp của mạch thần kinh bị hỏng. Hãy tải lại trang để thử lại.",
+      "failed": "Không tải được mạch thần kinh. Hãy tải lại trang để thử lại."
+    },
+    "controls": {
+      "stimulate": "Kích thích",
+      "silence": "Làm im lặng",
+      "activity": "Hoạt động",
+      "reset": "Đặt lại",
+      "dragHint": "Kéo bộ não để xoay. Chụm hai ngón tay để thu phóng.",
+      "activityLabel": "Hoạt động của {group}",
+      "locked": "Đã khóa",
+      "lockedHint": "Chưa dùng được ở bước này. Mọi nút sẽ mở khóa khi đến phần khám phá tự do.",
+      "stimulateNamed": "Kích thích {name}",
+      "silenceNamed": "Làm im lặng: {name}",
+      "silencedNamed": "Đã làm im lặng: {name}",
+      "silenced": "Đã làm im lặng · nhấn để bật lại"
+    },
+    "sheet": {
+      "more": "Xem thêm",
+      "less": "Thu gọn"
+    },
+    "toolbar": {
+      "lessonOf": "Bài {number}/{total}",
+      "share": "Chia sẻ",
+      "copied": "Đã sao chép liên kết. Liên kết này phát lại thí nghiệm của bạn.",
+      "copiedEmpty": "Đã sao chép liên kết. Muốn chia sẻ thí nghiệm, hãy nhấn một nút trước.",
+      "copyThis": "Sao chép liên kết này:",
+      "linkLabel": "Liên kết tới thí nghiệm này"
+    },
+    "lesson": {
+      "tapCue": "Nhấn vào nút đang phát sáng ở phía dưới.",
+      "watching": "Hãy quan sát bộ não…",
+      "again": "Làm lại bài học từ đầu",
+      "next": "Tiếp theo",
+      "question": "Một câu hỏi nhanh",
+      "freePlay": "Bắt đầu khám phá tự do",
+      "pickAnswer": "Chọn câu trả lời mà bạn cho là đúng.",
+      "nextLesson": "Bài tiếp theo: {title}",
+      "finished": "Bạn đã học xong tất cả các bài. Hãy tiếp tục khám phá nhé.",
+      "cueStimulate": "Kích thích",
+      "cueSilence": "Làm im lặng",
+      "cueSwitchOn": "Bật lại",
+      "loadingBrain": "Đang tải bộ não…",
+      "gettingReady": "Đang chuẩn bị… hãy quan sát bộ não",
+      "watchBrain": "Quan sát bộ não",
+      "puffProgress": "Tiến độ đợt kích thích",
+      "puffClock": "{name}: {elapsed}/{total} ms, quay chậm",
+      "slowMotion": "Quay chậm để bạn dễ theo dõi",
+      "step": "Bước {number}/{total}",
+      "quickQuestion": "Câu hỏi nhanh",
+      "done": "Đã hoàn thành bài học",
+      "answers": "Các câu trả lời",
+      "tryAnother": "Hãy thử câu trả lời khác."
+    },
+    "replay": {
+      "label": "Phát lại: {title}",
+      "section": "Phát lại",
+      "finished": "Đã phát lại xong",
+      "shared": "Có người đã chia sẻ thí nghiệm của họ trong bài “{title}”. Hãy xem lại mọi thứ diễn ra, đúng từng xung một.",
+      "over": "Thí nghiệm đến đây là hết. Giờ nút nào cũng dùng được, bạn hãy tự thử nhé.",
+      "replaying": "Đang phát lại một thí nghiệm được chia sẻ",
+      "progress": "Tiến độ phát lại",
+      "pressOf": "Lần nhấn {number}/{total}, đúng nhịp và đúng seed như bản gốc",
+      "tick": "{ms} ms",
+      "watchAgain": "Xem lại",
+      "start": "Bắt đầu bài học",
+      "stimulate": "Kích thích {name}",
+      "silence": "Làm im lặng {name}",
+      "switchOn": "Bật lại {name}",
+      "notice": "{problem} Thay vào đó, mời bạn học bài này.",
+      "errors": {
+        "unknownLesson": "Bản phát lại này dành cho một bài học mà trang web không có.",
+        "unknownButton": "Bản phát lại này dùng một nút mà bài học không còn nữa.",
+        "empty": "Liên kết phát lại này trống hoặc quá dài.",
+        "version": "Liên kết phát lại này thuộc một phiên bản khác.",
+        "seed": "Seed của bản phát lại quá lớn.",
+        "tooMany": "Bản phát lại này có quá nhiều bước để phát.",
+        "tooLong": "Bản phát lại này quá dài để phát.",
+        "broken": "Liên kết phát lại này bị lỗi hoặc bị cắt cụt.",
+        "generic": "Liên kết phát lại đó không hoạt động."
+      }
+    },
+    "compass": {
+      "label": "Mặt la bàn. Các múi đang phát sáng và chiếc kim cho biết đốm sáng đang nằm ở đâu trên vòng tròn.",
+      "left": "T",
+      "right": "P",
+      "caption": "La bàn · nhìn từ phía sau"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Trang này không tồn tại",
+      "body": "Có thể liên kết đã cũ hoặc bị gõ sai. Các bài học vẫn còn ở đây.",
+      "home": "Đến các bài học"
+    },
+    "error": {
+      "title": "Đã xảy ra lỗi",
+      "body": "Trang đã gặp lỗi. Hãy thử lại hoặc quay lại các bài học.",
+      "retry": "Thử lại",
+      "home": "Đến các bài học"
+    }
+  }
+}

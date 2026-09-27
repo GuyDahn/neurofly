@@ -1,0 +1,535 @@
+{
+  "_meta": {
+    "locale": "id",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27"
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: jelajahi otak lalat buah sungguhan",
+      "description": "Pelajaran kelas gratis tentang sambungan saraf asli otak lalat buah. Rangsang dan bungkam neuron dari konektom MaleCNS di browser Anda. Tanpa login."
+    },
+    "about": {
+      "title": "Tentang WiredMind: mana yang asli, mana yang disederhanakan",
+      "description": "Mana yang asli dan mana yang disederhanakan dalam pelajaran otak lalat buah WiredMind, siapa pembuatnya, dan cara mendukungnya."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Halaman tidak ditemukan · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Saksikan refleks kabur lalat melesat lewat sambungan saraf aslinya",
+      "subtitle": "Pelajaran kelas gratis tentang konektom MaleCNS"
+    },
+    "about": {
+      "title": "Mana yang asli, mana yang disederhanakan",
+      "subtitle": "Cara WiredMind mengubah konektom asli menjadi pelajaran di kelas"
+    },
+    "lessonLabel": "Pelajaran {number} dari {total}",
+    "alt": "{title}, di atas gambar diam refleks kabur pada peta sambungan saraf lalat buah sungguhan"
+  },
+  "manifest": {
+    "name": "WiredMind: pelajaran otak lalat buah",
+    "description": "Pelajaran kelas gratis tentang sambungan saraf asli otak lalat buah."
+  },
+  "jsonLd": {
+    "educationalLevel": "SMP dan SMA",
+    "learningResourceType": "Pelajaran interaktif",
+    "audience": "Siswa dan guru"
+  },
+  "nav": {
+    "label": "Situs",
+    "home": "Beranda WiredMind",
+    "lessons": "Pelajaran",
+    "teachers": "Untuk guru",
+    "about": "Tentang"
+  },
+  "a11y": {
+    "skip": "Langsung ke konten",
+    "newTab": "(terbuka di tab baru)"
+  },
+  "language": {
+    "button": "Bahasa: {language}",
+    "menu": "Pilih bahasa"
+  },
+  "translate": {
+    "notice": "WiredMind belum tersedia dalam bahasa {language}, jadi halaman ini berbahasa Inggris.",
+    "cta": "Bantu terjemahkan",
+    "dismiss": "Tutup"
+  },
+  "footer": {
+    "builtBy": "Dibuat oleh {author}",
+    "github": "GitHub",
+    "githubLabel": "Bantu menerjemahkan atau berkontribusi di GitHub",
+    "about": "Tentang",
+    "code": "Kode: MIT",
+    "credits": "Neuron dari konektom <malecns>MaleCNS v1.0</malecns> buatan <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Universitas Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc>, dan <google>Google Research</google>, dengan lisensi <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "WiredMind gratis dan akan selalu gratis. Jika situs ini membantu kelas Anda, secangkir kopi akan menjaga servernya tetap menyala.",
+    "coffee": "☕ Traktir saya kopi"
+  },
+  "credits": {
+    "title": "Dari mana neuronnya berasal",
+    "body": "Semua neuron dan jumlah sinapsis berasal dari <malecns>konektom MaleCNS v1.0</malecns>, peta sistem saraf pusat lalat buah jantan, yang dibuat oleh <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Universitas Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc>, dan <google>Google Research</google>.",
+    "license": "Data ini berlisensi <ccby>CC BY 4.0</ccby>. WiredMind mengubahnya: memotong tiga sirkuit kecil, membuang sambungan yang kurang dari lima sinapsis, dan menggambar setiap neuron sebagai garis sederhana. Simulatornya memakai model neuron dari <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Pelajaran ilmu saraf gratis untuk di kelas",
+      "title": "Aktifkan sebuah neuron di otak lalat buah sungguhan, lalu saksikan sinyalnya melesat dari mata ke kakinya.",
+      "lead": "WiredMind menjalankan peta sambungan asli sistem saraf lalat buah langsung di browser. Siswa merangsang neuron, membungkamnya, lalu melihat apa yang berubah dalam tiga pelajaran singkat yang terpandu.",
+      "start": "Mulai pelajaran pertama",
+      "teachers": "Untuk guru"
+    },
+    "loop": {
+      "label": "Animasi refleks kabur pada peta sambungan saraf lalat",
+      "caption": "{spanMs} ms pertama setelah pemukul lalat muncul, dari pelajaran refleks kabur, diperlambat {slowdown} kali. Sambungan sarafnya asli, dari konektom MaleCNS. Impulsnya berasal dari simulasi sederhana. <simplified>Apa yang disederhanakan</simplified>",
+      "steps": {
+        "looming": "Neuron looming melihat pemukul",
+        "gf": "Serat raksasa aktif",
+        "jump": "Neuron lompat menendang"
+      },
+      "cells": "{count, plural, other {# sel}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms waktu lalat",
+      "waiting": "Pemukul mendekat",
+      "pause": "Jeda animasi",
+      "play": "Putar animasi",
+      "loading": "Memuat sirkuit…",
+      "failed": "Animasi gagal dimuat. Pelajarannya tetap bisa dipakai."
+    },
+    "lessons": {
+      "title": "Tiga pelajaran, satu sistem saraf asli",
+      "lead": "Setiap pelajaran hanya butuh beberapa ketukan. Siswa merangsang dan membungkam jenis sel asli, menjawab satu pertanyaan, lalu menjelajah sendiri.",
+      "lesson": "Pelajaran {number}",
+      "meta": "{steps, plural, other {# langkah}} dan satu pertanyaan · sekitar 10 menit",
+      "start": "Mulai pelajaran {number}"
+    },
+    "teachers": {
+      "title": "Untuk guru",
+      "lead": "Tuliskan tautannya di papan tulis atau kirimkan ke perangkat masing-masing siswa. Tidak ada lagi yang perlu disiapkan.",
+      "points": {
+        "periods": {
+          "title": "1–2 jam pelajaran",
+          "body": "Setiap pelajaran memakan waktu sekitar 10 menit. Ketiganya, termasuk diskusi, cukup untuk satu atau dua jam pelajaran."
+        },
+        "install": {
+          "title": "Tanpa instalasi, tanpa login",
+          "body": "Berjalan di browser pada laptop, Chromebook, tablet, dan ponsel. Siswa tidak perlu membuat akun atau mengetik email."
+        },
+        "free": {
+          "title": "Gratis",
+          "body": "Tanpa iklan, tanpa paket berbayar, tidak ada yang perlu dibeli."
+        },
+        "open": {
+          "title": "Sumber terbuka",
+          "body": "Kodenya berlisensi MIT, jadi Anda bisa membaca cara kerjanya atau menjalankan salinan Anda sendiri."
+        },
+        "share": {
+          "title": "Percobaan yang bisa dibagikan",
+          "body": "Tombol Bagikan menyalin tautan yang memutar ulang percobaan siswa, impuls demi impuls, sehingga Anda melihat persis apa yang mereka lihat."
+        },
+        "honest": {
+          "title": "Jujur soal sainsnya",
+          "body": "Model sederhana dari sambungan saraf asli. Halaman Tentang menjelaskan dengan tepat mana yang asli dan mana yang disederhanakan."
+        }
+      },
+      "source": "Lihat kode sumber di GitHub",
+      "science": "Mana yang asli, mana yang disederhanakan"
+    }
+  },
+  "about": {
+    "title": "Tentang WiredMind",
+    "lead": "WiredMind adalah serangkaian pelajaran kelas gratis yang dibangun di atas peta sambungan saraf asli seekor lalat buah. Ini alat bantu mengajar, bukan model penelitian. Halaman ini ditujukan bagi pembaca yang ingin tahu persis di mana batasnya.",
+    "onThisPage": "Di halaman ini",
+    "real": {
+      "title": "Mana yang asli, mana yang disederhanakan",
+      "realTitle": "Asli",
+      "realItems": {
+        "neurons": {
+          "title": "Neuronnya.",
+          "body": "Setiap pelajaran memakai 3.000 hingga 4.500 neuron hasil rekonstruksi dari konektom <malecns>MaleCNS v1.0</malecns>, yaitu seluruh sistem saraf pusat seekor lalat jantan, lengkap dengan jenis sel yang ditetapkan para penyusunnya."
+        },
+        "synapses": {
+          "title": "Jumlah sinapsisnya.",
+          "body": "Bobot setiap sambungan adalah jumlah sinapsis yang dilaporkan dataset di antara kedua sel, dengan tingkat keyakinan deteksi 0,5 atau lebih."
+        },
+        "signs": {
+          "title": "Tanda positif dan negatifnya.",
+          "body": "Neurotransmiter hasil prediksi untuk tiap neuron menentukan apakah neuron itu merangsang atau menghambat: asetilkolin merangsang, GABA dan glutamat menghambat. Dalam model, sel yang diprediksi melepaskan dopamin, serotonin, oktopamin, atau transmiter yang belum jelas tidak memberi pengaruh apa pun."
+        },
+        "shapes": {
+          "title": "Bentuk dan letaknya.",
+          "body": "Setiap neuron digambar dari kerangkanya sendiri di dataset, tepat di posisi aslinya di tubuh lalat."
+        }
+      },
+      "simplifiedTitle": "Disederhanakan",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Potongan kecil.",
+          "body": "Setiap pelajaran menjalankan subsirkuit berisi 3.000 hingga 4.500 neuron, bukan seluruh sistem saraf. Sirkuit penciuman terdiri atas empat populasi sel: reseptor, neuron proyeksi, sel Kenyon, dan neuron keluaran. Sirkuit kompas dan sirkuit refleks kabur diperluas dua langkah sambungan dari jenis sel awalnya, lalu hanya menyimpan mitra yang sambungannya paling kuat. Sambungan yang kurang dari lima sinapsis dibuang. Semua yang berada di luar potongan hilang, termasuk inhibisi yang biasanya menyeimbangkan jaringan."
+        },
+        "model": {
+          "title": "Satu model neuron untuk semua sel.",
+          "body": "Neuron titik leaky integrate-and-fire dengan parameter yang sama di mana-mana, memakai nilai yang dipublikasikan <shiu>Shiu et al. (2024)</shiu>: potensial istirahat dan reset −52 mV, ambang −45 mV, konstanta waktu membran 20 ms, konstanta waktu sinaptik 5 ms, periode refrakter 2,2 ms, tunda 1,8 ms, 0,275 mV per sinapsis. Tanpa komputasi dendrit, tanpa neuron berpotensial bertingkat atau neuron tanpa impuls, tanpa neuromodulasi, dan tanpa pembelajaran: sinapsis tidak pernah berubah."
+        },
+        "gaps": {
+          "title": "Tanpa taut celah.",
+          "body": "Konektom hanya mencatat sinapsis kimia, jadi sinapsis listrik tidak ada. Hal ini paling berpengaruh di pelajaran refleks kabur: pada lalat sungguhan, hubungan serat raksasa ke neuron motorik lompat adalah sinapsis campuran yang sangat bergantung pada taut celah. Di sini, hubungan itu hanya berupa 90 sinapsis kimianya."
+        },
+        "learning": {
+          "title": "Tidak ada yang belajar.",
+          "body": "Pelajaran penciuman menunjukkan tempat lalat menyimpan ingatan tentang bau, yaitu sinapsis dari sel Kenyon ke neuron keluaran, tetapi modelnya tidak punya neuron dopamin dan tidak punya plastisitas. Potongan ini juga tidak menyertakan neuron APL yang menjaga aktivitas sel Kenyon tetap jarang."
+        },
+        "stimulation": {
+          "title": "Rangsangan yang diidealkan.",
+          "body": "Tombol Rangsang menggerakkan setiap neuron dalam satu kelompok dengan masukan Poisson yang saling bebas (40 Hz selama 200 ms di pelajaran penciuman dan refleks kabur, 60 Hz selama 800 ms untuk neuron belok), dan setiap peristiwanya cukup kuat untuk membuat sel melepaskan impuls, mirip aktivasi optogenetik. Bau sungguhan mengaktifkan beberapa jenis reseptor dalam sebuah pola; bau dalam pelajaran ini mengaktifkan semua 1.861 neuron reseptor dalam potongan. Pemukul mengaktifkan semua 304 sel looming sekaligus, padahal benda sungguhan yang mendekat merekrut sel-sel itu secara bertahap seiring ukurannya membesar."
+        },
+        "silence": {
+          "title": "Bungkam berarti diam total.",
+          "body": "Kelompok yang dibungkam diam di potensial istirahat, tidak pernah melepaskan impuls, dan tidak mengirim apa pun. Alat pembungkam sungguhan seperti Kir2.1 atau toksin tetanus hanya bekerja sebagian, lebih lambat, dan bisa membiarkan sinapsis listrik tetap bekerja."
+        },
+        "compass": {
+          "title": "Patokan kompas.",
+          "body": "Dalam model ini, neuron cincin tidak menerima masukan visual. Membungkamnya menghilangkan hambatan yang mereka berikan pada kompas, dan itulah yang membuat tonjolan bergeser di sini. Pada lalat sungguhan, neuron cincin membawa patokan dan petunjuk lain dari indra."
+        },
+        "timing": {
+          "title": "Waktu.",
+          "body": "Latensi berasal dari satu tunda seragam 1,8 ms serta konstanta waktu membran dan sinaptik, bukan dari rekaman. Hasilnya berada dalam rentang yang masuk akal, tetapi tidak ada yang disetel agar cocok dengan latensi refleks kabur hasil pengukuran. Penampil memutar semuanya dalam gerak lambat, 0,2 hingga 2 ms waktu lalat per bingkai tergantung perangkatnya, dan berhenti menyimulasikan 150 ms setelah rangsangan terakhir, karena beberapa potongan punya lingkaran eksitasi yang, tanpa inhibisi yang tertinggal di luar potongan, akan terus bergema selamanya."
+        },
+        "drawings": {
+          "title": "Gambar, bukan morfologi.",
+          "body": "Setiap neuron digambar sebagai garis 12 titik di sepanjang kerangkanya, bukan cabang-cabang aslinya. Kilatan menandai impuls. Titik-titik yang bergerak hanyalah ilustrasi, bukan kecepatan hantaran atau jalur asli sebuah impuls."
+        }
+      },
+      "researchTitle": "Apa yang akan dilakukan alat penelitian secara berbeda",
+      "researchItems": {
+        "whole": "Menyimulasikan seluruh sistem saraf pusat, atau memotongnya pada batas yang beralasan dengan masukan yang dimodelkan, serta mempertahankan sambungan yang lemah.",
+        "fit": "Mencocokkan parameter tiap jenis sel dengan data rekaman, mengizinkan neuron berpotensial bertingkat dan neuron tanpa impuls, serta memakai model berbasis konduktansi atau multikompartemen jika dendrit berperan.",
+        "add": "Menambahkan taut celah dari data lain, neuromodulator seperti dopamin dan oktopamin, serta plastisitas, misalnya depresi yang dikendalikan dopamin pada sinapsis dari sel Kenyon ke neuron keluaran.",
+        "drive": "Menggerakkan neuron sensorik seperti yang dilakukan dunia nyata: pola reseptor yang khas untuk tiap bau, dan rangsangan looming yang merekrut sel seiring bendanya membesar.",
+        "uncertain": "Memperlakukan prediksi transmiter dan bobot sebagai hal yang belum pasti, menguji rentang nilainya, menjalankan banyak seed, lalu membandingkan hasilnya dengan elektrofisiologi dan perilaku."
+      },
+      "furtherTitle": "Langsung ke sumbernya",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: telusuri MaleCNS v1.0 sel demi sel dan sinapsis demi sinapsis.",
+        "paper": "<paper>Makalah MaleCNS</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: model leaky integrate-and-fire seluruh otak yang parameternya dipinjam WiredMind.",
+        "code": "<code>Kode sumber</code>: alur pengolahan data, simulator, pelajaran, dan pengujian yang memeriksa klaim setiap pelajaran pada sirkuit aslinya."
+      }
+    },
+    "who": {
+      "title": "Siapa pembuatnya",
+      "body": "WiredMind dibuat oleh {author}, seorang pengembang full-stack dan ahli strategi SEO di Tel Aviv, dalam satu minggu pada September 2026.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Dukung proyek ini"
+    },
+    "privacy": {
+      "title": "Privasi",
+      "body": "Tanpa akun. Hanya ada satu cookie, yaitu untuk mengingat bahasa yang Anda pilih dari menu bahasa. Kunjungan halaman dihitung dengan Vercel Web Analytics, yang tidak memakai cookie."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Bagaimana lalat mengingat bau",
+      "summary": "Kirim bau ke otak lalat sungguhan dan temukan sel yang mengingatnya.",
+      "description": "Kirim bau ke otak lalat buah sungguhan, ikuti jalannya ke badan jamur, dan temukan sel yang menyimpan ingatannya. Pelajaran gratis 10 menit.",
+      "steps": {
+        "send": {
+          "text": "Lalat mencium bau dengan <term>antena</term> <gloss>(kedua sungutnya)</gloss>. Ketuk Rangsang untuk mengirimkan bau. Perhatikan neuron oranye menyala.",
+          "result": "<term>Reseptor bau</term> <gloss>(si penangkap bau)</gloss> yang oranye itu aktif paling dulu. Setiap bau berawal di sini."
+        },
+        "follow": {
+          "text": "Ketuk Rangsang lagi dan ikuti warnanya. <term>Neuron proyeksi</term> <gloss>(si kurir bau)</gloss> yang kuning membawa bau itu lebih ke dalam. Lalu <term>sel Kenyon</term> <gloss>(si pemilah bau)</gloss> yang biru menangkapnya.",
+          "result": "Sel-sel biru mengubah setiap bau menjadi polanya sendiri."
+        },
+        "read": {
+          "text": "Ketuk Rangsang sekali lagi. Sekarang perhatikan <term>neuron keluaran</term> <gloss>(si pembaca ingatan)</gloss> yang merah muda. Neuron ini membaca pola biru tadi.",
+          "result": "Saat sebuah bau datang bersama gula atau bahaya, sambungan dari biru ke merah muda berubah. Para ilmuwan menduga perubahan itulah ingatannya."
+        },
+        "silence": {
+          "text": "Sekarang bungkam <term>sel Kenyon</term> <gloss>(si pemilah bau)</gloss>. Kami akan mengirimkan baunya untukmu. Apa yang hilang?",
+          "result": "Cahaya merah muda hampir lenyap. Baunya tetap masuk, tetapi si pembaca ingatan tidak mendapat apa pun untuk dibaca."
+        },
+        "restore": {
+          "text": "Nyalakan kembali <term>sel Kenyon</term> <gloss>(si pemilah bau)</gloss> dengan mengetuk tombolnya lagi. Kami akan mengirimkan bau yang sama.",
+          "result": "Cahaya merah muda kembali. Lalat bisa membaca ingatan baunya lagi."
+        }
+      },
+      "check": {
+        "question": "Kamu membungkam <term>sel Kenyon</term> <gloss>(sel-sel biru)</gloss>. Mengapa sel-sel merah muda menjadi gelap?",
+        "choices": {
+          "never": {
+            "text": "Baunya tidak pernah masuk ke tubuh lalat.",
+            "feedback": "Belum tepat. Sel oranye dan kuning masih menyala, jadi baunya sudah masuk. Baunya terhenti di sel biru."
+          },
+          "pattern": {
+            "text": "Sel biru meneruskan pola setiap bau ke sel merah muda.",
+            "feedback": "Betul! Sel biru memilah setiap bau menjadi sebuah pola, lalu sel merah muda membacanya. Tanpa pola, tidak ada yang bisa diingat."
+          },
+          "both": {
+            "text": "Kamu juga membungkam sel merah muda.",
+            "feedback": "Belum tepat. Kamu hanya membungkam sel biru. Sel merah muda tetap berfungsi, tetapi tidak ada yang bisa dibaca."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Main bebas",
+        "text": "Sekarang semua tombol bisa dipakai. Tebak dulu, lalu ketuk: apa yang menjadi gelap jika kamu membungkam si kurir bau yang kuning? Coba bungkam dua warna sekaligus."
+      }
+    },
+    "compass": {
+      "title": "Bagaimana lalat tahu ke mana ia menghadap",
+      "summary": "Dorong kompas lalat sungguhan ke sana kemari dan lihat apa yang menahannya tetap di tempat.",
+      "description": "Dorong kompas internal lalat buah sungguhan ke sana kemari, lalu bungkam neuron cincin dan saksikan arah hadapnya melenceng. Pelajaran gratis 10 menit.",
+      "steps": {
+        "left": {
+          "text": "Ketuk Rangsang untuk mengaktifkan <term>neuron belok</term> <gloss>(sinyal belok)</gloss> di sisi kiri. Lalu perhatikan piringan kompas.",
+          "result": "<term>Neuron kompas</term> <gloss>(sel penunjuk arah)</gloss> menyala di satu sisi. Bercak terang itu, yang disebut tonjolan, menandai ke mana lalat menghadap."
+        },
+        "right": {
+          "text": "Sekarang ketuk Rangsang pada <term>neuron belok</term> <gloss>(sinyal satunya lagi)</gloss> di sisi kanan. Terus perhatikan tonjolannya.",
+          "result": "Tonjolan itu berputar mengitari piringan. Sinyal belok dari tiap sisi mendorongnya ke arah yang berlawanan, jadi arah hadap lalat pun ikut berbelok."
+        },
+        "silence": {
+          "text": "Bungkam <term>neuron cincin</term> <gloss>(si pembawa patokan)</gloss>. Neuron ini membawa masuk apa yang dilihat lalat. Kami akan mengirimkan sinyal belok kanan untukmu.",
+          "result": "Tonjolan itu tergelincir dari tempatnya dan berkeliaran. Tanpa patokan, kompasnya melenceng."
+        },
+        "restore": {
+          "text": "Nyalakan kembali <term>neuron cincin</term> <gloss>(si pembawa patokan)</gloss> dengan mengetuk tombolnya lagi. Kami akan mengirimkan sinyal yang sama.",
+          "result": "Tonjolan itu kembali diam di tempatnya. Patokan menjaga kompas lalat tetap akurat."
+        }
+      },
+      "check": {
+        "question": "Kamu membungkam si pembawa patokan (sel-sel ungu). Mengapa tonjolannya bergeser?",
+        "choices": {
+          "never": {
+            "text": "Sinyal belok tidak pernah sampai ke kompas.",
+            "feedback": "Belum tepat. Sel penunjuk arah yang hijau masih menyala, jadi sinyalnya sampai. Tidak ada yang menahan tonjolan di tempatnya."
+          },
+          "landmarks": {
+            "text": "Tidak ada yang memberi tahu kompas di mana patokannya, jadi tonjolannya tergelincir.",
+            "feedback": "Betul! Sel ungu membawa masuk apa yang dilihat lalat. Tanpa sel ungu, tidak ada yang menambatkan tonjolan pada dunia di sekitarnya."
+          },
+          "both": {
+            "text": "Kamu juga membungkam sel penunjuk arah yang hijau.",
+            "feedback": "Belum tepat. Kamu hanya membungkam sel ungu. Sel penunjuk arah yang hijau tetap aktif, tetapi tidak ada yang menahannya diam."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Main bebas",
+        "text": "Sekarang semua tombol bisa dipakai. Tebak dulu, lalu ketuk: ke mana tonjolan bergerak jika kamu mengaktifkan kedua sinyal belok sekaligus? Coba juga saat sel ungu dibungkam."
+      }
+    },
+    "escape": {
+      "title": "Kabur dalam 30 milidetik",
+      "summary": "Temukan kabel yang membuat lalat lolos dari pemukul.",
+      "description": "Ikuti sinyal pemukul dari mata lalat buah sungguhan lewat serat raksasa hingga ke kakinya dalam 30 ms, lalu putuskan kabelnya. Pelajaran gratis 10 menit.",
+      "steps": {
+        "loom": {
+          "text": "Pemukul lalat menyambar ke arah si lalat. Ketuk Rangsang untuk mengaktifkan <term>neuron looming</term> <gloss>(si pendeteksi pemukul)</gloss>.",
+          "result": "Neuron itu aktif, lalu dalam beberapa perseribu detik <term>serat raksasa</term> <gloss>(si kabel kabur)</gloss> ikut aktif."
+        },
+        "jump": {
+          "text": "Ketuk Rangsang lagi. Ikuti <term>serat raksasa</term> <gloss>(si kabel kabur)</gloss> turun ke <term>tali saraf</term> <gloss>(sumsum tulang belakangnya)</gloss>.",
+          "result": "<term>Neuron lompat</term> <gloss>(si penendang kaki)</gloss> aktif dalam 30 milidetik. Neuron ini membuat kaki tengah menendang, dan lalat pun melesat pergi."
+        },
+        "silence": {
+          "text": "Sekarang bungkam <term>serat raksasa</term> <gloss>(si kabel kabur)</gloss>. Kami akan mengirimkan pemukulnya. Perhatikan <term>neuron lompat</term> <gloss>(si penendang kaki)</gloss>.",
+          "result": "<term>Neuron looming</term> <gloss>(si pendeteksi pemukul)</gloss> masih aktif, tetapi <term>neuron lompat</term> tetap gelap. Cara kabur yang cepat itu pun hilang."
+        },
+        "restore": {
+          "text": "Nyalakan kembali <term>serat raksasa</term> <gloss>(si kabel kabur)</gloss> dengan mengetuk tombolnya lagi. Kami akan mengirimkan pemukul yang sama.",
+          "result": "<term>Neuron lompat</term> <gloss>(si penendang kaki)</gloss> aktif lagi. Lalat sungguhan juga punya cara kabur yang lebih lambat, tetapi inilah yang tercepat."
+        }
+      },
+      "check": {
+        "question": "Kamu membungkam <term>serat raksasa</term> <gloss>(si kabel kabur)</gloss>. Mengapa si penendang kaki tetap gelap?",
+        "choices": {
+          "never": {
+            "text": "Lalat tidak pernah melihat pemukulnya.",
+            "feedback": "Belum tepat. Si pendeteksi pemukul yang biru masih aktif, jadi lalat melihatnya. Sinyalnya terhenti di kabel kabur."
+          },
+          "wire": {
+            "text": "Kabel kabur membawa sinyal lompat ke si penendang kaki.",
+            "feedback": "Betul! Si pendeteksi pemukul memberi tahu kabel kabur, lalu kabel kabur menyuruh kaki melompat. Putuskan kabelnya, dan lompatan cepat itu hilang."
+          },
+          "both": {
+            "text": "Kamu juga membungkam si penendang kaki.",
+            "feedback": "Belum tepat. Kamu hanya membungkam kabel kabur. Si penendang kaki tetap berfungsi, tetapi tidak mendapat sinyal."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Main bebas",
+        "text": "Sekarang semua tombol bisa dipakai. Tebak dulu, lalu ketuk: warna apa saja yang masih menyala saat kabel kabur dibungkam? Lalu coba bungkam si pendeteksi pemukul sebagai gantinya."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Reseptor bau",
+        "pn": "Neuron proyeksi",
+        "kc": "Sel Kenyon",
+        "mbon": "Neuron keluaran"
+      },
+      "stimulate": {
+        "orn": "Mengaktifkan neuron reseptor yang pertama kali menangkap bau di antena."
+      },
+      "silence": {
+        "pn": "Mencegah lobus antena meneruskan bau itu ke badan jamur.",
+        "kc": "Meredam sel yang membedakan satu bau dari bau lainnya.",
+        "mbon": "Mencegah badan jamur meneruskan hasilnya ke bagian otak lainnya."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Neuron cincin",
+        "compass": "Neuron kompas",
+        "turn-left": "Neuron belok kiri",
+        "turn-right": "Neuron belok kanan"
+      },
+      "stimulate": {
+        "turn-left": "Mengaktifkan sel belok P-EN2 di sisi kiri jembatan.",
+        "turn-right": "Mengaktifkan sel belok P-EN2 di sisi kanan jembatan."
+      },
+      "silence": {
+        "ring": "Memblokir neuron cincin yang membawa patokan dari mata.",
+        "compass": "Meredam sel penunjuk arah E-PG yang membentuk kompas."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Neuron looming",
+        "gf": "Serat raksasa",
+        "jump": "Neuron lompat"
+      },
+      "stimulate": {
+        "looming": "Mengaktifkan sel mata LC4 dan LPLC2 yang melihat sesuatu menyambar mendekat."
+      },
+      "silence": {
+        "looming": "Mencegah sel mata melaporkan sambaran itu.",
+        "gf": "Memblokir serat raksasa, kabel kabur tercepat milik lalat.",
+        "jump": "Meredam neuron motorik yang membuat kaki tengah menendang."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Pelajaran {number}",
+      "canvasHelp": "Tampilan tiga dimensi neuron. Seret untuk memutarnya. Cubit untuk memperbesar atau memperkecil.",
+      "loading": "Memuat sirkuit…",
+      "loadingPercent": "Memuat sirkuit… {percent}%"
+    },
+    "load": {
+      "unavailable": "File sirkuit tidak tersedia. Muat ulang halaman untuk mencoba lagi.",
+      "damaged": "File sirkuit rusak. Muat ulang halaman untuk mencoba lagi.",
+      "failed": "Sirkuit gagal dimuat. Muat ulang halaman untuk mencoba lagi."
+    },
+    "controls": {
+      "stimulate": "Rangsang",
+      "silence": "Bungkam",
+      "activity": "Aktivitas",
+      "reset": "Atur ulang",
+      "dragHint": "Seret otak untuk memutarnya. Cubit untuk memperbesar atau memperkecil.",
+      "activityLabel": "Aktivitas {group}",
+      "locked": "Terkunci",
+      "lockedHint": "Tidak dipakai di langkah ini. Semua tombol terbuka saat main bebas.",
+      "stimulateNamed": "Rangsang {name}",
+      "silenceNamed": "Bungkam: {name}",
+      "silencedNamed": "Dibungkam: {name}",
+      "silenced": "Dibungkam · ketuk untuk menyalakan"
+    },
+    "sheet": {
+      "more": "Tampilkan lebih banyak",
+      "less": "Tampilkan lebih sedikit"
+    },
+    "toolbar": {
+      "lessonOf": "Pelajaran {number} dari {total}",
+      "share": "Bagikan",
+      "copied": "Tautan disalin. Tautan ini memutar ulang percobaanmu.",
+      "copiedEmpty": "Tautan disalin. Ketuk salah satu tombol dulu agar ada percobaan yang bisa dibagikan.",
+      "copyThis": "Salin tautan ini:",
+      "linkLabel": "Tautan ke percobaan ini"
+    },
+    "lesson": {
+      "tapCue": "Ketuk tombol yang menyala di bagian bawah.",
+      "watching": "Perhatikan otaknya…",
+      "again": "Ulangi pelajaran dari awal",
+      "next": "Lanjut",
+      "question": "Satu pertanyaan singkat",
+      "freePlay": "Mulai main bebas",
+      "pickAnswer": "Pilih jawaban yang menurutmu benar.",
+      "nextLesson": "Pelajaran berikutnya: {title}",
+      "finished": "Kamu sudah menyelesaikan semua pelajaran. Teruslah menjelajah.",
+      "cueStimulate": "Rangsang",
+      "cueSilence": "Bungkam",
+      "cueSwitchOn": "Nyalakan",
+      "loadingBrain": "Memuat otak…",
+      "gettingReady": "Bersiap… perhatikan otaknya",
+      "watchBrain": "Perhatikan otaknya",
+      "puffProgress": "Progres rangsangan",
+      "puffClock": "{name}: {elapsed} dari {total} ms, dalam gerak lambat",
+      "slowMotion": "Dalam gerak lambat, supaya kamu bisa mengikutinya",
+      "step": "Langkah {number} dari {total}",
+      "quickQuestion": "Pertanyaan singkat",
+      "done": "Pelajaran selesai",
+      "answers": "Jawaban",
+      "tryAnother": "Coba jawaban lain."
+    },
+    "replay": {
+      "label": "Tayangan ulang {title}",
+      "section": "Tayangan ulang",
+      "finished": "Tayangan ulang selesai",
+      "shared": "Seseorang membagikan percobaannya di “{title}”. Saksikan semuanya terulang, impuls demi impuls.",
+      "over": "Itulah seluruh percobaannya. Sekarang semua tombol bisa dipakai, jadi cobalah sendiri.",
+      "replaying": "Memutar ulang percobaan yang dibagikan",
+      "progress": "Progres tayangan ulang",
+      "pressOf": "Ketukan {number} dari {total}, dengan waktu dan seed yang sama",
+      "tick": "{ms} ms",
+      "watchAgain": "Tonton lagi",
+      "start": "Mulai pelajaran",
+      "stimulate": "Rangsang {name}",
+      "silence": "Bungkam {name}",
+      "switchOn": "Nyalakan {name}",
+      "notice": "{problem} Sebagai gantinya, ini pelajarannya.",
+      "errors": {
+        "unknownLesson": "Tayangan ulang ini untuk pelajaran yang tidak ada di situs ini.",
+        "unknownButton": "Tayangan ulang ini memakai tombol yang sudah tidak ada di pelajaran ini.",
+        "empty": "Tautan tayangan ulang ini kosong atau terlalu panjang.",
+        "version": "Tautan tayangan ulang ini berasal dari versi yang berbeda.",
+        "seed": "Seed tayangan ulang ini terlalu besar.",
+        "tooMany": "Tayangan ulang ini punya terlalu banyak langkah untuk diputar.",
+        "tooLong": "Tayangan ulang ini terlalu panjang untuk diputar.",
+        "broken": "Tautan tayangan ulang ini rusak atau terpotong.",
+        "generic": "Tautan tayangan ulang itu tidak berfungsi."
+      }
+    },
+    "compass": {
+      "label": "Piringan kompas. Irisan yang menyala dan jarumnya menunjukkan letak tonjolan pada cincin.",
+      "left": "Ki",
+      "right": "Ka",
+      "caption": "Kompas · dari belakang"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Halaman ini tidak ada",
+      "body": "Tautannya mungkin sudah usang atau salah ketik. Pelajarannya masih ada di sini.",
+      "home": "Lihat pelajaran"
+    },
+    "error": {
+      "title": "Terjadi kesalahan",
+      "body": "Halaman ini mengalami kesalahan. Coba lagi, atau kembali ke pelajaran.",
+      "retry": "Coba lagi",
+      "home": "Lihat pelajaran"
+    }
+  }
+}

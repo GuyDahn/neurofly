@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   useEffect,
   useRef,
@@ -47,6 +48,7 @@ export function Sheet({
   children: ReactNode;
   footer: ReactNode;
 }) {
+  const t = useTranslations("viewer.sheet");
   const [viewport, setViewport] = useState(0);
   const [drag, setDrag] = useState<number | null>(null);
   const start = useRef<{ y: number; id: number } | null>(null);
@@ -100,12 +102,12 @@ export function Sheet({
   return (
     <section
       aria-label={label}
-      className="relative z-10 order-2 flex w-full shrink-0 flex-col rounded-t-3xl border-t border-white/10 bg-zinc-900 shadow-[0_-12px_32px_rgb(0_0_0/0.45)] md:order-1 md:h-full md:w-96 md:rounded-none md:border-t-0 md:border-r md:bg-zinc-950 md:shadow-none"
+      className="relative z-10 order-2 flex w-full shrink-0 flex-col rounded-t-3xl border-t border-white/10 bg-zinc-900 shadow-[0_-12px_32px_rgb(0_0_0/0.45)] md:order-1 md:h-full md:w-96 md:rounded-none md:border-t-0 md:border-e md:bg-zinc-950 md:shadow-none"
     >
       <button
         type="button"
         aria-expanded={state !== "min"}
-        aria-label={state === "full" ? "Show less" : "Show more"}
+        aria-label={state === "full" ? t("less") : t("more")}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}

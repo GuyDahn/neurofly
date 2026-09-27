@@ -41,7 +41,22 @@ const OP_STIMULATE = 0;
 const OP_SILENCE_OFF = 1;
 const OP_SILENCE_ON = 2;
 
-export class ReplayError extends Error {}
+/** Why a share link cannot play. The viewer says it in the reader's language, from viewer.replay.errors. */
+export type ReplayErrorCode =
+  | "empty"
+  | "version"
+  | "seed"
+  | "tooMany"
+  | "tooLong"
+  | "broken"
+  | "unknownLesson"
+  | "unknownButton";
+
+export class ReplayError extends Error {
+  constructor(readonly code: ReplayErrorCode) {
+    super(`replay: ${code}`);
+  }
+}
 
 export function encodeReplay(replay: Replay): string {
   const bytes: number[] = [VERSION];
@@ -54,7 +69,7 @@ export function encodeReplay(replay: Replay): string {
     }
   }
   if (table.length > MAX_GROUPS) {
-    throw new ReplayError("A replay can name at most 64 cell groups.");
+    throw new Error(`A replay can name at most ${MAX_GROUPS} cell groups.`);
   }
   writeVarint(bytes, table.length);
   for (const name of table) writeText(bytes, name);
@@ -63,7 +78,7 @@ export function encodeReplay(replay: Replay): string {
   let wall = 0;
   for (const action of replay.actions) {
     if (action.tick < tick || !Number.isInteger(action.tick)) {
-      throw new ReplayError("Replay ticks must be whole and in order.");
+      throw new Error("Replay ticks must be whole and in order.");
     }
     writeVarint(bytes, action.tick - tick);
     tick = action.tick;
@@ -86,23 +101,23 @@ export function encodeReplay(replay: Replay): string {
 
 export function decodeReplay(text: string): Replay {
   if (text.length === 0 || text.length > MAX_PARAM_LENGTH) {
-    throw new ReplayError("This replay link is empty or too long.");
+    throw new ReplayError("empty");
   }
   const bytes = fromBase64Url(text);
   const reader = { bytes, at: 0 };
   if (readByte(reader) !== VERSION) {
-    throw new ReplayError("This replay link is from a different version.");
+    throw new ReplayError("version");
   }
   const lessonId = readText(reader);
   const seed = readVarint(reader);
-  if (seed > 0xffffffff) throw new ReplayError("The replay seed is too big.");
+  if (seed > 0xffffffff) throw new ReplayError("seed");
   const groupCount = readVarint(reader);
   if (groupCount > MAX_GROUPS) throw brokenLink();
   const table: string[] = [];
   for (let index = 0; index < groupCount; index++) table.push(readText(reader));
   const count = readVarint(reader);
   if (count > MAX_ACTIONS) {
-    throw new ReplayError("This replay has too many steps to play.");
+    throw new ReplayError("tooMany");
   }
   const actions: ReplayAction[] = [];
   let tick = 0;
@@ -111,7 +126,7 @@ export function decodeReplay(text: string): Replay {
     tick += readVarint(reader);
     wall += readVarint(reader) * WALL_STEP_MS;
     if (tick > MAX_TICKS) {
-      throw new ReplayError("This replay runs too long to play.");
+      throw new ReplayError("tooLong");
     }
     const op = readByte(reader);
     const colorGroup = table[op >> 2];
@@ -132,7 +147,7 @@ export function decodeReplay(text: string): Replay {
 export function replayProblem(
   replay: Replay,
   module: ModuleSpec,
-): string | null {
+): ReplayErrorCode | null {
   const stimuli = new Set(module.stimuli.map((item) => item.colorGroup));
   const silence = new Set(module.silence.map((item) => item.colorGroup));
   for (const action of replay.actions) {
@@ -142,7 +157,7 @@ export function replayProblem(
         ? stimuli.has(command.colorGroup)
         : silence.has(command.colorGroup);
     if (!known) {
-      return "This replay uses a button this lesson no longer has.";
+      return "unknownButton";
     }
   }
   return null;
@@ -160,7 +175,7 @@ export function replayUrl(
 }
 
 function brokenLink(): ReplayError {
-  return new ReplayError("This replay link is broken or cut off.");
+  return new ReplayError("broken");
 }
 
 function writeVarint(bytes: number[], value: number) {
@@ -169,7 +184,7 @@ function writeVarint(bytes: number[], value: number) {
     value < 0 ||
     value > Number.MAX_SAFE_INTEGER
   ) {
-    throw new ReplayError("Replay numbers must be whole and not negative.");
+    throw new Error("Replay numbers must be whole and not negative.");
   }
   let rest = value;
   while (rest >= 0x80) {
@@ -182,7 +197,7 @@ function writeVarint(bytes: number[], value: number) {
 function writeText(bytes: number[], value: string) {
   const encoded = new TextEncoder().encode(value);
   if (encoded.length === 0 || encoded.length > MAX_TEXT_BYTES) {
-    throw new ReplayError("Replay names must be short.");
+    throw new Error("Replay names must be short.");
   }
   writeVarint(bytes, encoded.length);
   for (const byte of encoded) bytes.push(byte);

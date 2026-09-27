@@ -1,0 +1,536 @@
+{
+  "_meta": {
+    "locale": "nl",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27",
+    "sameAsSource": ["landing.teachers.points.open.title"]
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: ontdek het brein van een echte fruitvlieg",
+      "description": "Gratis lessen voor in de klas over een echt fruitvliegbrein. Stimuleer neuronen uit het MaleCNS-connectoom en leg ze stil in je browser. Zonder inloggen."
+    },
+    "about": {
+      "title": "Over WiredMind: wat is echt en wat is vereenvoudigd?",
+      "description": "Wat is echt en wat is vereenvoudigd in de fruitvlieglessen van WiredMind? Lees ook wie het heeft gemaakt en hoe je het kunt steunen."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Pagina niet gevonden · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Kijk hoe de ontsnappingsreflex van een vlieg door echte bedrading raast",
+      "subtitle": "Gratis lessen voor in de klas over het MaleCNS-connectoom"
+    },
+    "about": {
+      "title": "Wat is echt en wat is vereenvoudigd?",
+      "subtitle": "Hoe WiredMind van een echt connectoom een les voor in de klas maakt"
+    },
+    "lessonLabel": "Les {number} van {total}",
+    "alt": "{title}, op een stilstaand beeld van de ontsnappingsreflex in het bedradingsschema van een echte fruitvlieg"
+  },
+  "manifest": {
+    "name": "WiredMind: lessen over het fruitvliegbrein",
+    "description": "Gratis lessen voor in de klas over de echte bedrading van het brein van een fruitvlieg."
+  },
+  "jsonLd": {
+    "educationalLevel": "Onderbouw en bovenbouw voortgezet onderwijs",
+    "learningResourceType": "Interactieve les",
+    "audience": "Leerlingen en docenten"
+  },
+  "nav": {
+    "label": "Hoofdmenu",
+    "home": "Startpagina van WiredMind",
+    "lessons": "Lessen",
+    "teachers": "Voor docenten",
+    "about": "Over"
+  },
+  "a11y": {
+    "skip": "Direct naar de inhoud",
+    "newTab": "(opent in een nieuw tabblad)"
+  },
+  "language": {
+    "button": "Taal: {language}",
+    "menu": "Kies een taal"
+  },
+  "translate": {
+    "notice": "WiredMind is nog niet beschikbaar in het {language}, dus deze pagina is in het Engels.",
+    "cta": "Help mee met vertalen",
+    "dismiss": "Sluiten"
+  },
+  "footer": {
+    "builtBy": "Gemaakt door {author}",
+    "github": "GitHub",
+    "githubLabel": "Help mee met vertalen of draag bij op GitHub",
+    "about": "Over",
+    "code": "Code: MIT-licentie",
+    "credits": "Neuronen uit het connectoom <malecns>MaleCNS v1.0</malecns> van <janelia>HHMI Janelia FlyEM</janelia>, de <cambridge>Universiteit van Cambridge</cambridge>, het <mrc>MRC Laboratory of Molecular Biology</mrc> en <google>Google Research</google>, onder licentie <ccby>CC BY 4.0</ccby>."
+  },
+  "support": {
+    "blurb": "WiredMind is gratis en blijft dat altijd. Had je klas er iets aan? Met een kop koffie blijft de server zoemen.",
+    "coffee": "☕ Trakteer me op koffie"
+  },
+  "credits": {
+    "title": "Waar de neuronen vandaan komen",
+    "body": "Alle neuronen en synapsaantallen komen uit het <malecns>connectoom MaleCNS v1.0</malecns>: het centrale zenuwstelsel van de mannelijke fruitvlieg, in kaart gebracht door <janelia>HHMI Janelia FlyEM</janelia>, de <cambridge>Universiteit van Cambridge</cambridge>, het <mrc>MRC Laboratory of Molecular Biology</mrc> en <google>Google Research</google>.",
+    "license": "De gegevens vallen onder de licentie <ccby>CC BY 4.0</ccby>. WiredMind past ze aan: het knipt er drie kleine circuits uit, laat verbindingen van minder dan vijf synapsen weg en tekent elk neuron als een vereenvoudigde lijn. De simulator gebruikt het neuronmodel van <shiu>Shiu et al. (2024)</shiu>."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Gratis lessen neurowetenschap voor in de klas",
+      "title": "Laat een neuron vuren in het brein van een echte fruitvlieg en kijk hoe het signaal van de ogen naar de poten raast.",
+      "lead": "WiredMind simuleert het echte bedradingsschema van het zenuwstelsel van een fruitvlieg, gewoon in de browser. Leerlingen stimuleren neuronen, leggen ze stil en zien wat er verandert, in drie korte, begeleide lessen.",
+      "start": "Start de eerste les",
+      "teachers": "Voor docenten"
+    },
+    "loop": {
+      "label": "Animatie van de ontsnappingsreflex in het bedradingsschema van de vlieg",
+      "caption": "De eerste {spanMs} ms nadat er een vliegenmepper opduikt, uit de ontsnappingsles en {slowdown} keer vertraagd. De bedrading is echt en komt uit het MaleCNS-connectoom. De impulsen komen uit een eenvoudige simulatie. <simplified>Wat is vereenvoudigd?</simplified>",
+      "steps": {
+        "looming": "Naderingsneuronen zien de vliegenmepper",
+        "gf": "De reuzenvezel vuurt",
+        "jump": "De springneuronen geven een schop"
+      },
+      "cells": "{count, plural, one {# cel} other {# cellen}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms vliegentijd",
+      "waiting": "Vliegenmepper in aantocht",
+      "pause": "Animatie pauzeren",
+      "play": "Animatie afspelen",
+      "loading": "Het circuit wordt geladen…",
+      "failed": "De animatie is niet geladen. De lessen werken gewoon."
+    },
+    "lessons": {
+      "title": "Drie lessen, één echt zenuwstelsel",
+      "lead": "Elke les is in een paar tikken klaar. Leerlingen stimuleren echte celtypen en leggen ze stil, beantwoorden één vraag en gaan daarna zelf op ontdekking.",
+      "lesson": "Les {number}",
+      "meta": "{steps, plural, one {# stap} other {# stappen}} en een vraag · ongeveer 10 minuten",
+      "start": "Start les {number}"
+    },
+    "teachers": {
+      "title": "Voor docenten",
+      "lead": "Zet de link op het digibord of stuur hem naar de eigen apparaten van je leerlingen. Verder hoef je niets in te stellen.",
+      "points": {
+        "periods": {
+          "title": "1–2 lesuren",
+          "body": "Elke les duurt ongeveer 10 minuten. Alle drie samen, met nabespreking, passen in één of twee lesuren."
+        },
+        "install": {
+          "title": "Niets installeren, nergens inloggen",
+          "body": "Het werkt in de browser op laptops, Chromebooks, tablets en telefoons. Leerlingen maken nooit een account aan en vullen nooit een e-mailadres in."
+        },
+        "free": {
+          "title": "Gratis",
+          "body": "Geen advertenties, geen betaalde versie, niets te kopen."
+        },
+        "open": {
+          "title": "Open source",
+          "body": "De code heeft een MIT-licentie, dus je kunt lezen hoe alles werkt of zelf een eigen versie draaien."
+        },
+        "share": {
+          "title": "Experimenten delen",
+          "body": "De knop Delen kopieert een link die het experiment van een leerling opnieuw afspeelt, impuls voor impuls. Zo zie je precies wat de leerling zag."
+        },
+        "honest": {
+          "title": "Eerlijk over de wetenschap",
+          "body": "Een eenvoudig model van echte bedrading. Op de pagina Over staat precies wat echt is en wat is vereenvoudigd."
+        }
+      },
+      "source": "Bekijk de broncode op GitHub",
+      "science": "Wat is echt en wat is vereenvoudigd?"
+    }
+  },
+  "about": {
+    "title": "Over WiredMind",
+    "lead": "WiredMind is een reeks gratis lessen voor in de klas, gebouwd op het echte bedradingsschema van een fruitvlieg. Het is lesmateriaal, geen onderzoeksmodel. Deze pagina is voor lezers die precies willen weten waar de grens ligt.",
+    "onThisPage": "Op deze pagina",
+    "real": {
+      "title": "Wat is echt en wat is vereenvoudigd?",
+      "realTitle": "Echt",
+      "realItems": {
+        "neurons": {
+          "title": "De neuronen.",
+          "body": "Elke les gebruikt 3.000 tot 4.500 gereconstrueerde neuronen uit het connectoom <malecns>MaleCNS v1.0</malecns>: het volledige centrale zenuwstelsel van één mannelijke vlieg, met de celtypen die de auteurs eraan hebben toegekend."
+        },
+        "synapses": {
+          "title": "Het aantal synapsen.",
+          "body": "Het gewicht van elke verbinding is het aantal synapsen dat de dataset tussen de twee cellen telt, bij een detectiebetrouwbaarheid van 0,5 of hoger."
+        },
+        "signs": {
+          "title": "Prikkelend of remmend.",
+          "body": "De voorspelde neurotransmitter van een neuron bepaalt of het prikkelt of remt: acetylcholine prikkelt, GABA en glutamaat remmen. Cellen die volgens de voorspelling dopamine, serotonine, octopamine of een onduidelijke transmitter afgeven, hebben in het model geen effect."
+        },
+        "shapes": {
+          "title": "De vormen en posities.",
+          "body": "Elk neuron is getekend vanuit zijn eigen skelet in de dataset, op de plek waar het echt in de vlieg zit."
+        }
+      },
+      "simplifiedTitle": "Vereenvoudigd",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Kleine uitsneden.",
+          "body": "Elke les simuleert een deelcircuit van 3.000 tot 4.500 neuronen, niet het hele zenuwstelsel. Het geurcircuit bestaat uit vier celpopulaties: receptoren, projectieneuronen, Kenyon-cellen en outputneuronen. Het kompas- en het ontsnappingscircuit groeien vanaf hun startceltypen twee stappen uit en houden de sterkst verbonden partners over. Verbindingen van minder dan vijf synapsen vallen weg. Alles buiten de uitsnede is weg, ook remming die het netwerk normaal in balans zou houden."
+        },
+        "model": {
+          "title": "Eén neuronmodel voor elke cel.",
+          "body": "Puntneuronen van het type leaky integrate-and-fire, met overal dezelfde parameters: de gepubliceerde waarden van <shiu>Shiu et al. (2024)</shiu>. Rust- en resetpotentiaal −52 mV, drempel −45 mV, membraantijdconstante 20 ms, synaptische tijdconstante 5 ms, refractaire periode 2,2 ms, vertraging 1,8 ms, 0,275 mV per synaps. Geen berekeningen in dendrieten, geen neuronen met graduele signalen of zonder impulsen, geen neuromodulatie en geen leren: synapsen veranderen nooit."
+        },
+        "gaps": {
+          "title": "Geen gap junctions.",
+          "body": "Het connectoom legt alleen chemische synapsen vast, dus elektrische synapsen ontbreken. Dat weegt het zwaarst in de ontsnappingsles: in een echte vlieg is de verbinding tussen de reuzenvezel en het motorneuron voor de sprong een gemengde synaps die sterk op gap junctions leunt. Hier bestaat die verbinding alleen uit de 90 chemische synapsen."
+        },
+        "learning": {
+          "title": "Niets leert.",
+          "body": "De geurles laat zien waar een vlieg geurherinneringen opslaat, in de synapsen van Kenyon-cellen naar outputneuronen, maar het model heeft geen dopamineneuronen en geen plasticiteit. De uitsnede laat ook het APL-neuron weg, dat ervoor zorgt dat maar weinig Kenyon-cellen tegelijk actief zijn."
+        },
+        "stimulation": {
+          "title": "Geïdealiseerde stimulatie.",
+          "body": "De knop Stimuleren geeft elk neuron in een groep onafhankelijke Poisson-input (40 Hz gedurende 200 ms in de geur- en de ontsnappingsles, 60 Hz gedurende 800 ms voor de draaineuronen). Elke puls is sterk genoeg om de cel te laten vuren, ongeveer zoals bij optogenetische activatie. Een echte geur activeert een paar receptortypen in een bepaald patroon; de geur in de les laat alle 1.861 receptorneuronen in de uitsnede vuren. De vliegenmepper laat alle 304 naderingscellen tegelijk vuren, terwijl een echt naderend voorwerp er steeds meer inschakelt naarmate het groter wordt."
+        },
+        "silence": {
+          "title": "Stilleggen is absoluut.",
+          "body": "Een stilgelegde groep blijft in rust, vuurt nooit en stuurt niets door. Echte manieren om neuronen stil te leggen, zoals Kir2.1 of tetanustoxine, werken maar gedeeltelijk, zijn trager en laten elektrische synapsen soms gewoon doorwerken."
+        },
+        "compass": {
+          "title": "Oriëntatiepunten voor het kompas.",
+          "body": "De ringneuronen krijgen in het model geen visuele input. Als je ze stillegt, valt hun remming op het kompas weg, en daardoor kan de bult hier afdrijven. In een echte vlieg brengen ze oriëntatiepunten en andere aanwijzingen van de zintuigen binnen."
+        },
+        "timing": {
+          "title": "Timing.",
+          "body": "Reactietijden komen uit één vaste vertraging van 1,8 ms en de tijdconstanten van membraan en synaps, niet uit metingen. Ze vallen binnen een aannemelijk bereik, maar niets is afgestemd op gemeten reactietijden bij ontsnappen. De viewer speelt alles vertraagd af, 0,2 tot 2 ms vliegentijd per beeld, afhankelijk van het apparaat. De simulatie stopt 150 ms na de laatste prikkel. Sommige uitsneden hebben namelijk prikkelende lussen die anders eindeloos zouden nagalmen, omdat de remming buiten de uitsnede valt."
+        },
+        "drawings": {
+          "title": "Tekeningen, geen morfologie.",
+          "body": "Elk neuron is getekend als een lijn van 12 punten langs zijn skelet, niet met zijn echte vertakkingen. Flitsen tonen impulsen. De bewegende stipjes zijn illustratie, geen geleidingssnelheid en ook niet de echte route van een impuls."
+        }
+      },
+      "researchTitle": "Wat een onderzoeksinstrument anders zou doen",
+      "researchItems": {
+        "whole": "Het hele centrale zenuwstelsel simuleren, of het langs goed onderbouwde grenzen opknippen met gemodelleerde inputs, en zwakke verbindingen behouden.",
+        "fit": "Parameters per celtype afstemmen op metingen, neuronen met graduele signalen of zonder impulsen toelaten, en conductantiegebaseerde modellen of modellen met meerdere compartimenten gebruiken waar dendrieten ertoe doen.",
+        "add": "Gap junctions uit andere data, neuromodulatoren zoals dopamine en octopamine, en plasticiteit toevoegen, bijvoorbeeld door dopamine gestuurde verzwakking van de synapsen van Kenyon-cellen naar outputneuronen.",
+        "drive": "Zintuigneuronen aansturen zoals de wereld dat doet: geurspecifieke patronen van receptoren, en naderende prikkels die steeds meer cellen inschakelen naarmate het voorwerp groter wordt.",
+        "uncertain": "De voorspelde transmitters en gewichten als onzeker behandelen, ze systematisch variëren, met veel verschillende seeds draaien en de uitkomsten vergelijken met elektrofysiologie en gedrag."
+      },
+      "furtherTitle": "Naar de bron",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: doorzoek MaleCNS v1.0 cel voor cel en synaps voor synaps.",
+        "paper": "<paper>Het MaleCNS-artikel</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: het leaky-integrate-and-fire-model van het hele brein, waarvan WiredMind de parameters leent.",
+        "code": "<code>De broncode</code>: de datapijplijn, de simulator, de lessen en tests die de beweringen van elke les op de echte circuits controleren."
+      }
+    },
+    "who": {
+      "title": "Wie heeft dit gemaakt?",
+      "body": "WiredMind is in één week in september 2026 gebouwd door {author}, full-stack developer en SEO-strateeg in Tel Aviv.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Steun dit project"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "body": "Geen accounts. Er is maar één cookie, om de taal te onthouden die je in het taalmenu kiest. Paginaweergaven worden zonder cookies geteld, met Vercel Web Analytics."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Hoe een vlieg een geur onthoudt",
+      "summary": "Stuur een geur een echt vliegenbrein in en zoek de cellen die de geur onthouden.",
+      "description": "Stuur een geur een echt fruitvliegbrein in, volg hem naar het paddenstoellichaam en vind de cellen die hem onthouden. Een gratis les van 10 minuten.",
+      "steps": {
+        "send": {
+          "text": "Een vlieg ruikt met zijn <term>antennes</term> <gloss>(twee voelsprieten)</gloss>. Tik op Stimuleren om een geur naar binnen te sturen. Kijk hoe de oranje neuronen oplichten.",
+          "result": "Die oranje <term>geurreceptoren</term> <gloss>(de geurvangers)</gloss> vuren als eerste. Elke geur begint hier."
+        },
+        "follow": {
+          "text": "Tik nog een keer op Stimuleren en volg de kleuren. Gele <term>projectieneuronen</term> <gloss>(de geurboodschappers)</gloss> brengen de geur naar binnen. Daarna vangen blauwe <term>Kenyon-cellen</term> <gloss>(de geursorteerders)</gloss> hem op.",
+          "result": "De blauwe cellen maken van elke geur een eigen patroon."
+        },
+        "read": {
+          "text": "Tik nog één keer op Stimuleren. Kijk nu naar de roze <term>outputneuronen</term> <gloss>(de geheugenlezers)</gloss>. Die lezen het blauwe patroon.",
+          "result": "Als een geur samengaat met suiker of gevaar, veranderen de verbindingen van blauw naar roze. Wetenschappers denken dat die verandering de herinnering is."
+        },
+        "silence": {
+          "text": "Nu ga je de <term>Kenyon-cellen</term> <gloss>(de geursorteerders)</gloss> stilleggen. Wij sturen de geur voor je. Wat verdwijnt er?",
+          "result": "Het roze licht verdwijnt bijna. De geur komt nog steeds binnen, maar de geheugenlezers krijgen niets te lezen."
+        },
+        "restore": {
+          "text": "Tik nog een keer op de knop van de <term>Kenyon-cellen</term> <gloss>(de geursorteerders)</gloss> om ze weer aan te zetten. Wij sturen dezelfde geur.",
+          "result": "Het roze licht komt terug. De vlieg kan zijn geurherinnering weer lezen."
+        }
+      },
+      "check": {
+        "question": "Je hebt de <term>Kenyon-cellen</term> <gloss>(de blauwe cellen)</gloss> stilgelegd. Waarom werden de roze cellen donker?",
+        "choices": {
+          "never": {
+            "text": "De geur kwam de vlieg nooit binnen.",
+            "feedback": "Niet helemaal. De oranje en gele cellen lichtten nog op, dus de geur kwam wel binnen. Hij stopte bij de blauwe cellen."
+          },
+          "pattern": {
+            "text": "De blauwe cellen geven het patroon van elke geur door aan de roze cellen.",
+            "feedback": "Ja! De blauwe cellen sorteren elke geur in een patroon, en de roze cellen lezen dat patroon. Geen patroon betekent niets om te onthouden."
+          },
+          "both": {
+            "text": "Je hebt de roze cellen ook uitgezet.",
+            "feedback": "Niet helemaal. Je hebt alleen de blauwe cellen uitgezet. De roze cellen bleven aan, maar hadden niets om te lezen."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Vrij spel",
+        "text": "Alle knoppen werken nu. Eerst gokken, dan tikken: wat wordt er donker als je de gele geurboodschappers stillegt? Probeer ook eens twee kleuren tegelijk stil te leggen."
+      }
+    },
+    "compass": {
+      "title": "Hoe een vlieg weet welke kant hij op kijkt",
+      "summary": "Duw het kompas van een echte vlieg rond en ontdek wat het op zijn plaats houdt.",
+      "description": "Duw het interne kompas van een echte fruitvlieg rond, leg dan de ringneuronen stil en zie het richtinggevoel afdrijven. Een gratis les van 10 minuten.",
+      "steps": {
+        "left": {
+          "text": "Tik op Stimuleren om links de <term>draaineuronen</term> <gloss>(het draaisignaal)</gloss> te laten vuren. Kijk dan naar de kompasschijf.",
+          "result": "De <term>kompasneuronen</term> <gloss>(de richtingcellen)</gloss> lichten aan één kant op. Die heldere vlek, de bult, laat zien welke kant de vlieg op kijkt."
+        },
+        "right": {
+          "text": "Tik nu op Stimuleren om rechts de <term>draaineuronen</term> <gloss>(het andere signaal)</gloss> te laten vuren. Hou de bult goed in de gaten.",
+          "result": "De bult zwaaide over de schijf. Draaisignalen van elke kant duwen hem in tegengestelde richtingen, dus de kijkrichting van de vlieg draait mee."
+        },
+        "silence": {
+          "text": "Nu ga je de <term>ringneuronen</term> <gloss>(de wegwijzers)</gloss> stilleggen. Die brengen binnen wat de vlieg ziet. Wij sturen het signaal van rechts voor je.",
+          "result": "De bult glijdt van zijn plek en dwaalt rond. Zonder oriëntatiepunten drijft het kompas af."
+        },
+        "restore": {
+          "text": "Tik nog een keer op de knop van de <term>ringneuronen</term> <gloss>(de wegwijzers)</gloss> om ze weer aan te zetten. Wij sturen hetzelfde signaal.",
+          "result": "De bult blijft weer op zijn plek. Oriëntatiepunten houden het kompas van de vlieg op koers."
+        }
+      },
+      "check": {
+        "question": "Je hebt de wegwijzers (de paarse cellen) stilgelegd. Waarom dreef de bult weg?",
+        "choices": {
+          "never": {
+            "text": "Het draaisignaal kwam nooit bij het kompas aan.",
+            "feedback": "Niet helemaal. De groene richtingcellen lichtten nog op, dus het signaal kwam wel aan. Er was alleen niets dat de bult op zijn plek hield."
+          },
+          "landmarks": {
+            "text": "Niets vertelde het kompas waar de oriëntatiepunten waren, dus de bult gleed weg.",
+            "feedback": "Ja! De paarse cellen brengen binnen wat de vlieg ziet. Zonder die cellen houdt niets de bult vast aan de wereld."
+          },
+          "both": {
+            "text": "Je hebt de groene richtingcellen ook uitgezet.",
+            "feedback": "Niet helemaal. Je hebt alleen de paarse cellen stilgelegd. De groene richtingcellen bleven vuren, maar niets hield ze op hun plek."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Vrij spel",
+        "text": "Alle knoppen werken nu. Eerst gokken, dan tikken: waar gaat de bult heen als je beide draaisignalen tegelijk laat vuren? Probeer het ook met de paarse cellen stilgelegd."
+      }
+    },
+    "escape": {
+      "title": "Ontsnappen in 30 milliseconden",
+      "summary": "Vind de draad die een vlieg onder een vliegenmepper vandaan haalt.",
+      "description": "Volg in 30 ms een vliegenmepper van oog tot poot, via de reuzenvezel van een echte fruitvlieg. Knip dan de draad door. Een gratis les van 10 minuten.",
+      "steps": {
+        "loom": {
+          "text": "Een vliegenmepper duikt op de vlieg af. Tik op Stimuleren om de <term>naderingsneuronen</term> <gloss>(de meppermelders)</gloss> te laten vuren.",
+          "result": "Ze vuren, en binnen een paar duizendsten van een seconde vuurt ook de <term>reuzenvezel</term> <gloss>(de ontsnappingsdraad)</gloss>."
+        },
+        "jump": {
+          "text": "Tik nog een keer op Stimuleren. Volg de <term>reuzenvezel</term> <gloss>(de ontsnappingsdraad)</gloss> omlaag, de <term>zenuwstreng</term> <gloss>(een soort ruggenmerg)</gloss> in.",
+          "result": "De <term>springneuronen</term> <gloss>(de pootschoppers)</gloss> vuren binnen 30 milliseconden. Ze geven de middelste poten een schop, en de vlieg springt weg."
+        },
+        "silence": {
+          "text": "Nu ga je de <term>reuzenvezel</term> <gloss>(de ontsnappingsdraad)</gloss> stilleggen. Wij sturen de vliegenmepper. Kijk naar de <term>springneuronen</term> <gloss>(de pootschoppers)</gloss>.",
+          "result": "De <term>naderingsneuronen</term> <gloss>(de meppermelders)</gloss> vuren nog steeds, maar de <term>springneuronen</term> blijven donker. De snelle ontsnapping is weg."
+        },
+        "restore": {
+          "text": "Tik nog een keer op de knop van de <term>reuzenvezel</term> <gloss>(de ontsnappingsdraad)</gloss> om hem weer aan te zetten. Wij sturen dezelfde vliegenmepper.",
+          "result": "De <term>springneuronen</term> <gloss>(de pootschoppers)</gloss> vuren weer. Echte vliegen kunnen ook op tragere manieren ontsnappen, maar dit is de snelste."
+        }
+      },
+      "check": {
+        "question": "Je hebt de <term>reuzenvezel</term> <gloss>(de ontsnappingsdraad)</gloss> stilgelegd. Waarom bleven de pootschoppers donker?",
+        "choices": {
+          "never": {
+            "text": "De vlieg heeft de vliegenmepper nooit gezien.",
+            "feedback": "Niet helemaal. De blauwe meppermelders vuurden nog, dus de vlieg zag hem wel. Het signaal stopte bij de ontsnappingsdraad."
+          },
+          "wire": {
+            "text": "De ontsnappingsdraad brengt het springsignaal naar de pootschoppers.",
+            "feedback": "Ja! De meppermelders seinen de ontsnappingsdraad in, en de ontsnappingsdraad zegt tegen de poten dat ze moeten springen. Knip de draad door en de snelle sprong is weg."
+          },
+          "both": {
+            "text": "Je hebt de pootschoppers ook uitgezet.",
+            "feedback": "Niet helemaal. Je hebt alleen de ontsnappingsdraad stilgelegd. De pootschoppers bleven aan, maar kregen geen signaal."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Vrij spel",
+        "text": "Alle knoppen werken nu. Eerst gokken, dan tikken: welke kleuren lichten nog op als de ontsnappingsdraad is stilgelegd? Probeer daarna eens de meppermelders stil te leggen."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Geurreceptoren",
+        "pn": "Projectieneuronen",
+        "kc": "Kenyon-cellen",
+        "mbon": "Outputneuronen"
+      },
+      "stimulate": {
+        "orn": "Activeert de receptorneuronen die een geur als eerste opvangen, in de antenne."
+      },
+      "silence": {
+        "pn": "Voorkomt dat de antennekwab de geur doorgeeft aan het paddenstoellichaam.",
+        "kc": "Legt de cellen stil die de ene geur van de andere onderscheiden.",
+        "mbon": "Voorkomt dat het paddenstoellichaam het resultaat doorgeeft aan de rest van het brein."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Ringneuronen",
+        "compass": "Kompasneuronen",
+        "turn-left": "Draaineuronen links",
+        "turn-right": "Draaineuronen rechts"
+      },
+      "stimulate": {
+        "turn-left": "Laat de P-EN2-draaicellen aan de linkerkant van de brug vuren.",
+        "turn-right": "Laat de P-EN2-draaicellen aan de rechterkant van de brug vuren."
+      },
+      "silence": {
+        "ring": "Blokkeert de ringneuronen die oriëntatiepunten vanuit de ogen doorgeven.",
+        "compass": "Legt de E-PG-richtingcellen stil die samen het kompas vormen."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Naderingsneuronen",
+        "gf": "Reuzenvezel",
+        "jump": "Springneuronen"
+      },
+      "stimulate": {
+        "looming": "Laat de LC4- en LPLC2-oogcellen vuren, die iets in een duikvlucht zien aankomen."
+      },
+      "silence": {
+        "looming": "Voorkomt dat de oogcellen de duikvlucht melden.",
+        "gf": "Blokkeert de reuzenvezel, de snelste ontsnappingsdraad van de vlieg.",
+        "jump": "Legt de motorneuronen stil die de middelste poten een schop geven."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Les {number}",
+      "canvasHelp": "Driedimensionaal beeld van de neuronen. Sleep om het te draaien. Zoom met twee vingers.",
+      "loading": "Het circuit wordt geladen…",
+      "loadingPercent": "Het circuit wordt geladen… {percent}%"
+    },
+    "load": {
+      "unavailable": "De circuitbestanden zijn niet beschikbaar. Vernieuw de pagina om het opnieuw te proberen.",
+      "damaged": "De circuitbestanden zijn beschadigd. Vernieuw de pagina om het opnieuw te proberen.",
+      "failed": "Het circuit is niet geladen. Vernieuw de pagina om het opnieuw te proberen."
+    },
+    "controls": {
+      "stimulate": "Stimuleren",
+      "silence": "Stilleggen",
+      "activity": "Activiteit",
+      "reset": "Resetten",
+      "dragHint": "Sleep over het brein om het te draaien. Zoom met twee vingers.",
+      "activityLabel": "{group}: activiteit",
+      "locked": "Op slot",
+      "lockedHint": "Niet in deze stap. In vrij spel werken alle knoppen.",
+      "stimulateNamed": "Stimuleren: {name}",
+      "silenceNamed": "Stilleggen: {name}",
+      "silencedNamed": "Stilgelegd: {name}",
+      "silenced": "Stilgelegd · tik om aan te zetten"
+    },
+    "sheet": {
+      "more": "Meer tonen",
+      "less": "Minder tonen"
+    },
+    "toolbar": {
+      "lessonOf": "Les {number} van {total}",
+      "share": "Delen",
+      "copied": "Link gekopieerd. Die speelt je experiment opnieuw af.",
+      "copiedEmpty": "Link gekopieerd. Druk eerst op een knop om een experiment te delen.",
+      "copyThis": "Kopieer deze link:",
+      "linkLabel": "Link naar dit experiment"
+    },
+    "lesson": {
+      "tapCue": "Tik op de oplichtende knop onderaan.",
+      "watching": "Kijk naar het brein…",
+      "again": "Begin de les opnieuw",
+      "next": "Volgende",
+      "question": "Nog één korte vraag",
+      "freePlay": "Start vrij spel",
+      "pickAnswer": "Kies het antwoord dat volgens jou klopt.",
+      "nextLesson": "Volgende les: {title}",
+      "finished": "Je hebt alle lessen gedaan. Blijf vooral ontdekken.",
+      "cueStimulate": "Stimuleren",
+      "cueSilence": "Stilleggen",
+      "cueSwitchOn": "Aanzetten",
+      "loadingBrain": "Het brein wordt geladen…",
+      "gettingReady": "Bijna klaar… kijk naar het brein",
+      "watchBrain": "Kijk naar het brein",
+      "puffProgress": "Voortgang van de prikkel",
+      "puffClock": "{name}: {elapsed} van {total} ms, vertraagd",
+      "slowMotion": "Vertraagd, zodat je het kunt volgen",
+      "step": "Stap {number} van {total}",
+      "quickQuestion": "Korte vraag",
+      "done": "Les afgerond",
+      "answers": "Antwoorden",
+      "tryAnother": "Probeer een ander antwoord."
+    },
+    "replay": {
+      "label": "Herhaling van {title}",
+      "section": "Herhaling",
+      "finished": "Herhaling afgelopen",
+      "shared": "Iemand heeft een experiment uit de les “{title}” gedeeld. Bekijk het nog eens, impuls voor impuls.",
+      "over": "Dat was het hele experiment. Alle knoppen werken nu, dus probeer zelf iets uit.",
+      "replaying": "Gedeeld experiment wordt afgespeeld",
+      "progress": "Voortgang van de herhaling",
+      "pressOf": "Knopdruk {number} van {total}, op dezelfde tijdstippen en met dezelfde seed",
+      "tick": "{ms} ms",
+      "watchAgain": "Nog eens bekijken",
+      "start": "Start de les",
+      "stimulate": "Stimuleren: {name}",
+      "silence": "Stilleggen: {name}",
+      "switchOn": "Aanzetten: {name}",
+      "notice": "{problem} Daarom zie je nu gewoon de les.",
+      "errors": {
+        "unknownLesson": "Deze herhaling hoort bij een les die deze site niet heeft.",
+        "unknownButton": "Deze herhaling gebruikt een knop die deze les niet meer heeft.",
+        "empty": "Deze herhalingslink is leeg of te lang.",
+        "version": "Deze herhalingslink komt uit een andere versie.",
+        "seed": "De seed van deze herhaling is te groot.",
+        "tooMany": "Deze herhaling heeft te veel stappen om af te spelen.",
+        "tooLong": "Deze herhaling duurt te lang om af te spelen.",
+        "broken": "Deze herhalingslink is kapot of afgebroken.",
+        "generic": "Die herhalingslink werkte niet."
+      }
+    },
+    "compass": {
+      "label": "Kompasschijf. De oplichtende segmenten en de naald laten zien waar de bult op de ring zit.",
+      "left": "L",
+      "right": "R",
+      "caption": "Kompas · van achteren gezien"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Deze pagina bestaat niet",
+      "body": "De link is misschien verouderd of verkeerd getypt. De lessen zijn er nog gewoon.",
+      "home": "Naar de lessen"
+    },
+    "error": {
+      "title": "Er ging iets mis",
+      "body": "Er is een fout opgetreden op deze pagina. Probeer het opnieuw of ga terug naar de lessen.",
+      "retry": "Opnieuw proberen",
+      "home": "Naar de lessen"
+    }
+  }
+}

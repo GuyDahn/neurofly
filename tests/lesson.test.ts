@@ -6,11 +6,14 @@ import {
   controlState,
   focusFor,
   glossParts,
+  markupParts,
   MAX_STEP_WORDS,
   meetsGoal,
+  plainText,
   readLesson,
   unglossed,
   wordCount,
+  type LessonModule,
   type LessonPhase,
 } from "../apps/web/src/viewer/lesson.js";
 import { readModule } from "../apps/web/src/viewer/module.js";
@@ -23,6 +26,53 @@ function json(path: string): unknown {
       "utf8",
     ),
   );
+}
+
+type LessonCopy = {
+  title: string;
+  summary: string;
+  steps: Record<string, { text: string; result: string }>;
+  check: {
+    question: string;
+    choices: Record<string, { text: string; feedback: string }>;
+  };
+  freePlay: { title: string; text: string };
+};
+
+const en = JSON.parse(
+  readFileSync(
+    new URL("../apps/web/messages/en.json", import.meta.url),
+    "utf8",
+  ),
+) as { lessons: Record<string, LessonCopy> };
+
+/** A lesson's English, as a reader sees it: markup gone. */
+function english(lesson: LessonModule) {
+  const copy = en.lessons[lesson.id]!;
+  return {
+    title: copy.title,
+    steps: lesson.steps.map((step) => ({
+      ...step,
+      text: plainText(copy.steps[step.id]!.text),
+      result: plainText(copy.steps[step.id]!.result),
+      markup: [copy.steps[step.id]!.text, copy.steps[step.id]!.result],
+    })),
+    question: plainText(copy.check.question),
+    choices: lesson.check.choices.map((choice) => ({
+      ...choice,
+      text: copy.check.choices[choice.id]!.text,
+      feedback: plainText(copy.check.choices[choice.id]!.feedback),
+    })),
+    freePlay: plainText(copy.freePlay.text),
+    markup: [
+      copy.check.question,
+      ...Object.values(copy.check.choices).flatMap((choice) => [
+        choice.text,
+        choice.feedback,
+      ]),
+      copy.freePlay.text,
+    ],
+  };
 }
 
 const circuit = readModule(json("olfactory/module.json"));
@@ -46,19 +96,16 @@ describe("lesson registry", () => {
 
   it("titles the new lessons as asked", () => {
     assert.equal(
-      findLesson("compass")?.lesson.title,
+      en.lessons.compass?.title,
       "How a fly knows which way it's facing",
     );
-    assert.equal(
-      findLesson("escape")?.lesson.title,
-      "The 30-millisecond escape",
-    );
+    assert.equal(en.lessons.escape?.title, "The 30-millisecond escape");
   });
 });
 
 describe("smell-memory lesson", () => {
   it("has five steps and one check question", () => {
-    assert.equal(lesson.title, "How a fly remembers a smell");
+    assert.equal(english(lesson).title, "How a fly remembers a smell");
     assert.equal(lesson.steps.length, 5);
     assert.equal(lesson.check.choices.filter((c) => c.correct).length, 1);
   });
@@ -66,6 +113,8 @@ describe("smell-memory lesson", () => {
 
 for (const { lesson } of LESSONS)
   describe(`${lesson.id} lesson copy`, () => {
+    const copy = english(lesson);
+
     it("has one right answer and ends each silence step with a puff", () => {
       assert.equal(lesson.check.choices.filter((c) => c.correct).length, 1);
       for (const step of lesson.steps) {
@@ -74,14 +123,14 @@ for (const { lesson } of LESSONS)
     });
 
     it("keeps each step, instruction plus result, within 40 words", () => {
-      for (const step of lesson.steps) {
+      for (const step of copy.steps) {
         const words = wordCount(`${step.text} ${step.result}`);
         assert.ok(words <= MAX_STEP_WORDS, `${step.id} has ${words} words`);
       }
     });
 
     it("asks for exactly one tap per step", () => {
-      for (const step of lesson.steps) {
+      for (const step of copy.steps) {
         const taps = step.text.match(/\b(tap|silence)\b/gi) ?? [];
         assert.equal(taps.length, 1, `${step.id}: ${taps.join(", ")}`);
       }
@@ -89,43 +138,56 @@ for (const { lesson } of LESSONS)
 
     it("glosses every piece of jargon in three words or fewer", () => {
       const cards = [
-        ...lesson.steps.map((step) => [step.id, `${step.text} ${step.result}`]),
+        ...copy.steps.map((step) => [step.id, `${step.text} ${step.result}`]),
         [
           "check",
           [
-            lesson.check.question,
-            ...lesson.check.choices.flatMap((c) => [c.text, c.feedback]),
+            copy.question,
+            ...copy.choices.flatMap((c) => [c.text, c.feedback]),
           ].join(" "),
         ],
-        ["free play", lesson.freePlay.text],
+        ["free play", copy.freePlay],
       ];
-      for (const [name, copy] of cards) {
-        assert.deepEqual(unglossed(copy ?? "", lesson.jargon), [], name);
+      for (const [name, text] of cards) {
+        assert.deepEqual(unglossed(text ?? "", lesson.jargon), [], name);
+      }
+    });
+
+    it("marks up exactly the jargon, so every language can bold its own terms", () => {
+      for (const markup of [
+        ...copy.steps.flatMap((step) => step.markup),
+        ...copy.markup,
+      ]) {
+        assert.deepEqual(
+          markupParts(markup),
+          glossParts(plainText(markup), lesson.jargon),
+          markup,
+        );
       }
     });
 
     it("only says neuron while a group is lit", () => {
-      for (const step of lesson.steps) {
+      for (const step of copy.steps) {
         if (!/neuron/i.test(`${step.text} ${step.result}`)) continue;
         assert.ok(step.focus.length > 0, step.id);
       }
       const unlit = [
-        lesson.check.question,
-        ...lesson.check.choices.flatMap((c) => [c.text, c.feedback]),
-        lesson.freePlay.text,
+        copy.question,
+        ...copy.choices.flatMap((c) => [c.text, c.feedback]),
+        copy.freePlay,
       ];
-      for (const copy of unlit) assert.doesNotMatch(copy, /neuron/i);
+      for (const text of unlit) assert.doesNotMatch(text, /neuron/i);
     });
 
     it("avoids the common passive forms", () => {
       const passive = /\b(is|are|was|were|be|been|being)\s+\w+ed\b/i;
-      for (const step of lesson.steps) {
+      for (const step of copy.steps) {
         assert.doesNotMatch(`${step.text} ${step.result}`, passive, step.id);
       }
     });
 
     it("gives feedback for every answer", () => {
-      for (const choice of lesson.check.choices) {
+      for (const choice of copy.choices) {
         assert.ok(choice.feedback.length > 0);
       }
     });

@@ -122,7 +122,6 @@ export async function buildCascade(dataDir: string): Promise<CascadeFile> {
     ticks: session.clock,
     groups: module.groups.map((group, index) => ({
       colorGroup: group.colorGroup,
-      label: group.label,
       color: group.color,
       count: groups.get(group.colorGroup)?.length ?? 0,
       firstTick: firstTick.get(index) ?? null,

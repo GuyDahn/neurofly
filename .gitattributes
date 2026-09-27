@@ -3,3 +3,5 @@
 # 1M means 1 MiB (1,048,576 bytes).
 *.glb binary max-size=1M
 *.bin binary max-size=1M
+# Share-image fonts are subsets of a few hundred characters (pnpm og:fonts); a whole font is a mistake.
+*.ttf binary max-size=256K

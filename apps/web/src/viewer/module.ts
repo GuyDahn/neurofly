@@ -61,9 +61,7 @@ export function readModule(value: unknown): ModuleSpec {
   }
   return {
     id: text(record.id, "id"),
-    title: text(record.title, "title"),
     circuit: text(record.circuit, "circuit"),
-    summary: text(record.summary, "summary"),
     assets: {
       gltf: text(assets.gltf, "assets.gltf"),
       graph: text(assets.graph, "assets.graph"),
@@ -107,11 +105,7 @@ function readControls(value: unknown, field: string): ControlSpec[] {
       throw new Error(`module.json repeats ${colorGroup} in ${field}`);
     }
     seen.add(colorGroup);
-    return {
-      colorGroup,
-      name: text(row.name, `${field}[${index}].name`),
-      label: text(row.label, `${field}[${index}].label`),
-    };
+    return { colorGroup };
   });
 }
 
@@ -135,7 +129,6 @@ function readGroups(value: unknown): GroupSpec[] {
     }
     return {
       colorGroup,
-      label: text(row.label, `groups[${index}].label`),
       color,
       match:
         row.match === undefined

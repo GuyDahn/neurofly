@@ -26,3 +26,15 @@ html {
 body {
   margin: 0;
 }
+
+/*
+ * Arabic joins its letters and Devanagari hangs them from one headline, so
+ * letter-spacing (the small uppercase labels use it) tears both apart. Outside
+ * the layers, this wins over every tracking utility.
+ */
+:lang(ar),
+:lang(fa),
+:lang(ur),
+:lang(hi) {
+  letter-spacing: normal;
+}

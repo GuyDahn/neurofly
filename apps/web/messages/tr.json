@@ -1,0 +1,535 @@
+{
+  "_meta": {
+    "locale": "tr",
+    "reviewed": false,
+    "model": "claude-opus-5-5",
+    "draftedAt": "2026-09-27"
+  },
+  "meta": {
+    "home": {
+      "title": "WiredMind: Gerçek bir meyve sineği beynini keşfedin",
+      "description": "Meyve sineği beyninin gerçek bağlantıları üzerine ücretsiz sınıf dersleri. MaleCNS konektomundaki nöronları tarayıcıda uyarın ve susturun. Giriş gerekmez."
+    },
+    "about": {
+      "title": "WiredMind hakkında: Neler gerçek, neler basitleştirilmiş",
+      "description": "WiredMind’ın meyve sineği beyni derslerinde neler gerçek, neler basitleştirilmiş? Projeyi kim yaptı, siz nasıl destek olabilirsiniz? Hepsi bu sayfada."
+    },
+    "lessonTitle": "{title} · WiredMind",
+    "notFoundTitle": "Sayfa bulunamadı · WiredMind"
+  },
+  "og": {
+    "home": {
+      "title": "Bir sineğin kaçış refleksini gerçek bağlantılarında izleyin",
+      "subtitle": "MaleCNS konektomu üzerine sınıf için ücretsiz dersler"
+    },
+    "about": {
+      "title": "Neler gerçek, neler basitleştirilmiş",
+      "subtitle": "WiredMind gerçek bir konektomu nasıl sınıf dersine dönüştürüyor"
+    },
+    "lessonLabel": "Ders {number}/{total}",
+    "alt": "“{title}” yazısı; arka planda gerçek bir meyve sineğinin bağlantı şemasında kaçış refleksinden bir kare"
+  },
+  "manifest": {
+    "name": "WiredMind: meyve sineği beyni dersleri",
+    "description": "Meyve sineği beyninin gerçek bağlantıları üzerine sınıf için ücretsiz dersler."
+  },
+  "jsonLd": {
+    "educationalLevel": "Ortaokul ve lise",
+    "learningResourceType": "Etkileşimli ders",
+    "audience": "Öğrenciler ve öğretmenler"
+  },
+  "nav": {
+    "label": "Site",
+    "home": "WiredMind ana sayfası",
+    "lessons": "Dersler",
+    "teachers": "Öğretmenler için",
+    "about": "Hakkında"
+  },
+  "a11y": {
+    "skip": "İçeriğe geç",
+    "newTab": "(yeni sekmede açılır)"
+  },
+  "language": {
+    "button": "Dil: {language}",
+    "menu": "Bir dil seçin"
+  },
+  "translate": {
+    "notice": "WiredMind henüz {language} diline çevrilmedi; bu yüzden bu sayfa İngilizce.",
+    "cta": "Çeviriye yardım edin",
+    "dismiss": "Kapat"
+  },
+  "footer": {
+    "builtBy": "Geliştiren: {author}",
+    "github": "GitHub",
+    "githubLabel": "GitHub’da çeviriye yardım edin ya da katkıda bulunun",
+    "about": "Hakkında",
+    "code": "Kod: MIT",
+    "credits": "Nöronlar, <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Cambridge Üniversitesi</cambridge>, <mrc>MRC Moleküler Biyoloji Laboratuvarı</mrc> ve <google>Google Research</google> tarafından hazırlanan <malecns>MaleCNS v1.0</malecns> konektomundan, <ccby>CC BY 4.0</ccby> lisansıyla alınmıştır."
+  },
+  "support": {
+    "blurb": "WiredMind ücretsiz ve hep öyle kalacak. Sınıfınıza faydası olduysa, bir kahve sunucuyu tıkır tıkır çalıştırır.",
+    "coffee": "☕ Bana bir kahve ısmarlayın"
+  },
+  "credits": {
+    "title": "Nöronlar nereden geliyor?",
+    "body": "Tüm nöronlar ve sinaps sayıları, <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Cambridge Üniversitesi</cambridge>, <mrc>MRC Moleküler Biyoloji Laboratuvarı</mrc> ve <google>Google Research</google> tarafından hazırlanan, erkek meyve sineğinin merkezi sinir sistemine ait <malecns>MaleCNS v1.0 konektomundan</malecns> gelir.",
+    "license": "Veriler <ccby>CC BY 4.0</ccby> lisansı altındadır. WiredMind veriyi şöyle değiştirir: Üç küçük devreyi kesip çıkarır, beşten az sinapslı bağlantıları atar ve her nöronu sadeleştirilmiş bir çizgi olarak çizer. Simülatör, <shiu>Shiu et al. (2024)</shiu> çalışmasındaki nöron modelini kullanır."
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Sınıf için ücretsiz sinirbilim dersleri",
+      "title": "Gerçek bir meyve sineğinin beyninde bir nöronu ateşleyin ve sinyalin gözlerinden bacaklarına nasıl hızla ulaştığını izleyin.",
+      "lead": "WiredMind, bir meyve sineğinin sinir sisteminin gerçek bağlantı şemasını tarayıcıda çalıştırır. Öğrenciler üç kısa, rehberli derste nöronları uyarır, susturur ve neyin değiştiğini görür.",
+      "start": "İlk derse başlayın",
+      "teachers": "Öğretmenler için"
+    },
+    "loop": {
+      "label": "Sineğin bağlantı şemasındaki kaçış refleksinin animasyonu",
+      "caption": "Kaçış dersinden: Bir sineklik belirdikten sonraki ilk {spanMs} ms, {slowdown} kat yavaşlatılmış olarak. Bağlantılar gerçek ve MaleCNS konektomundan geliyor. Ateşlemeler ise basit bir simülasyondan. <simplified>Neler basitleştirilmiş</simplified>",
+      "steps": {
+        "looming": "Yaklaşma nöronları sinekliği fark eder",
+        "gf": "Dev lif ateşlenir",
+        "jump": "Sıçrama nöronları bacakları iter"
+      },
+      "cells": "{count, plural, one {# hücre} other {# hücre}}",
+      "firstSpike": "{cells} · {ms} ms",
+      "clock": "{ms} ms sinek zamanı",
+      "waiting": "Sineklik geliyor",
+      "pause": "Animasyonu duraklatın",
+      "play": "Animasyonu oynatın",
+      "loading": "Devre yükleniyor…",
+      "failed": "Animasyon yüklenemedi. Dersler yine de çalışıyor."
+    },
+    "lessons": {
+      "title": "Üç ders, tek bir gerçek sinir sistemi",
+      "lead": "Her ders birkaç dokunuş sürer. Öğrenciler gerçek hücre tiplerini uyarıp susturur, bir soruyu yanıtlar, sonra kendi başlarına keşfeder.",
+      "lesson": "Ders {number}",
+      "meta": "{steps, plural, one {# adım} other {# adım}} ve bir soru · yaklaşık 10 dakika",
+      "start": "{number}. derse başlayın"
+    },
+    "teachers": {
+      "title": "Öğretmenler için",
+      "lead": "Bağlantıyı tahtaya yazın ya da öğrencilerin kendi cihazlarına gönderin. Başka hiçbir kurulum gerekmez.",
+      "points": {
+        "periods": {
+          "title": "1–2 ders saati",
+          "body": "Her ders yaklaşık 10 dakika sürer. Tartışmayla birlikte üç ders de bir ya da iki ders saatine sığar."
+        },
+        "install": {
+          "title": "Kurulum yok, giriş yok",
+          "body": "Dizüstü bilgisayarlarda, Chromebook’larda, tabletlerde ve telefonlarda doğrudan tarayıcıda çalışır. Öğrenciler hiç hesap açmaz, e-posta adresi de girmez."
+        },
+        "free": {
+          "title": "Ücretsiz",
+          "body": "Reklam yok, ücretli sürüm yok, satın alınacak hiçbir şey yok."
+        },
+        "open": {
+          "title": "Açık kaynak",
+          "body": "Kod MIT lisanslıdır; nasıl çalıştığını okuyabilir ya da kendi kopyanızı çalıştırabilirsiniz."
+        },
+        "share": {
+          "title": "Paylaşılabilir deneyler",
+          "body": "“Paylaş” düğmesi, bir öğrencinin deneyini ateşlemesi ateşlemesine yeniden oynatan bir bağlantı kopyalar; böylece onun gördüğünü siz de görürsünüz."
+        },
+        "honest": {
+          "title": "Bilim konusunda dürüst",
+          "body": "Gerçek bağlantıların basit bir modeli. Hakkında sayfası, neyin gerçek, neyin basitleştirilmiş olduğunu tam olarak anlatıyor."
+        }
+      },
+      "source": "Kaynak kodunu GitHub’da inceleyin",
+      "science": "Neler gerçek, neler basitleştirilmiş"
+    }
+  },
+  "about": {
+    "title": "WiredMind hakkında",
+    "lead": "WiredMind, bir meyve sineğinin gerçek bağlantı şeması üzerine kurulmuş, sınıf için ücretsiz bir ders setidir. Bir araştırma modeli değil, bir öğretim aracıdır. Bu sayfa, sınırın tam olarak nereden geçtiğini bilmek isteyen okurlar için.",
+    "onThisPage": "Bu sayfada",
+    "real": {
+      "title": "Neler gerçek, neler basitleştirilmiş",
+      "realTitle": "Gerçek",
+      "realItems": {
+        "neurons": {
+          "title": "Nöronlar.",
+          "body": "Her ders, <malecns>MaleCNS v1.0</malecns> konektomundan 3.000 ile 4.500 arasında yeniden yapılandırılmış nöron kullanır. Bu konektom, tek bir erkek sineğin tüm merkezi sinir sistemini kapsar; hücre tipleri de yazarlarının belirlediği gibidir."
+        },
+        "synapses": {
+          "title": "Sinaps sayıları.",
+          "body": "Her bağlantının ağırlığı, veri setinin iki hücre arasında bildirdiği sinaps sayısıdır. Yalnızca tespit güveni 0,5 ve üzerindeki sinapslar sayılır."
+        },
+        "signs": {
+          "title": "İşaretler.",
+          "body": "Bir nöronun uyarıcı mı yoksa baskılayıcı mı olduğunu, tahmin edilen nörotransmitteri belirler: Asetilkolin uyarır, GABA ve glutamat baskılar. Dopamin, serotonin, oktopamin ya da belirsiz bir nörotransmitter saldığı tahmin edilen hücrelerin modelde hiçbir etkisi yoktur."
+        },
+        "shapes": {
+          "title": "Şekiller ve konumlar.",
+          "body": "Her nöron, veri setindeki kendi iskeletinden çizilir ve sinekte gerçekte bulunduğu yerde durur."
+        }
+      },
+      "simplifiedTitle": "Basitleştirilmiş",
+      "simplifiedItems": {
+        "cuts": {
+          "title": "Küçük kesitler.",
+          "body": "Her ders, sinir sisteminin tamamını değil, 3.000 ile 4.500 nöronluk bir alt devreyi çalıştırır. Koku devresi dört hücre topluluğundan oluşur: reseptörler, projeksiyon nöronları, Kenyon hücreleri ve çıktı nöronları. Pusula ve kaçış devreleri, başlangıç hücre tiplerinden dışarıya doğru iki adım genişler ve en güçlü bağlantı kurdukları hücreleri tutar. Beşten az sinapslı bağlantılar atılır. Kesitin dışında kalan her şey yok olur; normalde ağı dengeleyecek baskılama da buna dahildir."
+        },
+        "model": {
+          "title": "Her hücre için tek bir nöron modeli.",
+          "body": "Her yerde aynı parametrelere sahip sızıntılı topla-ve-ateşle (leaky integrate-and-fire) nokta nöronları; değerler <shiu>Shiu et al. (2024)</shiu> çalışmasında yayımlananlardır: dinlenme ve sıfırlama −52 mV, eşik −45 mV, zar zaman sabiti 20 ms, sinaptik zaman sabiti 5 ms, 2,2 ms refrakter dönem, 1,8 ms gecikme, sinaps başına 0,275 mV. Dendritik hesaplama yok, kademeli ya da ateşleme yapmayan nöron yok, nöromodülasyon yok, öğrenme de yok: Sinapslar hiç değişmez."
+        },
+        "gaps": {
+          "title": "Boşluk bağlantısı yok.",
+          "body": "Konektom yalnızca kimyasal sinapsları kaydeder, bu yüzden elektriksel sinapslar yoktur. Bu en çok kaçış dersinde önemlidir: Gerçek bir sinekte dev lifin sıçrama motor nöronuyla bağlantısı, büyük ölçüde boşluk bağlantılarına dayanan karma bir sinapstır. Burada bu bağlantı, yalnızca 90 kimyasal sinapsından ibarettir."
+        },
+        "learning": {
+          "title": "Hiçbir şey öğrenmez.",
+          "body": "Koku dersi, sineğin koku anılarını nerede sakladığını gösterir: Kenyon hücrelerinden çıktı nöronlarına giden sinapslar. Ancak modelde dopamin nöronları da plastisite de yoktur. Kesit, Kenyon hücrelerinin aktivitesini seyrek tutan APL nöronunu da dışarıda bırakır."
+        },
+        "stimulation": {
+          "title": "İdealleştirilmiş uyarım.",
+          "body": "“Uyar” düğmesi, bir gruptaki her nöronu bağımsız Poisson girdisiyle uyarır (koku ve kaçış derslerinde 200 ms boyunca 40 Hz, dönüş nöronlarında 800 ms boyunca 60 Hz). Her olay hücreyi ateşleyecek kadar güçlüdür; tıpkı optogenetik aktivasyondaki gibi. Gerçek bir koku, birkaç reseptör tipini belli bir desenle etkinleştirir; dersteki koku ise kesitteki 1.861 reseptör nöronunun hepsini ateşler. Sineklik, 304 yaklaşma hücresinin hepsini aynı anda ateşler; oysa gerçekte yaklaşan bir nesne, büyüdükçe bu hücreleri sırayla devreye sokar."
+        },
+        "silence": {
+          "title": "Susturma tam bir kilittir.",
+          "body": "Susturulan bir grup dinlenme hâlinde kalır, hiç ateşlenmez ve hiçbir şey göndermez. Kir2.1 ya da tetanoz toksini gibi gerçek susturma araçları kısmi ve daha yavaştır; elektriksel sinapsları da çalışır hâlde bırakabilir."
+        },
+        "compass": {
+          "title": "Pusulanın yer işaretleri.",
+          "body": "Modelde halka nöronları hiçbir görsel girdi almaz. Onları susturmak, pusula üzerindeki baskılayıcı etkilerini kaldırır; burada tümseğin kaymasını sağlayan da budur. Gerçek bir sinekte bu nöronlar, yer işaretlerini ve başka ipuçlarını duyulardan içeri taşır."
+        },
+        "timing": {
+          "title": "Zamanlama.",
+          "body": "Gecikme süreleri kayıtlardan değil, her yerde aynı olan 1,8 ms’lik gecikmeden ve zar ile sinaptik zaman sabitlerinden gelir. Makul bir aralığa düşerler ama hiçbir değer, ölçülmüş kaçış gecikmelerine uysun diye ayarlanmadı. Görüntüleyici her şeyi ağır çekimde oynatır: Cihaza göre kare başına 0,2 ile 2 ms sinek zamanı. Son uyarandan 150 ms sonra da simülasyonu durdurur; çünkü bazı kesitlerde uyarıcı döngüler vardır ve dışarıda kalan baskılama olmadan bunlar sonsuza dek yankılanırdı."
+        },
+        "drawings": {
+          "title": "Çizimler, morfoloji değil.",
+          "body": "Her nöron, gerçek dallarıyla değil, iskeleti boyunca uzanan 12 noktalı bir çizgi olarak çizilir. Parlamalar ateşlemeleri gösterir. Hareket eden noktalar yalnızca görseldir; iletim hızını ya da bir ateşlemenin gerçek yolunu göstermez."
+        }
+      },
+      "researchTitle": "Bir araştırma aracı neleri farklı yapardı",
+      "researchItems": {
+        "whole": "Merkezi sinir sisteminin tamamını simüle etmek ya da onu gerekçeli sınırlardan, modellenmiş girdilerle kesmek; zayıf bağlantıları da korumak.",
+        "fit": "Parametreleri hücre tipine göre kayıtlara uydurmak, kademeli ve ateşleme yapmayan nöronlara izin vermek, dendritlerin önemli olduğu yerlerde iletkenlik tabanlı ya da çok bölmeli modeller kullanmak.",
+        "add": "Başka verilerden boşluk bağlantıları, dopamin ve oktopamin gibi nöromodülatörler ve plastisite eklemek; örneğin Kenyon hücrelerinden çıktı nöronlarına giden sinapslarda dopaminle tetiklenen zayıflama.",
+        "drive": "Duyu nöronlarını gerçek dünyadaki gibi uyarmak: kokuya özgü reseptör desenleri ve nesne büyüdükçe hücreleri devreye sokan yaklaşma uyaranları.",
+        "uncertain": "Nörotransmitter tahminlerini ve ağırlıkları belirsiz saymak, bunları geniş bir aralıkta taramak, çok sayıda tohumla çalıştırmak ve sonuçları elektrofizyoloji ve davranış verileriyle karşılaştırmak."
+      },
+      "furtherTitle": "Kaynağa gidin",
+      "furtherItems": {
+        "neuprint": "<neuprint>neuPrint</neuprint>: MaleCNS v1.0 verilerini hücre hücre, sinaps sinaps sorgulayın.",
+        "paper": "<paper>MaleCNS makalesi</paper>: <cite>{citation}</cite>",
+        "shiu": "<shiu>Shiu et al. (2024)</shiu>: tüm beyni kapsayan sızıntılı topla-ve-ateşle modeli. WiredMind parametrelerini bu modelden alır.",
+        "code": "<code>Kaynak kod</code>: veri hattı, simülatör, dersler ve her dersin iddialarını gerçek devreler üzerinde sınayan testler."
+      }
+    },
+    "who": {
+      "title": "Bunu kim yaptı?",
+      "body": "WiredMind, Tel Aviv’de yaşayan full-stack geliştirici ve SEO stratejisti {author} tarafından Eylül 2026’da bir hafta içinde geliştirildi.",
+      "github": "GitHub",
+      "website": "guy-dev.com"
+    },
+    "support": {
+      "title": "Destek"
+    },
+    "privacy": {
+      "title": "Gizlilik",
+      "body": "Hesap yok. Tek çerez, dil menüsünden seçtiğiniz dili hatırlar. Sayfa görüntülemeleri, çerez kullanmayan Vercel Web Analytics ile sayılır."
+    }
+  },
+  "lessons": {
+    "smell-memory": {
+      "title": "Sinek bir kokuyu nasıl hatırlar?",
+      "summary": "Gerçek bir sinek beynine bir koku gönder ve onu hatırlayan hücreleri bul.",
+      "description": "Gerçek bir meyve sineği beynine koku gönder, onu mantar cisimciğine kadar izle ve kokunun anısını saklayan hücreleri bul. Ücretsiz, 10 dakikalık bir ders.",
+      "steps": {
+        "send": {
+          "text": "Sinek <term>antenleriyle</term> <gloss>(iki duyargası)</gloss> koku alır. Bir koku göndermek için “Uyar” düğmesine dokun. Turuncu nöronların nasıl yandığını izle.",
+          "result": "Önce o turuncu <term>koku reseptörleri</term> <gloss>(koku yakalayıcıları)</gloss> ateşlenir. Her koku burada başlar."
+        },
+        "follow": {
+          "text": "“Uyar” düğmesine yine dokun ve renkleri takip et. Sarı <term>projeksiyon nöronları</term> <gloss>(koku habercileri)</gloss> kokuyu içeri taşır. Ardından mavi <term>Kenyon hücreleri</term> <gloss>(koku ayırıcıları)</gloss> onu yakalar.",
+          "result": "Mavi hücreler her kokuyu kendine özgü bir desene dönüştürür."
+        },
+        "read": {
+          "text": "“Uyar” düğmesine bir kez daha dokun. Şimdi pembe <term>çıktı nöronlarını</term> <gloss>(bellek okuyucuları)</gloss> izle. Bu nöronlar mavi deseni okur.",
+          "result": "Bir koku şekerle ya da tehlikeyle birlikte gelirse maviden pembeye giden bağlantılar değişir. Bilim insanlarına göre bellek, işte bu değişimdir."
+        },
+        "silence": {
+          "text": "Şimdi <term>Kenyon hücrelerini</term> <gloss>(koku ayırıcıları)</gloss> sustur. Kokuyu senin için biz göndereceğiz. Ne kayboluyor?",
+          "result": "Pembe ışık neredeyse kaybolur. Koku yine içeri girer ama bellek okuyucularının okuyacak hiçbir şeyi olmaz."
+        },
+        "restore": {
+          "text": "<term>Kenyon hücreleri</term> <gloss>(koku ayırıcıları)</gloss> düğmesine tekrar dokunup onları yeniden aç. Aynı kokuyu biz göndereceğiz.",
+          "result": "Pembe ışık geri gelir. Sinek koku belleğini yeniden okuyabilir."
+        }
+      },
+      "check": {
+        "question": "<term>Kenyon hücrelerini</term> <gloss>(mavi hücreler)</gloss> susturdun. Pembe hücreler neden söndü?",
+        "choices": {
+          "never": {
+            "text": "Koku sineğe hiç ulaşmadı.",
+            "feedback": "Tam olarak değil. Turuncu ve sarı hücreler yine de yandı, yani koku içeri girdi. Mavi hücrelerde durdu."
+          },
+          "pattern": {
+            "text": "Mavi hücreler her kokunun desenini pembe hücrelere iletir.",
+            "feedback": "Evet! Mavi hücreler her kokuyu ayrı bir desene dönüştürür, pembe hücreler de bu deseni okur. Desen yoksa hatırlanacak bir şey de yoktur."
+          },
+          "both": {
+            "text": "Pembe hücreleri de kapattın.",
+            "feedback": "Tam olarak değil. Sadece mavi hücreleri kapattın. Pembe hücreler açık kaldı ama okuyacak bir şey bulamadı."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Serbest keşif",
+        "text": "Artık tüm düğmeler çalışıyor. Önce tahmin et, sonra dokun: Sarı koku habercilerini susturursan ne söner? İki rengi aynı anda susturmayı da dene."
+      }
+    },
+    "compass": {
+      "title": "Sinek hangi yöne baktığını nasıl bilir?",
+      "summary": "Gerçek bir sineğin pusulasını sağa sola it ve onu yerinde neyin tuttuğunu gör.",
+      "description": "Gerçek bir meyve sineğinin iç pusulasını sağa sola it, sonra halka nöronlarını sustur ve yön duygusunun kaymasını izle. Ücretsiz, 10 dakikalık bir ders.",
+      "steps": {
+        "left": {
+          "text": "Sol <term>dönüş nöronlarını</term> <gloss>(dönüş sinyali)</gloss> ateşlemek için “Uyar” düğmesine dokun. Sonra pusula kadranını izle.",
+          "result": "<term>Pusula nöronları</term> <gloss>(yön hücreleri)</gloss> bir tarafta yanar. Tümsek denen bu parlak bölge, sineğin hangi yöne baktığını gösterir."
+        },
+        "right": {
+          "text": "Şimdi sağ <term>dönüş nöronlarının</term> <gloss>(diğer sinyal)</gloss> “Uyar” düğmesine dokun. Gözünü tümsekten ayırma.",
+          "result": "Tümsek kadranda döndü. İki taraftan gelen dönüş sinyalleri onu zıt yönlere iter; bu yüzden sineğin yönü de döner."
+        },
+        "silence": {
+          "text": "<term>Halka nöronlarını</term> <gloss>(yer işareti taşıyıcıları)</gloss> sustur. Bu nöronlar sineğin gördüklerini içeri taşır. Sağ dönüş sinyalini senin için biz göndereceğiz.",
+          "result": "Tümsek yerinden kayar ve başıboş dolaşır. Yer işaretleri olmadan pusula sürüklenir."
+        },
+        "restore": {
+          "text": "<term>Halka nöronları</term> <gloss>(yer işareti taşıyıcıları)</gloss> düğmesine tekrar dokunup onları yeniden aç. Aynı sinyali biz göndereceğiz.",
+          "result": "Tümsek yine yerinde durur. Yer işaretleri sineğin pusulasını şaşmaz tutar."
+        }
+      },
+      "check": {
+        "question": "Yer işareti taşıyıcılarını (mor hücreler) susturdun. Tümsek neden sürüklendi?",
+        "choices": {
+          "never": {
+            "text": "Dönüş sinyali pusulaya hiç ulaşmadı.",
+            "feedback": "Tam olarak değil. Yeşil yön hücreleri yine de yandı, yani sinyal oraya ulaştı. Tümseği yerinde tutan hiçbir şey yoktu."
+          },
+          "landmarks": {
+            "text": "Pusulaya yer işaretlerinin nerede olduğunu söyleyen hiçbir şey yoktu, bu yüzden tümsek kaydı.",
+            "feedback": "Evet! Mor hücreler sineğin gördüklerini içeri taşır. Onlar olmadan tümseği dünyaya sabitleyen hiçbir şey kalmaz."
+          },
+          "both": {
+            "text": "Yeşil yön hücrelerini de kapattın.",
+            "feedback": "Tam olarak değil. Sadece mor hücreleri susturdun. Yeşil yön hücreleri ateşlenmeye devam etti ama onları sabit tutan hiçbir şey yoktu."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Serbest keşif",
+        "text": "Artık tüm düğmeler çalışıyor. Önce tahmin et, sonra dokun: İki dönüş sinyalini aynı anda ateşlersen tümsek nereye gider? Bir de mor hücreler susturulmuşken dene."
+      }
+    },
+    "escape": {
+      "title": "30 milisaniyelik kaçış",
+      "summary": "Sineği sinekliğin altından kurtaran kabloyu bul.",
+      "description": "Bir sinekliğin izini gerçek bir meyve sineğinin gözlerinden dev lif boyunca bacaklarına 30 ms’de sür, sonra kabloyu kes. Ücretsiz, 10 dakikalık bir ders.",
+      "steps": {
+        "loom": {
+          "text": "Bir sineklik sineğe doğru hızla iniyor. <term>Yaklaşma nöronlarını</term> <gloss>(sineklik gözcüleri)</gloss> ateşlemek için “Uyar” düğmesine dokun.",
+          "result": "Onlar ateşlenir ve saniyenin birkaç binde biri içinde <term>dev lif</term> <gloss>(kaçış kablosu)</gloss> de ateşlenir."
+        },
+        "jump": {
+          "text": "“Uyar” düğmesine yine dokun. <term>Dev lifi</term> <gloss>(kaçış kablosu)</gloss> aşağıya, <term>sinir kordonuna</term> <gloss>(sineğin omuriliği)</gloss> kadar izle.",
+          "result": "<term>Sıçrama nöronları</term> <gloss>(bacak iticileri)</gloss> 30 milisaniye içinde ateşlenir. Orta bacakları hızla iterler ve sinek sıçrayıp kaçar."
+        },
+        "silence": {
+          "text": "Şimdi <term>dev lifi</term> <gloss>(kaçış kablosu)</gloss> sustur. Sinekliği biz göndereceğiz. <term>Sıçrama nöronlarını</term> <gloss>(bacak iticileri)</gloss> izle.",
+          "result": "<term>Yaklaşma nöronları</term> <gloss>(sineklik gözcüleri)</gloss> yine ateşlenir ama <term>sıçrama nöronları</term> sönük kalır. Hızlı kaçış yok olur."
+        },
+        "restore": {
+          "text": "<term>Dev lif</term> <gloss>(kaçış kablosu)</gloss> düğmesine tekrar dokunup onu yeniden aç. Aynı sinekliği biz göndereceğiz.",
+          "result": "<term>Sıçrama nöronları</term> <gloss>(bacak iticileri)</gloss> yeniden ateşlenir. Gerçek sineklerin daha yavaş kaçış yolları da var ama en hızlısı bu."
+        }
+      },
+      "check": {
+        "question": "<term>Dev lifi</term> <gloss>(kaçış kablosu)</gloss> susturdun. Bacak iticileri neden sönük kaldı?",
+        "choices": {
+          "never": {
+            "text": "Sinek sinekliği hiç görmedi.",
+            "feedback": "Tam olarak değil. Mavi sineklik gözcüleri yine de ateşlendi, yani sinek onu gördü. Sinyal kaçış kablosunda durdu."
+          },
+          "wire": {
+            "text": "Kaçış kablosu sıçrama sinyalini bacak iticilerine taşır.",
+            "feedback": "Evet! Sineklik gözcüleri kaçış kablosuna haber verir, kaçış kablosu da bacaklara sıçramalarını söyler. Kabloyu kesersen hızlı sıçrama yok olur."
+          },
+          "both": {
+            "text": "Bacak iticilerini de kapattın.",
+            "feedback": "Tam olarak değil. Sadece kaçış kablosunu susturdun. Bacak iticileri açık kaldı ama hiç sinyal almadı."
+          }
+        }
+      },
+      "freePlay": {
+        "title": "Serbest keşif",
+        "text": "Artık tüm düğmeler çalışıyor. Önce tahmin et, sonra dokun: Kaçış kablosu susturulmuşken hangi renkler hâlâ yanıyor? Sonra bunun yerine sineklik gözcülerini susturmayı dene."
+      }
+    }
+  },
+  "circuits": {
+    "olfactory": {
+      "groups": {
+        "orn": "Koku reseptörleri",
+        "pn": "Projeksiyon nöronları",
+        "kc": "Kenyon hücreleri",
+        "mbon": "Çıktı nöronları"
+      },
+      "stimulate": {
+        "orn": "Kokuyu antende ilk yakalayan reseptör nöronlarını etkinleştirir."
+      },
+      "silence": {
+        "pn": "Anten lobunun o kokuyu mantar cisimciğine taşımasını durdurur.",
+        "kc": "Kokuları birbirinden ayırt eden hücreleri susturur.",
+        "mbon": "Mantar cisimciğinin sonucu beynin geri kalanına iletmesini engeller."
+      }
+    },
+    "visual": {
+      "groups": {
+        "ring": "Halka nöronları",
+        "compass": "Pusula nöronları",
+        "turn-left": "Sol dönüş nöronları",
+        "turn-right": "Sağ dönüş nöronları"
+      },
+      "stimulate": {
+        "turn-left": "Köprünün sol tarafındaki P-EN2 dönüş hücrelerini ateşler.",
+        "turn-right": "Köprünün sağ tarafındaki P-EN2 dönüş hücrelerini ateşler."
+      },
+      "silence": {
+        "ring": "Yer işaretlerini gözlerden içeri taşıyan halka nöronlarını engeller.",
+        "compass": "Pusulayı oluşturan E-PG yön hücrelerini susturur."
+      }
+    },
+    "escape": {
+      "groups": {
+        "looming": "Yaklaşma nöronları",
+        "gf": "Dev lif",
+        "jump": "Sıçrama nöronları"
+      },
+      "stimulate": {
+        "looming": "Hızla yaklaşan bir şeyi fark eden LC4 ve LPLC2 göz hücrelerini ateşler."
+      },
+      "silence": {
+        "looming": "Göz hücrelerinin bu ani yaklaşmayı bildirmesini engeller.",
+        "gf": "Sineğin en hızlı kaçış kablosu olan dev lifi engeller.",
+        "jump": "Orta bacakları iten motor nöronlarını susturur."
+      }
+    }
+  },
+  "viewer": {
+    "stage": {
+      "lesson": "Ders {number}",
+      "canvasHelp": "Nöronların üç boyutlu görünümü. Döndürmek için sürükle. İki parmakla yakınlaştır.",
+      "loading": "Devre yükleniyor…",
+      "loadingPercent": "Devre yükleniyor… %{percent}"
+    },
+    "load": {
+      "unavailable": "Devre dosyalarına ulaşılamıyor. Yeniden denemek için sayfayı yenile.",
+      "damaged": "Devre dosyaları bozuk. Yeniden denemek için sayfayı yenile.",
+      "failed": "Devre yüklenemedi. Yeniden denemek için sayfayı yenile."
+    },
+    "controls": {
+      "stimulate": "Uyar",
+      "silence": "Sustur",
+      "activity": "Aktivite",
+      "reset": "Sıfırla",
+      "dragHint": "Döndürmek için beyni sürükle. İki parmakla yakınlaştır.",
+      "activityLabel": "{group} aktivitesi",
+      "locked": "Kilitli",
+      "lockedHint": "Bu adımda kullanılamaz. Serbest keşifte tüm düğmeler kullanılabilir.",
+      "stimulateNamed": "Uyar: {name}",
+      "silenceNamed": "Sustur: {name}",
+      "silencedNamed": "Susturuldu: {name}",
+      "silenced": "Susturuldu · açmak için dokun"
+    },
+    "sheet": {
+      "more": "Daha fazla göster",
+      "less": "Daha az göster"
+    },
+    "toolbar": {
+      "lessonOf": "Ders {number}/{total}",
+      "share": "Paylaş",
+      "copied": "Bağlantı kopyalandı. Bu bağlantı deneyini yeniden oynatır.",
+      "copiedEmpty": "Bağlantı kopyalandı. Bir deneyi paylaşmak için önce bir düğmeye bas.",
+      "copyThis": "Bu bağlantıyı kopyala:",
+      "linkLabel": "Bu deneyin bağlantısı"
+    },
+    "lesson": {
+      "tapCue": "Alttaki parlayan düğmeye dokun.",
+      "watching": "Beyni izle…",
+      "again": "Dersi baştan başlat",
+      "next": "İleri",
+      "question": "Kısa bir soru",
+      "freePlay": "Serbest keşfe başla",
+      "pickAnswer": "Doğru olduğunu düşündüğün cevabı seç.",
+      "nextLesson": "Sonraki ders: {title}",
+      "finished": "Tüm dersleri bitirdin. Keşfetmeye devam et.",
+      "cueStimulate": "Uyar",
+      "cueSilence": "Sustur",
+      "cueSwitchOn": "Aç",
+      "loadingBrain": "Beyin yükleniyor…",
+      "gettingReady": "Hazırlanıyor… beyni izle",
+      "watchBrain": "Beyni izle",
+      "puffProgress": "Uyarım ilerlemesi",
+      "puffClock": "{name}: {elapsed} / {total} ms, ağır çekimde",
+      "slowMotion": "Takip edebilmen için ağır çekimde",
+      "step": "Adım {number}/{total}",
+      "quickQuestion": "Kısa soru",
+      "done": "Ders tamamlandı",
+      "answers": "Cevaplar",
+      "tryAnother": "Başka bir cevap dene."
+    },
+    "replay": {
+      "label": "Yeniden oynatma: {title}",
+      "section": "Yeniden oynatma",
+      "finished": "Yeniden oynatma bitti",
+      "shared": "Biri “{title}” dersindeki deneyini paylaştı. Hepsini ateşlemesi ateşlemesine yeniden izle.",
+      "over": "Deneyin tamamı buydu. Artık tüm düğmeler çalışıyor; sıra sende, kendi deneyini yap.",
+      "replaying": "Paylaşılan bir deney yeniden oynatılıyor",
+      "progress": "Yeniden oynatma ilerlemesi",
+      "pressOf": "Basış {number}/{total}, aynı zaman adımlarında ve aynı tohumla",
+      "tick": "{ms} ms",
+      "watchAgain": "Yeniden izle",
+      "start": "Derse başla",
+      "stimulate": "Uyar: {name}",
+      "silence": "Sustur: {name}",
+      "switchOn": "Aç: {name}",
+      "notice": "{problem} Bunun yerine dersi açtık.",
+      "errors": {
+        "unknownLesson": "Bu yeniden oynatma, bu sitede olmayan bir derse ait.",
+        "unknownButton": "Bu yeniden oynatma, bu derste artık olmayan bir düğmeyi kullanıyor.",
+        "empty": "Bu yeniden oynatma bağlantısı boş ya da çok uzun.",
+        "version": "Bu yeniden oynatma bağlantısı farklı bir sürümden.",
+        "seed": "Yeniden oynatmanın tohum değeri çok büyük.",
+        "tooMany": "Bu yeniden oynatmada oynatılamayacak kadar çok adım var.",
+        "tooLong": "Bu yeniden oynatma, oynatılamayacak kadar uzun.",
+        "broken": "Bu yeniden oynatma bağlantısı bozuk ya da eksik.",
+        "generic": "Bu yeniden oynatma bağlantısı çalışmadı."
+      }
+    },
+    "compass": {
+      "label": "Pusula kadranı. Parlayan dilimler ve ibre, tümseğin halka üzerinde nerede durduğunu gösterir.",
+      "left": "Sol",
+      "right": "Sağ",
+      "caption": "Pusula · arkadan bakış"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Böyle bir sayfa yok",
+      "body": "Bağlantı eski ya da hatalı yazılmış olabilir. Dersler hâlâ burada.",
+      "home": "Derslere gidin"
+    },
+    "error": {
+      "title": "Bir şeyler ters gitti",
+      "body": "Sayfada bir hata oluştu. Yeniden deneyin ya da derslere dönün.",
+      "retry": "Yeniden deneyin",
+      "home": "Derslere gidin"
+    }
+  }
+}

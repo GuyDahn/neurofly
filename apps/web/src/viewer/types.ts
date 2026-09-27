@@ -1,7 +1,6 @@
+/** A button for one group. Its name and description are in messages, under circuits.<circuit>. */
 export type ControlSpec = {
   colorGroup: string;
-  name: string;
-  label: string;
 };
 
 /** Which neurons a group holds. A neuron matching any list is in. */
@@ -16,7 +15,6 @@ export type GroupMatch = {
 
 export type GroupSpec = {
   colorGroup: string;
-  label: string;
   color: string;
   match: GroupMatch;
 };
@@ -37,9 +35,7 @@ export type CompassSpec = {
 
 export type ModuleSpec = {
   id: string;
-  title: string;
   circuit: string;
-  summary: string;
   assets: {
     gltf: string;
     graph: string;

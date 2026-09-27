@@ -1,13 +1,14 @@
 "use client";
 
+import { useFormatter, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
 import { enqueue } from "./commands.js";
+import { useCircuitCopy } from "./copy.js";
 import { groupColor } from "./module.js";
 import { useViewerStore } from "./store.js";
 import type {
   ControlAction,
   ControlGate,
-  ControlSpec,
   ControlState,
   ModuleSpec,
 } from "./types.js";
@@ -54,14 +55,17 @@ export function Controls({
   const silenced = useViewerStore((state) => state.silenced);
   const disabled = status !== "ready" || readOnly;
   const resetState = gate("reset");
+  const t = useTranslations("viewer.controls");
+  const circuit = useCircuitCopy(module);
 
   return (
     <>
-      <Section title="Stimulate">
+      <Section title={t("stimulate")}>
         {module.stimuli.map((control) => (
           <StimulateButton
             key={control.colorGroup}
-            control={control}
+            name={circuit.name(control.colorGroup)}
+            label={circuit.stimulate(control.colorGroup)}
             color={groupColor(module, control.colorGroup)}
             pressed={stimulating[control.colorGroup] === true}
             state={readOnly ? "open" : gate("stimulate", control.colorGroup)}
@@ -76,13 +80,14 @@ export function Controls({
         ))}
       </Section>
       {module.silence.length > 0 ? (
-        <Section title="Silence">
+        <Section title={t("silence")}>
           {module.silence.map((control) => {
             const on = silenced[control.colorGroup] === true;
             return (
               <SilenceButton
                 key={control.colorGroup}
-                control={control}
+                name={circuit.name(control.colorGroup)}
+                label={circuit.silence(control.colorGroup)}
                 color={groupColor(module, control.colorGroup)}
                 pressed={on}
                 state={readOnly ? "open" : gate("silence", control.colorGroup)}
@@ -110,12 +115,10 @@ export function Controls({
           onClick={() => press({ type: "reset" }, onAction)}
           className={`min-h-12 rounded-xl border border-white/20 text-base font-semibold text-zinc-100 transition-colors hover:bg-white/5 disabled:opacity-40 ${FOCUS_RING}`}
         >
-          Reset
+          {t("reset")}
         </button>
       )}
-      <p className="text-xs leading-relaxed text-zinc-400">
-        Drag the brain to turn it. Pinch to zoom.
-      </p>
+      <p className="text-xs leading-relaxed text-zinc-400">{t("dragHint")}</p>
     </>
   );
 }
@@ -123,12 +126,16 @@ export function Controls({
 function Activity({ module }: { module: ModuleSpec }) {
   const activity = useViewerStore((state) => state.activity);
   const focus = useViewerStore((state) => state.focus);
+  const t = useTranslations("viewer.controls");
+  const format = useFormatter();
+  const circuit = useCircuitCopy(module);
   return (
-    <Section title="Activity">
+    <Section title={t("activity")}>
       <ul className="flex flex-col gap-3">
         {module.groups.map((group) => {
           const level = activity[group.colorGroup] ?? 0;
           const percent = Math.round(level * 100);
+          const name = circuit.name(group.colorGroup);
           const dim = focus.length > 0 && !focus.includes(group.colorGroup);
           return (
             <li
@@ -136,14 +143,14 @@ function Activity({ module }: { module: ModuleSpec }) {
               className={`flex flex-col gap-1.5 transition-opacity ${dim ? "opacity-40" : ""}`}
             >
               <div className="flex items-baseline justify-between gap-3 text-sm">
-                <span className="text-zinc-200">{group.label}</span>
-                <span className="w-10 text-right text-zinc-400 tabular-nums">
-                  {percent}%
+                <span className="text-zinc-200">{name}</span>
+                <span className="w-12 shrink-0 text-end text-zinc-400 tabular-nums">
+                  {format.number(percent / 100, { style: "percent" })}
                 </span>
               </div>
               <div
                 role="meter"
-                aria-label={`${group.label} activity`}
+                aria-label={t("activityLabel", { group: name })}
                 aria-valuemin={0}
                 aria-valuemax={100}
                 aria-valuenow={percent}
@@ -182,13 +189,14 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
  */
 function LockedButton({ color, name }: { color: string; name: string }) {
   const [told, setTold] = useState(false);
+  const t = useTranslations("viewer.controls");
   return (
     <div className="flex flex-col gap-1">
       <button
         type="button"
         aria-disabled="true"
         onClick={() => setTold(true)}
-        className={`flex min-h-11 w-full items-center gap-2 rounded-2xl border border-dashed border-white/15 px-4 py-2 text-left text-sm text-zinc-500 ${FOCUS_RING}`}
+        className={`flex min-h-11 w-full items-center gap-2 rounded-2xl border border-dashed border-white/15 px-4 py-2 text-start text-sm text-zinc-500 ${FOCUS_RING}`}
       >
         <span
           className="inline-block size-2.5 shrink-0 rounded-full opacity-50"
@@ -196,11 +204,13 @@ function LockedButton({ color, name }: { color: string; name: string }) {
         />
         <span className="flex-1">{name}</span>
         <LockIcon />
-        <span className="text-xs tracking-[0.14em] uppercase">Locked</span>
+        <span className="text-xs tracking-[0.14em] uppercase">
+          {t("locked")}
+        </span>
       </button>
       {told ? (
         <p role="status" className="px-1 text-xs text-zinc-400">
-          Not in this step. Every button opens in free play.
+          {t("lockedHint")}
         </p>
       ) : null}
     </div>
@@ -231,22 +241,25 @@ function cueClass(state: ControlState): string {
 }
 
 function StimulateButton({
-  control,
+  name,
+  label,
   color,
   pressed,
   state,
   disabled,
   onPress,
 }: {
-  control: ControlSpec;
+  name: string;
+  label: string;
   color: string;
   pressed: boolean;
   state: ControlState;
   disabled: boolean;
   onPress: () => void;
 }) {
+  const t = useTranslations("viewer.controls");
   if (state === "locked") {
-    return <LockedButton color={color} name={`Stimulate ${control.name}`} />;
+    return <LockedButton color={color} name={t("stimulateNamed", { name })} />;
   }
   return (
     <button
@@ -255,40 +268,41 @@ function StimulateButton({
       aria-pressed={pressed}
       data-cue={state === "cue" ? "" : undefined}
       onClick={onPress}
-      className={`flex min-h-[4.75rem] w-full touch-manipulation flex-col items-start gap-1 rounded-2xl px-4 py-3.5 text-left text-zinc-950 transition-transform active:scale-[0.99] disabled:opacity-40 ${FOCUS_RING} ${pressed ? "ring-2 ring-white" : ""} ${cueClass(state)}`}
+      className={`flex min-h-[4.75rem] w-full touch-manipulation flex-col items-start gap-1 rounded-2xl px-4 py-3.5 text-start text-zinc-950 transition-transform active:scale-[0.99] disabled:opacity-40 ${FOCUS_RING} ${pressed ? "ring-2 ring-white" : ""} ${cueClass(state)}`}
       style={{ backgroundColor: color }}
     >
       <span className="text-xs font-semibold tracking-[0.14em] uppercase">
-        Stimulate
+        {t("stimulate")}
       </span>
-      <span className="text-lg leading-tight font-semibold">
-        {control.name}
-      </span>
-      <span className="text-sm leading-snug">{control.label}</span>
+      <span className="text-lg leading-tight font-semibold">{name}</span>
+      <span className="text-sm leading-snug">{label}</span>
     </button>
   );
 }
 
 function SilenceButton({
-  control,
+  name,
+  label,
   color,
   pressed,
   state,
   disabled,
   onPress,
 }: {
-  control: ControlSpec;
+  name: string;
+  label: string;
   color: string;
   pressed: boolean;
   state: ControlState;
   disabled: boolean;
   onPress: () => void;
 }) {
+  const t = useTranslations("viewer.controls");
   if (state === "locked") {
     return (
       <LockedButton
         color={color}
-        name={`${pressed ? "Silenced" : "Silence"}: ${control.name}`}
+        name={t(pressed ? "silencedNamed" : "silenceNamed", { name })}
       />
     );
   }
@@ -299,7 +313,7 @@ function SilenceButton({
       aria-pressed={pressed}
       data-cue={state === "cue" ? "" : undefined}
       onClick={onPress}
-      className={`flex min-h-16 w-full touch-manipulation flex-col items-start gap-1 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-left disabled:opacity-40 ${FOCUS_RING} ${cueClass(state)}`}
+      className={`flex min-h-16 w-full touch-manipulation flex-col items-start gap-1 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-start disabled:opacity-40 ${FOCUS_RING} ${cueClass(state)}`}
       style={pressed ? { boxShadow: `inset 0 0 0 2px ${color}` } : undefined}
     >
       <span className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
@@ -307,14 +321,12 @@ function SilenceButton({
           className="inline-block size-2.5 rounded-full"
           style={{ backgroundColor: color }}
         />
-        {pressed ? "Silenced · tap to switch on" : "Silence"}
+        {pressed ? t("silenced") : t("silence")}
       </span>
       <span className="text-base leading-tight font-semibold text-zinc-100">
-        {control.name}
+        {name}
       </span>
-      <span className="text-sm leading-snug text-zinc-300">
-        {control.label}
-      </span>
+      <span className="text-sm leading-snug text-zinc-300">{label}</span>
     </button>
   );
 }
