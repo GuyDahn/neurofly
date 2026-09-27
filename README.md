@@ -147,7 +147,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and open an issue before starting
 
 ## Credits
 
-Neurons from the MaleCNS v1.0 connectome by [HHMI Janelia FlyEM](https://www.janelia.org/project-team/flyem), the [University of Cambridge](https://www.zoo.cam.ac.uk/), the [MRC Laboratory of Molecular Biology](https://www2.mrc-lmb.cam.ac.uk/), and [Google Research](https://research.google/), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). WiredMind changes the data: it cuts out three small circuits, drops connections of fewer than five synapses, and draws each neuron as a simplified line.
+Neurons from the MaleCNS v1.0 connectome by [HHMI Janelia FlyEM](https://www.janelia.org/project-team/flyem), the [University of Cambridge](https://www.cam.ac.uk/), the [MRC Laboratory of Molecular Biology](https://www2.mrc-lmb.cam.ac.uk/), and [Google Research](https://research.google/), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). WiredMind changes the data: it cuts out three small circuits, drops connections of fewer than five synapses, and draws each neuron as a simplified line.
 
 > Berg, S., Beckett, I. R., Costa, M., Schlegel, P., Januszewski, M., et al. (2026). Sexual dimorphism in the complete _Drosophila_ male central nervous system connectome. _Cell_ 189, 5504–5526.e15. https://doi.org/10.1016/j.cell.2026.08.015
 
