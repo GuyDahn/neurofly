@@ -43,7 +43,7 @@ export function SiteFooter() {
     <footer className="border-t border-white/10">
       <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-zinc-400 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <CreditLine coffee />
-        <p className="text-xs text-zinc-500">
+        <p className="text-xs text-zinc-400">
           <Link href="/about" className={LINK_CLASS}>
             {copy.footer.about}
           </Link>

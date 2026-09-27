@@ -230,7 +230,7 @@ export function ModuleRunner({
 export function PanelCredit({ children }: { children?: ReactNode }) {
   if (!children) return null;
   return (
-    <div className="border-t border-white/10 pt-4 text-xs text-zinc-500">
+    <div className="border-t border-white/10 pt-4 text-xs text-zinc-400">
       {children}
     </div>
   );
