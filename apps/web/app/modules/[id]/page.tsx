@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CreditLine } from "@/src/site/footer";
+import { LessonCredits } from "@/src/site/footer";
 import { pageMetadata } from "@/src/site/page-meta";
 import { findLesson, LESSONS } from "@/src/viewer/modules";
 import { Viewer } from "@/src/viewer/viewer";
@@ -34,6 +34,7 @@ export default async function LessonPage({
 }) {
   const entry = findLesson((await params).id);
   if (!entry) notFound();
-  // No coffee link here: nothing asks students for anything mid-lesson.
-  return <Viewer lessonId={entry.id} credit={<CreditLine coffee={false} />} />;
+  // The data's makers are credited where their neurons are shown. No coffee
+  // link here: nothing asks students for anything mid-lesson.
+  return <Viewer lessonId={entry.id} credit={<LessonCredits />} />;
 }

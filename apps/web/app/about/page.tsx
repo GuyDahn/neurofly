@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function AboutPage() {
-  const { about, support, a11y } = copy;
+  const { about, support, a11y, credits } = copy;
   const { real } = about;
   return (
     <>
@@ -35,6 +35,9 @@ export default function AboutPage() {
           <a href={`#${real.id}`} className={LINK_CLASS}>
             {real.title}
           </a>
+          <a href="#credits" className={LINK_CLASS}>
+            {credits.title}
+          </a>
           <a href={`#${about.who.id}`} className={LINK_CLASS}>
             {about.who.title}
           </a>
@@ -52,6 +55,21 @@ export default function AboutPage() {
           <Bullets items={real.researchItems} newTab={a11y.newTab} />
           <SubTitle>{real.furtherTitle}</SubTitle>
           <Bullets items={real.further} newTab={a11y.newTab} />
+        </Section>
+
+        <Section id="credits" title={credits.title}>
+          <p className="text-base leading-relaxed text-zinc-300">
+            <RichText parts={credits.body} newTab={a11y.newTab} />
+          </p>
+          <blockquote className="border-l-2 border-white/20 pl-4 text-sm leading-relaxed text-zinc-300">
+            {credits.citation}{" "}
+            <SiteLink href={credits.doi.href} newTab={a11y.newTab}>
+              {credits.doi.text}
+            </SiteLink>
+          </blockquote>
+          <p className="text-sm leading-relaxed text-zinc-400">
+            <RichText parts={credits.license} newTab={a11y.newTab} />
+          </p>
         </Section>
 
         <Section id={about.who.id} title={about.who.title}>

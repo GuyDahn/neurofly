@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { siteCopy } from "./copy.js";
-import { LINK_CLASS, SiteLink } from "./rich-text.js";
+import { LINK_CLASS, RichText, SiteLink } from "./rich-text.js";
 import { REPO_URL } from "./site.js";
 
 /**
@@ -37,19 +37,44 @@ export function CreditLine({ coffee }: { coffee: boolean }) {
   );
 }
 
+/** Who mapped the neurons, with links to each institution and the license. */
+export function DataCredit() {
+  const copy = siteCopy();
+  return (
+    <p className="leading-relaxed">
+      <RichText parts={copy.dataCredit} newTab={copy.a11y.newTab} />
+    </p>
+  );
+}
+
+/** The end of a lesson panel: the data's makers first, then the site's. */
+export function LessonCredits() {
+  return (
+    <div className="flex flex-col gap-2">
+      <DataCredit />
+      <CreditLine coffee={false} />
+    </div>
+  );
+}
+
 export function SiteFooter() {
   const copy = siteCopy();
   return (
     <footer className="border-t border-white/10">
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-zinc-400 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <CreditLine coffee />
-        <p className="text-xs text-zinc-400">
-          <Link href="/about" className={LINK_CLASS}>
-            {copy.footer.about}
-          </Link>
-          <span aria-hidden="true"> · </span>
-          {copy.footer.license}
-        </p>
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-zinc-400 sm:px-6">
+        <DataCredit />
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <CreditLine coffee />
+          <p className="text-xs text-zinc-400">
+            <Link href="/about" className={LINK_CLASS}>
+              {copy.footer.about}
+            </Link>
+            <span aria-hidden="true"> · </span>
+            <SiteLink href={copy.footer.code.href} newTab={copy.a11y.newTab}>
+              {copy.footer.code.text}
+            </SiteLink>
+          </p>
+        </div>
       </div>
     </footer>
   );
