@@ -448,8 +448,8 @@
       "lockedHint": "Nie w tym kroku. W swobodnych eksperymentach działa każdy przycisk.",
       "stimulateNamed": "Pobudź: {name}",
       "silenceNamed": "Wycisz: {name}",
-      "silencedNamed": "Wyciszone: {name}",
-      "silenced": "Wyciszone · naciśnij, by włączyć"
+      "silenced": "Wyciszone · naciśnij, by włączyć",
+      "silencedLocked": "Wyciszone"
     },
     "sheet": {
       "more": "Pokaż więcej",

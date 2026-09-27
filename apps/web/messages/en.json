@@ -41,7 +41,8 @@
       "footer.feedback",
       "landing.teachers.feedback",
       "viewer.lesson.finished",
-      "viewer.lesson.moreLessons"
+      "viewer.lesson.moreLessons",
+      "viewer.controls.silencedLocked"
     ]
   },
   "meta": {
@@ -487,8 +488,8 @@
       "lockedHint": "Not in this step. Every button opens in free play.",
       "stimulateNamed": "Stimulate {name}",
       "silenceNamed": "Silence: {name}",
-      "silencedNamed": "Silenced: {name}",
-      "silenced": "Silenced · tap to switch on"
+      "silenced": "Silenced · tap to switch on",
+      "silencedLocked": "Silenced"
     },
     "sheet": {
       "more": "Show more",

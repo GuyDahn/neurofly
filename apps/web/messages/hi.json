@@ -448,8 +448,8 @@
       "lockedHint": "इस चरण में नहीं। खुले प्रयोग में हर बटन खुल जाता है।",
       "stimulateNamed": "उत्तेजित करें: {name}",
       "silenceNamed": "शांत करें: {name}",
-      "silencedNamed": "शांत: {name}",
-      "silenced": "शांत · चालू करने के लिए टैप करें"
+      "silenced": "शांत · चालू करने के लिए टैप करें",
+      "silencedLocked": "शांत"
     },
     "sheet": {
       "more": "और दिखाएँ",

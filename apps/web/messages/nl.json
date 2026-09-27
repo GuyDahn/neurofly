@@ -449,8 +449,8 @@
       "lockedHint": "Niet in deze stap. In vrij spel werken alle knoppen.",
       "stimulateNamed": "Stimuleren: {name}",
       "silenceNamed": "Stilleggen: {name}",
-      "silencedNamed": "Stilgelegd: {name}",
-      "silenced": "Stilgelegd · tik om aan te zetten"
+      "silenced": "Stilgelegd · tik om aan te zetten",
+      "silencedLocked": "Stilgelegd"
     },
     "sheet": {
       "more": "Meer tonen",

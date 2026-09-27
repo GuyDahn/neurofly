@@ -448,8 +448,8 @@
       "lockedHint": "Non si usa in questo passaggio. Nell’esplorazione libera si sbloccano tutti i pulsanti.",
       "stimulateNamed": "Stimola: {name}",
       "silenceNamed": "Silenzia: {name}",
-      "silencedNamed": "In silenzio: {name}",
-      "silenced": "In silenzio · tocca per riattivare"
+      "silenced": "In silenzio · tocca per riattivare",
+      "silencedLocked": "In silenzio"
     },
     "sheet": {
       "more": "Mostra di più",

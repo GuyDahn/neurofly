@@ -448,8 +448,8 @@
       "lockedHint": "このステップでは使えません。自由実験になると、すべてのボタンが使えます。",
       "stimulateNamed": "{name}を刺激する",
       "silenceNamed": "{name}をオフにする",
-      "silencedNamed": "{name}（オフ）",
-      "silenced": "オフ · タップでオンにする"
+      "silenced": "オフ · タップでオンにする",
+      "silencedLocked": "オフ"
     },
     "sheet": {
       "more": "もっと見る",

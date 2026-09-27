@@ -448,8 +448,8 @@
       "lockedHint": "Tidak dipakai di langkah ini. Semua tombol terbuka saat main bebas.",
       "stimulateNamed": "Rangsang {name}",
       "silenceNamed": "Bungkam: {name}",
-      "silencedNamed": "Dibungkam: {name}",
-      "silenced": "Dibungkam · ketuk untuk menyalakan"
+      "silenced": "Dibungkam · ketuk untuk menyalakan",
+      "silencedLocked": "Dibungkam"
     },
     "sheet": {
       "more": "Tampilkan lebih banyak",

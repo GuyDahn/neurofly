@@ -448,8 +448,8 @@
       "lockedHint": "Não disponível neste passo. Na exploração livre, todos os botões ficam liberados.",
       "stimulateNamed": "Estimular {name}",
       "silenceNamed": "Silenciar: {name}",
-      "silencedNamed": "Silenciado: {name}",
-      "silenced": "Silenciado · toque para ligar"
+      "silenced": "Silenciado · toque para ligar",
+      "silencedLocked": "Silenciado"
     },
     "sheet": {
       "more": "Mostrar mais",

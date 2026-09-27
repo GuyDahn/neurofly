@@ -448,8 +448,8 @@
       "lockedHint": "En este paso no. Todos los botones se desbloquean en la exploración libre.",
       "stimulateNamed": "Estimular {name}",
       "silenceNamed": "Silenciar: {name}",
-      "silencedNamed": "En silencio: {name}",
-      "silenced": "En silencio · toca para encender"
+      "silenced": "En silencio · toca para encender",
+      "silencedLocked": "En silencio"
     },
     "sheet": {
       "more": "Ver más",

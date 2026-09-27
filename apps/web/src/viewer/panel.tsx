@@ -299,12 +299,29 @@ function SilenceButton({
 }) {
   const t = useTranslations("viewer.controls");
   if (state === "locked") {
-    return (
-      <LockedButton
-        color={color}
-        name={t(pressed ? "silencedNamed" : "silenceNamed", { name })}
-      />
-    );
+    if (pressed) {
+      // Already silenced, and this step doesn't let it be switched back on
+      // from here: show that state plainly, rather than the same "Locked"
+      // badge used for a control the step hasn't reached yet.
+      return (
+        <div
+          className="flex min-h-16 w-full flex-col items-start gap-1 rounded-2xl border border-border bg-overlay px-4 py-3 text-start"
+          style={{ boxShadow: `inset 0 0 0 2px ${color}` }}
+        >
+          <span className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-fg-subtle uppercase">
+            <span
+              className="inline-block size-2.5 rounded-full"
+              style={{ backgroundColor: color }}
+            />
+            {t("silencedLocked")}
+          </span>
+          <span className="text-base leading-tight font-semibold text-fg">
+            {name}
+          </span>
+        </div>
+      );
+    }
+    return <LockedButton color={color} name={t("silenceNamed", { name })} />;
   }
   return (
     <button

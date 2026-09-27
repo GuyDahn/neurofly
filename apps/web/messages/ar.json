@@ -448,8 +448,8 @@
       "lockedHint": "غير متاح في هذه الخطوة. تعمل كل الأزرار في مرحلة الاستكشاف الحر.",
       "stimulateNamed": "تحفيز {name}",
       "silenceNamed": "إسكات: {name}",
-      "silencedNamed": "تم الإسكات: {name}",
-      "silenced": "تم الإسكات · اضغط للتشغيل"
+      "silenced": "تم الإسكات · اضغط للتشغيل",
+      "silencedLocked": "تم الإسكات"
     },
     "sheet": {
       "more": "عرض المزيد",

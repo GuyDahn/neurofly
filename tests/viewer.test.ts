@@ -11,7 +11,7 @@ import {
   compassWedges,
 } from "../apps/web/src/viewer/compass.js";
 import { activityByGroup, FlashField } from "../apps/web/src/viewer/flash.js";
-import { frameSphere } from "../apps/web/src/viewer/fit.js";
+import { frameBox, frameSphere, type Box } from "../apps/web/src/viewer/fit.js";
 import { assignGroups } from "../apps/web/src/viewer/groups.js";
 import { emptyGroups, readModule } from "../apps/web/src/viewer/module.js";
 import {
@@ -234,6 +234,37 @@ describe("camera fit", () => {
     assert.ok(far.distance > near.distance);
     assert.ok(near.near < near.far);
     assert.ok(near.distance > 10);
+  });
+
+  it("fits a cube about as tightly as the same cube's bounding sphere", () => {
+    const cube: Box = { min: { x: -10, y: -10, z: -10 }, max: { x: 10, y: 10, z: 10 } };
+    const box = frameBox(cube, { x: 0.72, y: 0.42, z: 0.86 }, 42, 16 / 9, 1.22);
+    // A cube's bounding sphere has radius 10*sqrt(3); frameBox should land
+    // close to frameSphere's fit for that radius, not wildly different.
+    const sphere = frameSphere(10 * Math.sqrt(3), 42, 16 / 9, 1.22);
+    assert.ok(Math.abs(box.distance - sphere.distance) < sphere.distance * 0.3);
+  });
+
+  it("doesn't back off to a sphere's worth of distance for a shape that's long in only one direction", () => {
+    // A circuit that runs from the eyes down through the nerve cord: tall
+    // and thin, the way the escape circuit's frame really is. Looking
+    // partly down that long axis foreshortens it, the way a fixed
+    // isometric-ish camera angle does for a mostly-vertical circuit.
+    const tall: Box = { min: { x: -2, y: -50, z: -2 }, max: { x: 2, y: 50, z: 2 } };
+    const sphereRadius = Math.sqrt(2 * 2 + 50 * 50 + 2 * 2);
+    const viaSphere = frameSphere(sphereRadius, 42, 16 / 9, 1.08);
+    const viaBox = frameBox(tall, { x: 0.3, y: 0.9, z: 0.3 }, 42, 16 / 9, 1.08);
+    assert.ok(
+      viaBox.distance < viaSphere.distance * 0.6,
+      `${viaBox.distance} vs ${viaSphere.distance}`,
+    );
+  });
+
+  it("fills more of a wide canvas for a shape that's wide, not tall", () => {
+    const wide: Box = { min: { x: -50, y: -2, z: -2 }, max: { x: 50, y: 2, z: 2 } };
+    const landscape = frameBox(wide, { x: 0, y: 0, z: 1 }, 42, 21 / 9, 1.08);
+    const portrait = frameBox(wide, { x: 0, y: 0, z: 1 }, 42, 9 / 21, 1.08);
+    assert.ok(landscape.distance < portrait.distance);
   });
 });
 

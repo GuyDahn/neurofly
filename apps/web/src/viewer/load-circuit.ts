@@ -174,7 +174,8 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
     paths: built.paths,
     bounds: built.bounds,
     frameBounds:
-      frameBounds(built.paths, assigned.groups, module.frame) ?? built.bounds,
+      boxForGroups(built.paths, assigned.groups, module.frame) ??
+      built.bounds,
     compass,
     dispose() {
       built.geometry.dispose();
@@ -185,14 +186,19 @@ async function loadCircuit(module: ModuleSpec): Promise<LoadedCircuit> {
   };
 }
 
-function frameBounds(
+/**
+ * The box around every point of every neuron in the named groups, or null
+ * if none of them drew anything. Used once for a module's fixed `frame`,
+ * and again at runtime for whatever a lesson step currently highlights.
+ */
+export function boxForGroups(
   paths: NeuronPaths,
   groups: ReadonlyMap<string, Uint32Array>,
-  frame: readonly string[],
+  names: readonly string[],
 ): Box3 | null {
   const box = new Box3();
   const point = new Vector3();
-  for (const name of frame) {
+  for (const name of names) {
     for (const neuron of groups.get(name) ?? []) {
       const start = paths.offset[neuron] ?? 0;
       const end = paths.offset[neuron + 1] ?? start;

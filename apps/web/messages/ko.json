@@ -448,8 +448,8 @@
       "lockedHint": "이번 단계에서는 쓸 수 없어요. 자유 실험에서는 모든 버튼이 열려요.",
       "stimulateNamed": "{name} 자극하기",
       "silenceNamed": "끄기: {name}",
-      "silencedNamed": "꺼짐: {name}",
-      "silenced": "꺼짐 · 눌러서 다시 켜기"
+      "silenced": "꺼짐 · 눌러서 다시 켜기",
+      "silencedLocked": "꺼짐"
     },
     "sheet": {
       "more": "더 보기",

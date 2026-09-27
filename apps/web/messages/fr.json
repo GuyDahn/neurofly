@@ -448,8 +448,8 @@
       "lockedHint": "Pas à cette étape. Tous les boutons se débloquent en exploration libre.",
       "stimulateNamed": "Stimuler : {name}",
       "silenceNamed": "Faire taire : {name}",
-      "silencedNamed": "Réduit au silence : {name}",
-      "silenced": "Réduit au silence · appuie pour réactiver"
+      "silenced": "Réduit au silence · appuie pour réactiver",
+      "silencedLocked": "Réduit au silence"
     },
     "sheet": {
       "more": "Afficher plus",

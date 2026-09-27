@@ -448,8 +448,8 @@
       "lockedHint": "Chưa dùng được ở bước này. Mọi nút sẽ mở khóa khi đến phần khám phá tự do.",
       "stimulateNamed": "Kích thích {name}",
       "silenceNamed": "Làm im lặng: {name}",
-      "silencedNamed": "Đã làm im lặng: {name}",
-      "silenced": "Đã làm im lặng · nhấn để bật lại"
+      "silenced": "Đã làm im lặng · nhấn để bật lại",
+      "silencedLocked": "Đã làm im lặng"
     },
     "sheet": {
       "more": "Xem thêm",

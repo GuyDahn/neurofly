@@ -448,8 +448,8 @@
       "lockedHint": "Nicht in diesem Schritt. Beim freien Experimentieren kannst du alle Knöpfe nutzen.",
       "stimulateNamed": "{name} stimulieren",
       "silenceNamed": "Stummschalten: {name}",
-      "silencedNamed": "Stummgeschaltet: {name}",
-      "silenced": "Stummgeschaltet · zum Einschalten tippen"
+      "silenced": "Stummgeschaltet · zum Einschalten tippen",
+      "silencedLocked": "Stummgeschaltet"
     },
     "sheet": {
       "more": "Mehr anzeigen",

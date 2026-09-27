@@ -448,8 +448,8 @@
       "lockedHint": "这一步还用不上。进入自由探索后，所有按钮都会解锁。",
       "stimulateNamed": "刺激{name}",
       "silenceNamed": "沉默：{name}",
-      "silencedNamed": "已沉默：{name}",
-      "silenced": "已沉默 · 点一下重新开启"
+      "silenced": "已沉默 · 点一下重新开启",
+      "silencedLocked": "已沉默"
     },
     "sheet": {
       "more": "展开",

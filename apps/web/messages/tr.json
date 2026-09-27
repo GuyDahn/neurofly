@@ -448,8 +448,8 @@
       "lockedHint": "Bu adımda kullanılamaz. Serbest keşifte tüm düğmeler kullanılabilir.",
       "stimulateNamed": "Uyar: {name}",
       "silenceNamed": "Sustur: {name}",
-      "silencedNamed": "Susturuldu: {name}",
-      "silenced": "Susturuldu · açmak için dokun"
+      "silenced": "Susturuldu · açmak için dokun",
+      "silencedLocked": "Susturuldu"
     },
     "sheet": {
       "more": "Daha fazla göster",

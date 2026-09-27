@@ -448,8 +448,8 @@
       "lockedHint": "לא בשלב הזה. כל הכפתורים נפתחים במשחק החופשי.",
       "stimulateNamed": "גירוי {name}",
       "silenceNamed": "השתקה: {name}",
-      "silencedNamed": "מושתק: {name}",
-      "silenced": "מושתק · לחצו לביטול השתקה"
+      "silenced": "מושתק · לחצו לביטול השתקה",
+      "silencedLocked": "מושתק"
     },
     "sheet": {
       "more": "הצגת עוד",
