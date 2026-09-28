@@ -26,6 +26,10 @@ function urlLocale(): Locale {
  * Shown only when the root layout itself fails. It says what the layout
  * wrote into the page; if the layout never rendered, it offers the retry and
  * the way home without words.
+ *
+ * Inline styles, not Tailwind classes, and always dark: this is the
+ * last-resort screen for when the rest of the app is unavailable, so it
+ * cannot depend on the theme script or the CSS pipeline having run.
  */
 export default function GlobalError({
   error,

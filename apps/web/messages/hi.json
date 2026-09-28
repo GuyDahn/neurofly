@@ -43,7 +43,9 @@
     "home": "WiredMind होम पेज",
     "lessons": "पाठ",
     "teachers": "शिक्षकों के लिए",
-    "about": "परिचय"
+    "about": "परिचय",
+    "themeLight": "लाइट मोड में बदलें",
+    "themeDark": "डार्क मोड में बदलें"
   },
   "a11y": {
     "skip": "सीधे मुख्य सामग्री पर जाएँ",
@@ -64,6 +66,7 @@
     "githubLabel": "GitHub पर अनुवाद में मदद करें या योगदान दें",
     "about": "परिचय",
     "code": "कोड: MIT",
+    "feedback": "फ़ीडबैक",
     "credits": "न्यूरॉन <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>कैम्ब्रिज विश्वविद्यालय</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc> और <google>Google Research</google> के <malecns>MaleCNS v1.0</malecns> कनेक्टोम से लिए गए हैं, <ccby>CC BY 4.0</ccby> लाइसेंस के तहत।"
   },
   "support": {
@@ -85,15 +88,15 @@
     },
     "loop": {
       "label": "मक्खी की वायरिंग के नक्शे में बचाव रिफ़्लेक्स का एनिमेशन",
-      "caption": "बचाव वाले पाठ से: मक्खीमार दिखने के बाद के पहले {spanMs} ms, {slowdown} गुना धीमे। वायरिंग असली है, MaleCNS कनेक्टोम से। स्पाइक एक सरल सिमुलेशन से आते हैं। <simplified>क्या सरल किया गया है</simplified>",
+      "caption": "बचाव वाले पाठ से: मक्खीमार दिखने के बाद के पहले {spanMs} मिलीसेकंड, {slowdown} गुना धीमे। वायरिंग असली है, MaleCNS कनेक्टोम से। स्पाइक एक सरल सिमुलेशन से आते हैं। <simplified>क्या सरल किया गया है</simplified>",
       "steps": {
         "looming": "लूमिंग न्यूरॉन मक्खीमार को देख लेते हैं",
         "gf": "विशाल तंतु सक्रिय होता है",
         "jump": "छलाँग न्यूरॉन पैर झटकते हैं"
       },
       "cells": "{count, plural, one {# कोशिका} other {# कोशिकाएँ}}",
-      "firstSpike": "{cells} · {ms} ms",
-      "clock": "मक्खी का समय: {ms} ms",
+      "firstSpike": "{cells} · {ms} मिलीसेकंड",
+      "clock": "मक्खी का समय: {ms} मिलीसेकंड",
       "waiting": "मक्खीमार आ रहा है",
       "pause": "एनिमेशन रोकें",
       "play": "एनिमेशन चलाएँ",
@@ -137,7 +140,8 @@
         }
       },
       "source": "GitHub पर सोर्स कोड देखें",
-      "science": "क्या असली है और क्या सरल किया गया है"
+      "science": "क्या असली है और क्या सरल किया गया है",
+      "feedback": "कुछ स्पष्ट नहीं है या काम नहीं कर रहा? मुझे बताएँ।"
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "इस चरण में नहीं। खुले प्रयोग में हर बटन खुल जाता है।",
       "stimulateNamed": "उत्तेजित करें: {name}",
       "silenceNamed": "शांत करें: {name}",
-      "silencedNamed": "शांत: {name}",
-      "silenced": "शांत · चालू करने के लिए टैप करें"
+      "silenced": "शांत · चालू करने के लिए टैप करें",
+      "silencedLocked": "शांत"
     },
     "sheet": {
       "more": "और दिखाएँ",
@@ -468,7 +472,8 @@
       "freePlay": "खुला प्रयोग शुरू करें",
       "pickAnswer": "वह जवाब चुनें जो आपको सही लगता है।",
       "nextLesson": "अगला पाठ: {title}",
-      "finished": "आपने सारे पाठ पूरे कर लिए। खोजबीन जारी रखें।",
+      "finished": "यह आख़िरी पाठ है।",
+      "moreLessons": "और पाठ",
       "cueStimulate": "उत्तेजित करें",
       "cueSilence": "शांत करें",
       "cueSwitchOn": "चालू करें",
@@ -476,7 +481,7 @@
       "gettingReady": "तैयारी हो रही है… दिमाग पर नज़र रखें",
       "watchBrain": "दिमाग पर नज़र रखें",
       "puffProgress": "उत्तेजना की प्रगति",
-      "puffClock": "{name}: {total} में से {elapsed} ms, स्लो मोशन में",
+      "puffClock": "{name}: {total} में से {elapsed} मिलीसेकंड, स्लो मोशन में",
       "slowMotion": "स्लो मोशन में, ताकि आप इसे देख सकें",
       "step": "{total} में से चरण {number}",
       "quickQuestion": "छोटा-सा सवाल",
@@ -493,7 +498,7 @@
       "replaying": "शेयर किया गया प्रयोग फिर से चल रहा है",
       "progress": "रीप्ले की प्रगति",
       "pressOf": "{total} में से {number} टैप, ठीक उन्हीं टिक और उसी सीड पर",
-      "tick": "{ms} ms",
+      "tick": "{ms} मिलीसेकंड",
       "watchAgain": "फिर से देखें",
       "start": "पाठ शुरू करें",
       "stimulate": "उत्तेजित करें: {name}",

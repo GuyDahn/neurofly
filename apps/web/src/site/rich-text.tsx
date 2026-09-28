@@ -5,7 +5,7 @@ import { LINK_TAGS, type LinkTag } from "./links.js";
 import { isExternal } from "./text.js";
 
 export const LINK_CLASS =
-  "underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+  "underline decoration-fg-subtle/50 underline-offset-4 transition-colors hover:text-fg hover:decoration-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
 
 /**
  * A link that opens a new tab when it leaves the site, and says so to screen

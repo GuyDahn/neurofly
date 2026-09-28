@@ -43,7 +43,9 @@
     "home": "WiredMind首页",
     "lessons": "课程",
     "teachers": "教师专区",
-    "about": "关于"
+    "about": "关于",
+    "themeLight": "切换到浅色模式",
+    "themeDark": "切换到深色模式"
   },
   "a11y": {
     "skip": "跳到正文",
@@ -64,6 +66,7 @@
     "githubLabel": "在GitHub上帮忙翻译或参与贡献",
     "about": "关于",
     "code": "代码：MIT许可证",
+    "feedback": "反馈",
     "credits": "神经元数据来自<malecns>MaleCNS v1.0</malecns>连接组，由<janelia>HHMI Janelia FlyEM</janelia>、<cambridge>剑桥大学</cambridge>、<mrc>MRC分子生物学实验室</mrc>和<google>Google Research</google>共同完成，采用<ccby>CC BY 4.0</ccby>许可。"
   },
   "support": {
@@ -85,15 +88,15 @@
     },
     "loop": {
       "label": "果蝇神经连接图中逃生反射的动画",
-      "caption": "苍蝇拍出现后的最初{spanMs} ms，取自逃生课，放慢了{slowdown}倍。神经连线是真实的，来自MaleCNS连接组；放电过程则来自一个简单的模拟。<simplified>哪些做了简化</simplified>",
+      "caption": "苍蝇拍出现后的最初{spanMs}毫秒，取自逃生课，放慢了{slowdown}倍。神经连线是真实的，来自MaleCNS连接组；放电过程则来自一个简单的模拟。<simplified>哪些做了简化</simplified>",
       "steps": {
         "looming": "逼近神经元发现了苍蝇拍",
         "gf": "巨纤维放电",
         "jump": "跳跃神经元蹬腿"
       },
       "cells": "{count, plural, other {#个细胞}}",
-      "firstSpike": "{cells} · {ms} ms",
-      "clock": "果蝇时间{ms} ms",
+      "firstSpike": "{cells} · {ms}毫秒",
+      "clock": "果蝇时间{ms}毫秒",
       "waiting": "苍蝇拍来袭",
       "pause": "暂停动画",
       "play": "播放动画",
@@ -137,7 +140,8 @@
         }
       },
       "source": "在GitHub上查看源代码",
-      "science": "哪些是真实的，哪些做了简化"
+      "science": "哪些是真实的，哪些做了简化",
+      "feedback": "有不清楚或损坏的地方吗？告诉我。"
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "这一步还用不上。进入自由探索后，所有按钮都会解锁。",
       "stimulateNamed": "刺激{name}",
       "silenceNamed": "沉默：{name}",
-      "silencedNamed": "已沉默：{name}",
-      "silenced": "已沉默 · 点一下重新开启"
+      "silenced": "已沉默 · 点一下重新开启",
+      "silencedLocked": "已沉默"
     },
     "sheet": {
       "more": "展开",
@@ -468,7 +472,8 @@
       "freePlay": "开始自由探索",
       "pickAnswer": "选出你认为正确的答案。",
       "nextLesson": "下一课：{title}",
-      "finished": "你已经完成了全部课程。继续探索吧！",
+      "finished": "这是最后一课。",
+      "moreLessons": "更多课程",
       "cueStimulate": "刺激",
       "cueSilence": "沉默",
       "cueSwitchOn": "开启",
@@ -476,7 +481,7 @@
       "gettingReady": "准备中……注意看大脑",
       "watchBrain": "注意看大脑",
       "puffProgress": "刺激进度",
-      "puffClock": "{name}：{elapsed} / {total} ms，慢动作播放",
+      "puffClock": "{name}：{elapsed} / {total}毫秒，慢动作播放",
       "slowMotion": "慢动作播放，方便你看清楚",
       "step": "第{number}步，共{total}步",
       "quickQuestion": "快问快答",
@@ -493,7 +498,7 @@
       "replaying": "正在重放分享的实验",
       "progress": "重放进度",
       "pressOf": "第{number}次操作，共{total}次，时间步和随机种子都与原来相同",
-      "tick": "{ms} ms",
+      "tick": "{ms}毫秒",
       "watchAgain": "再看一遍",
       "start": "开始这节课",
       "stimulate": "刺激{name}",

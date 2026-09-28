@@ -10,6 +10,7 @@ import {
 } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
+  Box3,
   MeshBasicMaterial,
   Object3D,
   PerspectiveCamera,
@@ -23,9 +24,10 @@ import { TICK_MS } from "../sim/index.js";
 import { samplePath, type NeuronPaths } from "./centerline.js";
 import { drainCommands, setPoker, type ViewerCommand } from "./commands.js";
 import { activityByGroup, FLASH_DECAY_MS } from "./flash.js";
-import { frameSphere } from "./fit.js";
+import { frameBox, frameSphere, type Box, type Point3 } from "./fit.js";
 import { writeFocus } from "./groups.js";
 import {
+  boxForGroups,
   loadError,
   openCircuit,
   watchLoadProgress,
@@ -43,6 +45,22 @@ const MIN_MODEL_MS = 0.2;
 const MAX_MODEL_MS = 2;
 /** Wall ms between activity meter and puff clock updates. */
 const PUBLISH_MS = 100;
+/** A little margin around whatever the camera fits: the frame, not the text. */
+const FRAME_PADDING = 1.08;
+
+const CAMERA_DIRECTION = new Vector3(0.72, 0.42, 0.86).normalize();
+const CAMERA_DIRECTION_XYZ: Point3 = {
+  x: CAMERA_DIRECTION.x,
+  y: CAMERA_DIRECTION.y,
+  z: CAMERA_DIRECTION.z,
+};
+
+function toBox(box: Box3): Box {
+  return {
+    min: { x: box.min.x, y: box.min.y, z: box.min.z },
+    max: { x: box.max.x, y: box.max.y, z: box.max.z },
+  };
+}
 
 type Dot = { neuron: number; ageMs: number };
 
@@ -164,8 +182,23 @@ function CircuitView({
         return;
       }
       fittedAspect.current = aspect;
-      const sphere = model.frameBounds.getBoundingSphere(new Sphere());
-      const frame = frameSphere(sphere.radius, perspective.fov, aspect);
+      // The current step's highlighted groups, or the module's whole frame
+      // once nothing is highlighted (free play, or the check question).
+      const focusNames = useViewerStore.getState().focus;
+      const focusBox =
+        focusNames.length > 0
+          ? boxForGroups(model.paths, model.session.groups, focusNames)
+          : null;
+      const box = focusBox ?? model.frameBounds;
+      const center = box.getCenter(new Vector3());
+      const boxRadius = box.getBoundingSphere(new Sphere()).radius;
+      const frame = frameBox(
+        toBox(box),
+        CAMERA_DIRECTION_XYZ,
+        perspective.fov,
+        aspect,
+        FRAME_PADDING,
+      );
       const wholeRadius = model.bounds.getBoundingSphere(new Sphere()).radius;
       const whole = frameSphere(wholeRadius, perspective.fov, aspect);
       // Farthest the learner can zoom out, framed on a part or on everything.
@@ -173,12 +206,11 @@ function CircuitView({
       const orbit = orbitRef.current;
       perspective.aspect = aspect;
       if (force || !orbit || fittedDistance.current === null) {
-        const direction = new Vector3(0.72, 0.42, 0.86).normalize();
         perspective.position
-          .copy(sphere.center)
-          .addScaledVector(direction, frame.distance);
-        perspective.lookAt(sphere.center);
-        orbit?.target.copy(sphere.center);
+          .copy(center)
+          .addScaledVector(CAMERA_DIRECTION, frame.distance);
+        perspective.lookAt(center);
+        orbit?.target.copy(center);
       } else {
         // The phone sheet grows and shrinks the canvas. Keep the learner's
         // turn and zoom, and only scale the distance to the new fit.
@@ -192,13 +224,20 @@ function CircuitView({
       perspective.far = reach + wholeRadius * 3;
       perspective.updateProjectionMatrix();
       if (orbit) {
-        orbit.minDistance = Math.max(sphere.radius * 0.18, frame.near * 2);
+        orbit.minDistance = Math.max(boxRadius * 0.18, frame.near * 2);
         orbit.maxDistance = reach;
         orbit.update();
       }
       invalidate();
     },
-    [camera, invalidate, model.bounds, model.frameBounds],
+    [
+      camera,
+      invalidate,
+      model.bounds,
+      model.frameBounds,
+      model.paths,
+      model.session,
+    ],
   );
 
   useLayoutEffect(() => {
@@ -247,9 +286,14 @@ function CircuitView({
     };
     paint(useViewerStore.getState().focus);
     return useViewerStore.subscribe((state, prev) => {
-      if (state.focus !== prev.focus) paint(state.focus);
+      if (state.focus === prev.focus) return;
+      paint(state.focus);
+      // A new step (or leaving one, for free play): refit to what it
+      // highlights, but leave the learner's own orbit and zoom alone
+      // until the next one.
+      placeCamera(true);
     });
-  }, [model, invalidate]);
+  }, [model, invalidate, placeCamera]);
 
   useEffect(() => {
     return () => {

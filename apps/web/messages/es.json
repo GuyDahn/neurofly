@@ -43,7 +43,9 @@
     "home": "Inicio de WiredMind",
     "lessons": "Lecciones",
     "teachers": "Para docentes",
-    "about": "Acerca de"
+    "about": "Acerca de",
+    "themeLight": "Cambiar a modo claro",
+    "themeDark": "Cambiar a modo oscuro"
   },
   "a11y": {
     "skip": "Saltar al contenido",
@@ -64,6 +66,7 @@
     "githubLabel": "Ayuda a traducir o colabora en GitHub",
     "about": "Acerca de",
     "code": "Código: MIT",
+    "feedback": "Comentarios",
     "credits": "Neuronas del conectoma <malecns>MaleCNS v1.0</malecns> de <janelia>HHMI Janelia FlyEM</janelia>, la <cambridge>Universidad de Cambridge</cambridge>, el <mrc>Laboratorio de Biología Molecular del MRC</mrc> y <google>Google Research</google>, con licencia <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Ver el código fuente en GitHub",
-      "science": "Qué es real y qué está simplificado"
+      "science": "Qué es real y qué está simplificado",
+      "feedback": "¿Algo no está claro o no funciona? Cuéntamelo."
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "En este paso no. Todos los botones se desbloquean en la exploración libre.",
       "stimulateNamed": "Estimular {name}",
       "silenceNamed": "Silenciar: {name}",
-      "silencedNamed": "En silencio: {name}",
-      "silenced": "En silencio · toca para encender"
+      "silenced": "En silencio · toca para encender",
+      "silencedLocked": "En silencio"
     },
     "sheet": {
       "more": "Ver más",
@@ -468,7 +472,8 @@
       "freePlay": "Empezar la exploración libre",
       "pickAnswer": "Elige la respuesta que te parezca correcta.",
       "nextLesson": "Siguiente lección: {title}",
-      "finished": "Terminaste todas las lecciones. Sigue explorando.",
+      "finished": "Esta es la última lección.",
+      "moreLessons": "Más lecciones",
       "cueStimulate": "Estimular",
       "cueSilence": "Silenciar",
       "cueSwitchOn": "Encender",

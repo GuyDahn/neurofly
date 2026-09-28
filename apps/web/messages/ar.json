@@ -43,7 +43,9 @@
     "home": "الصفحة الرئيسية لموقع WiredMind",
     "lessons": "الدروس",
     "teachers": "للمعلمين",
-    "about": "عن الموقع"
+    "about": "عن الموقع",
+    "themeLight": "التبديل إلى الوضع الفاتح",
+    "themeDark": "التبديل إلى الوضع الداكن"
   },
   "a11y": {
     "skip": "انتقل إلى المحتوى",
@@ -64,6 +66,7 @@
     "githubLabel": "ساعد في الترجمة أو شارك في التطوير على GitHub",
     "about": "عن الموقع",
     "code": "الشيفرة: MIT",
+    "feedback": "ملاحظات",
     "credits": "العصبونات مأخوذة من كونكتوم <malecns>MaleCNS v1.0</malecns> الذي أنتجه <janelia>HHMI Janelia FlyEM</janelia> و<cambridge>جامعة كامبريدج</cambridge> و<mrc>مختبر MRC للبيولوجيا الجزيئية</mrc> و<google>Google Research</google>، وهو متاح بترخيص <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -85,15 +88,15 @@
     },
     "loop": {
       "label": "رسم متحرك لمنعكس الهروب في مخطط توصيلات الذبابة",
-      "caption": "أول {spanMs} ms بعد ظهور مضرب الذباب، من درس الهروب، بسرعة أبطأ {slowdown} مرة. التوصيلات حقيقية، من كونكتوم MaleCNS، أما النبضات فمصدرها محاكاة بسيطة. <simplified>ما الذي بسّطناه؟</simplified>",
+      "caption": "أول {spanMs} مللي ثانية بعد ظهور مضرب الذباب، من درس الهروب، بسرعة أبطأ {slowdown} مرة. التوصيلات حقيقية، من كونكتوم MaleCNS، أما النبضات فمصدرها محاكاة بسيطة. <simplified>ما الذي بسّطناه؟</simplified>",
       "steps": {
         "looming": "عصبونات الاقتراب ترصد المضرب",
         "gf": "الليف العملاق ينشط",
         "jump": "عصبونات القفز تدفع الأرجل"
       },
       "cells": "{count, plural, zero {لا خلايا} one {خلية واحدة} two {خليتان} few {# خلايا} many {# خلية} other {# خلية}}",
-      "firstSpike": "{cells} · {ms} ms",
-      "clock": "{ms} ms من زمن الذبابة",
+      "firstSpike": "{cells} · {ms} مللي ثانية",
+      "clock": "{ms} مللي ثانية من زمن الذبابة",
       "waiting": "المضرب يقترب",
       "pause": "أوقف الرسم المتحرك مؤقتًا",
       "play": "شغّل الرسم المتحرك",
@@ -137,7 +140,8 @@
         }
       },
       "source": "اطّلع على الشيفرة المصدرية في GitHub",
-      "science": "ما الحقيقي وما المبسّط"
+      "science": "ما الحقيقي وما المبسّط",
+      "feedback": "هل يوجد شيء غير واضح أو معطل؟ أخبرني."
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "غير متاح في هذه الخطوة. تعمل كل الأزرار في مرحلة الاستكشاف الحر.",
       "stimulateNamed": "تحفيز {name}",
       "silenceNamed": "إسكات: {name}",
-      "silencedNamed": "تم الإسكات: {name}",
-      "silenced": "تم الإسكات · اضغط للتشغيل"
+      "silenced": "تم الإسكات · اضغط للتشغيل",
+      "silencedLocked": "تم الإسكات"
     },
     "sheet": {
       "more": "عرض المزيد",
@@ -468,7 +472,8 @@
       "freePlay": "ابدأ الاستكشاف الحر",
       "pickAnswer": "اختر الإجابة التي تراها صحيحة.",
       "nextLesson": "الدرس التالي: {title}",
-      "finished": "أنهيت كل الدروس. واصل الاستكشاف.",
+      "finished": "هذا آخر درس.",
+      "moreLessons": "دروس أخرى",
       "cueStimulate": "تحفيز",
       "cueSilence": "إسكات",
       "cueSwitchOn": "تشغيل",
@@ -476,7 +481,7 @@
       "gettingReady": "نستعد… راقب الدماغ",
       "watchBrain": "راقب الدماغ",
       "puffProgress": "تقدّم التحفيز",
-      "puffClock": "{name}: {elapsed} من {total} ms، بالحركة البطيئة",
+      "puffClock": "{name}: {elapsed} من {total} مللي ثانية، بالحركة البطيئة",
       "slowMotion": "بالحركة البطيئة، لتتمكّن من المتابعة",
       "step": "الخطوة {number} من {total}",
       "quickQuestion": "سؤال سريع",
@@ -493,7 +498,7 @@
       "replaying": "إعادة عرض تجربة مُشارَكة",
       "progress": "تقدّم إعادة العرض",
       "pressOf": "الضغطة {number} من {total}، في التوقيت نفسه وبالبذرة العشوائية نفسها",
-      "tick": "{ms} ms",
+      "tick": "{ms} مللي ثانية",
       "watchAgain": "شاهد مرة أخرى",
       "start": "ابدأ الدرس",
       "stimulate": "تحفيز {name}",

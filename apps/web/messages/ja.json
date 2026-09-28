@@ -43,7 +43,9 @@
     "home": "WiredMindのホーム",
     "lessons": "レッスン",
     "teachers": "先生方へ",
-    "about": "このサイトについて"
+    "about": "このサイトについて",
+    "themeLight": "ライトモードに切り替える",
+    "themeDark": "ダークモードに切り替える"
   },
   "a11y": {
     "skip": "本文へスキップ",
@@ -64,6 +66,7 @@
     "githubLabel": "GitHubで翻訳や開発に協力する",
     "about": "このサイトについて",
     "code": "コード：MITライセンス",
+    "feedback": "フィードバック",
     "credits": "ニューロンのデータ：<janelia>HHMI Janelia FlyEM</janelia>、<cambridge>ケンブリッジ大学</cambridge>、<mrc>MRC分子生物学研究所</mrc>、<google>Google Research</google>による<malecns>MaleCNS v1.0</malecns>コネクトーム（<ccby>CC BY 4.0</ccby>）。"
   },
   "support": {
@@ -85,15 +88,15 @@
     },
     "loop": {
       "label": "ハエの配線図で起こる逃避反射のアニメーション",
-      "caption": "脱出のレッスンの一場面です。ハエたたきが現れてから最初の{spanMs} msを、{slowdown}倍のスローモーションで再生しています。配線はMaleCNSコネクトームから取った本物です。スパイクは簡単なシミュレーションによるものです。<simplified>単純化した部分</simplified>",
+      "caption": "脱出のレッスンの一場面です。ハエたたきが現れてから最初の{spanMs}ミリ秒を、{slowdown}倍のスローモーションで再生しています。配線はMaleCNSコネクトームから取った本物です。スパイクは簡単なシミュレーションによるものです。<simplified>単純化した部分</simplified>",
       "steps": {
         "looming": "接近検出ニューロンがハエたたきを見つける",
         "gf": "巨大線維が発火する",
         "jump": "ジャンプニューロンが脚をけり出す"
       },
       "cells": "{count, plural, other {細胞#個}}",
-      "firstSpike": "{cells} · {ms} ms",
-      "clock": "ハエの時間：{ms} ms",
+      "firstSpike": "{cells} · {ms}ミリ秒",
+      "clock": "ハエの時間：{ms}ミリ秒",
       "waiting": "ハエたたき接近中",
       "pause": "アニメーションを一時停止",
       "play": "アニメーションを再生",
@@ -137,7 +140,8 @@
         }
       },
       "source": "GitHubでソースコードを見る",
-      "science": "本物の部分と、単純化した部分"
+      "science": "本物の部分と、単純化した部分",
+      "feedback": "わかりにくい点や不具合があれば教えてください。"
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "このステップでは使えません。自由実験になると、すべてのボタンが使えます。",
       "stimulateNamed": "{name}を刺激する",
       "silenceNamed": "{name}をオフにする",
-      "silencedNamed": "{name}（オフ）",
-      "silenced": "オフ · タップでオンにする"
+      "silenced": "オフ · タップでオンにする",
+      "silencedLocked": "オフ"
     },
     "sheet": {
       "more": "もっと見る",
@@ -468,7 +472,8 @@
       "freePlay": "自由実験を始める",
       "pickAnswer": "正しいと思う答えを選んでください。",
       "nextLesson": "次のレッスン：{title}",
-      "finished": "すべてのレッスンを終えました。このまま自由に探究を続けましょう。",
+      "finished": "これで最後のレッスンです。",
+      "moreLessons": "ほかのレッスン",
       "cueStimulate": "刺激する",
       "cueSilence": "オフにする",
       "cueSwitchOn": "オンにする",
@@ -476,7 +481,7 @@
       "gettingReady": "準備中…脳をよく見ていてください",
       "watchBrain": "脳をよく見ていてください",
       "puffProgress": "刺激の進行状況",
-      "puffClock": "{name}：{elapsed} / {total} ms（スローモーション）",
+      "puffClock": "{name}：{elapsed} / {total}ミリ秒（スローモーション）",
       "slowMotion": "目で追えるように、スローモーションで再生しています",
       "step": "ステップ{number}／{total}",
       "quickQuestion": "1問クイズ",
@@ -493,7 +498,7 @@
       "replaying": "共有された実験をリプレイ中",
       "progress": "リプレイの進行状況",
       "pressOf": "操作{number}／{total}（同じタイミングと乱数シードで再生）",
-      "tick": "{ms} ms",
+      "tick": "{ms}ミリ秒",
       "watchAgain": "もう一度見る",
       "start": "レッスンを始める",
       "stimulate": "{name}を刺激する",

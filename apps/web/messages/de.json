@@ -43,7 +43,9 @@
     "home": "WiredMind-Startseite",
     "lessons": "Lektionen",
     "teachers": "Für Lehrkräfte",
-    "about": "Über das Projekt"
+    "about": "Über das Projekt",
+    "themeLight": "Zu hellem Modus wechseln",
+    "themeDark": "Zu dunklem Modus wechseln"
   },
   "a11y": {
     "skip": "Zum Inhalt springen",
@@ -64,6 +66,7 @@
     "githubLabel": "Auf GitHub beim Übersetzen helfen oder mitwirken",
     "about": "Über das Projekt",
     "code": "Code: MIT",
+    "feedback": "Feedback",
     "credits": "Neuronen aus dem Konnektom <malecns>MaleCNS v1.0</malecns> von <janelia>HHMI Janelia FlyEM</janelia>, der <cambridge>University of Cambridge</cambridge>, dem <mrc>MRC Laboratory of Molecular Biology</mrc> und <google>Google Research</google>, lizenziert unter <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Quellcode auf GitHub ansehen",
-      "science": "Was echt ist und was vereinfacht"
+      "science": "Was echt ist und was vereinfacht",
+      "feedback": "Etwas ist unklar oder funktioniert nicht? Sagen Sie es mir."
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "Nicht in diesem Schritt. Beim freien Experimentieren kannst du alle Knöpfe nutzen.",
       "stimulateNamed": "{name} stimulieren",
       "silenceNamed": "Stummschalten: {name}",
-      "silencedNamed": "Stummgeschaltet: {name}",
-      "silenced": "Stummgeschaltet · zum Einschalten tippen"
+      "silenced": "Stummgeschaltet · zum Einschalten tippen",
+      "silencedLocked": "Stummgeschaltet"
     },
     "sheet": {
       "more": "Mehr anzeigen",
@@ -468,7 +472,8 @@
       "freePlay": "Frei experimentieren",
       "pickAnswer": "Wähle die Antwort, die du für richtig hältst.",
       "nextLesson": "Nächste Lektion: {title}",
-      "finished": "Du hast alle Lektionen geschafft. Entdecke ruhig weiter.",
+      "finished": "Das ist die letzte Lektion.",
+      "moreLessons": "Weitere Lektionen",
       "cueStimulate": "Stimulieren",
       "cueSilence": "Stummschalten",
       "cueSwitchOn": "Einschalten",

@@ -44,7 +44,9 @@
     "home": "Startpagina van WiredMind",
     "lessons": "Lessen",
     "teachers": "Voor docenten",
-    "about": "Over"
+    "about": "Over",
+    "themeLight": "Overschakelen naar lichte modus",
+    "themeDark": "Overschakelen naar donkere modus"
   },
   "a11y": {
     "skip": "Direct naar de inhoud",
@@ -65,6 +67,7 @@
     "githubLabel": "Help mee met vertalen of draag bij op GitHub",
     "about": "Over",
     "code": "Code: MIT-licentie",
+    "feedback": "Feedback",
     "credits": "Neuronen uit het connectoom <malecns>MaleCNS v1.0</malecns> van <janelia>HHMI Janelia FlyEM</janelia>, de <cambridge>Universiteit van Cambridge</cambridge>, het <mrc>MRC Laboratory of Molecular Biology</mrc> en <google>Google Research</google>, onder licentie <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -138,7 +141,8 @@
         }
       },
       "source": "Bekijk de broncode op GitHub",
-      "science": "Wat is echt en wat is vereenvoudigd?"
+      "science": "Wat is echt en wat is vereenvoudigd?",
+      "feedback": "Is iets onduidelijk of kapot? Laat het me weten."
     }
   },
   "about": {
@@ -445,8 +449,8 @@
       "lockedHint": "Niet in deze stap. In vrij spel werken alle knoppen.",
       "stimulateNamed": "Stimuleren: {name}",
       "silenceNamed": "Stilleggen: {name}",
-      "silencedNamed": "Stilgelegd: {name}",
-      "silenced": "Stilgelegd · tik om aan te zetten"
+      "silenced": "Stilgelegd · tik om aan te zetten",
+      "silencedLocked": "Stilgelegd"
     },
     "sheet": {
       "more": "Meer tonen",
@@ -469,7 +473,8 @@
       "freePlay": "Start vrij spel",
       "pickAnswer": "Kies het antwoord dat volgens jou klopt.",
       "nextLesson": "Volgende les: {title}",
-      "finished": "Je hebt alle lessen gedaan. Blijf vooral ontdekken.",
+      "finished": "Dit is de laatste les.",
+      "moreLessons": "Meer lessen",
       "cueStimulate": "Stimuleren",
       "cueSilence": "Stilleggen",
       "cueSwitchOn": "Aanzetten",

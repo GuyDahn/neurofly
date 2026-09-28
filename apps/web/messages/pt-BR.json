@@ -43,7 +43,9 @@
     "home": "Página inicial do WiredMind",
     "lessons": "Aulas",
     "teachers": "Para professores",
-    "about": "Sobre"
+    "about": "Sobre",
+    "themeLight": "Mudar para o modo claro",
+    "themeDark": "Mudar para o modo escuro"
   },
   "a11y": {
     "skip": "Pular para o conteúdo",
@@ -64,6 +66,7 @@
     "githubLabel": "Ajude a traduzir ou contribua no GitHub",
     "about": "Sobre",
     "code": "Código: MIT",
+    "feedback": "Feedback",
     "credits": "Neurônios do conectoma <malecns>MaleCNS v1.0</malecns>, feito pelo <janelia>HHMI Janelia FlyEM</janelia>, pela <cambridge>Universidade de Cambridge</cambridge>, pelo <mrc>Laboratório de Biologia Molecular do MRC</mrc> e pelo <google>Google Research</google>, sob a licença <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Ver o código-fonte no GitHub",
-      "science": "O que é real e o que é simplificado"
+      "science": "O que é real e o que é simplificado",
+      "feedback": "Algo não ficou claro ou não funcionou? Me conte."
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "Não disponível neste passo. Na exploração livre, todos os botões ficam liberados.",
       "stimulateNamed": "Estimular {name}",
       "silenceNamed": "Silenciar: {name}",
-      "silencedNamed": "Silenciado: {name}",
-      "silenced": "Silenciado · toque para ligar"
+      "silenced": "Silenciado · toque para ligar",
+      "silencedLocked": "Silenciado"
     },
     "sheet": {
       "more": "Mostrar mais",
@@ -468,7 +472,8 @@
       "freePlay": "Começar a exploração livre",
       "pickAnswer": "Escolha a resposta que você acha certa.",
       "nextLesson": "Próxima aula: {title}",
-      "finished": "Você terminou todas as aulas. Continue explorando.",
+      "finished": "Essa é a última lição.",
+      "moreLessons": "Mais lições",
       "cueStimulate": "Estimular",
       "cueSilence": "Silenciar",
       "cueSwitchOn": "Ligar",

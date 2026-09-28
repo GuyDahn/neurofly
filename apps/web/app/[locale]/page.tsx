@@ -13,6 +13,7 @@ import { EscapeLoop, type LoopStep } from "@/src/site/escape-loop";
 import { SiteFooter } from "@/src/site/footer";
 import { SiteHeader } from "@/src/site/header";
 import { homeJsonLd, jsonLdScript } from "@/src/site/json-ld";
+import { LINK_TAGS } from "@/src/site/links";
 import { pageMetadata, shareImagePath } from "@/src/site/page-meta";
 import {
   ForwardArrow,
@@ -21,7 +22,7 @@ import {
   SiteLink,
 } from "@/src/site/rich-text";
 import { shareCard } from "@/src/og/share-card";
-import { PAPER, REPO_URL } from "@/src/site/site";
+import { FEEDBACK_URL, PAPER, REPO_URL } from "@/src/site/site";
 import { findLesson, LESSONS } from "@/src/viewer/modules";
 
 const TEACHER_POINTS = [
@@ -53,7 +54,7 @@ export async function generateMetadata({
 }
 
 const BUTTON =
-  "inline-flex min-h-12 items-center justify-center rounded-xl px-5 text-base font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+  "inline-flex min-h-12 items-center justify-center rounded-xl px-5 text-base font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
 
 export default async function HomePage({
   params,
@@ -108,29 +109,29 @@ export default async function HomePage({
           {/* Phones read the hook, watch the loop, then act. Wide screens put the loop beside the words. */}
           <div className="relative mx-auto grid max-w-6xl gap-8 px-4 pt-10 pb-16 [grid-template-areas:'title'_'loop'_'body'] sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-x-12 lg:gap-y-6 lg:pt-16 lg:pb-24 lg:[grid-template-areas:'title_loop'_'body_loop']">
             <div className="flex flex-col gap-5 [grid-area:title] lg:self-end">
-              <p className="text-xs font-semibold tracking-[0.16em] text-sky-300 uppercase">
+              <p className="text-xs font-semibold tracking-[0.16em] text-sky-600 uppercase dark:text-sky-300">
                 {t("landing.hero.eyebrow")}
               </p>
-              <h1 className="text-3xl leading-tight font-semibold tracking-tight text-balance text-zinc-50 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+              <h1 className="text-3xl leading-tight font-semibold tracking-tight text-balance text-fg sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
                 {t("landing.hero.title")}
               </h1>
             </div>
             <div className="flex flex-col gap-6 [grid-area:body] lg:self-start">
-              <p className="max-w-xl text-lg leading-relaxed text-pretty text-zinc-300">
+              <p className="max-w-xl text-lg leading-relaxed text-pretty text-fg-muted">
                 {t("landing.hero.lead")}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 {first ? (
                   <Link
                     href={localePath(locale, first.path)}
-                    className={`${BUTTON} bg-zinc-50 text-zinc-950 hover:bg-white`}
+                    className={`${BUTTON} bg-accent text-accent-fg hover:bg-accent-hover`}
                   >
                     {t("landing.hero.start")}
                   </Link>
                 ) : null}
                 <Link
                   href="#teachers"
-                  className={`${BUTTON} border border-white/20 text-zinc-100 hover:bg-white/5`}
+                  className={`${BUTTON} border border-border-strong text-fg-muted hover:bg-overlay`}
                 >
                   {t("landing.hero.teachers")}
                 </Link>
@@ -152,6 +153,18 @@ export default async function HomePage({
                 }}
                 caption={t.rich("landing.loop.caption", {
                   ...links,
+                  // Unlike the credit links in the footer, this is the only
+                  // interactive control in the caption, so it gets the full
+                  // 44px hit area rather than staying text-sized.
+                  simplified: (chunks) => (
+                    <SiteLink
+                      href={localePath(locale, LINK_TAGS.simplified)}
+                      newTab={newTab}
+                      className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+                    >
+                      {chunks}
+                    </SiteLink>
+                  ),
                   spanMs: CASCADE_SPAN_MS,
                   slowdown: Math.round(1 / FLY_MS_PER_WALL_MS),
                 })}
@@ -163,39 +176,39 @@ export default async function HomePage({
         <section
           id="lessons"
           aria-labelledby="lessons-title"
-          className="scroll-mt-4 border-t border-white/10"
+          className="scroll-mt-4 border-t border-border"
         >
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <h2
               id="lessons-title"
-              className="text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl"
+              className="text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
             >
               {t("landing.lessons.title")}
             </h2>
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-zinc-300">
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-fg-muted">
               {t("landing.lessons.lead")}
             </p>
             <ol className="mt-10 grid gap-5 md:grid-cols-3">
               {LESSONS.map((entry) => (
                 <li
                   key={entry.id}
-                  className="group relative flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors focus-within:border-white/30 hover:border-white/25 hover:bg-white/[0.06]"
+                  className="group relative flex flex-col gap-4 rounded-2xl border border-border bg-overlay p-5 transition-colors focus-within:border-border-strong hover:border-border-strong hover:bg-overlay-strong"
                 >
-                  <p className="text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
+                  <p className="text-xs font-semibold tracking-[0.14em] text-fg-subtle uppercase">
                     {t("landing.lessons.lesson", { number: entry.number })}
                   </p>
-                  <h3 className="text-xl leading-snug font-semibold text-zinc-50">
+                  <h3 className="text-xl leading-snug font-semibold text-fg">
                     <Link
                       href={localePath(locale, entry.path)}
-                      className="after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none"
+                      className="inline-flex min-h-11 items-center after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none"
                     >
                       {t(`lessons.${entry.id}.title`)}
                     </Link>
                   </h3>
-                  <p className="text-base leading-snug text-zinc-300">
+                  <p className="text-base leading-snug text-fg-muted">
                     {t(`lessons.${entry.id}.summary`)}
                   </p>
-                  <ul className="flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-zinc-400">
+                  <ul className="flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-fg-subtle">
                     {entry.module.groups.map((group) => (
                       <li
                         key={group.colorGroup}
@@ -212,15 +225,15 @@ export default async function HomePage({
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/10 pt-4 text-sm">
-                    <span className="text-zinc-400">
+                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-border pt-4 text-sm">
+                    <span className="text-fg-subtle">
                       {t("landing.lessons.meta", {
                         steps: entry.lesson.steps.length,
                       })}
                     </span>
                     <span
                       aria-hidden="true"
-                      className="font-semibold whitespace-nowrap text-zinc-100 group-hover:text-white"
+                      className="font-semibold whitespace-nowrap text-fg-muted group-hover:text-fg"
                     >
                       {t("landing.lessons.start", { number: entry.number })}{" "}
                       <ForwardArrow />
@@ -235,25 +248,25 @@ export default async function HomePage({
         <section
           id="teachers"
           aria-labelledby="teachers-title"
-          className="scroll-mt-4 border-t border-white/10 bg-white/[0.02]"
+          className="scroll-mt-4 border-t border-border bg-overlay"
         >
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <h2
               id="teachers-title"
-              className="text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl"
+              className="text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
             >
               {t("landing.teachers.title")}
             </h2>
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-zinc-300">
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-fg-muted">
               {t("landing.teachers.lead")}
             </p>
             <ul className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
               {TEACHER_POINTS.map((point) => (
                 <li key={point} className="flex flex-col gap-1.5">
-                  <h3 className="text-base font-semibold text-zinc-50">
+                  <h3 className="text-base font-semibold text-fg">
                     {t(`landing.teachers.points.${point}.title`)}
                   </h3>
-                  <p className="text-base leading-relaxed text-zinc-300">
+                  <p className="text-base leading-relaxed text-fg-muted">
                     {t(`landing.teachers.points.${point}.body`)}
                   </p>
                 </li>
@@ -263,17 +276,24 @@ export default async function HomePage({
               <SiteLink
                 href={REPO_URL}
                 newTab={newTab}
-                className={`${BUTTON} gap-2 border border-white/20 text-zinc-100 hover:bg-white/5`}
+                className={`${BUTTON} gap-2 border border-border-strong text-fg-muted hover:bg-overlay`}
               >
                 <GitHubIcon />
                 {t("landing.teachers.source")}
               </SiteLink>
               <Link
                 href={`${localePath(locale, "/about")}#real-and-simplified`}
-                className={`${LINK_CLASS} self-start text-base text-zinc-200 sm:self-auto`}
+                className={`${LINK_CLASS} inline-flex min-h-11 items-center self-start text-base text-fg-muted sm:self-auto`}
               >
                 {t("landing.teachers.science")}
               </Link>
+              <SiteLink
+                href={FEEDBACK_URL}
+                newTab={newTab}
+                className={`${LINK_CLASS} inline-flex min-h-11 items-center self-start text-base text-fg-muted sm:self-auto`}
+              >
+                {t("landing.teachers.feedback")}
+              </SiteLink>
             </div>
           </div>
         </section>
@@ -281,29 +301,30 @@ export default async function HomePage({
         <section
           id="credits"
           aria-labelledby="credits-title"
-          className="scroll-mt-4 border-t border-white/10"
+          className="scroll-mt-4 border-t border-border"
+          data-tap-target="text"
         >
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <h2
               id="credits-title"
-              className="text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl"
+              className="text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
             >
               {t("credits.title")}
             </h2>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-300">
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-fg-muted">
               {t.rich("credits.body", links)}
             </p>
             <blockquote
               lang="en"
               dir="ltr"
-              className="mt-6 max-w-3xl border-s-2 border-white/20 ps-4 text-sm leading-relaxed text-zinc-300"
+              className="mt-6 max-w-3xl border-s-2 border-border-strong ps-4 text-sm leading-relaxed text-fg-muted"
             >
               {PAPER.citation}{" "}
               <SiteLink href={PAPER.url} newTab={newTab}>
                 doi:{PAPER.doi}
               </SiteLink>
             </blockquote>
-            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-zinc-400">
+            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-fg-subtle">
               {t.rich("credits.license", links)}
             </p>
           </div>

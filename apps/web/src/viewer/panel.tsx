@@ -16,7 +16,7 @@ import type {
 const openGate: ControlGate = () => "open";
 
 export const FOCUS_RING =
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
 
 /** Sends a control to the brain. The list and the lesson's action bar both press through here. */
 export function press(
@@ -113,12 +113,12 @@ export function Controls({
           type="button"
           disabled={disabled}
           onClick={() => press({ type: "reset" }, onAction)}
-          className={`min-h-12 rounded-xl border border-white/20 text-base font-semibold text-zinc-100 transition-colors hover:bg-white/5 disabled:opacity-40 ${FOCUS_RING}`}
+          className={`min-h-12 rounded-xl border border-border-strong text-base font-semibold text-fg-muted transition-colors hover:bg-overlay disabled:opacity-40 ${FOCUS_RING}`}
         >
           {t("reset")}
         </button>
       )}
-      <p className="text-xs leading-relaxed text-zinc-400">{t("dragHint")}</p>
+      <p className="text-xs leading-relaxed text-fg-subtle">{t("dragHint")}</p>
     </>
   );
 }
@@ -143,8 +143,8 @@ function Activity({ module }: { module: ModuleSpec }) {
               className={`flex flex-col gap-1.5 transition-opacity ${dim ? "opacity-40" : ""}`}
             >
               <div className="flex items-baseline justify-between gap-3 text-sm">
-                <span className="text-zinc-200">{name}</span>
-                <span className="w-12 shrink-0 text-end text-zinc-400 tabular-nums">
+                <span className="text-fg-muted">{name}</span>
+                <span className="w-12 shrink-0 text-end text-fg-subtle tabular-nums">
                   {format.number(percent / 100, { style: "percent" })}
                 </span>
               </div>
@@ -154,7 +154,7 @@ function Activity({ module }: { module: ModuleSpec }) {
                 aria-valuemin={0}
                 aria-valuemax={100}
                 aria-valuenow={percent}
-                className="h-2.5 overflow-hidden rounded-full bg-white/10"
+                className="h-2.5 overflow-hidden rounded-full bg-overlay-strong"
               >
                 <div
                   className={`h-full rounded-full transition-[width] duration-150 ease-out ${level > 0 ? "min-w-1" : ""}`}
@@ -175,7 +175,7 @@ function Activity({ module }: { module: ModuleSpec }) {
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
+      <h2 className="text-xs font-semibold tracking-[0.14em] text-fg-subtle uppercase">
         {title}
       </h2>
       {children}
@@ -196,7 +196,7 @@ function LockedButton({ color, name }: { color: string; name: string }) {
         type="button"
         aria-disabled="true"
         onClick={() => setTold(true)}
-        className={`flex min-h-11 w-full items-center gap-2 rounded-2xl border border-dashed border-white/15 px-4 py-2 text-start text-sm text-zinc-500 ${FOCUS_RING}`}
+        className={`flex min-h-11 w-full items-center gap-2 rounded-2xl border border-dashed border-border px-4 py-2 text-start text-sm text-fg-subtle ${FOCUS_RING}`}
       >
         <span
           className="inline-block size-2.5 shrink-0 rounded-full opacity-50"
@@ -209,7 +209,7 @@ function LockedButton({ color, name }: { color: string; name: string }) {
         </span>
       </button>
       {told ? (
-        <p role="status" className="px-1 text-xs text-zinc-400">
+        <p role="status" className="px-1 text-xs text-fg-subtle">
           {t("lockedHint")}
         </p>
       ) : null}
@@ -236,7 +236,7 @@ function LockIcon() {
 // contrast the whole time.
 function cueClass(state: ControlState): string {
   return state === "cue"
-    ? "outline-4 outline-offset-4 outline-white/80 motion-safe:animate-cue"
+    ? "outline-4 outline-offset-4 outline-ring/80 motion-safe:animate-cue"
     : "";
 }
 
@@ -299,12 +299,29 @@ function SilenceButton({
 }) {
   const t = useTranslations("viewer.controls");
   if (state === "locked") {
-    return (
-      <LockedButton
-        color={color}
-        name={t(pressed ? "silencedNamed" : "silenceNamed", { name })}
-      />
-    );
+    if (pressed) {
+      // Already silenced, and this step doesn't let it be switched back on
+      // from here: show that state plainly, rather than the same "Locked"
+      // badge used for a control the step hasn't reached yet.
+      return (
+        <div
+          className="flex min-h-16 w-full flex-col items-start gap-1 rounded-2xl border border-border bg-overlay px-4 py-3 text-start"
+          style={{ boxShadow: `inset 0 0 0 2px ${color}` }}
+        >
+          <span className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-fg-subtle uppercase">
+            <span
+              className="inline-block size-2.5 rounded-full"
+              style={{ backgroundColor: color }}
+            />
+            {t("silencedLocked")}
+          </span>
+          <span className="text-base leading-tight font-semibold text-fg">
+            {name}
+          </span>
+        </div>
+      );
+    }
+    return <LockedButton color={color} name={t("silenceNamed", { name })} />;
   }
   return (
     <button
@@ -313,20 +330,20 @@ function SilenceButton({
       aria-pressed={pressed}
       data-cue={state === "cue" ? "" : undefined}
       onClick={onPress}
-      className={`flex min-h-16 w-full touch-manipulation flex-col items-start gap-1 rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-start disabled:opacity-40 ${FOCUS_RING} ${cueClass(state)}`}
+      className={`flex min-h-16 w-full touch-manipulation flex-col items-start gap-1 rounded-2xl border border-border bg-overlay px-4 py-3 text-start disabled:opacity-40 ${FOCUS_RING} ${cueClass(state)}`}
       style={pressed ? { boxShadow: `inset 0 0 0 2px ${color}` } : undefined}
     >
-      <span className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
+      <span className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-fg-subtle uppercase">
         <span
           className="inline-block size-2.5 rounded-full"
           style={{ backgroundColor: color }}
         />
         {pressed ? t("silenced") : t("silence")}
       </span>
-      <span className="text-base leading-tight font-semibold text-zinc-100">
+      <span className="text-base leading-tight font-semibold text-fg">
         {name}
       </span>
-      <span className="text-sm leading-snug text-zinc-300">{label}</span>
+      <span className="text-sm leading-snug text-fg-muted">{label}</span>
     </button>
   );
 }

@@ -93,9 +93,9 @@ export function TranslateNotice({
   return (
     <div
       role="note"
-      className={`flex items-start gap-3 bg-sky-400/10 px-4 py-2.5 text-sm text-sky-100 ${className}`}
+      className={`flex items-start gap-3 bg-sky-500/10 px-4 py-2.5 text-sm text-sky-900 dark:bg-sky-400/10 dark:text-sky-100 ${className}`}
     >
-      <p className="flex-1 leading-snug">
+      <p className="flex-1 leading-snug" data-tap-target="text">
         {before}
         <bdi>{missing.name}</bdi>
         {after}{" "}
@@ -103,7 +103,7 @@ export function TranslateNotice({
           href={href}
           target="_blank"
           rel="noopener"
-          className="font-semibold underline underline-offset-4 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          className="font-semibold underline underline-offset-4 hover:text-sky-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring dark:hover:text-white"
         >
           {cta}
         </a>
@@ -112,7 +112,7 @@ export function TranslateNotice({
         type="button"
         onClick={close}
         aria-label={dismiss}
-        className="-my-1 flex size-8 shrink-0 items-center justify-center rounded-md text-sky-200 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+        className="-my-1.5 flex size-11 shrink-0 items-center justify-center rounded-md text-sky-700 hover:bg-black/5 hover:text-sky-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring dark:text-sky-200 dark:hover:bg-white/10 dark:hover:text-white"
       >
         <svg
           aria-hidden="true"

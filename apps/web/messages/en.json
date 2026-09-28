@@ -35,7 +35,14 @@
       "errors.error.title",
       "errors.error.body",
       "errors.error.retry",
-      "errors.error.home"
+      "errors.error.home",
+      "nav.themeLight",
+      "nav.themeDark",
+      "footer.feedback",
+      "landing.teachers.feedback",
+      "viewer.lesson.finished",
+      "viewer.lesson.moreLessons",
+      "viewer.controls.silencedLocked"
     ]
   },
   "meta": {
@@ -76,7 +83,9 @@
     "home": "WiredMind home",
     "lessons": "Lessons",
     "teachers": "For teachers",
-    "about": "About"
+    "about": "About",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
   },
   "a11y": {
     "skip": "Skip to content",
@@ -97,6 +106,7 @@
     "githubLabel": "Help translate or contribute on GitHub",
     "about": "About",
     "code": "Code: MIT",
+    "feedback": "Feedback",
     "credits": "Neurons from the <malecns>MaleCNS v1.0</malecns> connectome by <janelia>HHMI Janelia FlyEM</janelia>, the <cambridge>University of Cambridge</cambridge>, the <mrc>MRC Laboratory of Molecular Biology</mrc>, and <google>Google Research</google>, under <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -170,7 +180,8 @@
         }
       },
       "source": "View the source on GitHub",
-      "science": "What’s real and what’s simplified"
+      "science": "What’s real and what’s simplified",
+      "feedback": "Something unclear or broken? Tell me."
     }
   },
   "about": {
@@ -477,8 +488,8 @@
       "lockedHint": "Not in this step. Every button opens in free play.",
       "stimulateNamed": "Stimulate {name}",
       "silenceNamed": "Silence: {name}",
-      "silencedNamed": "Silenced: {name}",
-      "silenced": "Silenced · tap to switch on"
+      "silenced": "Silenced · tap to switch on",
+      "silencedLocked": "Silenced"
     },
     "sheet": {
       "more": "Show more",
@@ -501,7 +512,8 @@
       "freePlay": "Start free play",
       "pickAnswer": "Pick the answer you think is right.",
       "nextLesson": "Next lesson: {title}",
-      "finished": "You finished every lesson. Keep exploring.",
+      "finished": "That’s the last lesson.",
+      "moreLessons": "More lessons",
       "cueStimulate": "Stimulate",
       "cueSilence": "Silence",
       "cueSwitchOn": "Switch on",

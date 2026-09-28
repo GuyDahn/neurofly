@@ -70,7 +70,7 @@ export function LanguageMenu({
         aria-controls={list}
         aria-label={label}
         onClick={() => setOpen((value) => !value)}
-        className="flex min-h-10 min-w-10 items-center justify-center gap-1.5 rounded-md px-1.5 text-zinc-300 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-md px-1.5 text-fg-muted transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
         <GlobeIcon />
         <span className="hidden sm:inline" lang={current}>
@@ -81,7 +81,7 @@ export function LanguageMenu({
         <ul
           id={list}
           aria-label={menuLabel}
-          className="absolute end-0 top-full z-50 mt-2 max-h-[min(70dvh,32rem)] w-60 overflow-y-auto overscroll-contain rounded-xl border border-white/15 bg-zinc-900 p-1.5 shadow-[0_12px_32px_rgb(0_0_0/0.5)]"
+          className="absolute end-0 top-full z-50 mt-2 max-h-[min(70dvh,32rem)] w-60 overflow-y-auto overscroll-contain rounded-xl border border-border-strong bg-surface p-1.5 shadow-[0_12px_32px_rgb(0_0_0/0.25)] dark:shadow-[0_12px_32px_rgb(0_0_0/0.5)]"
         >
           {LOCALES.map((locale) => (
             <li key={locale}>
@@ -92,7 +92,7 @@ export function LanguageMenu({
                 dir={direction(locale)}
                 aria-current={locale === current ? "true" : undefined}
                 onClick={() => rememberLocale(locale)}
-                className={`flex min-h-11 items-center rounded-lg px-3 text-start text-sm focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white ${locale === current ? "bg-white/10 font-semibold text-white" : "text-zinc-200 hover:bg-white/5"}`}
+                className={`flex min-h-11 items-center rounded-lg px-3 text-start text-sm focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring ${locale === current ? "bg-overlay-strong font-semibold text-fg" : "text-fg-muted hover:bg-overlay"}`}
               >
                 {ENDONYMS[locale]}
               </a>

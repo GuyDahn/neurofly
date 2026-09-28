@@ -43,7 +43,9 @@
     "home": "WiredMind – strona główna",
     "lessons": "Lekcje",
     "teachers": "Dla nauczycieli",
-    "about": "O projekcie"
+    "about": "O projekcie",
+    "themeLight": "Przełącz na jasny motyw",
+    "themeDark": "Przełącz na ciemny motyw"
   },
   "a11y": {
     "skip": "Przejdź do treści",
@@ -64,6 +66,7 @@
     "githubLabel": "Pomoc w tłumaczeniu i rozwoju projektu na GitHubie",
     "about": "O projekcie",
     "code": "Kod: MIT",
+    "feedback": "Opinie",
     "credits": "Neurony z konektomu <malecns>MaleCNS v1.0</malecns> opracowanego przez <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Uniwersytet Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc> i <google>Google Research</google>, na licencji <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Kod źródłowy na GitHubie",
-      "science": "Co jest prawdziwe, a co uproszczone"
+      "science": "Co jest prawdziwe, a co uproszczone",
+      "feedback": "Coś jest niejasne albo nie działa? Daj znać."
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "Nie w tym kroku. W swobodnych eksperymentach działa każdy przycisk.",
       "stimulateNamed": "Pobudź: {name}",
       "silenceNamed": "Wycisz: {name}",
-      "silencedNamed": "Wyciszone: {name}",
-      "silenced": "Wyciszone · naciśnij, by włączyć"
+      "silenced": "Wyciszone · naciśnij, by włączyć",
+      "silencedLocked": "Wyciszone"
     },
     "sheet": {
       "more": "Pokaż więcej",
@@ -468,7 +472,8 @@
       "freePlay": "Zacznij swobodne eksperymenty",
       "pickAnswer": "Wybierz odpowiedź, która twoim zdaniem jest prawidłowa.",
       "nextLesson": "Następna lekcja: {title}",
-      "finished": "Wszystkie lekcje za tobą. Odkrywaj dalej.",
+      "finished": "To ostatnia lekcja.",
+      "moreLessons": "Więcej lekcji",
       "cueStimulate": "Pobudź",
       "cueSilence": "Wycisz",
       "cueSwitchOn": "Włącz",

@@ -58,26 +58,38 @@ export default async function AboutPage({
     <>
       <SiteHeader locale={locale} path="/about" />
       <main id="main" className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-        <h1 className="text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+        <h1 className="text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
           {t("about.title")}
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-zinc-300">
+        <p className="mt-4 text-lg leading-relaxed text-fg-muted">
           {t("about.lead")}
         </p>
         <nav
           aria-label={t("about.onThisPage")}
-          className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-zinc-400"
+          className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-fg-subtle"
         >
-          <a href="#real-and-simplified" className={LINK_CLASS}>
+          <a
+            href="#real-and-simplified"
+            className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+          >
             {t("about.real.title")}
           </a>
-          <a href="#credits" className={LINK_CLASS}>
+          <a
+            href="#credits"
+            className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+          >
             {t("credits.title")}
           </a>
-          <a href="#who-made-this" className={LINK_CLASS}>
+          <a
+            href="#who-made-this"
+            className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+          >
             {t("about.who.title")}
           </a>
-          <a href="#support" className={LINK_CLASS}>
+          <a
+            href="#support"
+            className={`${LINK_CLASS} inline-flex min-h-11 items-center`}
+          >
             {t("about.support.title")}
           </a>
         </nav>
@@ -128,29 +140,29 @@ export default async function AboutPage({
         </Section>
 
         <Section id="credits" title={t("credits.title")}>
-          <p className="text-base leading-relaxed text-zinc-300">
+          <p className="text-base leading-relaxed text-fg-muted">
             {t.rich("credits.body", links)}
           </p>
           <blockquote
             lang="en"
             dir="ltr"
-            className="border-s-2 border-white/20 ps-4 text-sm leading-relaxed text-zinc-300"
+            className="border-s-2 border-border-strong ps-4 text-sm leading-relaxed text-fg-muted"
           >
             {PAPER.citation}{" "}
             <SiteLink href={PAPER.url} newTab={newTab}>
               doi:{PAPER.doi}
             </SiteLink>
           </blockquote>
-          <p className="text-sm leading-relaxed text-zinc-400">
+          <p className="text-sm leading-relaxed text-fg-subtle">
             {t.rich("credits.license", links)}
           </p>
         </Section>
 
         <Section id="who-made-this" title={t("about.who.title")}>
-          <p className="text-base leading-relaxed text-zinc-300">
+          <p className="text-base leading-relaxed text-fg-muted">
             {t("about.who.body", { author: AUTHOR.name })}
           </p>
-          <p className="flex flex-wrap gap-x-2 text-base text-zinc-200">
+          <p className="flex flex-wrap gap-x-2 text-base text-fg-muted">
             <SiteLink href={AUTHOR.github} newTab={newTab}>
               {t("about.who.github")}
             </SiteLink>
@@ -162,10 +174,10 @@ export default async function AboutPage({
         </Section>
 
         <Section id="support" title={t("about.support.title")}>
-          <p className="text-base leading-relaxed text-zinc-300">
+          <p className="text-base leading-relaxed text-fg-muted">
             {t("support.blurb")}
           </p>
-          <p className="text-base text-zinc-200">
+          <p className="text-base text-fg-muted">
             <SiteLink href={COFFEE_URL} newTab={newTab}>
               {t("support.coffee")}
             </SiteLink>
@@ -173,7 +185,7 @@ export default async function AboutPage({
         </Section>
 
         <Section id="privacy" title={t("about.privacy.title")}>
-          <p className="text-base leading-relaxed text-zinc-300">
+          <p className="text-base leading-relaxed text-fg-muted">
             {t("about.privacy.body")}
           </p>
         </Section>
@@ -207,11 +219,12 @@ function Section({
     <section
       id={id}
       aria-labelledby={`${id}-title`}
-      className="mt-14 flex scroll-mt-6 flex-col gap-4 border-t border-white/10 pt-10"
+      className="mt-14 flex scroll-mt-6 flex-col gap-4 border-t border-border pt-10"
+      data-tap-target="text"
     >
       <h2
         id={`${id}-title`}
-        className="text-2xl font-semibold tracking-tight text-zinc-50"
+        className="text-2xl font-semibold tracking-tight text-fg"
       >
         {title}
       </h2>
@@ -222,7 +235,7 @@ function Section({
 
 function SubTitle({ children }: { children: ReactNode }) {
   return (
-    <h3 className="mt-4 text-sm font-semibold tracking-[0.14em] text-zinc-400 uppercase">
+    <h3 className="mt-4 text-sm font-semibold tracking-[0.14em] text-fg-subtle uppercase">
       {children}
     </h3>
   );
@@ -235,15 +248,15 @@ function Points({ children }: { children: ReactNode }) {
 /** A point with a bold lead-in, for lists a reader skims. */
 function Point({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <li className="text-base leading-relaxed text-zinc-300">
-      <strong className="font-semibold text-zinc-50">{title}</strong> {children}
+    <li className="text-base leading-relaxed text-fg-muted">
+      <strong className="font-semibold text-fg">{title}</strong> {children}
     </li>
   );
 }
 
 function Bullets({ children }: { children: ReactNode }) {
   return (
-    <ul className="flex list-disc flex-col gap-2.5 ps-5 text-base leading-relaxed text-zinc-300 marker:text-zinc-600">
+    <ul className="flex list-disc flex-col gap-2.5 ps-5 text-base leading-relaxed text-fg-muted marker:text-fg-subtle">
       {children}
     </ul>
   );

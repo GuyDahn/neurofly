@@ -82,21 +82,21 @@ export function ReplayRunner({
             <button
               type="button"
               onClick={() => setRun((value) => value + 1)}
-              className={`${BUTTON} border border-white/20 text-zinc-100 hover:bg-white/5`}
+              className={`${BUTTON} border border-border-strong text-fg-muted hover:bg-overlay`}
             >
               {t("watchAgain")}
             </button>
             <button
               type="button"
               onClick={onExit}
-              className={`${BUTTON} bg-zinc-50 text-zinc-950 hover:bg-white`}
+              className={`${BUTTON} bg-accent text-accent-fg hover:bg-accent-hover`}
             >
               {t("start")}
             </button>
           </div>
         ) : (
           <div className="flex flex-col gap-2 py-1" aria-live="polite">
-            <p className="flex items-center gap-2 text-base font-semibold text-zinc-50">
+            <p className="flex items-center gap-2 text-base font-semibold text-fg">
               <span aria-hidden="true" className="md:hidden">
                 ↑
               </span>
@@ -114,16 +114,16 @@ export function ReplayRunner({
               aria-valuemin={0}
               aria-valuemax={replay.actions.length}
               aria-valuenow={applied}
-              className="h-1.5 overflow-hidden rounded-full bg-white/10"
+              className="h-1.5 overflow-hidden rounded-full bg-overlay-strong"
             >
               <div
-                className="h-full rounded-full bg-zinc-50 transition-[width] duration-300"
+                className="h-full rounded-full bg-accent transition-[width] duration-300"
                 style={{
                   width: `${replay.actions.length ? (applied / replay.actions.length) * 100 : 100}%`,
                 }}
               />
             </div>
-            <p className="text-xs text-zinc-400 tabular-nums">
+            <p className="text-xs text-fg-subtle tabular-nums">
               {t("pressOf", {
                 number: Math.min(applied, replay.actions.length),
                 total: replay.actions.length,
@@ -137,19 +137,19 @@ export function ReplayRunner({
       <Toolbar entry={entry} />
       <section
         aria-label={t("section")}
-        className="flex flex-col gap-3 rounded-2xl bg-white/[0.06] p-4"
+        className="flex flex-col gap-3 rounded-2xl bg-overlay-strong p-4"
       >
-        <p className="text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">
+        <p className="text-xs font-semibold tracking-[0.14em] text-fg-subtle uppercase">
           {done ? t("finished") : t("section")}
         </p>
-        <p className="text-lg leading-snug text-zinc-50">
+        <p className="text-lg leading-snug text-fg">
           {done ? t("over") : t("shared", { title })}
         </p>
         <ol className="flex flex-col gap-1.5 text-sm">
           {replay.actions.map((action, index) => (
             <li
               key={index}
-              className={`flex items-baseline gap-2 ${index < applied ? "text-zinc-200" : "text-zinc-400"}`}
+              className={`flex items-baseline gap-2 ${index < applied ? "text-fg-muted" : "text-fg-subtle"}`}
             >
               <span className="w-5 shrink-0 text-end tabular-nums">
                 {format.number(index + 1)}
@@ -159,7 +159,7 @@ export function ReplayRunner({
                   name: circuit.name(action.command.colorGroup),
                 })}
               </span>
-              <span className="shrink-0 text-xs text-zinc-400 tabular-nums">
+              <span className="shrink-0 text-xs text-fg-subtle tabular-nums">
                 {t("tick", {
                   ms: format.number(action.tick / 10, {
                     minimumFractionDigits: 1,

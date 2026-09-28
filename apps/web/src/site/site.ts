@@ -4,6 +4,13 @@ export const SITE_NAME = "WiredMind";
 /** Production origin. Canonical links, the sitemap, and share images point here. */
 export const SITE_URL = "https://wiredmind-edu.vercel.app";
 export const REPO_URL = "https://github.com/GuyDahn/wiredmind-edu";
+/**
+ * Where the footer's "Feedback" link and the teachers' section send a
+ * question or a broken-lesson report. A GitHub issue form today; nothing
+ * else should hard-code the target, so this can become a Tally or Google
+ * Form link later without touching the pages that link to it.
+ */
+export const FEEDBACK_URL = `${REPO_URL}/issues/new?template=teacher-feedback.yml`;
 
 export const AUTHOR = {
   name: "Guy Dahan",

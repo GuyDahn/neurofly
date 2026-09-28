@@ -43,7 +43,9 @@
     "home": "WiredMind ana sayfası",
     "lessons": "Dersler",
     "teachers": "Öğretmenler için",
-    "about": "Hakkında"
+    "about": "Hakkında",
+    "themeLight": "Açık moda geç",
+    "themeDark": "Koyu moda geç"
   },
   "a11y": {
     "skip": "İçeriğe geç",
@@ -64,6 +66,7 @@
     "githubLabel": "GitHub’da çeviriye yardım edin ya da katkıda bulunun",
     "about": "Hakkında",
     "code": "Kod: MIT",
+    "feedback": "Geri bildirim",
     "credits": "Nöronlar, <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Cambridge Üniversitesi</cambridge>, <mrc>MRC Moleküler Biyoloji Laboratuvarı</mrc> ve <google>Google Research</google> tarafından hazırlanan <malecns>MaleCNS v1.0</malecns> konektomundan, <ccby>CC BY 4.0</ccby> lisansıyla alınmıştır."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Kaynak kodunu GitHub’da inceleyin",
-      "science": "Neler gerçek, neler basitleştirilmiş"
+      "science": "Neler gerçek, neler basitleştirilmiş",
+      "feedback": "Bir şey anlaşılmıyor mu ya da çalışmıyor mu? Bana bildirin."
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "Bu adımda kullanılamaz. Serbest keşifte tüm düğmeler kullanılabilir.",
       "stimulateNamed": "Uyar: {name}",
       "silenceNamed": "Sustur: {name}",
-      "silencedNamed": "Susturuldu: {name}",
-      "silenced": "Susturuldu · açmak için dokun"
+      "silenced": "Susturuldu · açmak için dokun",
+      "silencedLocked": "Susturuldu"
     },
     "sheet": {
       "more": "Daha fazla göster",
@@ -468,7 +472,8 @@
       "freePlay": "Serbest keşfe başla",
       "pickAnswer": "Doğru olduğunu düşündüğün cevabı seç.",
       "nextLesson": "Sonraki ders: {title}",
-      "finished": "Tüm dersleri bitirdin. Keşfetmeye devam et.",
+      "finished": "Bu son ders.",
+      "moreLessons": "Diğer dersler",
       "cueStimulate": "Uyar",
       "cueSilence": "Sustur",
       "cueSwitchOn": "Aç",

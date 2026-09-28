@@ -43,7 +43,9 @@
     "home": "Pagina iniziale di WiredMind",
     "lessons": "Lezioni",
     "teachers": "Per gli insegnanti",
-    "about": "Il progetto"
+    "about": "Il progetto",
+    "themeLight": "Passa alla modalità chiara",
+    "themeDark": "Passa alla modalità scura"
   },
   "a11y": {
     "skip": "Vai al contenuto",
@@ -64,6 +66,7 @@
     "githubLabel": "Aiuta a tradurre o contribuisci su GitHub",
     "about": "Il progetto",
     "code": "Codice: MIT",
+    "feedback": "Feedback",
     "credits": "Neuroni dal connettoma <malecns>MaleCNS v1.0</malecns> di <janelia>HHMI Janelia FlyEM</janelia>, <cambridge>Università di Cambridge</cambridge>, <mrc>MRC Laboratory of Molecular Biology</mrc> e <google>Google Research</google>, con licenza <ccby>CC BY 4.0</ccby>."
   },
   "support": {
@@ -137,7 +140,8 @@
         }
       },
       "source": "Guarda il codice sorgente su GitHub",
-      "science": "Cosa è reale e cosa è semplificato"
+      "science": "Cosa è reale e cosa è semplificato",
+      "feedback": "Qualcosa non è chiaro o non funziona? Dimmelo."
     }
   },
   "about": {
@@ -444,8 +448,8 @@
       "lockedHint": "Non si usa in questo passaggio. Nell’esplorazione libera si sbloccano tutti i pulsanti.",
       "stimulateNamed": "Stimola: {name}",
       "silenceNamed": "Silenzia: {name}",
-      "silencedNamed": "In silenzio: {name}",
-      "silenced": "In silenzio · tocca per riattivare"
+      "silenced": "In silenzio · tocca per riattivare",
+      "silencedLocked": "In silenzio"
     },
     "sheet": {
       "more": "Mostra di più",
@@ -468,7 +472,8 @@
       "freePlay": "Inizia l’esplorazione libera",
       "pickAnswer": "Scegli la risposta che ti sembra giusta.",
       "nextLesson": "Prossima lezione: {title}",
-      "finished": "Hai finito tutte le lezioni. Continua a esplorare.",
+      "finished": "Questa è l’ultima lezione.",
+      "moreLessons": "Altre lezioni",
       "cueStimulate": "Stimola",
       "cueSilence": "Silenzia",
       "cueSwitchOn": "Riattiva",

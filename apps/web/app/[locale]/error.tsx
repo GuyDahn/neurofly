@@ -30,21 +30,21 @@ export default function LocaleError({
     >
       {copy ? (
         <>
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
             {copy.title}
           </h1>
-          <p className="text-lg leading-relaxed text-zinc-300">{copy.body}</p>
+          <p className="text-lg leading-relaxed text-fg-muted">{copy.body}</p>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
               onClick={reset}
-              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-zinc-50 px-5 text-base font-semibold text-zinc-950 transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-accent px-5 text-base font-semibold text-accent-fg transition-colors hover:bg-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
               {copy.retry}
             </button>
             <a
               href={localePath(locale, "/")}
-              className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/20 px-5 text-base font-semibold text-zinc-100 transition-colors hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border-strong px-5 text-base font-semibold text-fg-muted transition-colors hover:bg-overlay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
               {copy.home}
             </a>
