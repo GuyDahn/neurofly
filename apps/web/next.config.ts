@@ -9,6 +9,41 @@ const dataLock = JSON.parse(
   readFileSync(path.join(root, "data.lock.json"), "utf8"),
 ) as { version: string };
 
+const dev = process.env.NODE_ENV !== "production";
+// Vercel injects its feedback toolbar into preview deployments only.
+const preview = process.env.VERCEL_ENV === "preview";
+const vercelLive = preview ? " https://vercel.live" : "";
+
+// Everything is served from our own origin. 'unsafe-inline' covers Next's
+// inline bootstrap, the theme script and JSON-LD (nonces would force dynamic
+// rendering); 'wasm-unsafe-eval' lets the Draco worker compile its decoder.
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'${dev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""}${vercelLive}`,
+  `style-src 'self' 'unsafe-inline'${vercelLive}`,
+  `img-src 'self' data: blob:${preview ? " https://vercel.live https://vercel.com" : ""}`,
+  `font-src 'self'${preview ? " https://vercel.live https://assets.vercel.com" : ""}`,
+  `connect-src 'self'${dev ? " ws: https://va.vercel-scripts.com" : ""}${preview ? " https://vercel.live wss://ws-us3.pusher.com" : ""}`,
+  "worker-src 'self' blob:",
+  `frame-src 'self'${vercelLive}`,
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  ...(dev ? [] : ["upgrade-insecure-requests"]),
+].join("; ");
+
+const securityHeaders = [
+  { key: "Content-Security-Policy", value: contentSecurityPolicy },
+  { key: "X-Frame-Options", value: "DENY" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+  },
+];
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   // The code is open source, so production errors may as well be readable.
@@ -25,6 +60,7 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      { source: "/:path*", headers: securityHeaders },
       {
         // Fetched from the data-vN release at build time and requested with a
         // version or content hash in the query string.
