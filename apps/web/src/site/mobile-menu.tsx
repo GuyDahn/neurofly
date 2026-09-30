@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import {
   useEffect,
-  useId,
   useRef,
   useState,
   useSyncExternalStore,
@@ -18,6 +17,14 @@ const FOCUSABLE =
 const WIDE = "(min-width: 48rem)";
 
 const noSubscribe = () => () => {};
+
+/**
+ * One site menu per page, so a fixed id. Not useId(): the button's
+ * aria-controls comes from the server HTML, which hydration never corrects,
+ * while the sheet is rendered only in the browser, where a lesson page's
+ * tree can give useId() a different answer.
+ */
+const SHEET_ID = "site-menu";
 
 /**
  * Below `md`, the header's links and switches fold into one button that opens
@@ -51,7 +58,6 @@ export function MobileMenu({
   const button = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
   const refocus = useRef(false);
-  const sheet = useId();
   // <body> exists only in the browser; the server renders the button alone.
   const hydrated = useSyncExternalStore(
     noSubscribe,
@@ -152,7 +158,7 @@ export function MobileMenu({
         ref={button}
         type="button"
         aria-expanded={open}
-        aria-controls={sheet}
+        aria-controls={SHEET_ID}
         aria-label={open ? closeLabel : openLabel}
         onClick={() => (open ? hide(true) : show())}
         className={`flex min-h-11 min-w-11 items-center justify-center rounded-md transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${buttonClassName}`}
@@ -169,7 +175,7 @@ export function MobileMenu({
               />
               <div
                 ref={panel}
-                id={sheet}
+                id={SHEET_ID}
                 inert={!open}
                 onClick={onPanelClick}
                 style={{ top, maxHeight: `calc(100dvh - ${top}px)` }}

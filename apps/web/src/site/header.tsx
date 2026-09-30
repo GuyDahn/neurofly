@@ -154,18 +154,29 @@ export async function SiteMenu({
             newTab={newTab}
             label={t("footer.githubLabel")}
             className={MENU_ITEM}
+            isolate={false}
           >
             <GitHubIcon className="size-5 shrink-0 fill-current" />
             {t("footer.github")}
           </SiteLink>
         </li>
         <li>
-          <SiteLink href={FEEDBACK_URL} newTab={newTab} className={MENU_ITEM}>
+          <SiteLink
+            href={FEEDBACK_URL}
+            newTab={newTab}
+            className={MENU_ITEM}
+            isolate={false}
+          >
             {t("footer.feedback")}
           </SiteLink>
         </li>
         <li>
-          <SiteLink href={COFFEE_URL} newTab={newTab} className={MENU_ITEM}>
+          <SiteLink
+            href={COFFEE_URL}
+            newTab={newTab}
+            className={MENU_ITEM}
+            isolate={false}
+          >
             {t("support.coffee")}
           </SiteLink>
         </li>

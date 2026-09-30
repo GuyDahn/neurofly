@@ -119,18 +119,23 @@ test.describe("phone menu at 390×844", () => {
           Math.round((await row.boundingBox())!.height),
         ).toBeGreaterThanOrEqual(44);
       }
-      // The sheet's text starts at the reading edge.
-      const align = await menu
-        .locator("a")
-        .first()
-        .evaluate((el) => {
+      // Every row's text starts at the reading edge, Latin-only labels too.
+      const rows = await menu.locator("a[href], button").evaluateAll((els) =>
+        els.map((el) => {
           const range = document.createRange();
           range.selectNodeContents(el);
           const text = range.getBoundingClientRect();
-          return { left: text.left, right: innerWidth - text.right };
-        });
-      if (locale === "he") expect(align.right).toBeLessThan(align.left);
-      else expect(align.left).toBeLessThan(align.right);
+          return {
+            name: el.textContent?.trim() ?? "",
+            left: text.left,
+            right: innerWidth - text.right,
+          };
+        }),
+      );
+      for (const row of rows) {
+        if (locale === "he") expect(row.right, row.name).toBeLessThan(row.left);
+        else expect(row.left, row.name).toBeLessThan(row.right);
+      }
 
       await page.keyboard.press("Escape");
       await expect(button).toHaveAttribute("aria-expanded", "false");

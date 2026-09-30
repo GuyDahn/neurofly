@@ -19,6 +19,7 @@ export function SiteLink({
   className = LINK_CLASS,
   label,
   title,
+  isolate = true,
 }: {
   href: string;
   children: ReactNode;
@@ -28,14 +29,20 @@ export function SiteLink({
   /** Accessible name, when the visible text alone says too little. */
   label?: string;
   title?: string;
+  /**
+   * Set the link's direction from its own text (dir="auto"). Off for a
+   * full-width row, which should follow the page's direction.
+   */
+  isolate?: boolean;
 }) {
+  const dir = isolate ? "auto" : undefined;
   if (isExternal(href)) {
     return (
       <a
         href={href}
         target="_blank"
         rel="noopener"
-        dir="auto"
+        dir={dir}
         aria-label={label ? `${label} ${newTab}` : undefined}
         title={title}
         className={className}
@@ -48,7 +55,7 @@ export function SiteLink({
   return (
     <Link
       href={href}
-      dir="auto"
+      dir={dir}
       aria-label={label}
       title={title}
       className={className}
