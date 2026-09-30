@@ -5,3 +5,8 @@ packages:
 # tsx needs esbuild's install script so `pnpm data:fetch` works on Vercel.
 onlyBuiltDependencies:
   - esbuild
+
+# Next pins postcss 8.4.x, which has open advisories (GHSA-fxqj-rqcc-2cmp and
+# others). Drop this once Next ships a patched postcss.
+overrides:
+  postcss: ">=8.5.23"
