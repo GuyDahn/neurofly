@@ -2,7 +2,7 @@
 
 export const SITE_NAME = "WiredMind";
 /** Production origin. Canonical links, the sitemap, and share images point here. */
-export const SITE_URL = "https://wiredmind-edu.vercel.app";
+export const SITE_URL = "https://wiredmind.app";
 export const REPO_URL = "https://github.com/GuyDahn/wiredmind-edu";
 /**
  * Where the footer's "Feedback" link and the teachers' section send a
