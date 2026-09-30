@@ -1,0 +1,19 @@
+# Link check for the Markdown files and the site's outside links
+# (apps/web/src/site/site.ts). Run by .github/workflows/links.yml.
+
+max_retries = 3
+retry_wait_time = 5
+timeout = 30
+exclude_all_private = true
+exclude_path = ["node_modules"]
+user_agent = "Mozilla/5.0 (compatible; wiredmind-link-check; +https://github.com/GuyDahn/wiredmind-edu)"
+
+# Hosts that block or rate-limit CI runners even when the page is fine.
+# They stay listed here, one by one, so everything else is still checked.
+exclude = [
+  # doi.org forwards to publishers (Cell/Elsevier, Nature) that answer
+  # datacenter IPs with 403 or a bot check.
+  '^https://doi\.org/',
+  # Behind Cloudflare's bot check. Checked by hand: the page exists.
+  '^https://buymeacoffee\.com/',
+]
