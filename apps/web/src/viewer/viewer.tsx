@@ -30,10 +30,13 @@ type Shared = { entry: LessonEntry; replay: Replay };
 export function Viewer({
   lessonId,
   credit,
+  menu,
 }: {
   lessonId: string;
   /** Who made the site, shown at the end of the lesson panel. */
   credit?: ReactNode;
+  /** The site menu, which replaces the language menu on phones. */
+  menu?: ReactNode;
 }) {
   const entry = findLesson(lessonId) ?? LESSONS[0]!;
   const locale = useLocale();
@@ -96,12 +99,12 @@ export function Viewer({
           credit={credit}
         />
       )}
-      <Stage entry={entry} />
+      <Stage entry={entry} menu={menu} />
     </div>
   );
 }
 
-function Stage({ entry }: { entry: LessonEntry }) {
+function Stage({ entry, menu }: { entry: LessonEntry; menu?: ReactNode }) {
   const status = useViewerStore((state) => state.status);
   const error = useViewerStore((state) => state.error);
   const progress = useViewerStore((state) => state.progress);
@@ -136,6 +139,7 @@ function Stage({ entry }: { entry: LessonEntry }) {
             {lessonCopy("summary")}
           </p>
         </div>
+        {menu}
         <StageLanguageMenu path={entry.path} />
       </header>
       <p className="sr-only">{t("stage.canvasHelp")}</p>
@@ -176,7 +180,7 @@ function StageLanguageMenu({ path }: { path: string }) {
       path={path}
       label={t("button", { language: ENDONYMS[locale] })}
       menuLabel={t("menu")}
-      className="pointer-events-auto -me-1.5 rounded-lg bg-zinc-950/60 text-sm backdrop-blur-sm"
+      className="pointer-events-auto -me-1.5 hidden rounded-lg bg-zinc-950/60 text-sm backdrop-blur-sm md:block"
     />
   );
 }

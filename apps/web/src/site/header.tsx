@@ -6,13 +6,26 @@ import {
   localePath,
   type Locale,
 } from "../i18n/locales.js";
+import { LESSONS } from "../viewer/modules.js";
+import { GitHubIcon } from "./footer.js";
 import { LanguageMenu } from "./language-menu.js";
-import { LINKS, SITE_NAME } from "./site.js";
+import { MobileMenu } from "./mobile-menu.js";
+import { SiteLink } from "./rich-text.js";
+import {
+  COFFEE_URL,
+  FEEDBACK_URL,
+  LINKS,
+  REPO_URL,
+  SITE_NAME,
+} from "./site.js";
 import { ThemeToggle } from "./theme-toggle.js";
 import { TranslateNotice } from "./translate-notice.js";
 
 const NAV_LINK =
   "inline-flex min-h-11 items-center rounded-md px-1 text-fg-muted transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
+/** A row in the phone menu: full width, at least 44px tall. */
+const MENU_ITEM =
+  "flex min-h-11 w-full items-center gap-3 rounded-md px-3 text-start text-base text-fg-muted transition-colors hover:bg-overlay hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring";
 
 /** The spike mark from the favicon: a trace that goes blue, red, then yellow, like the escape cascade. */
 export function Mark({ className }: { className?: string }) {
@@ -60,6 +73,107 @@ export async function SiteTranslateNotice({
   );
 }
 
+/**
+ * The header's contents on a phone, behind one button: the pages, the
+ * lessons, the theme and language switches, and the footer's outside links.
+ * Lesson pages show it in their own header too.
+ */
+export async function SiteMenu({
+  locale,
+  path,
+  className = "",
+  buttonClassName,
+}: {
+  locale: Locale;
+  /** This page without its language, for the language menu. */
+  path: string;
+  className?: string;
+  buttonClassName?: string;
+}) {
+  const t = await getTranslations({ locale });
+  const home = localePath(locale, "/");
+  const newTab = t("a11y.newTab");
+  return (
+    <MobileMenu
+      openLabel={t("nav.menuOpen")}
+      closeLabel={t("nav.menuClose")}
+      className={`md:hidden ${className}`}
+      buttonClassName={buttonClassName}
+    >
+      <nav aria-label={t("nav.label")}>
+        <ul className="flex flex-col">
+          <li>
+            <Link href={`${home}#lessons`} className={MENU_ITEM}>
+              {t("nav.lessons")}
+            </Link>
+          </li>
+          <li>
+            <Link href={`${home}#teachers`} className={MENU_ITEM}>
+              {t("nav.teachers")}
+            </Link>
+          </li>
+          <li>
+            <Link href={localePath(locale, "/about")} className={MENU_ITEM}>
+              {t("nav.about")}
+            </Link>
+          </li>
+          {LESSONS.map((entry) => (
+            <li key={entry.id}>
+              <Link
+                href={localePath(locale, entry.path)}
+                aria-current={path === entry.path ? "page" : undefined}
+                className={`${MENU_ITEM} flex-col items-start justify-center gap-0 py-1.5 aria-[current=page]:text-fg`}
+              >
+                <span className="text-xs font-semibold tracking-[0.14em] text-fg-subtle uppercase">
+                  {t("landing.lessons.lesson", { number: entry.number })}
+                </span>
+                <span>{t(`lessons.${entry.id}.title`)}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <hr className="my-2 border-border" />
+      <ThemeToggle
+        light={t("nav.themeLight")}
+        dark={t("nav.themeDark")}
+        withLabel
+        className={MENU_ITEM}
+      />
+      <LanguageMenu
+        current={locale}
+        path={path}
+        label={t("language.button", { language: ENDONYMS[locale] })}
+        menuLabel={t("language.menu")}
+        inline
+      />
+      <ul className="flex flex-col">
+        <li>
+          <SiteLink
+            href={REPO_URL}
+            newTab={newTab}
+            label={t("footer.githubLabel")}
+            className={MENU_ITEM}
+          >
+            <GitHubIcon className="size-5 shrink-0 fill-current" />
+            {t("footer.github")}
+          </SiteLink>
+        </li>
+        <li>
+          <SiteLink href={FEEDBACK_URL} newTab={newTab} className={MENU_ITEM}>
+            {t("footer.feedback")}
+          </SiteLink>
+        </li>
+        <li>
+          <SiteLink href={COFFEE_URL} newTab={newTab} className={MENU_ITEM}>
+            {t("support.coffee")}
+          </SiteLink>
+        </li>
+      </ul>
+    </MobileMenu>
+  );
+}
+
 export async function SiteHeader({
   locale,
   path,
@@ -91,17 +205,15 @@ export async function SiteHeader({
               {SITE_NAME}
             </span>
           </Link>
+          <SiteMenu locale={locale} path={path} />
           <nav
             aria-label={t("nav.label")}
-            className="flex min-w-0 items-center gap-2 text-sm sm:gap-5"
+            className="hidden min-w-0 items-center gap-5 text-sm md:flex"
           >
             <Link href={`${home}#lessons`} className={NAV_LINK}>
               {t("nav.lessons")}
             </Link>
-            <Link
-              href={`${home}#teachers`}
-              className={`${NAV_LINK} hidden sm:inline-flex`}
-            >
+            <Link href={`${home}#teachers`} className={NAV_LINK}>
               {t("nav.teachers")}
             </Link>
             <Link href={localePath(locale, "/about")} className={NAV_LINK}>

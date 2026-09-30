@@ -45,7 +45,9 @@
     "teachers": "교사용 안내",
     "about": "소개",
     "themeLight": "라이트 모드로 전환",
-    "themeDark": "다크 모드로 전환"
+    "themeDark": "다크 모드로 전환",
+    "menuOpen": "메뉴 열기",
+    "menuClose": "메뉴 닫기"
   },
   "a11y": {
     "skip": "본문으로 건너뛰기",

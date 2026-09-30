@@ -45,7 +45,9 @@
     "teachers": "先生方へ",
     "about": "このサイトについて",
     "themeLight": "ライトモードに切り替える",
-    "themeDark": "ダークモードに切り替える"
+    "themeDark": "ダークモードに切り替える",
+    "menuOpen": "メニューを開く",
+    "menuClose": "メニューを閉じる"
   },
   "a11y": {
     "skip": "本文へスキップ",

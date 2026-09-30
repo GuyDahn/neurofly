@@ -45,7 +45,9 @@
     "teachers": "Per gli insegnanti",
     "about": "Il progetto",
     "themeLight": "Passa alla modalità chiara",
-    "themeDark": "Passa alla modalità scura"
+    "themeDark": "Passa alla modalità scura",
+    "menuOpen": "Apri il menu",
+    "menuClose": "Chiudi il menu"
   },
   "a11y": {
     "skip": "Vai al contenuto",

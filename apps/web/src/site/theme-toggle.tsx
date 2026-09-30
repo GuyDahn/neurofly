@@ -3,15 +3,23 @@
 import { useEffect, useState } from "react";
 import { applyTheme, THEME_STORAGE_KEY } from "./theme.js";
 
+const BUTTON =
+  "flex min-h-11 min-w-11 items-center justify-center rounded-md text-fg-subtle transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
+
 /** The header's light/dark switch. Starts blank so the server and the first client render agree; the inline theme script has already set the real class by then. */
 export function ThemeToggle({
   light,
   dark,
+  withLabel = false,
+  className = BUTTON,
 }: {
   /** Accessible label when dark is active, for the switch to light. */
   light: string;
   /** Accessible label when light is active, for the switch to dark. */
   dark: string;
+  /** Show the label beside the icon (the phone menu) instead of only naming the button. */
+  withLabel?: boolean;
+  className?: string;
 }) {
   const [isDark, setIsDark] = useState<boolean | null>(null);
 
@@ -44,12 +52,13 @@ export function ThemeToggle({
     }
   }
 
+  const label = isDark === null ? undefined : isDark ? light : dark;
   return (
     <button
       type="button"
       onClick={toggle}
-      aria-label={isDark === null ? undefined : isDark ? light : dark}
-      className="flex min-h-11 min-w-11 items-center justify-center rounded-md text-fg-subtle transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+      aria-label={withLabel ? undefined : label}
+      className={className}
     >
       {isDark === null ? (
         <span className="block size-5" />
@@ -58,6 +67,7 @@ export function ThemeToggle({
       ) : (
         <MoonIcon />
       )}
+      {withLabel ? <span>{label}</span> : null}
     </button>
   );
 }

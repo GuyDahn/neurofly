@@ -45,7 +45,9 @@
     "teachers": "Para docentes",
     "about": "Acerca de",
     "themeLight": "Cambiar a modo claro",
-    "themeDark": "Cambiar a modo oscuro"
+    "themeDark": "Cambiar a modo oscuro",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú"
   },
   "a11y": {
     "skip": "Saltar al contenido",

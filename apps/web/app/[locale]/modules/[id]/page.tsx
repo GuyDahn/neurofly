@@ -10,6 +10,7 @@ import { pageLocale, type LocaleParams } from "@/src/i18n/server";
 import { pick, type MessageTree } from "@/src/i18n/messages";
 import { shareCard } from "@/src/og/share-card";
 import { LessonCredits } from "@/src/site/footer";
+import { SiteMenu } from "@/src/site/header";
 import { jsonLdScript, lessonJsonLd, pageJsonLd } from "@/src/site/json-ld";
 import { pageMetadata, shareImagePath } from "@/src/site/page-meta";
 import { SITE_NAME } from "@/src/site/site";
@@ -75,6 +76,14 @@ export default async function LessonPage({
         <Viewer
           lessonId={entry.id}
           credit={<LessonCredits locale={locale} />}
+          menu={
+            <SiteMenu
+              locale={locale}
+              path={entry.path}
+              className="pointer-events-auto -me-1.5 shrink-0"
+              buttonClassName="bg-zinc-950/60 text-zinc-200 backdrop-blur-sm hover:text-white focus-visible:outline-white"
+            />
+          }
         />
       </NextIntlClientProvider>
       <script

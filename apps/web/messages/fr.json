@@ -45,7 +45,9 @@
     "teachers": "Enseignants",
     "about": "À propos",
     "themeLight": "Passer au mode clair",
-    "themeDark": "Passer au mode sombre"
+    "themeDark": "Passer au mode sombre",
+    "menuOpen": "Ouvrir le menu",
+    "menuClose": "Fermer le menu"
   },
   "a11y": {
     "skip": "Aller au contenu",
