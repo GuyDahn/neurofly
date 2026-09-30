@@ -71,6 +71,16 @@ body {
 }
 
 /*
+ * A safety net only: nothing on the site is wider than a phone (the e2e
+ * overflow test lifts this and checks). `clip`, not `hidden`, so neither
+ * element becomes a scroll container.
+ */
+html,
+body {
+  overflow-x: clip;
+}
+
+/*
  * Arabic joins its letters and Devanagari hangs them from one headline, so
  * letter-spacing (the small uppercase labels use it) tears both apart. Outside
  * the layers, this wins over every tracking utility.

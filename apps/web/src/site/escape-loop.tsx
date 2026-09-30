@@ -204,7 +204,7 @@ export function EscapeLoop({
                   boxShadow: `0 0 10px ${step.color}`,
                 }}
               />
-              <span className="flex flex-col">
+              <span className="flex min-w-0 flex-col">
                 <span className="text-sm leading-snug text-zinc-300 transition-colors duration-300 group-data-[fired=true]:text-zinc-50">
                   {step.label}
                 </span>
