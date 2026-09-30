@@ -1,6 +1,15 @@
 {
   "name": "wiredmind",
   "private": true,
+  "description": "WiredMind — a real fly brain you can poke, in your browser",
+  "homepage": "https://wiredmind.app",
+  "bugs": {
+    "url": "https://github.com/GuyDahn/wiredmind-edu/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuyDahn/wiredmind-edu.git"
+  },
   "type": "module",
   "packageManager": "pnpm@10.18.2",
   "engines": {

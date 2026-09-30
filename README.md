@@ -4,7 +4,7 @@
 
 Free classroom lessons on the real wiring of a fruit fly's nervous system. Students stimulate and silence neurons from the MaleCNS connectome in the browser, with no install and no login, in their own language.
 
-**[Open WiredMind](https://wiredmind-edu.vercel.app)** · [Languages](#languages) · [What's real and what's simplified](#whats-real-and-whats-simplified) · [Roadmap and good first issues](#roadmap--good-first-issues)
+**[Open WiredMind](https://wiredmind.app)** · [Languages](#languages) · [What's real and what's simplified](#whats-real-and-whats-simplified) · [Roadmap and good first issues](#roadmap--good-first-issues)
 
 ![The escape lesson mid-stimulation: looming neurons firing in the MaleCNS wiring diagram](docs/screenshot.webp)
 
@@ -16,11 +16,11 @@ Every neuron and synapse count in WiredMind comes from MaleCNS v1.0, the complet
 
 ## The lessons
 
-| Lesson                                                                                       | What students do                                                                                                              | Circuit                               |
-| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| 1. [How a fly remembers a smell](https://wiredmind-edu.vercel.app/modules/smell-memory)      | Send a smell from the receptors to the Kenyon cells and output neurons, then silence the Kenyon cells and see what goes dark. | Smell pathway, 4,500 neurons          |
-| 2. [How a fly knows which way it's facing](https://wiredmind-edu.vercel.app/modules/compass) | Push the compass bump around with the turn neurons, then silence the ring neurons and watch it drift.                         | Head-direction compass, 4,000 neurons |
-| 3. [The 30-millisecond escape](https://wiredmind-edu.vercel.app/modules/escape)              | Follow a swatter from the looming neurons to the giant fiber and the jump neurons, then silence the giant fiber.              | Giant fiber escape, 3,000 neurons     |
+| Lesson                                                                               | What students do                                                                                                              | Circuit                               |
+| ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 1. [How a fly remembers a smell](https://wiredmind.app/en/modules/smell-memory)      | Send a smell from the receptors to the Kenyon cells and output neurons, then silence the Kenyon cells and see what goes dark. | Smell pathway, 4,500 neurons          |
+| 2. [How a fly knows which way it's facing](https://wiredmind.app/en/modules/compass) | Push the compass bump around with the turn neurons, then silence the ring neurons and watch it drift.                         | Head-direction compass, 4,000 neurons |
+| 3. [The 30-millisecond escape](https://wiredmind.app/en/modules/escape)              | Follow a swatter from the looming neurons to the giant fiber and the jump neurons, then silence the giant fiber.              | Giant fiber escape, 3,000 neurons     |
 
 Each lesson is four or five one-tap steps, one check question, and free play, about 10 minutes in all. For a class, that is one or two periods with discussion. The Share button copies a link that replays a student's run, spike for spike.
 
@@ -92,7 +92,7 @@ Addresses from before the site had languages, such as `/about`, redirect to thei
 
 **The landing loop** is baked, not recorded. `scripts/cascade-bake.ts` reads the escape circuit, traces each neuron's centerline the way the viewer does, runs the escape lesson's first stimulus on the lesson's seed, and writes the first 64 ms of spikes to `escape-cascade.json` (about 45 KB compressed). The page draws it on a 2D canvas 100 times slower than life, holds a still frame for readers who prefer reduced motion, and pauses off screen.
 
-**Hosting.** Vercel builds from `apps/web` with `pnpm --dir ../.. data:fetch && pnpm build` ([apps/web/vercel.json](apps/web/vercel.json)) and serves `wiredmind-edu.vercel.app`. Everything under `/data/` gets a one-year immutable cache. The viewer asks for each circuit file with `?v=<data release>`, and the landing page asks for the loop with a hash of its contents, so new data is always a new URL. There are no accounts and no tracking. The only cookie remembers a language picked from the menu, and page views are counted with Vercel Web Analytics, which is cookie-free, and replay parameters are stripped before a view is sent.
+**Hosting.** Vercel builds from `apps/web` with `pnpm --dir ../.. data:fetch && pnpm build` ([apps/web/vercel.json](apps/web/vercel.json)) and serves [wiredmind.app](https://wiredmind.app). The middleware moves the site's older addresses there with a 308 and keeps preview deployments out of search. Everything under `/data/` gets a one-year immutable cache. The viewer asks for each circuit file with `?v=<data release>`, and the landing page asks for the loop with a hash of its contents, so new data is always a new URL. There are no accounts and no tracking. The only cookie remembers a language picked from the menu, and page views are counted with Vercel Web Analytics, which is cookie-free, and replay parameters are stripped before a view is sent.
 
 **Speed.** Measured on the live site over a throttled 4G connection (9 Mbps, 170 ms round trip) with the CPU slowed four times: the landing page paints in 0.9 s. A lesson's text paints in under a second, and its circuit is ready to use after 4.7 s (escape) to 6 s (smell and compass). Most of that wait is downloading and decoding the 3D meshes, which [the roadmap](#roadmap--good-first-issues) aims to cut.
 
@@ -121,7 +121,7 @@ data.lock.json        the data release tag and each file's sha256
 
 ## What's real and what's simplified
 
-WiredMind is a teaching tool, not a research model. If you know the fly literature, this is the section to read before you trust or reuse anything here. The same account, in plainer words, is on the [about page](https://wiredmind-edu.vercel.app/about).
+WiredMind is a teaching tool, not a research model. If you know the fly literature, this is the section to read before you trust or reuse anything here. The same account, in plainer words, is on the [about page](https://wiredmind.app/en/about).
 
 **Real**
 
@@ -161,7 +161,6 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and open an issue before starting
 - **Review a translation in your language.** `pnpm i18n:check --locale <code> --unreviewed` lists the lines no native speaker has signed off yet. Fixing a term in [the glossary](apps/web/i18n/glossary.json) fixes it everywhere.
 - **Put the brain dorsal side up in the viewer.** MaleCNS y grows ventrally, so the viewer's default camera (`placeCamera` in [apps/web/src/viewer/scene.tsx](apps/web/src/viewer/scene.tsx)) shows the nervous system upside down. The landing loop already uses a dorsal-up view (`VIEW` in [apps/web/src/site/cascade-scene.ts](apps/web/src/site/cascade-scene.ts)).
 - **Test the order of the smell lesson's step 2.** The copy says receptors fire, then projection neurons, then Kenyon cells. Add a check to [tests/lesson-science.test.ts](tests/lesson-science.test.ts) that the first spikes arrive in that order.
-- **Add a web app manifest** (`apps/web/app/manifest.ts`) so classroom tablets can add WiredMind to the home screen.
 - **Keyboard shortcuts for lessons,** such as a key that presses the cued button and one for Next, in [apps/web/src/viewer/module-runner.tsx](apps/web/src/viewer/module-runner.tsx).
 - **A printable teacher sheet for each lesson,** built from the steps and check question in [apps/web/content/modules/](apps/web/content/modules/).
 
