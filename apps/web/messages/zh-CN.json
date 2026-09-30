@@ -45,7 +45,9 @@
     "teachers": "教师专区",
     "about": "关于",
     "themeLight": "切换到浅色模式",
-    "themeDark": "切换到深色模式"
+    "themeDark": "切换到深色模式",
+    "menuOpen": "打开菜单",
+    "menuClose": "关闭菜单"
   },
   "a11y": {
     "skip": "跳到正文",

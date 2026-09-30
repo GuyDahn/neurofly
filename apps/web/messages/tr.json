@@ -45,7 +45,9 @@
     "teachers": "Öğretmenler için",
     "about": "Hakkında",
     "themeLight": "Açık moda geç",
-    "themeDark": "Koyu moda geç"
+    "themeDark": "Koyu moda geç",
+    "menuOpen": "Menüyü aç",
+    "menuClose": "Menüyü kapat"
   },
   "a11y": {
     "skip": "İçeriğe geç",

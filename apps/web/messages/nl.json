@@ -46,7 +46,9 @@
     "teachers": "Voor docenten",
     "about": "Over",
     "themeLight": "Overschakelen naar lichte modus",
-    "themeDark": "Overschakelen naar donkere modus"
+    "themeDark": "Overschakelen naar donkere modus",
+    "menuOpen": "Menu openen",
+    "menuClose": "Menu sluiten"
   },
   "a11y": {
     "skip": "Direct naar de inhoud",

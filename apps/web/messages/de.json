@@ -45,7 +45,9 @@
     "teachers": "Für Lehrkräfte",
     "about": "Über das Projekt",
     "themeLight": "Zu hellem Modus wechseln",
-    "themeDark": "Zu dunklem Modus wechseln"
+    "themeDark": "Zu dunklem Modus wechseln",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen"
   },
   "a11y": {
     "skip": "Zum Inhalt springen",

@@ -29,6 +29,7 @@ export function LanguageMenu({
   label,
   menuLabel,
   className = "",
+  inline = false,
 }: {
   current: Locale;
   /** This page without its language, e.g. /about. */
@@ -37,6 +38,8 @@ export function LanguageMenu({
   label: string;
   menuLabel: string;
   className?: string;
+  /** Unfold the list in place, under a full-width button (the phone menu), instead of as a popover. */
+  inline?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
@@ -62,7 +65,7 @@ export function LanguageMenu({
   }, [open]);
 
   return (
-    <div ref={root} className={`relative ${className}`}>
+    <div ref={root} className={inline ? className : `relative ${className}`}>
       <button
         ref={button}
         type="button"
@@ -70,10 +73,13 @@ export function LanguageMenu({
         aria-controls={list}
         aria-label={label}
         onClick={() => setOpen((value) => !value)}
-        className="flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-md px-1.5 text-fg-muted transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        className={`flex min-h-11 min-w-11 items-center gap-1.5 rounded-md text-fg-muted transition-colors hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${inline ? "w-full gap-3 px-3 text-base" : "justify-center px-1.5"}`}
       >
         <GlobeIcon />
-        <span className="hidden sm:inline" lang={current}>
+        <span
+          className={inline ? undefined : "hidden sm:inline"}
+          lang={current}
+        >
           {ENDONYMS[current]}
         </span>
       </button>
@@ -81,7 +87,11 @@ export function LanguageMenu({
         <ul
           id={list}
           aria-label={menuLabel}
-          className="absolute end-0 top-full z-50 mt-2 max-h-[min(70dvh,32rem)] w-60 overflow-y-auto overscroll-contain rounded-xl border border-border-strong bg-surface p-1.5 shadow-[0_12px_32px_rgb(0_0_0/0.25)] dark:shadow-[0_12px_32px_rgb(0_0_0/0.5)]"
+          className={
+            inline
+              ? "grid grid-cols-2 gap-1 py-1 ps-8"
+              : "absolute end-0 top-full z-50 mt-2 max-h-[min(70dvh,32rem)] w-60 overflow-y-auto overscroll-contain rounded-xl border border-border-strong bg-surface p-1.5 shadow-[0_12px_32px_rgb(0_0_0/0.25)] dark:shadow-[0_12px_32px_rgb(0_0_0/0.5)]"
+          }
         >
           {LOCALES.map((locale) => (
             <li key={locale}>

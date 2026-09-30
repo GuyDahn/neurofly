@@ -107,7 +107,7 @@ export default async function HomePage({
             className="pointer-events-none absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(60%_60%_at_75%_20%,rgb(56_189_248/0.12),transparent),radial-gradient(40%_40%_at_20%_60%,rgb(248_113_113/0.08),transparent)] rtl:-scale-x-100"
           />
           {/* Phones read the hook, watch the loop, then act. Wide screens put the loop beside the words. */}
-          <div className="relative mx-auto grid max-w-6xl gap-8 px-4 pt-10 pb-16 [grid-template-areas:'title'_'loop'_'body'] sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-x-12 lg:gap-y-6 lg:pt-16 lg:pb-24 lg:[grid-template-areas:'title_loop'_'body_loop']">
+          <div className="relative mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-8 px-4 pt-10 pb-16 [grid-template-areas:'title'_'loop'_'body'] sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-x-12 lg:gap-y-6 lg:pt-16 lg:pb-24 lg:[grid-template-areas:'title_loop'_'body_loop']">
             <div className="flex flex-col gap-5 [grid-area:title] lg:self-end">
               <p className="text-xs font-semibold tracking-[0.16em] text-sky-600 uppercase dark:text-sky-300">
                 {t("landing.hero.eyebrow")}

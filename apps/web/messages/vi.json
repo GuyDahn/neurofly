@@ -45,7 +45,9 @@
     "teachers": "Dành cho giáo viên",
     "about": "Giới thiệu",
     "themeLight": "Chuyển sang chế độ sáng",
-    "themeDark": "Chuyển sang chế độ tối"
+    "themeDark": "Chuyển sang chế độ tối",
+    "menuOpen": "Mở menu",
+    "menuClose": "Đóng menu"
   },
   "a11y": {
     "skip": "Chuyển đến nội dung",

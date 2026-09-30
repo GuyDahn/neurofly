@@ -45,7 +45,9 @@
     "teachers": "Untuk guru",
     "about": "Tentang",
     "themeLight": "Beralih ke mode terang",
-    "themeDark": "Beralih ke mode gelap"
+    "themeDark": "Beralih ke mode gelap",
+    "menuOpen": "Buka menu",
+    "menuClose": "Tutup menu"
   },
   "a11y": {
     "skip": "Langsung ke konten",

@@ -42,7 +42,9 @@
       "landing.teachers.feedback",
       "viewer.lesson.finished",
       "viewer.lesson.moreLessons",
-      "viewer.controls.silencedLocked"
+      "viewer.controls.silencedLocked",
+      "nav.menuOpen",
+      "nav.menuClose"
     ]
   },
   "meta": {
@@ -85,7 +87,9 @@
     "teachers": "For teachers",
     "about": "About",
     "themeLight": "Switch to light mode",
-    "themeDark": "Switch to dark mode"
+    "themeDark": "Switch to dark mode",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
   },
   "a11y": {
     "skip": "Skip to content",

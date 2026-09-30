@@ -45,7 +45,9 @@
     "teachers": "Dla nauczycieli",
     "about": "O projekcie",
     "themeLight": "Przełącz na jasny motyw",
-    "themeDark": "Przełącz na ciemny motyw"
+    "themeDark": "Przełącz na ciemny motyw",
+    "menuOpen": "Otwórz menu",
+    "menuClose": "Zamknij menu"
   },
   "a11y": {
     "skip": "Przejdź do treści",
