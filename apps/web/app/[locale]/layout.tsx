@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { direction, LOCALES } from "@/src/i18n/locales";
 import { pageLocale, type LocaleParams } from "@/src/i18n/server";
 import { SiteAnalytics } from "@/src/site/analytics";
@@ -80,6 +81,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: jsonLdScript(errorCopy) }}
         />
         <SiteAnalytics />
+        <SpeedInsights />
       </body>
     </html>
   );
