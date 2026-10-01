@@ -17,13 +17,14 @@ const vercelLive = preview ? " https://vercel.live" : "";
 // Everything is served from our own origin. 'unsafe-inline' covers Next's
 // inline bootstrap, the theme script and JSON-LD (nonces would force dynamic
 // rendering); 'wasm-unsafe-eval' lets the Draco worker compile its decoder.
+// Vercel Analytics and Speed Insights use va.vercel-scripts.com.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'${dev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""}${vercelLive}`,
+  `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://va.vercel-scripts.com${dev ? " 'unsafe-eval'" : ""}${vercelLive}`,
   `style-src 'self' 'unsafe-inline'${vercelLive}`,
   `img-src 'self' data: blob:${preview ? " https://vercel.live https://vercel.com" : ""}`,
   `font-src 'self'${preview ? " https://vercel.live https://assets.vercel.com" : ""}`,
-  `connect-src 'self'${dev ? " ws: https://va.vercel-scripts.com" : ""}${preview ? " https://vercel.live wss://ws-us3.pusher.com" : ""}`,
+  `connect-src 'self' https://va.vercel-scripts.com${dev ? " ws:" : ""}${preview ? " https://vercel.live wss://ws-us3.pusher.com" : ""}`,
   "worker-src 'self' blob:",
   `frame-src 'self'${vercelLive}`,
   "object-src 'none'",

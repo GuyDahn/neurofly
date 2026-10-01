@@ -12,6 +12,7 @@
     "@formatjs/intl-localematcher": "^0.9.0",
     "@react-three/fiber": "^9.8.1",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "bidi-js": "^1.1.0",
     "harfbuzzjs": "^1.6.2",
     "next": "^15.5.4",
